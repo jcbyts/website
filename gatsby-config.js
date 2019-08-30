@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Jacob Yates`,
+    author: `Jacob Yates`,
+    description: `Jacob Yates is a post-doc interested in how sensory signals are encoded into neural activity and how that activity is decoded to form perceptions and actions`,
+    siteUrl: `https://jake.vision/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `jcbyts`,
     },
   },
   plugins: [
@@ -21,6 +21,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/pages`,
+        name: `pages`,
       },
     },
     {
@@ -57,22 +64,39 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Jacob Yates`,
+        short_name: `Jacob Yates`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#45aeb1`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `static/favicon.png`,
       },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-transformer-remark`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        plugins: [
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+              strict: `ignore`,
+              fleqn: false,
+              displayMode: true,
+              trust: true,
+            }
+          }
+        ],
       },
     },
+    {
+        resolve: "gatsby-plugin-sass",
+        options: {
+          includePaths: ["src", "src/styles"],
+        },
+    }
   ],
 }
