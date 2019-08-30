@@ -17,9 +17,9 @@ const Header = () => {
         <Link className="Header__link" to="/cv">
           CV
         </Link>
-        <Link className="Header__link" to="/blog">
+        {/* <Link className="Header__link" to="/blog">
           Blog
-        </Link>
+        </Link> */}
       </div>
     </div>
   )
