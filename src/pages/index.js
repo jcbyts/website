@@ -12,7 +12,7 @@ const Home = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="" />
+      <SEO title="Home" />
 
       <h1>
         { title }
