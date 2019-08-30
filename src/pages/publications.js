@@ -14,7 +14,7 @@ const Publications = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Jacob Yates" />
+      <SEO title="Publications" />
 
       <div className="publications">
         <h1>

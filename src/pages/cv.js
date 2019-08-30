@@ -14,7 +14,7 @@ const Cv = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Jacob Yates" />
+      <SEO title="CV" />
 
       <div className="cv">
         <h1>
