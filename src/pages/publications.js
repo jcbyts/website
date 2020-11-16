@@ -18,9 +18,11 @@ const Publications = ({ data, location }) => {
 
       <div className="publications">
         <h1>
-          Publications
+          Selected Publications
         </h1>
-
+        <p>
+          Find a complete list of publications <a href='https://scholar.google.com/citations?user=UJm-TkYAAAAJ&hl=en'>here</a>
+        </p>
         <div className="publications__list">
           {publications.map(publication => (
             <Publication {...publication} key={publication.title} />
