@@ -26,13 +26,13 @@ publications:
     year: 2017
     title: Functional dissection of signal and noise in MT and LIP during decision-making
     journal: Nature Neuroscience
-    page: 1285
+    page: 1285-
     link: https://www.nature.com/articles/nn.4611.pdf?origin=ppub
   - authors: AC Huk, LN Katz, JL Yates
     year: 2017
     title: The role of the lateral intraparietal area in (the study of) decision making
     journal: Annual review of neuroscience
-    page: 40
+    page: 40-
     link: https://www.annualreviews.org/doi/full/10.1146/annurev-neuro-072116-031508
   - authors: LN Katz*, JL Yates*, JW Pillow, & AC Huk
     year: 2016
