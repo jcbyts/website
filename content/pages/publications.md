@@ -4,7 +4,6 @@ publications:
     year: 2020
     title: Motion perception in the common marmoset
     journal: Cerebral Cortex
-    page: 2659-2673
     link: https://marmolab.bcs.rochester.edu/pubs/2019_cloherty-etal_CC.pdf
     highlights:
     - title: Faculty of 1000 (F1000Prime) entry
