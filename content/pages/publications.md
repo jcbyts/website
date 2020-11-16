@@ -6,6 +6,7 @@ publications:
     journal: Cerebral Cortex
     page: 2659-2673
     link: https://marmolab.bcs.rochester.edu/pubs/2019_cloherty-etal_CC.pdf
+    highlights:
     - title: Faculty of 1000 (F1000Prime) entry
       authors: Marcello Rosa
       link: https://facultyopinions.com/prime/737076579
