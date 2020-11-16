@@ -10,7 +10,6 @@ publications:
     - title: Faculty of 1000 (F1000Prime) entry
       authors: Marcello Rosa
       link: https://facultyopinions.com/prime/737076579
-
   - authors: DM Zoltowski, KW Latimer, JL Yates, AC Huk, JW Pillow
     year: 2019
     title: Discrete stepping and nonlinear ramping dynamics underlie spiking responses of LIP neurons during decision-making
@@ -35,7 +34,6 @@ publications:
     journal: Annual review of neuroscience
     page: 40
     link: https://www.annualreviews.org/doi/full/10.1146/annurev-neuro-072116-031508
-    
   - authors: LN Katz*, JL Yates*, JW Pillow, & AC Huk
     year: 2016
     title: Dissociated functional significance of decision-related activity in the primate
