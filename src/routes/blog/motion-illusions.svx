@@ -1,0 +1,16 @@
+---
+title: Motion Illusions
+date: 2020-12-6
+description: The one in which we talk about motion
+---
+<script>
+  import Icon from '../../components/Icon.svelte';
+</script>
+
+text
+
+
+<Icon />
+<Icon />
+<Icon />
+<Icon />
