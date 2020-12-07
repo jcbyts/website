@@ -28,7 +28,7 @@ const render = (pages, projects) => `<?xml version="1.0" encoding="UTF-8" ?>
     .join("\n")}
   ${posts
     .map(
-      (project) => `
+      (post) => `
     <url>
       <loc>${BASE_URL}/blog/${post.slug}</loc>
       <priority>0.69</priority>
