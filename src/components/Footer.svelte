@@ -8,6 +8,7 @@
 </footer>
 <div class="hidden">
   <a tabindex="-1" href="/sitemap.xml">sitemap</a>
+  <a tabindex="-1" href="/blog">blog</a>
 </div>
 
 <style>
