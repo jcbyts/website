@@ -1,5 +1,5 @@
 import SimplexNoise from "simplex-noise";
-import { csvParse } from "d3-dsv"
+import { csvParse } from "d3-dsv";
 
 // grabbed from https://gist.github.com/callumlocke/cc258a193839691f60dd
 export const scaleCanvas = (canvas, context, width, height) => {
@@ -106,45 +106,20 @@ export const serialize = function (form) {
 
 export const randomInRange = (min, max) => min + Math.random() * (max - min);
 
-export const grabSheet = async (id, gid = 0) => {
-  const base = "https://www.googleapis.com/drive/v3/files/";
-  const url = `${base}${id}/export?format=csv&id=${id}&gid=${gid}&version=${Date.now()}&mimeType=text/csv&key=AIzaSyDcJ8DOb1b9_q0QQqCgjEv_1jwV2U0yhlg`;
-  const res = await fetch(url, {
-    method: "GET",
-  });
-  const text = await res.text();
-  return csvParse(text)
-};
-
-export const updateSheet = async (id, values=[], gid = "Sheet1", range="A1:C15") => {
-  const base = "https://sheets.googleapis.com/v4/spreadsheets/";
-  const url = `${base}${id}/values/${gid}!${range}?valueInputOption=USER_ENTERED&key=AIzaSyDcJ8DOb1b9_q0QQqCgjEv_1jwV2U0yhlg`;
-  const res = await fetch(url, {
-    method: "PUT",
-    body: JSON.stringify({
-      range,
-      "majorDimension": "ROWS",
-      values,
-    }),
-  });
-  console.log(res)
-  return await res.json();
-};
-
 export const getHash = (numberOfCharacters = 10) => {
   let result, i, j;
-  result = '';
-  for(j=0; j<5; j++) {
-    if( j == 8 || j == 12 || j == 16 || j == 20)
-      result = result + '-';
-    i = Math.floor(Math.random()*16).toString(16).toUpperCase();
+  result = "";
+  for (j = 0; j < 5; j++) {
+    if (j == 8 || j == 12 || j == 16 || j == 20) result = result + "-";
+    i = Math.floor(Math.random() * 16)
+      .toString(16)
+      .toUpperCase();
     result = result + i;
   }
   return result;
-}
-export const toArray = csv => (
-  csv.map(d => csv.columns.map(column => d[column]))
-)
+};
+export const toArray = (csv) =>
+  csv.map((d) => csv.columns.map((column) => d[column]));
 
 export const fromPairs = (arr) => {
   let res = {};
