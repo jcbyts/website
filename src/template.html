@@ -62,5 +62,16 @@
     <!-- The application will be rendered inside this element,
 	     because `src/client.js` references it -->
     <div id="sapper" style="background: white;">%sapper.html%</div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-96837436-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-96837436-1');
+    </script>
+
   </body>
 </html>
