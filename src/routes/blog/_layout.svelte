@@ -1,0 +1,51 @@
+<script>
+  import posts from "./_posts";
+
+  export let segment;
+  $: post = posts.find(post => post.slug == segment) || {};
+  $: title = post.title;
+  $: slug = post.slug;
+</script>
+
+<svelte:head>
+  <title>{title || 'Blog'}</title>
+  <meta property="og:type" content="article" />
+  <meta
+    property="og:url"
+    content="https://jake.vision/blog/{slug ? slug : ''}" />
+
+</svelte:head>
+
+<h1>{title || 'Blog'}</h1>
+
+<div class="content">
+  <slot />
+</div>
+
+<style>
+  .content :global(h2) {
+    font-size: 1.4em;
+    font-weight: 500;
+  }
+
+  .content :global(pre) {
+    background-color: #f9f9f9;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
+    padding: 0.5em;
+    border-radius: 2px;
+    overflow-x: auto;
+  }
+
+  .content :global(pre) :global(code) {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .content :global(ul) {
+    line-height: 1.5;
+  }
+
+  .content :global(li) {
+    margin: 0 0 0.5em 0;
+  }
+</style>
