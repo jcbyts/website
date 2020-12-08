@@ -103,9 +103,10 @@ Remember back when we discussed VAEs we learned two tricks?
 
 First, we approximated an intractible posterior with a variational distribution $q$ and we showed that we only needed to maximize the ELBO to fit the model. 
 
-Second, we reparameterized the ELBO to take the sampling step outsize of the optimization. This reparameterization trick let us take the gradients with respect to the parameters we're interested in fitting. It's the same trick they use to do the sampling here.
+Second, we reparameterized the loss to take the sampling step outsize of the optimization. This reparameterization trick let us take the gradients with respect to the parameters we're interested in fitting. It's the same trick they use to do the sampling here.
 
-VAEs:
+**VAEs:**
+
 We started with a generative model of $x\in \mathbb{R}^D$
 
 $p(x)=\int{p(x|z)p(x)dx}$
