@@ -1,3 +1,4 @@
+import { onDestroy } from 'svelte';
 import SimplexNoise from "simplex-noise";
 import { csvParse } from "d3-dsv";
 
@@ -128,3 +129,23 @@ export const fromPairs = (arr) => {
   });
   return res;
 };
+
+
+export function onInterval(callback, milliseconds) {
+  let interval
+  const play = () => {
+    interval = setInterval(callback, milliseconds);
+  }
+  const pause = () => {
+    clearInterval(interval);
+  }
+  play()
+
+	onDestroy(() => {
+		pause()
+  });
+
+  return {
+    interval, pause, play
+  }
+}

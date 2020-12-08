@@ -9,6 +9,7 @@
     "start": "node __sapper__/build"
   },
   "dependencies": {
+    "d3": "^6.3.0",
     "d3-dsv": "^2.0.0",
     "d3-scale": "^3.2.1",
     "firebase": "^8.0.1",

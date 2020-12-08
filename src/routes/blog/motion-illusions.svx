@@ -6,17 +6,13 @@ description: The one in which we talk about motion
 <script>
   import Icon from '../../components/Icon.svelte';
   import Tweet from '../../components/Tweet.svelte';
+  import OrangutanScrubber from '../../components/OrangutanScrubber.svelte';
 </script>
-
-Like I'm writing something here [<Icon name="twitter"/>](poop)
-<Icon name="download" />
-<Icon />
-<Icon />
-
 
 ## That crazy moving mario illusion
 
 There have been a lot of visual motion illusions going around Twitter recently, which personally I think is super cool. However, I've been surprised to see lots of claims that there is "no motion" in the illusions and most people seem to think there's some perceptual magic going on. What is this magic?
+
 <video src="/motionillusionblog/marioReversePhi.mp4" autoplay loop muted style="max-width: 30em" />
 
 
@@ -27,13 +23,14 @@ For example (embed tweet somehow):
 I thought this was a good opportunity to write up a little blog post about visual motion. Let's take this Mario example here and look at what's actually going on.
 
 ## But first, what is motion?
-Motion is change in position over time. Something that does not move is static because it has the same position as time progresses. We often think of motion in the real world: furniture does not change position over time (does not move). You, your dog, all animals, your limbs, all change position over time. So, they move in the world. However, from the perspective from your visual system (or a camera), motion isn't so straightforward. For example, if I were to pan a camera across a room, the room would be moving with respect to the reference frame of the camera. That is motion as well. In other words, visual motion is not just a result of things moving in the world, but can also result from the sensor moving. So, what is visual motion and how do we see it? 
+Motion is change in position over time. Something that does not move is static because it has the same position as time progresses. We often think of motion in the real world: furniture does not change position over time (does not move). You, your dog, all animals, your limbs, all change position over time. So, they move in the world. However, from the perspective from your visual system (or a camera), motion isn't so straightforward. For example, if I were to pan a camera across a room, the room would be moving with respect to the reference frame of the camera. That is motion as well. In other words, visual motion is not just a result of things moving in the world, but can also result from the sensor moving. So, what is visual motion and how do we see it?
 
 Let's take the idea of something changing position over time and apply it to the pixels of a movie. You'll see this makes sense in a minute.
 
 Here's a video of a real moving thing (an orangutan ) swinging.
 
-[insert video of orangutan]
+<video src="/motionillusionblog/orangutanVid.mp4" autoplay loop muted style="max-width: 30em" />
+
 <!-- https://giphy.com/natgeochannel/ -->
 https://giphy.com/search/monkey-swing
 What makes this a video of a moving thing?
@@ -43,6 +40,8 @@ Well, if we look at different frames, we can see the position of the orangutan h
 [insert frames of movie]
 
 Another way to look at this would be to plot the pixel values over time to see how they change. Since we cannot plot every frame at all time points, let's take a slice through space and look how that slice changes over time. You can move your mouse (scrub) over the 2D image frame to see different space-time slices. Scrub over the space-time slice to play through time in the movie. It won't be intuitive at first, but there is a mapping from the motion of objects in the images to the patterns in the space x time slices. Specifically, motion is orientation...
+
+<OrangutanScrubber />
 
 [Scrolly-telling time]
 Track the body of the orangutan and the branch. You can see that the movement of the orangutan and the branch form slanted structure in the space-time plots, whereas the background looks like vertical streaks. These slants represent change in space over time, or motion.
@@ -86,23 +85,24 @@ If we look back at the space-time construction again, we can see something inter
 In other words, motion perception only cares about the orientation, not the stuff it's made of. And that's pretty neat. In the next section, we'll look at an old model of visual motion processing that has this property.
 
 ## The motion energy model
-Let's look at the state-of-the-art in human motion perception in the mid 1980s, also known as the "[motion energy model](http://persci.mit.edu/pub_pdfs/spatio85.pdf)". This is really a beautiful paper, so I recommend anyone interest click in and take the time to read it. Also, not all that much has changed in our understanding of the fundamentals in the last 35 years. So, how does human motion detectors work? 
+Let's look at the state-of-the-art in human motion perception in the mid 1980s, also known as the "[motion energy model](http://persci.mit.edu/pub_pdfs/spatio85.pdf)". This is really a beautiful paper, so I recommend anyone interest click in and take the time to read it. Also, not all that much has changed in our understanding of the fundamentals in the last 35 years. So, how does human motion detectors work?
 
 Adelson and Bergen start by making the same point that was demonstrated above: visual motion is orientation in space-time. Panel **a** shows a frame of a movie with a bar moving to the right (like our orangutan, above). **b** shows the full spatiotemporal volume of the bar moving through space and time as if it were continuously moving. But, of course, movies have frames and a frame rate. Panel **c** shows the same volume, but now it reflects the frame rate of a movie.
 
-![AdelsonBergen1](/motionillusionblog/AdelsonBergenMotionOrientation.png "Motion as orientation")
+<img src="/motionillusionblog/AdelsonBergenMotionOrientation.png" alt="Motion as edge orientation" style="max-width: 40em; margin: 2em auto; display: block;" />
+
 
 From here, it makes sense to think about how to build detectors for motion. The picture below shows that if you had an oriented filter in space time, you could detect the edge. For the non-scientists reading this, you can think of these filters like the edge detectors that Hubel and Wiesel found in their classic experiments, but in space-time. Here's a [link to a video](https://www.youtube.com/watch?v=Cw5PKV9Rj3o&feature=emb_title) of what those responses are like.
 
-![AdelsonBergen1](/motionillusionblog/AdelsonBergenEdgeDetector.png "Motion as edge detectors")
+<img src="/motionillusionblog/AdelsonBergenEdgeDetector.png" alt="Motion as edge detectors" style="max-width: 40em; margin: 2em auto; display: block;" />
 
 Importantly, these edge detectors still care about the sign of the edge. This, as we noted above, is unlike our percept. To build detectors that do not care about phase (don't care about the sign of the edge).
 
-![AdelsonBergen1](/motionillusionblog/AdelsonBergenQpair.png "Phase-invariant filters")
+<img src="/motionillusionblog/AdelsonBergenQpair.png" alt="Phase-invariant filters" style="max-width: 30em; margin: 2em auto; display: block;" />
 
 Note: A very [related paper](https://www.osapublishing.org/DirectPDFAccess/4E69228F-07D1-9374-DF04DF81D3560F3A_1949/josaa-2-2-322.pdf?da=1&id=1949&seq=0&mobile=no) from Watson and Ahumada came out in the same year and covers many of the same points.
 
-Using the equations from Adelson and Bergen, 1985, we can make the same little motion energy filters. 
+Using the equations from Adelson and Bergen, 1985, we can make the same little motion energy filters.
 
 
 ## Interesting points about perception
