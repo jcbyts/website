@@ -58,7 +58,7 @@
     </div>
     <div class="right">
       <div class="top slice">
-        <strong>Slices</strong>
+        <strong>Slices through time</strong>
         at vertical position
         <Number number={rightFrameIndex + 1} format=".0f" />
       </div>
