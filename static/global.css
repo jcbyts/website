@@ -60,7 +60,7 @@ p {
 
 ul,
 ol {
-  margin: 1.6em 0;
+  margin: 1.6em 0 1.6em 1em;
 }
 
 li {
@@ -91,4 +91,34 @@ hr {
   padding: 2em 0;
   outline: none;
   border: none;
+}
+
+
+.button:not(.plain),
+button:not(.plain) {
+  appearance: none;
+  padding: 0.7em 1.3em;
+  font-size: 1em;
+  background: var(--a1);
+  color: white;
+  border: 1px solid var(--a1);
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.plain {
+  appearance: none;
+  background: none;
+  text-align: left;
+  border: none;
+  box-shadow: none;
+  font-size: 1em;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  padding: 0.4em 1em;
 }

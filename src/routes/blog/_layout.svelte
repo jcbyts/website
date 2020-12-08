@@ -2,7 +2,7 @@
   import posts from "./_posts";
 
   export let segment;
-  $: post = posts.find((post) => post.slug == segment) || {};
+  $: post = posts.find(post => post.slug == segment) || {};
   $: title = post.title;
   $: slug = post.slug;
 </script>
@@ -51,4 +51,16 @@
   .content :global(img) {
     max-width: 100%;
   }
+  .content :global(em) {
+    font-style: italic;
+  }
+  .content :global(strong) {
+    font-weight: 700;
+    color: #0e6aca;
+  }
+  /* .content :global(.header-link) {
+  }
+  .content :global(.header-link:before) {
+    content: "#";
+  } */
 </style>

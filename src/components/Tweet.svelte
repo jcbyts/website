@@ -10,11 +10,13 @@
     if (!twttr) return;
     if (!twttr.widgets) {
       twttr.ready(initTweet);
+      return;
     }
     initTweet();
   });
 
   const initTweet = () => {
+    if (!twttr.widgets) return;
     twttr.widgets.createTweet(id, tweetElement, options);
   };
 </script>
