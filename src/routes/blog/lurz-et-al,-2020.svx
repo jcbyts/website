@@ -13,4 +13,123 @@ The main points of interest for me were:
 - Generalization performance
 
 ## "Readout" and "Core"
-Many groups have now presented advantages to thinking of neural population activity as resulting from shared computations with neuron-specific weights. Rather than optimize a model that predicts the responses of each neuron, $r^{(i)}$
+Many groups have now presented advantages to thinking of neural population activity as resulting from shared computations with neuron-specific weights. Rather than optimize a model that predicts the responses of each neuron, $r^{(i)}$, given the stimulus, $x$, assume that each neuron operates with an affine transformation ("readout") of a core stimulus processing model that is shared by all neurons.
+
+The simplest versions of this have a single linear filter as the core. For example, [Batty et al., 2017](https://openreview.net/pdf?id=HkEI22jeg) used knowledge of the cell class to group retinal ganglion cells and learn a single space-time linear filter for all neurons of the same class. Their "multitask LN" model has a single filter for all On-RGCs and each neuron simply scales that filter's response with a neuron specific gain and offset term and then passes that through a sigmoid nonlinearity.
+
+![Batty](/labmeetinglurz/battymultitaskln.png "Simple Core")
+
+I really like the terms "core" and "readout" and think they should be adopted as the standard nomenclature for such a model. In the figure above, the <span style="color:blue">blue parameters</span> ($W_t$ and $W_s$) are shared by all On-RGCs and form the **"core"**. The <span style="color:green">green parameters</span> form the **"readout"**. 
+
+In this case, the core is simple and interpretable (it’s a single space-time separable linear filter). The readout is also simple. It’s a gain and offset term per neuron. But this conceptual framing scales nicely to talking about much more complicated neural network models and nicely delineates their distinctions. But, every model consists of a “core” and a “readout”.
+
+## Two basic types of cores
+Once you accept the "core" and "readout" distinction, cores have two basic distinctions in neuroscience research. They can either be "data-driven" or "goal-directed".
+
+Goal-directed cores consist of a model that was trained to do some task given a stimulus (e.g., object classification). We've seen this succussfully applied in neuroscience to a number cases, particularly in the ventral stream of primates (e.g., Yamins et al., ). 
+
+**Data-driven** cores learn the core directly from the neural activity.
+
+This idea is really jsut something that has been said by others already (e.g., this paper from Dan Butts), but I'm converging on certain language for talking about it myself: "data-driven core" vs. "goal-directed core". The figure below demonstrates the logic of a data-driven core. It is trained end-to-end from stimulus to spikes. The core is shared by all neurons and the readout is neuron specific.
+
+![Butts1](/labmeetinglurz/buttsdatadriven.png "Data-Driven Core")
+
+In contrast, a goal-directed core comes pre-trained (on some other dataset) and and forms a nonlinear basis for a linearized model of the neural responses.
+
+![Butts2](/labmeetinglurz/buttstransfer.png "Goal-Directed Core with transfer learning")
+
+The advantages of a goal-directed core are:
+- they can use much more data than is typically available in a neural recording
+- they have an explicit task, so they provide convenient language for talking about what the core _does_
+
+The advantages (hopes) of data-driven cores are:
+- they learn architecture / features that are brain specific (opposed to input-specific or task-specific)
+
+Okay. Now that we're all on the same page, a real test of a data-driven core is whether it can generalize like goal-directed cores do. Goal-directed cores are generalize from the task they were trained to perform to predict neural activity by training the readout. Lurz and colleagues do the same thing here. Train the core and readout on one set of neurons, then fix the core and train only the readout on another set of neurons.
+
+## "Tricks" for learning the readout
+For a typical convolutional neural network (CNN), the per-neuron readout scales with the size of the input and the number of channels. For example, the activations of the final layer of a CNN, $a = \textrm{F}[x]$, where $x$ is an image of size $w \times h$, is $a \in \mathbb{R}^{w \times h \times c}$ where $c$ is the number of channels in the network.
+
+For the models the authors are considering here, the image size is $64 \times 36$ so there are 2304 parameters per output channel per neuron! Even with structured regularization (smoothness, sparseness), this is a big problem to fit in a normal dataset.
+
+There have been a series of “tricks” for learning the readout that these authors have rolled out over the last few years.
+
+## Trick #1: Factorized readout (Klindt,Ecker et al., 2016)
+The first trick is to learn the same spatial readout for all channels in the model. This separates “what” features the neuron integrates from “where” the neurons are spatially selective.
+
+The activations, $a$, are size $[N \times c \times w \times h]$, where $N$ is the batch size, $c$ is the channels, and $w \times h$ are the width and height of the input images. The activations are multiplied by a feature vector, $w^{(i)} \in \mathbb{R}^c$, and a spatial weight vector, $v^{(i)} \in \mathbb{R}^{w \times h}$, where $i$ is the neuron index.
+
+Therefore the response of neuron $i$ will be
+
+$r^{(i)} = F_i \big[\sum_{w,h,c} w_{c}^{(i)}v_{w,h}^{(i)}a_{c,w,h}\big]$
+
+where $F_i$ is the activation function for neuron $i$, which is an [ELU](https://paperswithcode.com/method/elu) with an offset.
+
+<img src="/labmeetinglurz/elu.png" style="max-width: 20em"/>
+
+This reduces the number of parameters from $2304 \times c$ to $2304 + c$
+
+## Trick #2: coordinate readout using bilinear interpolation, learned with pooling steps (Sinz et al., 2018)
+This approach assumes that each neuron has a feature vector that reads out from a spatial position (a single point) in the spatial output of the network.
+
+The spatial position for each neuron, $x_i,y_i$ are learned parameters. They are sampled at sub-pixel resolution using bilinear interpolation. The issue with learning $x_i, y_i$ is that if the initialization is far away from the true retinotopic location of the neuron, then the gradients will be zero. To circumvent this, the authors represent the feature space of the core at multiple scales using $4$ average pooling steps with $4 \times 4$ pooling with a stride of $4$, such that the final stage is a single pixel. They then learn a feature vector that combines across these scales.  $x_i,y_i$ can be any value within a $1 \times 1$ feature space and that way there are gradients to support the learning of the features and the position.
+
+This readout idea comes from [spatial transformer layers](https://arxiv.org/abs/1506.02025). The basic transform operation is an affine transform of a grid of sampling points.
+![transformer](/labmeetinglurz/spatialtransformer.png "Spatial Transformer")
+
+The difference here is that the sample is a single point for each neuron and it is sampling that point in a coordinate system that is the same regardless of the pooling StereoPannerNode. That way the initialization always has something to start with.
+
+![pointreadout](/labmeetinglurz/pointreadout.png "Point Readout Pooling")
+
+This has two cool benefits:
+
+1) The number of parameters is reduced from $2304 + c$ to $2 + mc$, where $m$ is the number of pooling steps, and $c$ is the number of channels.
+
+2) Eyetracking! Because the readout is parameterized as an x,y coordinate, they can shift the entire readout around with a "shifter network" that operates on the pupil position in a video of the eye.
+
+The full model in the 2018 paper is schematized here:
+
+![sinz2018](/labmeetinglurz/sinz2018.png "Sinz 2018 model")
+
+Okay, so now that we have a sense of the readout, we're ready for the new tricks introduced in Lurz et al., 2020. 
+
+## Trick #3: learn the readout with Gaussian sampling
+Using the same bilinear interpolation readout from Sinz et al., 2018, the authors improve the learning of the $x_i, y_i$ for each neuron.
+
+## Quick refresher on VAEs
+Remember back when we discussed VAEs we learned two tricks?
+
+First, we approximated an intractible posterior with a variational distribution $q$ and we showed that we only needed to maximize the ELBO to fit the model. 
+
+Second, we reparameterized the ELBO to take the sampling step outsize of the optimization. This reparameterization trick let us take the gradients with respect to the parameters we're interested in fitting. It's the same trick they use to do the sampling here.
+
+VAEs:
+We started with a generative model of $x\in \mathbb{R}^D$
+
+$p(x)=\int{p(x|z)p(x)dx}$
+
+where $z \in \mathbb{R}^{d\ll D}$ is the latent space and achieves some dimensionality reduction.
+
+The basic idea is pictured here
+<img src="/labmeetinglurz/kingmavaelearning.png" style="max-width: 30em"/>
+
+I'm going to skip derivations, we can look to Hadi's notes if we want them. 
+
+$\mathcal{L}_{\theta,\phi}(\textrm{x}) = \mathbb{E}_{q_{\phi}(z|x)}\big[\log p_{\theta}(\textrm{z},\textrm{x}) - \log q_{\phi}(\textrm{z}|\textrm{x})\big]$
+
+Not showing the KL term here because, due to the non-negativity of the KL divergence, the ELBO is a lower bound on the log-likelihood of the data.
+
+We want to maximize the ELBO, $\mathcal{L}_{\theta,\phi}(\textrm{x})$, w.r.t. the parameters $\theta$ and $\phi$, because this approximately maximizes the marginal likelihood and minimizes the KL divergence of the approximation to the true posterior ([Kingma and Welling, 2019](https://arxiv.org/pdf/1906.02691.pdf)).
+
+Maximizing the the ELBO w.r.t. $\theta$ is straightforward because the expectation is take w.r.t. the distribution $q_{\phi}(\textrm{z}|\textrm{x})$ so we can move the gradient operator inside the expectation. 
+
+<script>
+    const x = "x"
+</script>
+$\bigtriangledown_{\theta} \mathcal{L}_{\theta,\phi}(\textrm{x}) = \mathbb{E}_{q_{\phi}(z|x)}\big[\log p_{\theta}(\textrm{z},\textrm{x}) - \log q_{\phi}(\textrm{z}|\textrm{x})]$
+
+Maximizing the the ELBO w.r.t. $\phi$ is tricky because the expectation is w.r.t. the distribution $q_{\phi}(\textrm{z}|\textrm{x})$, which is a function of $\phi$.
+
+However, $\mathcal{L}_{\theta,\phi}(\textrm{x})$ can be differentiated w.r.t. $\phi$ with a change of variables.
+
+First, express the random variable $z \sim q_{\phi}(\textrm{z}|\textrm{x})$ as a differentiable and invertable transformation of another random variable 
