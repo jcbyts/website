@@ -1,0 +1,16 @@
+---
+title: Lurz et al., 2020
+date: 2020-12-6
+description: The one in which we talk about motion
+---
+
+## Generalization in data-driven models of primary visual cortex
+Today we're discussing [Lurz et al., 2020](https://www.biorxiv.org/content/10.1101/2020.10.05.326256v1) from Fabian Sinz and colleagues. In it, they introduce a few new tricks for fitting CNNs end-to-end to neural data. Then they show their data-driven model generalizes to predict the responses of neurons that it wasn't trained on (in animals that were not part of the training set!)
+
+The main points of interest for me were:
+- General conceptualization of "readout" and "core"
+- "Tricks" for learning the readout
+- Generalization performance
+
+## "Readout" and "Core"
+Many groups have now presented advantages to thinking of neural population activity as resulting from shared computations with neuron-specific weights. Rather than optimize a model that predicts the responses of each neuron, $r^{(i)}$

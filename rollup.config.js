@@ -12,6 +12,10 @@ import json from "@rollup/plugin-json";
 import dsv from "@rollup/plugin-dsv";
 import sveltePreprocess from "svelte-preprocess";
 import { mdsvex } from "mdsvex";
+
+import remarkMath from "remark-math"
+import remarkKatex from 'rehype-katex'
+
 import importGlob from "@jackfranklin/rollup-plugin-import-glob";
 
 const mode = process.env.NODE_ENV;
@@ -25,12 +29,19 @@ const onwarn = (warning, onwarn) =>
   onwarn(warning);
 
 const preprocess = [
+  mdsvex({
+    remarkPlugins: [
+      remarkMath,
+    ],
+    rehypePlugins: [
+      [remarkKatex, {output: "html"}],
+    ]
+  }),
   sveltePreprocess({
     postcss: {
       plugins: [require("autoprefixer")],
     },
   }),
-  mdsvex(),
 ];
 const extensions = [".svelte", ".svx"];
 
