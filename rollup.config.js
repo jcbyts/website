@@ -15,6 +15,8 @@ import { mdsvex } from "mdsvex";
 
 import remarkMath from "remark-math"
 import remarkKatex from 'rehype-katex'
+import rehypeSlug from 'rehype-slug'
+// import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 import importGlob from "@jackfranklin/rollup-plugin-import-glob";
 
@@ -34,7 +36,20 @@ const preprocess = [
       remarkMath,
     ],
     rehypePlugins: [
-      [remarkKatex, {output: "html"}],
+      [
+        remarkKatex, {
+          output: "html",
+          displayMode: true
+        }
+      ],
+      rehypeSlug,
+      // [
+      //   rehypeAutolinkHeadings, {
+      //     properties: {
+      //       className: "header-link"
+      //     }
+      //   }
+      // ],
     ]
   }),
   sveltePreprocess({
