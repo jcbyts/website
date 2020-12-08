@@ -1,11 +1,13 @@
-import { slugify } from "./../../utils";
-
 import * as postsRaw from "glob:./*.svx";
 
-const posts = Object.values(postsRaw).map(({ default: post, metadata={} }) => {
+const postNames = typeof process == "undefined" ? [] :
+  require("fs").readdirSync("./src/routes/blog/")
+    .filter(d => d.split(".")[1] == "svx")
+
+const posts = Object.values(postsRaw).map(({ default: post, metadata={} }, i) => {
   return {
     ...metadata,
-    slug: slugify(metadata.title),
+    slug: (postNames[i] || "").split(".")[0],
   };
 });
 

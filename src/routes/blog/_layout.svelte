@@ -1,8 +1,20 @@
-<script>
-  import posts from "./_posts";
+<script context="module">
+  export async function preload() {
+    try {
+      const blog = await this.fetch(`blog.json`);
+      const posts = await blog.json();
+      return { posts };
+    } catch (error) {
+      console.error(error);
+    }
+  }
+</script>
 
+<script>
   export let segment;
-  $: post = posts.find((post) => post.slug == segment) || {};
+  export let posts = [];
+
+  $: post = posts.find(post => post.slug == segment) || {};
   $: title = post.title;
   $: slug = post.slug;
 </script>

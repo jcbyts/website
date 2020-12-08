@@ -1,6 +1,17 @@
+<script context="module">
+  export async function preload() {
+    try {
+      const blog = await this.fetch(`blog.json`);
+      const posts = await blog.json();
+      return { posts };
+    } catch (error) {
+      console.error(error);
+    }
+  }
+</script>
+
 <script>
-  import posts from "./_posts";
-  console.log(posts);
+  export let posts = [];
 </script>
 
 <div class="blog">
@@ -30,10 +41,16 @@
     transition: all 0.3s ease-out;
   }
   header {
-    display: block;
+    display: flex;
     font-size: 2em;
+    justify-content: space-between;
     padding: 0.3em 0;
     font-weight: 900;
     text-decoration: none;
+  }
+
+  small {
+    font-size: 0.5em;
+    font-weight: 400;
   }
 </style>

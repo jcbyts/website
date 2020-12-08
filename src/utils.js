@@ -1,5 +1,4 @@
 import { onDestroy } from 'svelte';
-import SimplexNoise from "simplex-noise";
 import { csvParse } from "d3-dsv";
 
 // grabbed from https://gist.github.com/callumlocke/cc258a193839691f60dd
@@ -37,24 +36,6 @@ export const scaleCanvas = (canvas, context, width, height) => {
 
   // scale the drawing context so everything will work at the higher ratio
   context.scale(ratio, ratio);
-};
-
-export const getNoiseInGrid = (
-  numberHorizontal = 100,
-  numberVertical = 100,
-  frequency = 1
-) => {
-  const simplex = new SimplexNoise(Math.random);
-  let points = [];
-  new Array(numberHorizontal).fill(null).forEach((_, xPosition) => {
-    new Array(numberVertical).fill(null).forEach((_, yPosition) => {
-      const x = xPosition / numberHorizontal;
-      const y = yPosition / numberVertical;
-      const r = simplex.noise2D(x * frequency, y * frequency) + 1;
-      points.push([x, y, r]);
-    });
-  });
-  return points;
 };
 
 export const slugify = (str = "") =>
