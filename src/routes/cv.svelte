@@ -1,17 +1,21 @@
 <script>
-  import { onMount } from "svelte";
+  import { fly } from "svelte/transition";
 
   import Publication from "./../components/Publication.svelte";
   import publications from "./_publications.json";
   import cv from "./_cv.json";
 </script>
 
+<svelte:head>
+  <title>Jacob Yates: CV</title>
+</svelte:head>
+
 <div class="cv">
   <h1>CV</h1>
 
   <div class="list">
-    {#each cv as { title, items } (title)}
-      <div class="section">
+    {#each cv as { title, items }, i (title)}
+      <div class="section" in:fly={{ x: -30, delay: i * 200 }}>
         <h3>{title}</h3>
 
         <div class="items">
@@ -24,7 +28,7 @@
             <div class="item" key={title}>
               <div class="main">
                 <div class="title">{title}</div>
-                {#each [who, authors, where, tag, footnote].filter(d => d) as d (d)}
+                {#each [who, authors, where, tag, footnote].filter((d) => d) as d (d)}
                   <div class="note">{d}</div>
                 {/each}
               </div>

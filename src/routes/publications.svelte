@@ -1,9 +1,13 @@
 <script>
-  import { onMount } from "svelte";
+  import { fly } from "svelte/transition";
 
   import Publication from "./../components/Publication.svelte";
   import publications from "./_publications.json";
 </script>
+
+<svelte:head>
+  <title>Jacob Yates: Publications</title>
+</svelte:head>
 
 <div class="publications">
   <h1>Selected Publications</h1>
@@ -14,8 +18,10 @@
     </a>
   </p>
   <div class="list">
-    {#each publications as publication (publication.title)}
-      <Publication {...publication} />
+    {#each publications as publication, i (publication.title)}
+      <div in:fly={{ x: -30, delay: i * 200 }}>
+        <Publication {...publication} />
+      </div>
     {/each}
   </div>
 </div>

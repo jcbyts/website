@@ -15,7 +15,8 @@
     "front-matter": "^4.0.2",
     "marked": "^1.2.5",
     "mdsvex": "^0.8.9",
-    "simplex-noise": "^2.4.0"
+    "simplex-noise": "^2.4.0",
+    "svelte-twitter-widgets": "^0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
