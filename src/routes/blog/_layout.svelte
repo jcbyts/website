@@ -2,7 +2,7 @@
   import posts from "./_posts";
 
   export let segment;
-  $: post = posts.find(post => post.slug == segment) || {};
+  $: post = posts.find((post) => post.slug == segment) || {};
   $: title = post.title;
   $: slug = post.slug;
 </script>
@@ -45,6 +45,10 @@
     line-height: 1.5;
   }
 
+  .content :global(ol) {
+    margin-top: -0.5em;
+  }
+
   .content :global(li) {
     margin: 0 0 0.5em 0;
   }
@@ -56,7 +60,22 @@
   }
   .content :global(strong) {
     font-weight: 700;
-    color: #0e6aca;
+    color: #242424;
+  }
+
+  .content :global(h1) {
+    font-size: 3.6em;
+    font-weight: 800;
+  }
+
+  .content :global(h2) {
+    font-weight: 700;
+    font-size: 2em;
+  }
+
+  .content :global(h3) {
+    font-weight: 500;
+    font-size: 1.6em;
   }
   /* .content :global(.header-link) {
   }
