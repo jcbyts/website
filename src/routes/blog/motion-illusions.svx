@@ -10,7 +10,7 @@ description: The one in which we talk about motion
   import OrangutanScrubber from "../../components/OrangutanScrubber.svelte";
 </script>
 
-There have been a lot of visual motion illusions going around Twitter recently, which personally I think is super cool. However, I've been surprised to see lots of claims that there is "no motion" in the illusions and most people seem to think there's some perceptual magic going on. What is this magic?
+There have been a lot of visual motion illusions going around Twitter recently. I think it is super cool that people find these motion demos so compelling. However, I've been surprised to see lots of claims that there is "no motion" in the illusions and most people seem to think there's some perceptual magic going on. What is this magic?
 
 
 ## For example, this crazy mario illusion
@@ -86,9 +86,9 @@ Track the body of the orangutan and the branch. You can see that the movement of
 the space-time plots, whereas the background looks like vertical streaks. 
 
 <img
-  src="/motionillusionblog/orangframannotated.png"
+  src="/motionillusionblog/orangannotated.png"
   alt="Orangutan Space-time Annotations"
-  style="max-width: 40em; display: block;" />
+  style="max-width: 50em; display: block;" />
 
 It's a little tricky to see at first, but it's clear which things are moving and which are not. All of the slanted (or "oriented") stuff in the space-time slice is stuff that's moving. In other words, we can define "Visual Motion" as orientation in space-time. Vertical streaks in space-time do not move.
 
@@ -135,7 +135,7 @@ are oriented at the edge.
 <img
   src="/motionillusionblog/coloredgeannotated.png"
   alt="Annotated Space-time slice"
-  style="max-width: 20em; display: block;" />
+  style="max-width: 10em; display: block;" />
 
 Let's get rid of color for now because it's a distraction, and has
 nothing to do with the illusion. Here you'll see the same Mario in grayscale
@@ -190,7 +190,7 @@ edge moving to the right, but it keeps jumping back and changing sign (white is
 on ones side and black on the other and then it flips).
 
 <img
-  src="/motionillusionblog/grayedgeannotated2.jpg"
+  src="/motionillusionblog/grayedgesannotated.png"
   alt="Orangutan Space-time Annotations"
   style="max-width: 15em; display: block;" />
 
@@ -225,9 +225,8 @@ continuously moving. But, of course, movies have frames and a frame rate. Panel
 From here, it makes sense to think about how to build detectors for motion. The
 picture below shows that if you had an oriented filter in space time, you could
 detect the edge. For the non-scientists reading this, you can think of these
-filters like the edge detectors that Hubel and Wiesel found in their classic
-experiments, but in space-time. Here's a [link to a video](https://www.youtube.com/watch?v=Cw5PKV9Rj3o&feature=emb_title) of what
-those responses are like.
+filters like little "edge detectors". These tpes of oriented filters are decent enough descriptions of the responses of neurons in visual cortex. For example, here's a [link to a video](https://www.youtube.com/watch?v=Cw5PKV9Rj3o&feature=emb_title) of what
+Hubel and Wiesel found in their classic expriments on primary visual cortex, which they concluded looks like a little line (or edge) detector.
 
 <img
   src="/motionillusionblog/AdelsonBergenEdgeDetector.png"
@@ -235,7 +234,7 @@ those responses are like.
   style="max-width: 40em; margin: 2em auto; display: block;" />
 Importantly, these edge detectors still care about the sign of the edge. This,
 as we noted above, is unlike our percept. To build detectors that do not care
-about phase (don't care about the sign of the edge). We can combine two oriented filters that care about opposite signs. In technical terms, these filters are 90° out of phase, forming a "Quadrature Pair". Really don't worry about that jargon. This just means that where one filter *likes* white, the other *likes* black (and vice versa).
+about phase (don't care about the polarity of the edge). We can combine two oriented filters that care about opposite signs. In technical terms, these filters are 90° out of phase, forming a "Quadrature Pair". Really don't worry about that jargon. This just means that where one filter *likes* white, the other *likes* black (and vice versa).
 <img
   src="/motionillusionblog/AdelsonBergenQpair.png"
   alt="Phase-invariant filters"
