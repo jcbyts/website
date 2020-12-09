@@ -8,6 +8,7 @@
   <div class="links">
     <a class="link" href="/publications">Publications</a>
     <a class="link" href="/cv">CV</a>
+    <a class="link" href="/blog">Blog</a>
   </div>
 </nav>
 

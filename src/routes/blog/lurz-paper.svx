@@ -1,10 +1,11 @@
 ---
-title: Lurz et al., 2020
-date: 2020-12-6
-description: The one in which we talk about motion
+title: Generalization in data-driven models of primary visual cortex
+date: 2020-12-4
+description: Discussion of Lurz et al., 2020 and tricks for learning deep stimulus models from neural data
 ---
-
+This is entry is the first in a **journal club** series, where I do a deep dive into a paper I've recently gone over in a journal club or lab meeting.
 # Generalization in data-driven models of primary visual cortex
+
 
 Today we're discussing [Lurz et al., 2020](https://www.biorxiv.org/content/10.1101/2020.10.05.326256v1) from Fabian Sinz and colleagues. In it, they introduce a few new tricks for fitting CNNs end-to-end to neural data. *Then they show their data-driven model generalizes to predict the responses of neurons that it wasn't trained on (in animals that were not part of the training set!)*
 
@@ -184,9 +185,9 @@ Figure 2 in the paper illustrates this conceptually.
 
 Now they're really showing off! With all of these new tricks in place, they are ready to train cores and test them on witheld datasets... yea, witheld *datasets*, not just witheld *data*.
 
-### Generalization
+### Generalization and Performance
 
-The rest of the paper just shows how well these different readouts work for different sets of training and test data.
+The rest of the paper just shows how well these different readouts work for different sets of training and test data. I don't have much to say except the new readout easily beats the state-of-the-art. And it generalizes better than VGG-16 as a core model.
 
 <img src="/labmeetinglurz/lurzfig3.png" style="max-width: 30em"/>
 
@@ -208,6 +209,14 @@ Cores trained on several scans used
 in transfer learning outperform direct
 training on the transfer dataset (blue
 line; direct condition).
+
+### Discussion and thoughts
+Overall, this is really impressive. But, I'm still left wishing these guys would do some science! Haha. Joking aside, it is nice that the ML conference format means we're all up to date on what tricks they're learning to fit these models, but there haven't really been any real scientific insights from this series of papers, besides maybe the [divisive normalization paper](https://www.biorxiv.org/content/10.1101/767285v4). Even the ["Inception"](https://xaqlab.com/wp-content/uploads/2019/11/Inception_Walker_plusSupp.pdf) paper was really underwhelming. All of that effort to find things that look like gabors with surrounds and don't really drive V1 neurons much better. I'd say we're still learning much more interesting things about mouse visual cortex [using gratings](https://nbdt.scholasticahq.com/article/5123-on-the-subspace-invariance-of-population-responses), which is a real disappointment for the "state-of-the-art". Of course, this is a high bar for a subfield that is so new, but I would be really disappointed if the ML business of focusing on perfomance spreads into neuroscience more than [it already has](http://www.brain-score.org/). Yes, performance is important, but that alone is not the goal and performance obviously has to be mixed with insights (e.g., [Kar et al., 2019](https://issalab.neuroscience.columbia.edu/sites/default/files/content/Kar%20et%20al.%20Evidence%20that%20recurrent%20circuits_Nat%20Neuro%202019.pdf)) [Burg et al., 2020](https://www.biorxiv.org/content/10.1101/767285v4) is definitely a step in the right direction!
+
+I'd love to see anatomically constrained cores and attempts to explain nonlinear responses in V1 parsimoniously ([like this](https://arxiv.org/abs/1912.06207)). There are other ways this type of model could be useful. Often neuroscientists do not care about the stimulus processing model, but simply care that they have a way to modulate and predict responses so they can test for attentional modulations or decision signals. I'd like to see this framework applied to a a more natural task: the shifter and modulator networks in Sinz et al., 2018 provide a perfect vehicle to ask these types of questions.
+
+Anyway, Lurz et al., 2020 is a very impressive method with a lot of clever tricks in it. Looking forward to the next in the series!
+
 
 <script>
     const x = "x"
