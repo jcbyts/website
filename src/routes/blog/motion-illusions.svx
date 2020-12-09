@@ -127,8 +127,7 @@ rainbow-colored lines. Horizontal structure in space-time plots (where time runs
 up or down) is something appearing or disappearing (or, flashing!). 
 
 
-Second, in this view, we can clearly see where the motion comes from. There is oriented
-structure on the edges of the marios. Although there is a hard edge between the
+Second, in this view, we can clearly see where the motion comes from. There is oriented structure on the edges of the marios. Although there is a hard edge between the
 colors and the gray that is vertical (and therefore does not move), the colors
 are oriented at the edge. 
 
@@ -238,14 +237,14 @@ about phase (don't care about the polarity of the edge). We can combine two orie
 <img
   src="/motionillusionblog/AdelsonBergenQpair.png"
   alt="Phase-invariant filters"
-  style="max-width: 30em; margin: 2em auto; display: block;" />
+  style="max-width: 20em; margin: 2em auto; display: block;" />
 
 Note: A very [related paper](https://www.osapublishing.org/DirectPDFAccess/4E69228F-07D1-9374-DF04DF81D3560F3A_1949/josaa-2-2-322.pdf?da=1&id=1949&seq=0&mobile=no)
 from Watson and Ahumada came out in the same year and covers many of the same
 points.
 
 Using the equations from Adelson and Bergen, 1985, we can make the same
-little motion energy filters. Note: in my visualization below, time is running up.
+little motion energy filters. Note: in my visualization below, time runs up.
 
 The two filters on the right are selective to and edge moving to the right and are 90° out of phase with eachother.
 The two filters on the left are slective to a leftward moving edge and are 90° out of phase with each other.
@@ -265,11 +264,16 @@ Here's a movie of what these look like:
   muted
   style="max-width: 30em" />
 
+Let's pause for a second here and take note of two things:
+1. These little movies look a lot like what the edges of the marios do. So, contrary to the claim that the marios are "not moving" they are, in fact, made up of the fundamental elements of motion.
+2. Derivatives
+   
 ### Derivatives
 How did Adelson and Bergen make these little moving edge detectors? Well, the key underlying component is the concept of a derivative. The spatial selectivity of these filters was created by taking the 1st and 2nd derivatives of a Gaussian.
 
 The first idea to get across is that derivatives detect change (that's basically the definition). The derivative of a function $\frac{\partial}{\partial x} f(x)$ is how much the function value ($f(x)$) changes for really small changes in $x$. That $\partial x$ just means "tiny changes in x".
 
+Intuitively then, something that moves will have to change as a function of changes in space, $\partial x$, and time, $\partial t$. A derivative filter is designed to detect those changes. And we can make a smooth one by starting with a smooth,localized, function and taking its derivative.
 
 A Gaussian is a smooth bump spatially and taking the derivative can create the type of edge detector that Adelson and Bergen wanted to make. Here's what that looks like. Note: I've normalized both curves to have the same amplitude.
 
@@ -330,22 +334,31 @@ The motion energy model agrees (mostly) with our percept of the marios. One issu
   style="max-width: 40em; margin: 2em auto; display: block;" />
 
 
-### Summary Points
--Human motion perception works by integrating across little motion detectors.
--The local motion detectors make sense from first principles when thinking about what visual motion is.
--Derivative filters can be combined to detect the motion energy
--Derivatives only have signals where there are changes (like at edges)
+## Conclusions
 
-### Some interesting perspectives on Twitter
+Alright, so now that we took this whirlwind tour of visual motion perception applied to motion illusions. What did we learn?
+### 1. Visual Motion can be thought of as orientation in space-time
+Because motion is defined by changes in space over time, it will appear as oriented structure when looking at space-time slices of a movie.
+
+### 2. Human motion perception works by integrating across little motion detectors that do not care about phase
+We see the marios as "moving" because they are. They are made of little space-time oriented elements at the edges. Our visual system detects those little local motion elements elements and does not care about the polarity of the edge as it moves (which is why the flashing of the marios doesn't disrupt the perception of constant motion).
+
+### 3. We can make simple motion detectors that have the properties of human vision
+The Adelson Bergen **"Motion Energy Model"** showed us a simple way to construct motion detectors that don't care about the polarity of an edge.
+
+### 4. The motion energy model "sees" motion in the marios just like we do
+When we ran the motion energy model on the mario stimulus, those filters from the 1980s predict the same motion that we see. I'd say this a different way. The marios are constructed using these fundamental elements of motion. So, yea, they're totally moving. They just aren't going anywhere. And, yes, I know what people mean when they say "nothing is moving".
+
+### 5. Human vision relies on change
+The motion energy filters we made were constructed using derivative filters. Derivatives are all about change. A large change in space is an edge. A large change in time is an appearance or disappearance. A change in both space and time is motion. Early vision mostly measures changes. That means your perception is going to be dependent on signals that are reflecting changes.
+### Finally, some interesting perspectives on Twitter...
 Some other people have pointed out the strong effect of the edges for seeing object motion.
 
 <Tweet id="1331678121976684544" />
-
 I think another way of saying this is that early vision works with [derivatives](http://persci.mit.edu/pub_pdfs/elements91.pdf), and high-level vision can only integrate those signals. So it kinda makes sense that high-level percepts would depend so much on edges.
 
 Additionally, some people report being able to modulate whether they see the motion or not.
 <Tweet id="1335302102957006848" />
-
 I'm not quite sure about the interpretation regarding "sense of self", but I can also modulate how big the effect is. One trivial way to do this is to move my eyes to different locations. If I look well off the marios, there is no perceived motion. But that's not what this Tweet was about. If I try hard enough (and I'm not sure exactly what I'm doing), I can get the effect to go away. I have two ideas about this. The first is that maybe I'm doing something weird with my fixational eye movements or accomodation. The second option is that I'm playing with my attentional readout of the low-level sensory signals. There's no getting around what's in the video (there is motion energy), so to be able to modulate this has something to do with how it's integrated.
 
 If I get some time this weekend I'll try running the illusion through Flownet2 to see if machine vision that pools across local motion signals does anything interesting.
