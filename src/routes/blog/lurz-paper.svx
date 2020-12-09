@@ -19,7 +19,7 @@ Many groups have now presented advantages to thinking of neural population activ
 
 The simplest versions of this have a single linear filter as the core. For example, [Batty et al., 2017](https://openreview.net/pdf?id=HkEI22jeg) used knowledge of the cell class to group retinal ganglion cells and learn a single space-time linear filter for all neurons of the same class. Their "multitask LN" model has a single filter for all On-RGCs and each neuron simply scales that filter's response with a neuron specific gain and offset term and then passes that through a sigmoid nonlinearity.
 
-![Batty](/labmeetinglurz/battymultitaskln.png "Simple Core")
+<img src="/labmeetinglurz/battymultitaskln.png" style="max-width: 50em"/>
 
 I really like the terms **"core"** and **"readout"** and think they should be adopted as the standard nomenclature for such a model. In the figure above, the <span style="color:blue">blue parameters</span> ($W_t$ and $W_s$) are shared by all On-RGCs and form the **"core"**. The <span style="color:green">green parameters</span> form the **"readout"**. 
 
@@ -36,11 +36,11 @@ This idea is really jsut something that has been said by others already (e.g., [
 
 The figure below demonstrates the logic of a data-driven core. It is trained end-to-end from stimulus to spikes. The core is shared by all neurons and the readout is neuron specific.
 
-![Butts1](/labmeetinglurz/buttsdatadriven.png "Data-Driven Core")
+<img src="/labmeetinglurz/buttsdatadriven.png" style="max-width: 50em"/>
 
 In contrast, a goal-directed core comes pre-trained (on some other dataset) and and forms a nonlinear basis for a linearized model of the neural responses.
 
-![Butts2](/labmeetinglurz/buttstransfer.png "Goal-Directed Core with transfer learning")
+<img src="/labmeetinglurz/buttstransfer.png" style="max-width: 50em"/>
 
 **The advantages of a goal-directed core are:**
 1. they can use much more data than is typically available in a neural recording
@@ -82,11 +82,12 @@ This approach assumes that each neuron has a feature vector that reads out from 
 The spatial position for each neuron, $x_i,y_i$ are learned parameters. They are sampled at sub-pixel resolution using bilinear interpolation. The issue with learning $x_i, y_i$ is that if the initialization is far away from the true retinotopic location of the neuron, then the gradients will be zero. To circumvent this, the authors represent the feature space of the core at multiple scales using $4$ average pooling steps with $4 \times 4$ pooling with a stride of $4$, such that the final stage is a single pixel. They then learn a feature vector that combines across these scales.  $x_i,y_i$ can be any value within a $1 \times 1$ feature space and that way there are gradients to support the learning of the features and the position.
 
 This readout idea comes from [spatial transformer layers](https://arxiv.org/abs/1506.02025). The basic transform operation is an affine transform of a grid of sampling points.
-![transformer](/labmeetinglurz/spatialtransformer.png "Spatial Transformer")
+
+<img src="/labmeetinglurz/spatialtransformer.png" style="max-width: 50em"/>
 
 The difference here is that the sample is a single point for each neuron and it is sampling that point in a coordinate system that is the same regardless of the pooling size. That way the initialization always has something to start with.
 
-![pointreadout](/labmeetinglurz/pointreadout.png "Point Readout Pooling")
+<img src="/labmeetinglurz/pointreadout.png" style="max-width: 50em"/>
 
 **This has two cool benefits:**
 
@@ -96,7 +97,7 @@ The difference here is that the sample is a single point for each neuron and it 
 
 The full model in the 2018 paper is schematized here:
 
-![sinz2018](/labmeetinglurz/sinz2018.png "Sinz 2018 model")
+<img src="/labmeetinglurz/sinz2018.png" style="max-width: 30em"/>
 
 Okay, so now that we have a sense of the readout, we're ready for the new tricks introduced in Lurz et al., 2020. 
 
