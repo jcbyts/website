@@ -25,7 +25,11 @@
 
 <style>
   .tweet {
-    min-height: 630px;
-    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 15em;
+    margin: -1em 0 0;
+    transform: scale(0.9);
   }
 </style>

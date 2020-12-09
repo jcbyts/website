@@ -17,6 +17,6 @@
 <style>
   .c {
     max-width: 30em;
-    margin: 2em 0;
+    margin: 2em auto;
   }
 </style>
