@@ -7,7 +7,7 @@
 
   let displayNumber = 0;
   $: cachedNumber = 0;
-  $: formatFunction = (d) => {
+  $: formatFunction = d => {
     try {
       return typeof format == "string" ? d3Format(format)(d) : format(d);
     } catch (e) {
@@ -19,7 +19,7 @@
   const startInterpolate = () => {
     const interpolationFunction = interpolate(cachedNumber, number);
 
-    const timer = d3Timer((timeElapsed) => {
+    const timer = d3Timer(timeElapsed => {
       const t = timeElapsed / duration;
 
       displayNumber = interpolationFunction(t);
@@ -33,6 +33,7 @@
   };
 
   $: number, startInterpolate();
+  $: Number.isFinite;
 </script>
 
 <span class="c">

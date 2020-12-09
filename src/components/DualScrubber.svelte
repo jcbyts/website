@@ -10,6 +10,8 @@
 
   export let leftImage = "/motionillusionblog/orangGifAsImg.jpeg";
   export let rightImage = "/motionillusionblog/buckets.jpg";
+  export let playRate = 0.05;
+  export let playFrameRate = 60;
 
   export let numberOfFrames = 24 - 1;
   export let numberOfBuckets = 270 / 5 - 1;
@@ -39,11 +41,17 @@
   <div class="c">
     <div class="left">
       <div class="top">
-        <PlayControls bind:time={rightProgress} bind:isPlaying>
+        <PlayControls
+          rate={playRate}
+          frameRate={playFrameRate}
+          bind:time={rightProgress}
+          bind:isPlaying>
           <div class="frame">
-            <strong>Video</strong>
-            at frame
-            <Number number={leftFrameIndex + 1} format=".0f" />
+            <span>
+              <strong>Video</strong>
+              at frame
+              <Number number={leftFrameIndex + 1} format=".0f" />
+            </span>
           </div>
         </PlayControls>
       </div>
@@ -58,9 +66,11 @@
     </div>
     <div class="right">
       <div class="top slice">
-        <strong>Slices through time</strong>
-        at vertical position
-        <Number number={rightFrameIndex + 1} format=".0f" />
+        <span>
+          <strong>Slices through time</strong>
+          at vertical position
+          <Number number={rightFrameIndex + 1} format=".0f" />
+        </span>
       </div>
       <div on:mouseenter={onRightImageHover}>
         <Scrubber dimension="y" bind:progress={rightProgress} doShowLine>
@@ -96,16 +106,14 @@
     display: flex;
     align-items: center;
     height: 3em;
+    line-height: 1.3em;
     margin-bottom: 0.3em;
   }
-  .top :global(span) {
+  .top span :global(span) {
     font-weight: 800;
   }
-  .slice :global(span) {
-    padding-left: 0.3em;
-  }
-  .slice :global(strong) {
-    padding-right: 0.3em;
+  .slice span :global(span) {
+    padding-left: 0.2em;
   }
   .annotation {
     position: absolute;
