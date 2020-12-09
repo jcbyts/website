@@ -6,6 +6,7 @@
   export let rate = 0.05;
   export let frameRate = 60;
   export let isPlaying = true;
+  export let isHidden = false;
 
   const tick = () => {
     time += rate;
@@ -24,24 +25,28 @@
   $: isPlaying, onIsPlayingChange();
 </script>
 
-<div class="bar">
-  {#if !isPlaying}
-    <button
-      on:click={() => {
-        isPlaying = true;
-      }}>
-      <Icon name="play" />
-    </button>
-  {:else}
-    <button
-      on:click={() => {
-        isPlaying = false;
-      }}>
-      <Icon name="pause" />
-    </button>
-  {/if}
+{#if !isHidden}
+  <div class="bar">
+    {#if !isPlaying}
+      <button
+        on:click={() => {
+          isPlaying = true;
+        }}>
+        <Icon name="play" />
+      </button>
+    {:else}
+      <button
+        on:click={() => {
+          isPlaying = false;
+        }}>
+        <Icon name="pause" />
+      </button>
+    {/if}
+    <slot />
+  </div>
+{:else}
   <slot />
-</div>
+{/if}
 
 <style>
   .bar {

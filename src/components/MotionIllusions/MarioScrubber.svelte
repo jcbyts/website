@@ -1,13 +1,13 @@
 <script>
-  import DualScrubber from "./DualScrubber.svelte";
+  import DualScrubber from "./../DualScrubber.svelte";
 </script>
 
 <div class="c">
   <DualScrubber
     leftImage={'/motionillusionblog/mariocrop_GifAsImg.jpeg'}
     rightImage={'/motionillusionblog/mariocrop_buckets.jpeg'}
-    numberOfFrames={60 - 1}
-    numberOfBuckets={244 / 5 - 1}
+    numberOfFrames={60}
+    numberOfBuckets={244 / 5}
     leftAspectRatio={244 / 244}
     rightAspectRatio={244 / 244}
     playRate={0.016}

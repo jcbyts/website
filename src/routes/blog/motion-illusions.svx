@@ -7,9 +7,10 @@ description: The one in which we talk about motion
 <script>
   import Icon from "../../components/Icon.svelte";
   import Tweet from "../../components/Tweet.svelte";
-  import OrangutanScrubber from "../../components/OrangutanScrubber.svelte";
-  import MarioScrubber from "../../components/MarioScrubber.svelte";
-  import BarScrubber from "../../components/BarScrubber.svelte";
+  import OrangutanScrubber from "../../components/MotionIllusions/OrangutanScrubber.svelte";
+  import OrangutanFrames from "../../components/MotionIllusions/OrangutanFrames.svelte";
+  import MarioScrubber from "../../components/MotionIllusions/MarioScrubber.svelte";
+  import BarScrubber from "../../components/MotionIllusions/BarScrubber.svelte";
 </script>
 
 There have been a lot of visual motion illusions going around Twitter recently. I think it is super cool that people find these motion demos so compelling. However, I've been surprised to see lots of claims that there is "no motion" in the illusions and most people seem to think there's some perceptual magic going on.
@@ -40,6 +41,7 @@ I thought this was a good opportunity to write up a little blog post about
 visual motion. Let's take this Mario example here and look at what's actually
 going on.
 ### But first, what is motion?
+
 Motion is **change in position over time**.
 
 Something that does not move is static because it has the same position as time
@@ -72,10 +74,7 @@ What makes this a video of a moving thing?
 Well, if we look at different frames, we can see the position of the orangutan
 has moved over time.
 
-<img
-  src="/motionillusionblog/exampleFrames.png"
-  alt="Orangutan position changes across frames" />
-
+<OrangutanFrames />
 
 That tells us that the orangutan has moved, even with a fixed reference frame (the camera has not moved). Therefore the orangutan has moved in the real world.
 

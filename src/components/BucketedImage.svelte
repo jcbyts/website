@@ -7,8 +7,8 @@
   export let numberOfFrames = 10;
   export let doFlip = false;
 
-  $: xOffset = dimension == "x" ? (index * 100) / (numberOfFrames + 1) : 0;
-  $: yOffset = dimension == "y" ? (index * 100) / (numberOfFrames + 1) : 0;
+  $: xOffset = dimension == "x" ? (index * 100) / numberOfFrames : 0;
+  $: yOffset = dimension == "y" ? (index * 100) / numberOfFrames : 0;
 
   $: scaleStatement = doFlip
     ? dimension == "x"
@@ -21,8 +21,8 @@
   <img
     src={image}
     {alt}
-    style="width: 100%; height: {(numberOfFrames + 1) * 100}%; transform:
-    translate({-xOffset}%, {-yOffset}%) {scaleStatement}" />
+    style="width: 100%; height: {numberOfFrames * 100}%; transform: translate({-xOffset}%,
+    {-yOffset}%) {scaleStatement}" />
 </div>
 
 <style>
