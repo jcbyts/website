@@ -64,8 +64,12 @@
   .content :global(li) {
     margin: 0 0 0.5em 0;
   }
-  .content :global(img) {
+  .content > :global(video),
+  .content > :global(img) {
+    display: block;
     max-width: 100%;
+    margin: 2em auto;
+    text-align: center;
   }
   .content :global(em) {
     font-style: italic;
@@ -88,6 +92,17 @@
   .content :global(h3) {
     font-weight: 500;
     font-size: 1.6em;
+    margin: 1.8em 0 0.9em;
+  }
+
+  .content :global(blockquote) {
+    margin-bottom: 2em;
+  }
+  .content :global(blockquote > p) {
+    margin-bottom: 0;
+  }
+  .content :global(blockquote > p + p) {
+    margin-top: 1em;
   }
   /* .content :global(.header-link) {
   }

@@ -4,6 +4,7 @@
 
   export let time = 0;
   export let rate = 0.05;
+  export let frameRate = 60;
   export let isPlaying = true;
 
   const tick = () => {
@@ -11,7 +12,7 @@
     if (time > 1) time = 0;
     if (time < 0) time = 0;
   };
-  const { interval, pause, play } = onInterval(tick, 60);
+  const { interval, pause, play } = onInterval(tick, frameRate);
 
   const onIsPlayingChange = () => {
     if (isPlaying) {

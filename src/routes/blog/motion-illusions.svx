@@ -8,9 +8,12 @@ description: The one in which we talk about motion
   import Icon from "../../components/Icon.svelte";
   import Tweet from "../../components/Tweet.svelte";
   import OrangutanScrubber from "../../components/OrangutanScrubber.svelte";
+  import MarioScrubber from "../../components/MarioScrubber.svelte";
 </script>
 
-There have been a lot of visual motion illusions going around Twitter recently. I think it is super cool that people find these motion demos so compelling. However, I've been surprised to see lots of claims that there is "no motion" in the illusions and most people seem to think there's some perceptual magic going on. What is this magic?
+There have been a lot of visual motion illusions going around Twitter recently. I think it is super cool that people find these motion demos so compelling. However, I've been surprised to see lots of claims that there is "no motion" in the illusions and most people seem to think there's some perceptual magic going on.
+
+What is this magic?
 
 
 ## For example, this crazy mario illusion
@@ -36,7 +39,9 @@ I thought this was a good opportunity to write up a little blog post about
 visual motion. Let's take this Mario example here and look at what's actually
 going on.
 ### But first, what is motion?
-Motion is change in position over time. Something that does not move is static because it has the same position as time
+Motion is **change in position over time**.
+
+Something that does not move is static because it has the same position as time
 progresses. We often think of motion in the real world: furniture does not
 change position over time (does not move). You, your dog, all animals, your
 limbs, all change position over time. So, they move in the world.
@@ -44,12 +49,14 @@ limbs, all change position over time. So, they move in the world.
 However, from the perspective from your visual system (or a video camera), motion isn't so
 straightforward. For example, if I were to pan a camera across a room, the room
 would be moving with respect to the reference frame of the camera. That is
-motion as well. In other words, visual motion is not just a result of things
-moving in the world, but can also result from the sensor moving. So, what is
+motion as well. In other words, **visual motion is not just a result of things
+moving in the world, but can also result from the sensor moving**.
+
+So, what is
 visual motion and how do we see it? Let's take the idea of something changing
 position over time in the real world and apply it to the pixels of a movie. You'll see this makes
-sense in a minute. Here's a video of a real moving thing (an orangutan )
-swinging.
+sense in a minute. Here's a video of a real moving thing swinging.
+
 <video
   src="/motionillusionblog/orangutanVid.mp4"
   autoplay
@@ -58,47 +65,51 @@ swinging.
   style="max-width: 30em" />
 
 <!-- https://giphy.com/natgeochannel/ -->
-https://giphy.com/search/monkey-swing 
+<p style="text-align: center; margin: -1.4em 0 2em">from <a href="https://giphy.com/search/monkey-swing">Giphy</a></p>
 
 What makes this a video of a moving thing?
 Well, if we look at different frames, we can see the position of the orangutan
-has moved over time. 
+has moved over time.
 
 <img
   src="/motionillusionblog/exampleFrames.png"
-  alt="Orangutan position changes across frames"
-  style="max-width: 40em; display: block;" />
+  alt="Orangutan position changes across frames" />
 
-That tells us that with a fixed reference frame (i.e., the camera has not moved), the orangutan has. Therefore the orangutan has moved in the real world.
 
-Another way to look at this would be to plot the **pixel values over time to see how they change**. Since we cannot
+That tells us that the orangutan has moved, even with a fixed reference frame (the camera has not moved). Therefore the orangutan has moved in the real world.
+
+One way to visualize this would be to **plot the pixel values over time to see how they change**. Since we cannot
 plot every frame at all time points, let's take a slice through space and look
 how that slice changes over time. You can move your mouse (scrub) over the 2D
-image frame to see different space-time slices. 
+image frame to see different space-time slices.
 
 Scrub over the space-time slice to play through time in the movie. It won't be intuitive at first, but there is
 a mapping from the motion of objects in the images to the patterns in the space
 x time slices. Specifically, motion is orientation...
+
+<!-- this paragraph could use clarification -->
+
 <OrangutanScrubber />
 
-
 Track the body of the orangutan and the branch. You can see that the movement of the orangutan and the branch form slanted structure in
-the space-time plots, whereas the background looks like vertical streaks. 
+the space-time plots, whereas the background looks like vertical streaks.
 
 <img
   src="/motionillusionblog/orangannotated.png"
-  alt="Orangutan Space-time Annotations"
-  style="max-width: 50em; display: block;" />
+  alt="Orangutan Space-time Annotations" />
 
-It's a little tricky to see at first, but it's clear which things are moving and which are not. All of the slanted (or "oriented") stuff in the space-time slice is stuff that's moving. In other words, we can define "Visual Motion" as orientation in space-time. Vertical streaks in space-time do not move.
+It's a little tricky to see at first, but it's clear which things are moving and which are not. All of the slanted (or "oriented") stuff in the space-time slice is stuff that's moving. In other words, we can define "Visual Motion" as orientation in space-time.
 
-Horizontal structure in space-time (such as the edge of the leaves here) are appearances and disappearances. 
+- **Vertical structure** in space-time does not move.
 
-**The TLDR of this whole post is: Our visual system detects orientation in space-time to see motion using little local detectors.**
+- **Horizontal structure** in space-time, such as the edge of the leaves here, are appearances and disappearances.
 
-But before we get into that, what happens with the Marios? Is there orientation there as well?
+The TLDR of this whole post is: **Our visual system detects orientation in space-time to see motion using little local detectors.**
 
-## What's happening in the marios?
+But before we get into that, what's happening with the Marios? Is there orientation there as well?
+
+## What's happening with the marios?
+
 Above, we built a quick intuition for how visual motion is really just orientation in space-time. Let's zoom in on a single Mario
 to see what happens if we use the same trick. Here is a single mario. It appears
 to be moving to the right, but it never leaves the frame. This is the essential
@@ -112,32 +123,26 @@ component of the illusion.
   style="max-width: 60em" />
 
 If we take a slice through this mario, we can use the intuitions we learned above to see what's going on. In this figure, time is running up.
-<img
-  src="/motionillusionblog/MarioFrame1.png"
-  alt="Mario slice position"
-  style="max-width: 20em; display: block;" />
 
-<img
-  src="/motionillusionblog/MarioSpaceTime.png"
-  alt="Cropped Mario Space Time Slice"
-  style="max-width: 20em; display: block;" />
+<!-- is it? do we need to change the Time label here? -->
+
+<MarioScrubber />
 
 First, the mario is flashing different colors. That appears as horizontal
 rainbow-colored lines. Horizontal structure in space-time plots (where time runs
-up or down) is something appearing or disappearing (or, flashing!). 
+up or down) is something appearing or disappearing (or, flashing!).
 
 
 Second, in this view, we can clearly see where the motion comes from. There is oriented structure on the edges of the marios. Although there is a hard edge between the
 colors and the gray that is vertical (and therefore does not move), the colors
-are oriented at the edge. 
+are oriented at the edge.
 
 <img
   src="/motionillusionblog/coloredgeannotated.png"
   alt="Annotated Space-time slice"
   style="max-width: 10em; display: block;" />
 
-Let's get rid of color for now because it's a distraction, and has
-nothing to do with the illusion. Here you'll see the same Mario in grayscale
+**The color has nothing to do with the illusion** - let's rid of it for now because it's just a distraction. Here you'll see the same Mario in grayscale
 (I've just averaged across the color channels) and you can still see the effect.
 
 <video
@@ -149,13 +154,12 @@ nothing to do with the illusion. Here you'll see the same Mario in grayscale
 
 From here, we can construct a really simple illusion
 that follows the same principles. We'll build an image that represents space-time
-and then play it back as a 2D movie. 
+and then play it back as a 2D movie.
 
 The image I'll make here is constructed using the same principle as the Mario's edge. The center is modulated in brightness, just like
 the Mario's color was modulated. The edges drift to the right for 5 frames and
 then jump back to the start. At each jump, the sign inverts and the cycle starts
-again. Before scrolling down, try to imagine what this looks like if we played
-it as a movie?
+again. Before scrolling down, **try to imagine what this looks like if we played it as a movie**.
 
 <img
   src="/motionillusionblog/constructedspacetime.png"
@@ -164,10 +168,10 @@ it as a movie?
 
 Since there is only 1D space in our
 image from above, we don't have a 2D image at each time point. But, we can
-visualize that 1D info as vertical bars. 
+visualize that 1D info as vertical bars.
 
 Here's a single frame of our new
-illusion. 
+illusion.
 <img
   src="/motionillusionblog/constructedframe.png"
   alt="Constructed Space Time Frame"
@@ -193,23 +197,28 @@ on ones side and black on the other and then it flips).
   alt="Orangutan Space-time Annotations"
   style="max-width: 15em; display: block;" />
 
+  <!-- let's do this, scrubby-style -->
+
 But we keep seeing motion to the right. **This tells us something: our visual motion system doesn't
-care about the sign of that edge.** The lingo vision scientists use to talk about
-this is motion perception doesn't care about phase (for the purposes of this
+care about the sign of that edge.** The lingo that vision scientists use to talk about
+this is *motion perception doesn't care about phase* (for the purposes of this
 blog post, phase is just the exact sign and position of that edge).
 
-In other words, motion perception only cares about the orientation, not the stuff it's
+In other words, **motion perception only cares about the orientation**, not the stuff it's
 made of. And that's pretty neat.
 
-In the next section, we'll look at an old model of visual motion processing that has this property.
+Next, let's look at an old model of visual motion processing with this property.
 
 
 ## The motion energy model
+
 Let's look at the state-of-the-art in human motion perception (in the mid 1980s),
 also known as the "[motion energy model](http://persci.mit.edu/pub_pdfs/spatio85.pdf)". This is really a beautiful
 paper, so I recommend anyone interest click in and take the time to read it.
 Also, not all that much has changed in our understanding of the fundamentals in
-the last 35 years. So, how does human motion detectors work? Adelson and Bergen
+the last 35 years.
+
+So, how does human motion detectors work? Adelson and Bergen
 start by making the same point that was demonstrated above: visual motion is
 orientation in space-time. Panel **a** shows a frame of a movie with a bar
 moving to the right (like our orangutan, above). **b** shows the full
@@ -224,7 +233,7 @@ continuously moving. But, of course, movies have frames and a frame rate. Panel
 From here, it makes sense to think about how to build detectors for motion. The
 picture below shows that if you had an oriented filter in space time, you could
 detect the edge. For the non-scientists reading this, you can think of these
-filters like little "edge detectors". These tpes of oriented filters are decent enough descriptions of the responses of neurons in visual cortex. For example, here's a [link to a video](https://www.youtube.com/watch?v=Cw5PKV9Rj3o&feature=emb_title) of what
+filters like little "edge detectors". These types of oriented filters are decent enough descriptions of the responses of neurons in visual cortex. For example, here's a [link to a video](https://www.youtube.com/watch?v=Cw5PKV9Rj3o&feature=emb_title) of what
 Hubel and Wiesel found in their classic expriments on primary visual cortex, which they concluded looks like a little line (or edge) detector.
 
 <img
@@ -239,7 +248,7 @@ about phase (don't care about the polarity of the edge). We can combine two orie
   alt="Phase-invariant filters"
   style="max-width: 20em; margin: 2em auto; display: block;" />
 
-Note: A very [related paper](https://www.osapublishing.org/DirectPDFAccess/4E69228F-07D1-9374-DF04DF81D3560F3A_1949/josaa-2-2-322.pdf?da=1&id=1949&seq=0&mobile=no)
+> Note: A very [related paper](https://www.osapublishing.org/DirectPDFAccess/4E69228F-07D1-9374-DF04DF81D3560F3A_1949/josaa-2-2-322.pdf?da=1&id=1949&seq=0&mobile=no)
 from Watson and Ahumada came out in the same year and covers many of the same
 points.
 
@@ -247,7 +256,7 @@ Using the equations from Adelson and Bergen, 1985, we can make the same
 little motion energy filters. Note: in my visualization below, time runs up.
 
 The two filters on the right are selective to and edge moving to the right and are 90° out of phase with eachother.
-The two filters on the left are slective to a leftward moving edge and are 90° out of phase with each other.
+The two filters on the left are selective to a leftward moving edge and are 90° out of phase with each other.
 
 <img
   src="/motionillusionblog/adelsonOrientedFilters.png"
@@ -265,10 +274,10 @@ Here's a movie of what these look like:
   style="max-width: 30em" />
 
 Let's pause for a second here and take note of two things:
-1. These little movies look a lot like what the edges of the marios do. So, contrary to the claim that the marios are "not moving" they are, in fact, made up of the fundamental elements of motion.
+1. These little movies look a lot like what the edges of the marios do. So, **contrary to the claim that the marios are "not moving" they are, in fact, made up of the fundamental elements of motion**.
 2. Derivatives
-   
-### Derivatives
+
+### What? Derivatives?
 How did Adelson and Bergen make these little moving edge detectors? Well, the key underlying component is the concept of a derivative. The spatial selectivity of these filters was created by taking the 1st and 2nd derivatives of a Gaussian.
 
 The first idea to get across is that derivatives detect change (that's basically the definition). The derivative of a function $\frac{\partial}{\partial x} f(x)$ is how much the function value ($f(x)$) changes for really small changes in $x$. That $\partial x$ just means "tiny changes in x".
@@ -293,16 +302,16 @@ So, one way to make a little "edge detector" is a derivative filter. Thinking of
   alt="Motion Energy Legend"
   style="max-width: 10em; margin: 2em auto; display: block;" />
 
-Remember, the Mario we cropped looked like it was moving to the right. 
+Remember, the Mario we cropped looked like it was moving to the right.
 
 <video
-  src="/motionillusionblog/MarioCropped.mp4"
+  src="/motionillusionblog/MarioGray.mp4"
   autoplay
   loop
   muted
   style="max-width: 60em" />
 
-And the motion energy model agrees. That Mario is moving to the right.
+And the motion energy model agrees: Mario is moving to the right.
 
 <video
   src="/motionillusionblog/MarioCropped_motE_1.mp4"
@@ -311,9 +320,10 @@ And the motion energy model agrees. That Mario is moving to the right.
   muted
   style="max-width: 20em" />
 
-**We can see a couple cool things from this movie:**
-1. Rightward motion is only detected along the vertical edges. This is consistent with a principle that motion can only be encoded in the direction perpondicular to the orientation of an edge.
-2. There is some detected motion upwards and downwards at the top and bottom of the marios. This is also consistent with the point about edges made above.
+We can see a couple cool things from this movie:
+
+1. **Rightward motion is only detected along the vertical edges**. This is consistent with a principle that motion can only be encoded in the direction perpendicular to the orientation of an edge.
+2. **There is some detected motion upwards and downwards at the top and bottom of the marios**. This is also consistent with the point about edges made above.
 
 Our local motion detectors can't integrate motion over large parts of space, so they only "see" the local signals at edges.
 
@@ -326,7 +336,7 @@ Let's look at what happens with the full Mario illusion:
   muted
   style="max-width: 40em" />
 
-The motion energy model agrees (mostly) with our percept of the marios. One issue visulizing it this way is that the colors mask the edges which kills the illusion. So, let's just look at the average motion energy over time:
+The motion energy model agrees (mostly) with our percept of the Marios. One issue visualizing it this way is that the colors mask the edges which kills the illusion. So, let's just look at the average motion energy over time:
 
 <img
   src="/motionillusionblog/MarioReversePhi_Adelson1.png"
@@ -355,10 +365,15 @@ The motion energy filters we made were constructed using derivative filters. Der
 Some other people have pointed out the strong effect of the edges for seeing object motion.
 
 <Tweet id="1331678121976684544" />
+
 I think another way of saying this is that early vision works with [derivatives](http://persci.mit.edu/pub_pdfs/elements91.pdf), and high-level vision can only integrate those signals. So it kinda makes sense that high-level percepts would depend so much on edges.
 
 Additionally, some people report being able to modulate whether they see the motion or not.
+
 <Tweet id="1335302102957006848" />
-I'm not quite sure about the interpretation regarding "sense of self", but I can also modulate how big the effect is. One trivial way to do this is to move my eyes to different locations. If I look well off the marios, there is no perceived motion. But that's not what this Tweet was about. If I try hard enough (and I'm not sure exactly what I'm doing), I can get the effect to go away. I have two ideas about this. The first is that maybe I'm doing something weird with my fixational eye movements or accomodation. The second option is that I'm playing with my attentional readout of the low-level sensory signals. There's no getting around what's in the video (there is motion energy), so to be able to modulate this has something to do with how it's integrated.
+
+I'm not quite sure about the interpretation regarding "sense of self", but I can also modulate how big the effect is. One trivial way to do this is to move my eyes to different locations. If I look well off the marios, there is no perceived motion. But that's not what this Tweet was about.
+
+If I try hard enough (and I'm not sure exactly what I'm doing), I can get the effect to go away. I have two ideas about this. The first is that maybe I'm doing something weird with my fixational eye movements or accommodation. The second option is that I'm playing with my attentional readout of the low-level sensory signals. There's no getting around what's in the video (there is motion energy), so to be able to modulate this has something to do with how it's integrated.
 
 If I get some time this weekend I'll try running the illusion through Flownet2 to see if machine vision that pools across local motion signals does anything interesting.
