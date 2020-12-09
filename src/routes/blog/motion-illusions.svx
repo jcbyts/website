@@ -9,6 +9,7 @@ description: The one in which we talk about motion
   import Tweet from "../../components/Tweet.svelte";
   import OrangutanScrubber from "../../components/OrangutanScrubber.svelte";
   import MarioScrubber from "../../components/MarioScrubber.svelte";
+  import BarScrubber from "../../components/BarScrubber.svelte";
 </script>
 
 There have been a lot of visual motion illusions going around Twitter recently. I think it is super cool that people find these motion demos so compelling. However, I've been surprised to see lots of claims that there is "no motion" in the illusions and most people seem to think there's some perceptual magic going on.
@@ -24,7 +25,7 @@ The marios look like they're moving throughout the level, but each mario never g
   autoplay
   loop
   muted
-  style="max-width: 30em" />
+  style="max-width: min(100%, 30em)" />
 
 
 A number of people have expressed wonder at this example, pointing out that "nothing is actually moving".
@@ -62,7 +63,7 @@ sense in a minute. Here's a video of a real moving thing swinging.
   autoplay
   loop
   muted
-  style="max-width: 30em" />
+  style="max-width: min(100%, 30em)" />
 
 <!-- https://giphy.com/natgeochannel/ -->
 <p style="text-align: center; margin: -1.4em 0 2em">from <a href="https://giphy.com/search/monkey-swing">Giphy</a></p>
@@ -120,7 +121,7 @@ component of the illusion.
   autoplay
   loop
   muted
-  style="max-width: 60em" />
+  style="max-width: min(100%, 60em)" />
 
 If we take a slice through this mario, we can use the intuitions we learned above to see what's going on. In this figure, time is running up.
 
@@ -140,7 +141,7 @@ are oriented at the edge.
 <img
   src="/motionillusionblog/coloredgeannotated.png"
   alt="Annotated Space-time slice"
-  style="max-width: 10em; display: block;" />
+  style="max-width: min(100%, 10em); display: block;" />
 
 **The color has nothing to do with the illusion** - let's rid of it for now because it's just a distraction. Here you'll see the same Mario in grayscale
 (I've just averaged across the color channels) and you can still see the effect.
@@ -150,7 +151,7 @@ are oriented at the edge.
   autoplay
   loop
   muted
-  style="max-width: 60em" />
+  style="max-width: min(100%, 60em)" />
 
 From here, we can construct a really simple illusion
 that follows the same principles. We'll build an image that represents space-time
@@ -164,7 +165,7 @@ again. Before scrolling down, **try to imagine what this looks like if we played
 <img
   src="/motionillusionblog/constructedspacetime.png"
   alt="Constructed Space Time Slice"
-  style="max-width: 20em; display: block;" />
+  style="max-width: min(100%, 20em); display: block;" />
 
 Since there is only 1D space in our
 image from above, we don't have a 2D image at each time point. But, we can
@@ -175,18 +176,21 @@ illusion.
 <img
   src="/motionillusionblog/constructedframe.png"
   alt="Constructed Space Time Frame"
-  style="max-width: 20em; display: block;" />
+  style="max-width: min(100%, 20em); display: block;" />
 
 
 And here's the full movie of our space-time constructed object.
 
+<BarScrubber />
+
+<!--
 <video
   src="/motionillusionblog/1Dflicker.mp4"
   autoplay
   loop
   muted
-  style="max-width: 10em" />
-
+  style="max-width: min(100%, 10em)" />
+ -->
 
 If we look back at the space-time construction again, we can see something interesting. There is an
 edge moving to the right, but it keeps jumping back and changing sign (white is
@@ -195,9 +199,7 @@ on ones side and black on the other and then it flips).
 <img
   src="/motionillusionblog/grayedgesannotated.png"
   alt="Orangutan Space-time Annotations"
-  style="max-width: 15em; display: block;" />
-
-  <!-- let's do this, scrubby-style -->
+  style="max-width: min(100%, 15em); display: block;" />
 
 But we keep seeing motion to the right. **This tells us something: our visual motion system doesn't
 care about the sign of that edge.** The lingo that vision scientists use to talk about
@@ -228,7 +230,7 @@ continuously moving. But, of course, movies have frames and a frame rate. Panel
 <img
   src="/motionillusionblog/AdelsonBergenMotionOrientation.png"
   alt="Motion as edge orientation"
-  style="max-width: 40em; margin: 2em auto; display: block;" />
+  style="max-width: min(100%, 40em); margin: 2em auto; display: block;" />
 
 From here, it makes sense to think about how to build detectors for motion. The
 picture below shows that if you had an oriented filter in space time, you could
@@ -239,14 +241,14 @@ Hubel and Wiesel found in their classic expriments on primary visual cortex, whi
 <img
   src="/motionillusionblog/AdelsonBergenEdgeDetector.png"
   alt="Motion as edge detectors"
-  style="max-width: 40em; margin: 2em auto; display: block;" />
+  style="max-width: min(100%, 40em); margin: 2em auto; display: block;" />
 Importantly, these edge detectors still care about the sign of the edge. This,
 as we noted above, is unlike our percept. To build detectors that do not care
 about phase (don't care about the polarity of the edge). We can combine two oriented filters that care about opposite signs. In technical terms, these filters are 90° out of phase, forming a "Quadrature Pair". Really don't worry about that jargon. This just means that where one filter *likes* white, the other *likes* black (and vice versa).
 <img
   src="/motionillusionblog/AdelsonBergenQpair.png"
   alt="Phase-invariant filters"
-  style="max-width: 20em; margin: 2em auto; display: block;" />
+  style="max-width: min(100%, 20em); margin: 2em auto; display: block;" />
 
 > Note: A very [related paper](https://www.osapublishing.org/DirectPDFAccess/4E69228F-07D1-9374-DF04DF81D3560F3A_1949/josaa-2-2-322.pdf?da=1&id=1949&seq=0&mobile=no)
 from Watson and Ahumada came out in the same year and covers many of the same
@@ -261,7 +263,7 @@ The two filters on the left are selective to a leftward moving edge and are 90°
 <img
   src="/motionillusionblog/adelsonOrientedFilters.png"
   alt="Phase-invariant filters for left and right"
-  style="max-width: 30em; margin: 2em auto; display: block;" />
+  style="max-width: min(100%, 30em); margin: 2em auto; display: block;" />
 
 
 Here's a movie of what these look like:
@@ -271,7 +273,7 @@ Here's a movie of what these look like:
   autoplay
   loop
   muted
-  style="max-width: 30em" />
+  style="max-width: min(100%, 30em)" />
 
 Let's pause for a second here and take note of two things:
 1. These little movies look a lot like what the edges of the marios do. So, **contrary to the claim that the marios are "not moving" they are, in fact, made up of the fundamental elements of motion**.
@@ -289,7 +291,7 @@ A Gaussian is a smooth bump spatially and taking the derivative can create the t
 <img
   src="/motionillusionblog/gaussianderivative.png"
   alt="Gaussian Derivative"
-  style="max-width: 20em; margin: 2em auto; display: block;" />
+  style="max-width: min(100%, 20em); margin: 2em auto; display: block;" />
 
 
 So, one way to make a little "edge detector" is a derivative filter. Thinking of early vision in terms of little derivatives is [really useful](http://persci.mit.edu/pub_pdfs/elements91.pdf).
@@ -300,7 +302,7 @@ So, one way to make a little "edge detector" is a derivative filter. Thinking of
 <img
   src="/motionillusionblog/motionlegendtitle.png"
   alt="Motion Energy Legend"
-  style="max-width: 10em; margin: 2em auto; display: block;" />
+  style="max-width: min(100%, 10em); margin: 2em auto; display: block;" />
 
 Remember, the Mario we cropped looked like it was moving to the right.
 
@@ -309,7 +311,7 @@ Remember, the Mario we cropped looked like it was moving to the right.
   autoplay
   loop
   muted
-  style="max-width: 60em" />
+  style="max-width: min(100%, 60em)" />
 
 And the motion energy model agrees: Mario is moving to the right.
 
@@ -318,7 +320,7 @@ And the motion energy model agrees: Mario is moving to the right.
   autoplay
   loop
   muted
-  style="max-width: 20em" />
+  style="max-width: min(100%, 20em)" />
 
 We can see a couple cool things from this movie:
 
@@ -334,14 +336,14 @@ Let's look at what happens with the full Mario illusion:
   autoplay
   loop
   muted
-  style="max-width: 40em" />
+  style="max-width: min(100%, 40em)" />
 
 The motion energy model agrees (mostly) with our percept of the Marios. One issue visualizing it this way is that the colors mask the edges which kills the illusion. So, let's just look at the average motion energy over time:
 
 <img
   src="/motionillusionblog/MarioReversePhi_Adelson1.png"
   alt="Motion Energy Marios"
-  style="max-width: 40em; margin: 2em auto; display: block;" />
+  style="max-width: min(100%, 40em); margin: 2em auto; display: block;" />
 
 
 ## Conclusions

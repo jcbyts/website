@@ -126,4 +126,13 @@
     letter-spacing: 0.06em;
     z-index: 10;
   }
+
+  @media (max-width: 500px) {
+    .c {
+      flex-direction: column;
+    }
+    .right {
+      margin-top: 0.6em;
+    }
+  }
 </style>
