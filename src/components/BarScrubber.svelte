@@ -7,9 +7,9 @@
     leftImage={'/motionillusionblog/1Dbars_GifAsImg.jpeg'}
     rightImage={'/motionillusionblog/1Dbars_buckets.jpeg'}
     numberOfFrames={60 - 1}
-    numberOfBuckets={244 / 5 - 1}
-    leftAspectRatio={244 / 244}
-    rightAspectRatio={244 / 244}
+    numberOfBuckets={240 / 5 - 1}
+    leftAspectRatio={240 / 240}
+    rightAspectRatio={240 / 240}
     playRate={0.016}
     playFrameRate={100} />
 </div>

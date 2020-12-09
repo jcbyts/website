@@ -151,7 +151,7 @@ are oriented at the edge.
   autoplay
   loop
   muted
-  style="max-width: min(100%, 60em)" />
+  style="width: 10em; max-width: min(100%, 60em)" />
 
 From here, we can construct a really simple illusion
 that follows the same principles. We'll build an image that represents space-time
@@ -311,7 +311,7 @@ Remember, the Mario we cropped looked like it was moving to the right.
   autoplay
   loop
   muted
-  style="max-width: min(100%, 60em)" />
+  style="width: 10em; max-width: min(100%, 60em)" />
 
 And the motion energy model agrees: Mario is moving to the right.
 
