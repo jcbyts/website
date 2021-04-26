@@ -1,0 +1,12 @@
+---
+title: The noisier model is better?
+date: 2021-3-3
+description: A perplexing situation where a worse model is better
+draft: true
+---
+
+I recently understood a figure from a paper or the first time the other day and the implications have been bugging me since. I'll talk more about the specific figure below, but the broad implications for neural modeling bother me: it turns out there are lots of ways that a **more accurate model of neural responses can perform worse than a noisy model during statistical model comparison even though it's a better model**.
+
+## How do neuroscientists decide which model is best?
+
+The basic idea of most statistical models is that you have some mathematical equations that can generate fake data. In the case of neuroscience, it might be math that you think [real neurons are doing]() or it might be an equation that provides a nice [functional description of a neuron's response](), but at the end of the day, you can make fake data that looks like real data once you've set the **parameters** of the model correclty. There are many ways to learn the correct parameters, but one of the most common is to pick a **loss function** that specifies some
