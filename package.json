@@ -1,9 +1,8 @@
 {
-  "name": "~TODO~",
+  "name": "jacob-yates",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
-    "debug": "node run dev -- --inspect-brk=9229",
     "build": "svelte-kit build",
     "preview": "svelte-kit preview",
     "postinstall": "npx patch-package",

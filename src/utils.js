@@ -1,5 +1,4 @@
-import { onDestroy } from 'svelte';
-import { csvParse } from "d3-dsv";
+import { onDestroy } from "svelte";
 
 // grabbed from https://gist.github.com/callumlocke/cc258a193839691f60dd
 export const scaleCanvas = (canvas, context, width, height) => {
@@ -111,22 +110,23 @@ export const fromPairs = (arr) => {
   return res;
 };
 
-
 export function onInterval(callback, milliseconds) {
-  let interval
+  let interval;
   const play = () => {
     interval = setInterval(callback, milliseconds);
-  }
+  };
   const pause = () => {
     clearInterval(interval);
-  }
-  play()
+  };
+  play();
 
-	onDestroy(() => {
-		pause()
+  onDestroy(() => {
+    pause();
   });
 
   return {
-    interval, pause, play
-  }
+    interval,
+    pause,
+    play,
+  };
 }

@@ -1,5 +1,6 @@
 <script>
-  import { format as d3Format, interpolate, timer as d3Timer } from "d3";
+  import * as d3 from "d3";
+  const { format: d3Format, interpolate, timer: d3Timer } = d3;
 
   export let number = null;
   export let format = ",.2f";
@@ -7,7 +8,7 @@
 
   let displayNumber = 0;
   $: cachedNumber = 0;
-  $: formatFunction = d => {
+  $: formatFunction = (d) => {
     try {
       return typeof format == "string" ? d3Format(format)(d) : format(d);
     } catch (e) {
@@ -19,7 +20,7 @@
   const startInterpolate = () => {
     const interpolationFunction = interpolate(cachedNumber, number);
 
-    const timer = d3Timer(timeElapsed => {
+    const timer = d3Timer((timeElapsed) => {
       const t = timeElapsed / duration;
 
       displayNumber = interpolationFunction(t);
@@ -37,7 +38,9 @@
 </script>
 
 <span class="c">
-  {Number.isFinite && Number.isFinite(+displayNumber) ? formatFunction(displayNumber) : '-'}
+  {Number.isFinite && Number.isFinite(+displayNumber)
+    ? formatFunction(displayNumber)
+    : "-"}
 </span>
 
 <style>

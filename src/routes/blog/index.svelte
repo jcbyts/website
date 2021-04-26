@@ -22,7 +22,8 @@
 </script>
 
 <script>
-  import { timeFormat } from "d3";
+  import * as d3 from "d3";
+  const { timeFormat } = d3;
 
   export let posts = [];
   const formatDate = timeFormat("%b %e, %Y");
