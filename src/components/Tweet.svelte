@@ -1,17 +1,18 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
 
   export let id = "";
   export let options = {};
 
   let tweetElement;
 
-  onMount(() => {
+  onMount(async () => {
     if (!twttr) return;
     if (!twttr.widgets) {
       twttr.ready(initTweet);
       return;
     }
+    await tick();
     initTweet();
   });
 

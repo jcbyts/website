@@ -70,14 +70,20 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
       }),
       svelte({
-        dev,
-        hydratable: true,
-        emitCss: true,
         preprocess,
         extensions,
+        emitCss: true,
+        css: css => {
+          css.write('public/build/bundle.css')
+        },
+        compilerOptions: {
+          dev,
+          hydratable: true,
+        },
       }),
       resolve({
         browser: true,
+        mainFields: ["svelte", "module", "browser", "main"],
         dedupe: ["svelte"],
       }),
       commonjs(),
@@ -130,13 +136,17 @@ export default {
         "process.env.NODE_ENV": JSON.stringify(mode),
       }),
       svelte({
-        generate: "ssr",
-        hydratable: true,
-        dev,
+        compilerOptions: {
+          dev,
+          generate: "ssr",
+          hydratable: true,
+        },
         preprocess,
         extensions,
+        // emitCss: true,
       }),
       resolve({
+        mainFields: ["svelte", "module", "browser", "main"],
         dedupe: ["svelte"],
       }),
       commonjs(),
