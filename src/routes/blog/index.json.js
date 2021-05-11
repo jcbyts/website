@@ -21,6 +21,6 @@ export async function get() {
   );
 
   return {
-    body: pages,
+    body: pages.sort((a,b) => new Date(b.date) - new Date(a.date)),
   };
 }
