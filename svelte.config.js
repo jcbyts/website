@@ -1,9 +1,9 @@
-const { mdsvex } = require("mdsvex");
-const mdsvexConfig = require("./mdsvex.config.cjs");
-const netlifyAdapter = require("@sveltejs/adapter-netlify");
+import { mdsvex } from "mdsvex"
+import mdsvexConfig from "./mdsvex.config.cjs"
+import netlifyAdapter from "@sveltejs/adapter-netlify"
 /** @type {import('@sveltejs/kit').Config} */
 
-module.exports = {
+export default {
   preprocess: [mdsvex(mdsvexConfig)],
   extensions: [".svelte", ...mdsvexConfig.extensions],
   kit: {
