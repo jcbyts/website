@@ -11,24 +11,24 @@ I recently had to setup an experimental rig with an interface between Matlab and
 The matlab toolbox is pretty easy to use. We need a rotary encoder to read out the turns of the treadmill, and that's already built in as toolbox (again, figure this is a pretty common task). The code to connect and setup the rotary encoder look like this:
 
 <img
-  src="/static/arduinoblog/fig02_open.png"
+  src="/arduinoblog/fig02_open.png"
   alt="Connect to the Arduino" style="max-width: 40em; width: 100%" />
 
-The encoder uses digital inputs 2 and 3. 
+The encoder uses digital inputs 2 and 3.
 
-Great. Simple enough. But is it fast enough? Our experiment code runs visual stimuli at 120 or 240Hz. That means we have to complete all analyses of behavior within ~7 or ~3.5 ms before we absolutely have to draw the stimuli. These numbers shrink if the stimuli are really complicated. All time matters (e.g., communicating with the syringe pump to send reward takes ~0.5 ms). 
+Great. Simple enough. But is it fast enough? Our experiment code runs visual stimuli at 120 or 240Hz. That means we have to complete all analyses of behavior within ~7 or ~3.5 ms before we absolutely have to draw the stimuli. These numbers shrink if the stimuli are really complicated. All time matters (e.g., communicating with the syringe pump to send reward takes ~0.5 ms).
 
 To compute the arduino toolbox call time, I just ran the main call 1000 times in a for loop and measured the elapsed time. The code looks like this:
 
 <img
-  src="/static/arduinoblog/fig03_loop.png"
+  src="/arduinoblog/fig03_loop.png"
   alt="Loop calls to rotary encoder" style="max-width: 40em; width: 100%" />
 
 Pretty straightforward. And the output?
 
 `Median Duration Arduino Toolbox = 8.07 [7.89, 8.23] ms`
 <img
-  src="/static/arduinoblog/fig04_summary.png"
+  src="/arduinoblog/fig04_summary.png"
   alt="Arduino toolbox call time" style="max-width: 30em; width: 100%" />
 
 This just won't work. Matlab hangs for ~8ms each time the toolbox calls. At that rate, we'd drop every single frame of the experiment. This would be possible at a 60Hz refresh rate, but that's just too slow for reasonable motion stimuli. I searched the Mathworks forums and Arduino forums and there's a lot of chatter about how slow this is, but also a lot of insistance that "this is just how fast you can run over USB". That can't be right. And it isn't. There's a faster way...
@@ -43,38 +43,37 @@ The code sketch has 4 parts: `variable declaration`, `setup`, `main loop`, and `
 
 We use the `digitalWriteFast` library which supposedly offers substantial speedup over the default `digitalWrite` function in the default Arduino library. All variables are setup here:
 <img
-  src="/static/arduinoblog/fig05_libvar.png"
+  src="/arduinoblog/fig05_libvar.png"
   alt="Sketch libraries and variables" style="max-width: 40em; width: 100%" />
 
 Then we setup the serial buffer and initialize the encoder pins. The rotary encoder operates as an interrupt that responds to the rising edge of the digital inputs.
 <img
-  src="/static/arduinoblog/fig06_setup.png"
+  src="/arduinoblog/fig06_setup.png"
   alt="Sketch setup" style="max-width: 40em; width: 100%" />
 
 The main loop just dumps the current time and encoder count to the serial buffer. It also listens for a "reset" command to reset the counter, which is necessary so that our count doesn't exceed the bitdepth of the `long` type we're storing them as.
 <img
-  src="/static/arduinoblog/fig07_loop.png"
+  src="/arduinoblog/fig07_loop.png"
   alt="Sketch main loop" style="max-width: 40em; width: 100%" />
 
 The loop depends on the encoder to detect digital ins and count them.
 <img
-  src="/static/arduinoblog/fig08_encoder.png"
-  alt="Sketch encoder" style="max-width: 40em; width: 100%" /> 
+  src="/arduinoblog/fig08_encoder.png"
+  alt="Sketch encoder" style="max-width: 40em; width: 100%" />
 
 It's pretty straightforward. The output lools something like this. So these are the lines we need to read.
 <img
-  src="/static/arduinoblog/fig09_outpu.png"
+  src="/arduinoblog/fig09_outpu.png"
   alt="Sketch serial buffer output" style="max-width: 20em; width: 100%" />
-
 
 Back in matlab, we can setup our serial connection to the arduino like this:
 <img
-  src="/static/arduinoblog/fig11_approach2mat.png"
+  src="/arduinoblog/fig11_approach2mat.png"
   alt="IOPort connection" style="max-width: 40em; width: 100%" />
 
 We need to parse the buffer to make sense of the encoded values. I used regexp to parse the "time" and "count" keywords. There must be a smarter way to read from the buffer, but I wanted to do it as fast as possible.
 <img
-  src="/static/arduinoblog/fig12_approach2matloop.png"
+  src="/arduinoblog/fig12_approach2matloop.png"
   alt="IOPort read and loop" style="max-width: 40em; width: 100%" />
 
 After all this, we can see how fast the calls are.
@@ -82,12 +81,9 @@ After all this, we can see how fast the calls are.
 `Median Duration IOPort = 0.59 [0.58, 0.59] ms`
 
 <img
-  src="/static/arduinoblog/fig10_summary.png"
+  src="/arduinoblog/fig10_summary.png"
   alt="IOPort read speed" style="max-width: 30em; width: 100%" />
 
 This is a huge speed up! We went from 8ms to 0.5ms and we are getting the correct encoder values. However, useing this approach, we miss a fraction of the samples because the buffer is only partially full and the keywords can be missed. I haven't fully debugged how to improve this yet, but now we can read from the treadmill online without dropping frames.
 
 The [treadmill code](https://github.com/jcbyts/MarmoV5/blob/master/%2Bmarmoview/treadmill_arduino.m) I wrote is available on my github and the [arduino sketch](https://github.com/jcbyts/MarmoV5/blob/master/SupportFunctions/sketch_rotary_serial.ino) is available as well.
-
-
-
