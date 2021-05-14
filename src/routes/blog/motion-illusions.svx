@@ -385,17 +385,9 @@ If I try hard enough (and I'm not sure exactly what I'm doing), I can get the ef
 ## Update: Does Flownet2 match our perception?
 Flownet2 is the latest version of Deep Learning's answer to optic flow. For our intents and purposes here *optic flow* just means *visual motion*. The paper describing the model is [here](https://arxiv.org/abs/1612.01925) and NVIDIA have kindly provided a [pytorch implementation](https://github.com/NVIDIA/flownet2-pytorch). I haven't had much time to play with the full model, and I'm currently limited to frame width that cropped my original video, but it's already producing interesting and VERY different output than Adelson Bergen.
 
-Here's a video visualizing the optic flow in the mario illusion:
+Here's a video visualizing the optic flow produced by FlowNet2 in the mario illusion and comparing that to Adelson Bergen:
 <video
-  src="/motionillusionblog/marioreversephi_flownet.avi"
-  autoplay
-  loop
-  muted
-  style="max-width: min(100%, 40em)" />
-
-And here's Adelson Bergen 85 using the same visualization:
-<video
-  src="/motionillusionblog/MarioReversePhi_motE_1fnetvis.mp4"
+  src="/motionillusionblog/marioreversephi_flownetcomp.mp4"
   autoplay
   loop
   muted
