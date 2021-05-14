@@ -382,4 +382,23 @@ I'm not quite sure about the interpretation regarding "sense of self", but I can
 
 If I try hard enough (and I'm not sure exactly what I'm doing), I can get the effect to go away. I have two ideas about this. The first is that maybe I'm doing something weird with my fixational eye movements or accommodation. The second option is that I'm playing with my attentional readout of the low-level sensory signals. There's no getting around what's in the video (there is motion energy), so to be able to modulate this has something to do with how it's integrated.
 
-If I get some time this weekend I'll try running the illusion through Flownet2 to see if machine vision that pools across local motion signals does anything interesting.
+## Update: Does Flownet2 match our perception?
+Flownet2 is the latest version of Deep Learning's answer to optic flow. For our intents and purposes here *optic flow* just means *visual motion*. The paper describing the model is [here](https://arxiv.org/abs/1612.01925) and NVIDIA have kindly provided a [pytorch implementation](https://github.com/NVIDIA/flownet2-pytorch). I haven't had much time to play with the full model, and I'm currently limited to frame width that cropped my original video, but it's already producing interesting and VERY different output than Adelson Bergen.
+
+Here's a video visualizing the optic flow in the mario illusion:
+<video
+  src="/motionillusionblog/marioreversephi_flownet.avi"
+  autoplay
+  loop
+  muted
+  style="max-width: min(100%, 40em)" />
+
+And here's Adelson Bergen 85 using the same visualization:
+<video
+  src="/motionillusionblog/MarioReversePhi_motE_1fnetvis.mp4"
+  autoplay
+  loop
+  muted
+  style="max-width: min(100%, 40em)" />
+
+First off, flownet looks beautiful, but it totally fails to capture the illusion. I haven't had a chance to try other versions of the model, but this is not a win for modern machine learning. Adelson Bergen, on the other hand, captures the perceptual effect well. I think I'll do a deep dive into flownet in the future and see whether there is evidence for phase invariance, or why it is so blobby and full of flicker. Anyway, for now, it's nice to see that such a simple model from the 1980s performs so well on this "task". Makes you wonder whether building in some of these principled constraints would make flownet match human perception more closely.
