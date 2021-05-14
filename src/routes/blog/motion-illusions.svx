@@ -194,9 +194,9 @@ edge moving to the right, but it keeps jumping back and changing sign (white is
 on ones side and black on the other and then it flips).
 
 <img
-  src="/motionillusionblog/grayedgesannotated.png"
+  src="/motionillusionblog/grayannotated.png"
   alt="Orangutan Space-time Annotations"
-  style="max-width: min(100%, 15em); display: block;" />
+  style="max-width: min(100%, 40em); display: block;" />
 
 But we keep seeing motion to the right. **This tells us something: our visual motion system doesn't
 care about the sign of that edge.** The lingo that vision scientists use to talk about
