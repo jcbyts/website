@@ -1,7 +1,7 @@
 <script>
   import { fly } from "svelte/transition";
 
-  import Publication from "./../components/Publication.svelte";
+  import Publication from "$src/components/Publication.svelte";
   import publications from "./_publications.json";
 </script>
 
@@ -9,15 +9,15 @@
   <title>Jacob Yates: Publications</title>
 </svelte:head>
 
-<div class="publications">
+<div class="">
   <h1>Selected Publications</h1>
   <p>
-    Find a complete list of publications{' '}
+    Find a complete list of publications{" "}
     <a href="https://scholar.google.com/citations?user=UJm-TkYAAAAJ&hl=en">
       here
     </a>
   </p>
-  <div class="list">
+  <div class="-ml-14 space-y-12">
     {#each publications as publication, i (publication.title)}
       <div in:fly={{ x: -30, delay: i * 200 }}>
         <Publication {...publication} />
@@ -25,9 +25,3 @@
     {/each}
   </div>
 </div>
-
-<style>
-  .list {
-    margin: 0 -1.6em;
-  }
-</style>

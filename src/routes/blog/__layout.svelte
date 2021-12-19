@@ -25,19 +25,19 @@
 
 <script>
   import { dev } from "$app/env";
-  import { page } from "$app/stores";
+  import { timeFormat } from "d3";
 
   export let segment;
   export let metadata = {};
 
-  $: isIndex = $page.path === "/blog";
-  $: title = (metadata || {}).title;
-  $: slug = (metadata || {}).slug;
-  $: isDraft = !isIndex && (metadata || {}).draft;
+  $: title = metadata?.title;
+  $: slug = metadata?.slug;
+  $: isDraft = metadata?.draft;
+  const formatDate = timeFormat("%b %e, %Y");
 </script>
 
 <svelte:head>
-  <title>{title || "Blog"}</title>
+  <title>{title}</title>
   <meta property="og:type" content="article" />
   <meta
     property="og:url"
@@ -45,9 +45,14 @@
   />
 </svelte:head>
 
-<h1>{title || "Blog"}</h1>
+<h1 class="mb-0">{title}</h1>
+<div class="mt-2 font-mono text-gray-500">
+  {formatDate(new Date(metadata?.date))}
+</div>
 
-<div class="content">
+<div
+  class="content bg-white mt-10 -mx-14 py-16 px-14 shadow-2xl shadow-blue-50"
+>
   {#if isDraft}
     {#if dev}
       <blockquote>
@@ -61,105 +66,3 @@
     <slot />
   {/if}
 </div>
-
-<style>
-  .content :global(h2) {
-    font-size: 1.4em;
-    font-weight: 500;
-  }
-
-  .content :global(pre) {
-    background-color: #f9f9f9;
-    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
-    padding: 0.5em;
-    border-radius: 2px;
-    overflow-x: auto;
-  }
-
-  .content :global(pre) :global(code) {
-    background-color: transparent;
-    padding: 0;
-  }
-
-  .content :global(blockquote) {
-    margin-top: 3em;
-    padding: 1em 1.6em;
-    color: #264c67;
-    background: #f0f7fc;
-    font-style: normal;
-    border: none;
-  }
-
-  .content :global(blockquote strong) {
-    color: #264c67;
-  }
-
-  .content :global(ul) {
-    line-height: 1.5;
-  }
-
-  .content :global(ol) {
-    margin-top: -0.5em;
-  }
-
-  .content :global(li) {
-    margin: 0 0 0.5em 0;
-  }
-  .content > :global(video),
-  .content > :global(img) {
-    display: block;
-    max-width: 100%;
-    margin: 2em auto;
-    text-align: center;
-  }
-  .content :global(em) {
-    font-style: italic;
-  }
-  .content :global(strong) {
-    font-weight: 700;
-    color: #242424;
-  }
-
-  .content :global(h1) {
-    font-size: 3.6em;
-    font-weight: 800;
-  }
-
-  .content :global(h2) {
-    font-weight: 700;
-    font-size: 2em;
-  }
-
-  .content :global(h3) {
-    font-weight: 500;
-    font-size: 1.6em;
-    margin: 1.8em 0 0.9em;
-  }
-
-  .content :global(blockquote) {
-    margin-bottom: 2em;
-  }
-  .content :global(blockquote > p) {
-    margin-bottom: 0;
-  }
-  .content :global(blockquote > p + p) {
-    margin-top: 1em;
-  }
-
-  .content :global(.heading-link:before) {
-    content: "#";
-  }
-  .content :global(.heading-link) {
-    position: absolute;
-    margin-left: -1em;
-    font-weight: 300;
-    font-size: 0.8em;
-    text-decoration: none;
-  }
-
-  /* .content :global(.header-link) {
-  }
-  .content :global(.header-link:before) {
-    content: "#";
-  } */
-</style>

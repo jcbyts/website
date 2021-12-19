@@ -13,7 +13,7 @@ export async function get() {
           const { metadata } = await page();
           return { ...metadata, filename, slug };
         } catch (e) {
-          console.log("issue loading blog post", filename, e);
+          console.log("issue loading blog post", filename, e.loc);
           return { filename };
         }
       }
@@ -21,6 +21,6 @@ export async function get() {
   );
 
   return {
-    body: pages.sort((a,b) => new Date(b.date) - new Date(a.date)),
+    body: pages.sort((a, b) => new Date(b.date) - new Date(a.date)),
   };
 }

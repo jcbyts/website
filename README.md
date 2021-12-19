@@ -1,6 +1,6 @@
 # Jacob Yates' website
 
-Welcome! This site is built using Svelte & Sapper.
+Welcome! This site is built using Svelte & Sveltekit.
 
 ## Running the project
 

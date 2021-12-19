@@ -1,34 +1,25 @@
 <script>
-	import { onMount } from 'svelte';
+  import Nav from "$src/components/Nav.svelte";
+  import Footer from "$src/components/Footer.svelte";
+  import "./../app.css";
 
-	import Nav from '../components/Nav.svelte';
-	import Footer from '../components/Footer.svelte';
-
-	export let segment;
-
-	onMount(() => {
-		console.log('Hi!');
-	});
+  export let segment;
 </script>
 
+<div class="h-5 bg-black w-full" />
 <div class="container">
-	<Nav {segment} />
+  <div class="main">
+    <Nav {segment} />
 
-	<main>
-		<slot />
-	</main>
-
-	<Footer />
+    <main>
+      <slot />
+    </main>
+  </div>
 </div>
+<Footer />
 
 <style>
-	main {
-		position: relative;
-		box-sizing: border-box;
-	}
-	.container {
-		max-width: 60em;
-		margin: 0 auto;
-		padding: 2.5em 2em;
-	}
+  main {
+    position: relative;
+  }
 </style>

@@ -230,9 +230,8 @@ continuously moving. But, of course, movies have frames and a frame rate. Panel
 
 From here, it makes sense to think about how to build detectors for motion. The
 picture below shows that if you had an oriented filter in space time, you could
-detect the edge. For the non-scientists reading this, you can think of these
-filters like little "edge detectors". These types of oriented filters are decent enough descriptions of the responses of neurons in visual cortex. For example, here's a [link to a video](https://www.youtube.com/watch?v=Cw5PKV9Rj3o&feature=emb_title) of what
-Hubel and Wiesel found in their classic expriments on primary visual cortex, which they concluded looks like a little line (or edge) detector.
+detect the edge. For the non-scientists reading this, you can think of these filters like little "edge detectors". These types of oriented filters are decent enough descriptions of the responses of neurons in visual cortex. For example, here's a [link to a video](https://www.youtube.com/watch?v=Cw5PKV9Rj3o&feature=emb_title) of what
+Hubel and Wiesel found in their classic experiments on primary visual cortex, which they concluded looks like a little line (or edge) detector.
 
 <img
   src="/motionillusionblog/AdelsonBergenEdgeDetector.png"
@@ -383,7 +382,8 @@ I'm not quite sure about the interpretation regarding "sense of self", but I can
 If I try hard enough (and I'm not sure exactly what I'm doing), I can get the effect to go away. I have two ideas about this. The first is that maybe I'm doing something weird with my fixational eye movements or accommodation. The second option is that I'm playing with my attentional readout of the low-level sensory signals. There's no getting around what's in the video (there is motion energy), so to be able to modulate this has something to do with how it's integrated.
 
 ## Update: Does Flownet2 match our perception?
-Flownet2 is the latest version of Deep Learning's answer to optic flow. For our intents and purposes here *optic flow* just means *visual motion*. The paper describing the model is [here](https://arxiv.org/abs/1612.01925) and NVIDIA have kindly provided a [pytorch implementation](https://github.com/NVIDIA/flownet2-pytorch). I haven't had much time to play with the full model, and I'm currently limited to frame width that cropped my original video, but it's already producing interesting and VERY different output than Adelson Bergen.
+
+Flownet2 is the latest version of Deep Learning's answer to optic flow. For our intents and purposes here _optic flow_ just means _visual motion_. The paper describing the model is [here](https://arxiv.org/abs/1612.01925) and NVIDIA have kindly provided a [pytorch implementation](https://github.com/NVIDIA/flownet2-pytorch). I haven't had much time to play with the full model, and I'm currently limited to frame width that cropped my original video, but it's already producing interesting and VERY different output than Adelson Bergen.
 
 Here's a video visualizing the optic flow produced by FlowNet2 in the mario illusion and comparing that to Adelson Bergen:
 <video

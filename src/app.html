@@ -1,96 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta name="theme-color" content="#245242" />
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta
-      name="description"
-      content="Jacob Yates is a post-doc interested in how sensory signals are encoded into neural activity and how that activity is decoded to form perceptions and actions"
-    />
-    <meta name="news_keywords" content="tk" />
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	<meta name="theme-color" content="#245242" />
 
-    <meta property="og:title" content="Jacob Yates" />
-    <meta property="og:site_name" content="Jacob Yates" />
-    <meta property="og:url" content="https://jake.vision" />
-    <meta property="og:image" content="/share-image.png" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description"
+		content="Jacob Yates is a post-doc interested in how sensory signals are encoded into neural activity and how that activity is decoded to form perceptions and actions" />
+	<meta name="news_keywords" content="tk" />
 
-    <meta
-      property="og:description"
-      content="Jacob Yates is a post-doc interested in how sensory signals are encoded into neural activity and how that activity is decoded to form perceptions and actions"
-    />
-    <meta property="og:type" content="article" />
-    <meta property="og:locale" content="en_US" />
+	<meta property="og:title" content="Jacob Yates" />
+	<meta property="og:site_name" content="Jacob Yates" />
+	<meta property="og:url" content="https://jake.vision" />
+	<meta property="og:image" content="/share-image.png" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="https://jake.vision" />
-    <meta name="twitter:creator" content="@jcbyts" />
-    <meta name="twitter:title" content="Jacob Yates" />
-    <meta
-      name="twitter:description"
-      content="Jacob Yates is a post-doc interested in how sensory signals are encoded into neural activity and how that activity is decoded to form perceptions and actions"
-    />
+	<meta property="og:description"
+		content="Jacob Yates is a post-doc interested in how sensory signals are encoded into neural activity and how that activity is decoded to form perceptions and actions" />
+	<meta property="og:type" content="article" />
+	<meta property="og:locale" content="en_US" />
 
-    <title>Jacob Yates</title>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="https://jake.vision" />
+	<meta name="twitter:creator" content="@jcbyts" />
+	<meta name="twitter:title" content="Jacob Yates" />
+	<meta name="twitter:description"
+		content="Jacob Yates is a post-doc interested in how sensory signals are encoded into neural activity and how that activity is decoded to form perceptions and actions" />
 
-    <link rel="stylesheet" href="/reset.css" />
-    <link rel="stylesheet" href="/colors.css" />
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
+	<title>Jacob Yates</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-      integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
-      crossorigin="anonymous"
-    />
+	<link rel="stylesheet" href="/reset.css" />
+	<link rel="stylesheet" href="/colors.css" />
+	<link rel="stylesheet" href="/global.css" />
+	<link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="alternate icon" href="/favicon.ico" />
 
-    %svelte.head%
-  </head>
-  <body>
-    <div id="svelte">%svelte.body%</div>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+		integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous" />
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-96837436-1"
-    ></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
 
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+	%svelte.head%
+</head>
 
-      gtag("config", "UA-96837436-1");
-    </script>
+<body>
+	<div id="svelte">%svelte.body%</div>
 
-    <script>
-      window.twttr = (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0],
-          t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96837436-1"></script>
 
-        t._e = [];
-        t.ready = function (f) {
-          t._e.push(f);
-        };
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag("js", new Date());
 
-        return t;
-      })(document, "script", "twitter-wjs");
-    </script>
-  </body>
+		gtag("config", "UA-96837436-1");
+	</script>
+
+	<script>
+		window.twttr = (function (d, s, id) {
+			var js,
+				fjs = d.getElementsByTagName(s)[0],
+				t = window.twttr || {};
+			if (d.getElementById(id)) return t;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "https://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js, fjs);
+
+			t._e = [];
+			t.ready = function (f) {
+				t._e.push(f);
+			};
+
+			return t;
+		})(document, "script", "twitter-wjs");
+	</script>
+</body>
+
 </html>

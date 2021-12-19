@@ -1,7 +1,7 @@
 <script>
   import { fly } from "svelte/transition";
 
-  import Publication from "./../components/Publication.svelte";
+  import Publication from "$src/components/Publication.svelte";
   import publications from "./_publications.json";
   import cv from "./_cv.json";
 </script>
@@ -18,21 +18,30 @@
       <div class="section" in:fly={{ x: -30, delay: i * 200 }}>
         <h3>{title}</h3>
 
-        <div class="items">
-          {#if title.toLowerCase() === 'publications'}
+        <div
+          class="space-y-12"
+          class:-ml-14={title.toLowerCase() === "publications"}
+          class:-ml-8={title.toLowerCase() !== "publications"}
+          class:space-y-12={title.toLowerCase() === "publications"}
+          class:space-y-6={title.toLowerCase() !== "publications"}
+        >
+          {#if title.toLowerCase() === "publications"}
             {#each publications as publication (publication.title)}
               <Publication {...publication} />
             {/each}
           {/if}
           {#each items || [] as { title, when, who, authors, where, tag, footnote }}
-            <div class="item" key={title}>
-              <div class="main">
-                <div class="title">{title}</div>
-                {#each [who, authors, where, tag, footnote].filter((d) => d) as d (d)}
-                  <div class="note">{d}</div>
+            <div class="px-8 py-5 flex justify-between" key={title}>
+              <div class="">
+                <h3 class="mt-0">{title}</h3>
+                {#each [who, authors].filter((d) => d) as d (d)}
+                  <div class="text-gray-500">{d}</div>
+                {/each}
+                {#each [where, tag, footnote].filter((d) => d) as d (d)}
+                  <div class="text-gray-500">{d}</div>
                 {/each}
               </div>
-              <div class="when">{when}</div>
+              <div class="font-mono text-gray-500 mt-3">{when}</div>
             </div>
           {/each}
         </div>
@@ -42,36 +51,4 @@
 </div>
 
 <style>
-  .list {
-    margin: 0 -1.6em;
-  }
-
-  .list .section {
-    padding: 0.9em 1.6em;
-    margin: 1em 0 2em;
-    transition: all 0.3s ease-out;
-  }
-
-  .list .items {
-    margin: 0 -1.6em;
-  }
-  .item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0.6em 1.6em;
-    transition: all 0.3s ease-out;
-  }
-
-  .item .title {
-    font-size: 1.3em;
-    line-height: 1.3em;
-    font-weight: 700;
-    margin: 0.3em 0;
-  }
-
-  .item .main {
-    margin-right: 2em;
-  }
 </style>

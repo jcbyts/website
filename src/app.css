@@ -1,0 +1,248 @@
+@import url("https://rsms.me/inter/inter.css");
+
+@font-face {
+  font-family: "Fira Code";
+  src: url("/fonts/FiraCode-VF.woff2") format("woff2"),
+    url("/fonts/FiraCode-VF.woff") format("woff");
+}
+
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-sans;
+  @apply bg-sky-50;
+  font-size: 1.2em;
+  line-height: 1.66em;
+  letter-spacing: -0.006em;
+
+  --a1: #3498db;
+  --a2: #1abc9c;
+  --a3: #f39c12;
+  --tc: #2f3542;
+  --grey1: #8c96a8;
+}
+@media (max-width: 800px) {
+  body {
+    font-size: 1em;
+  }
+}
+
+h1 {
+  @apply font-serif;
+  margin: 1.5em 0 1em;
+  font-size: 4em;
+  font-weight: 900;
+  line-height: 1.05em;
+}
+h2 {
+  @apply font-serif;
+  margin: 2.5em 0 1em;
+  font-size: 3em;
+  font-weight: 900;
+  line-height: 1.3em;
+}
+h3 {
+  @apply font-serif;
+  margin: 2.7em 0 0.8em;
+  font-size: 1.9em;
+  font-weight: 900;
+  line-height: 1.3em;
+}
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 1.7em;
+  }
+  h3 {
+    font-size: 1.3em;
+  }
+}
+h4 {
+  @apply font-serif;
+  margin: 2rem 0 0.6rem;
+  font-size: 1.6em;
+  font-weight: 900;
+  line-height: 1.3em;
+}
+h5 {
+  margin: 2rem 0 0.6rem;
+  font-size: 1.3em;
+  font-weight: 900;
+  line-height: 1.3em;
+  letter-spacing: -0.018em;
+}
+h6 {
+  margin: 1rem 0 0.6rem;
+  font-size: 1em;
+  font-weight: 900;
+  line-height: 1.3em;
+}
+
+p {
+  margin-bottom: 1.2em;
+}
+
+ul,
+ol {
+  margin: 1.6em 0 1.6em 1em;
+}
+
+li {
+  margin: 0.6em 0;
+}
+
+a {
+  @apply text-sky-600;
+  background: rgba(255, 255, 255, 1);
+  padding: 0.1em 0.3em;
+  margin: -0.1em -0.3em;
+}
+
+a:visited {
+  @apply text-teal-600;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 3px solid var(--a1);
+  padding: 0.6em 1.6em;
+  margin-left: 0;
+}
+
+hr {
+  @apply bg-white;
+  height: 1px;
+  appearance: none;
+  margin: 6em 0;
+  outline: none;
+  border: none;
+}
+.white hr {
+  @apply bg-slate-100;
+}
+
+.button:not(.plain),
+button:not(.plain) {
+  appearance: none;
+  padding: 0.7em 1.3em;
+  font-size: 1em;
+  background: var(--a1);
+  color: white;
+  border: 1px solid var(--a1);
+  font-family: "Inter", sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.plain {
+  appearance: none;
+  background: none;
+  text-align: left;
+  border: none;
+  box-shadow: none;
+  font-size: 1em;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  padding: 0.4em 1em;
+}
+
+.container {
+  max-width: min(50em, 90vw);
+  min-height: 90vh;
+  margin: 0 auto;
+}
+
+.breakout {
+  margin-left: calc((-100vw + 50em) / 2);
+  width: 100vw;
+}
+
+pre {
+  background-color: #f9f9f9;
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.05);
+  padding: 0.5em;
+  border-radius: 2px;
+  overflow-x: auto;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+p + blockquote {
+  margin-top: 3em;
+}
+blockquote {
+  padding: 1em 1.6em;
+  color: #264c67;
+  background: #f0f7fc;
+  font-style: normal;
+  border: none;
+}
+
+blockquote strong {
+  color: #264c67;
+}
+
+ul {
+  line-height: 1.5;
+}
+
+ol {
+  margin-top: -0.5em;
+}
+
+li {
+  margin: 0 0 0.5em 0;
+}
+.content > video,
+.content > img {
+  display: block;
+  max-width: 100%;
+  margin: 2em auto;
+  text-align: center;
+}
+em {
+  font-style: italic;
+}
+strong {
+  font-weight: 700;
+  color: #242424;
+}
+
+blockquote {
+  margin-bottom: 2em;
+}
+blockquote > p {
+  margin-bottom: 0;
+}
+blockquote > p + p {
+  margin-top: 1em;
+}
+
+.heading-link:before {
+  content: "#";
+}
+.heading-link {
+  position: absolute;
+  margin-left: -1em;
+  font-weight: 300;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+
+/* .header-link {
+  }
+  .header-link:before {
+    content: "#";
+  } */
