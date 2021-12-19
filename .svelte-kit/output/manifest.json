@@ -1,0 +1,166 @@
+{
+  ".svelte-kit/build/runtime/internal/start.js": {
+    "file": "start-0802e6a4.js",
+    "src": ".svelte-kit/build/runtime/internal/start.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/build/components/error.svelte",
+      "src/routes/index.svelte",
+      "src/routes/example-markdown.md",
+      "src/routes/publications.svelte",
+      "src/routes/blog/__layout.svelte",
+      "src/routes/blog/foodservice-academia.svx",
+      "src/routes/blog/motion-illusions.svx",
+      "src/routes/blog/matlab-arduino.svx",
+      "src/routes/blog/noisy-better.svx",
+      "src/routes/blog/lurz-paper.svx",
+      "src/routes/blog.svelte",
+      "src/routes/cv.svelte"
+    ],
+    "css": [
+      "assets/start-464e9d0a.css"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-342a02c5.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-243c153a.css"
+    ]
+  },
+  ".svelte-kit/build/components/error.svelte": {
+    "file": "error.svelte-5aa7872b.js",
+    "src": ".svelte-kit/build/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-e25d433e.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js",
+      "_Publication-b9f7b53f.js"
+    ]
+  },
+  "src/routes/example-markdown.md": {
+    "file": "pages/example-markdown.md-3e1103c1.js",
+    "src": "src/routes/example-markdown.md",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ]
+  },
+  "src/routes/publications.svelte": {
+    "file": "pages/publications.svelte-949e0a42.js",
+    "src": "src/routes/publications.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js",
+      "_Publication-b9f7b53f.js"
+    ]
+  },
+  "src/routes/blog/__layout.svelte": {
+    "file": "pages/blog/__layout.svelte-5e790048.js",
+    "src": "src/routes/blog/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ]
+  },
+  "src/routes/blog/foodservice-academia.svx": {
+    "file": "pages/blog/foodservice-academia.svx-f0c0d871.js",
+    "src": "src/routes/blog/foodservice-academia.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ]
+  },
+  "src/routes/blog/motion-illusions.svx": {
+    "file": "pages/blog/motion-illusions.svx-b3795550.js",
+    "src": "src/routes/blog/motion-illusions.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ],
+    "css": [
+      "assets/pages/blog/motion-illusions.svx-9ea925e9.css"
+    ]
+  },
+  "src/routes/blog/matlab-arduino.svx": {
+    "file": "pages/blog/matlab-arduino.svx-0a39f38f.js",
+    "src": "src/routes/blog/matlab-arduino.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ]
+  },
+  "src/routes/blog/noisy-better.svx": {
+    "file": "pages/blog/noisy-better.svx-8f16cd30.js",
+    "src": "src/routes/blog/noisy-better.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ]
+  },
+  "src/routes/blog/lurz-paper.svx": {
+    "file": "pages/blog/lurz-paper.svx-8d3d0e5f.js",
+    "src": "src/routes/blog/lurz-paper.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ]
+  },
+  "src/routes/blog.svelte": {
+    "file": "pages/blog.svelte-3f984cd7.js",
+    "src": "src/routes/blog.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ]
+  },
+  "src/routes/cv.svelte": {
+    "file": "pages/cv.svelte-7b1e980c.js",
+    "src": "src/routes/cv.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-0fd8ff1a.js",
+      "_Publication-b9f7b53f.js"
+    ]
+  },
+  "_vendor-0fd8ff1a.js": {
+    "file": "chunks/vendor-0fd8ff1a.js"
+  },
+  "_Publication-b9f7b53f.js": {
+    "file": "chunks/Publication-b9f7b53f.js",
+    "imports": [
+      "_vendor-0fd8ff1a.js"
+    ],
+    "css": [
+      "assets/Publication-8993e706.css"
+    ]
+  }
+}
