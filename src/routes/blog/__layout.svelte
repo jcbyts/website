@@ -27,7 +27,6 @@
   import { dev } from "$app/env";
   import { timeFormat } from "d3";
 
-  export let segment;
   export let metadata = {};
 
   $: title = metadata?.title;

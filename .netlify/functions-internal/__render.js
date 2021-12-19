@@ -6682,17 +6682,17 @@ var init_sitemap_xml_0197c0cd = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/foodservice-academia-d635871d.js
-var foodservice_academia_d635871d_exports = {};
-__export(foodservice_academia_d635871d_exports, {
+// .svelte-kit/output/server/chunks/foodservice-academia-c324d790.js
+var foodservice_academia_c324d790_exports = {};
+__export(foodservice_academia_c324d790_exports, {
   default: () => Foodservice_academia,
   metadata: () => metadata
 });
 var metadata, Foodservice_academia;
-var init_foodservice_academia_d635871d = __esm({
-  ".svelte-kit/output/server/chunks/foodservice-academia-d635871d.js"() {
+var init_foodservice_academia_c324d790 = __esm({
+  ".svelte-kit/output/server/chunks/foodservice-academia-c324d790.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_ssr();
     metadata = {
       "title": "Moving from food service to academia",
@@ -6720,17 +6720,17 @@ It\u2019s true that food service is</p></li></ol>`;
   }
 });
 
-// .svelte-kit/output/server/chunks/lurz-paper-e6887306.js
-var lurz_paper_e6887306_exports = {};
-__export(lurz_paper_e6887306_exports, {
+// .svelte-kit/output/server/chunks/lurz-paper-bddb85f3.js
+var lurz_paper_bddb85f3_exports = {};
+__export(lurz_paper_bddb85f3_exports, {
   default: () => Lurz_paper,
   metadata: () => metadata2
 });
 var metadata2, Lurz_paper;
-var init_lurz_paper_e6887306 = __esm({
-  ".svelte-kit/output/server/chunks/lurz-paper-e6887306.js"() {
+var init_lurz_paper_bddb85f3 = __esm({
+  ".svelte-kit/output/server/chunks/lurz-paper-bddb85f3.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_ssr();
     metadata2 = {
       "title": "Generalization in data-driven models of primary visual cortex",
@@ -6747,7 +6747,7 @@ var init_lurz_paper_e6887306 = __esm({
 <h2 id="${"readout-and-core"}">\u201CReadout\u201D and \u201CCore\u201D</h2>
 <p>Many groups have now presented advantages to thinking of neural population activity as resulting from shared computations with neuron-specific weights. Rather than optimize a model that predicts the responses of each neuron, <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8879999999999999em;vertical-align:0em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.02778em;"}">r</span><span class="${"msupsub"}"><span class="${"vlist-t"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.8879999999999999em;"}"><span style="${"top:-3.063em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mopen mtight"}">(</span><span class="${"mord mathnormal mtight"}">i</span><span class="${"mclose mtight"}">)</span></span></span></span></span></span></span></span></span></span></span></span></span>, given the stimulus, <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">x</span></span></span></span></span>, assume that each neuron operates with an affine transformation (\u201Creadout\u201D) of a core stimulus processing model that is shared by all neurons.</p>
 <p>The simplest versions of this have a single linear filter as the core. For example, <a href="${"https://openreview.net/pdf?id=HkEI22jeg"}" rel="${"nofollow"}">Batty et al., 2017</a> used knowledge of the cell class to group retinal ganglion cells and learn a single space-time linear filter for all neurons of the same class. Their \u201Cmultitask LN\u201D model has a single filter for all On-RGCs and each neuron simply scales that filter\u2019s response with a neuron specific gain and offset term and then passes that through a sigmoid nonlinearity.</p>
-<img src="${"/labmeetinglurz/battymultitaskln.png"}" style="${"max-width: 50em"}">
+<img src="${"/labmeetinglurz/battymultitaskln.png"}" style="${"max-width: 50em"}" alt="${"diagram"}">
 <p>I really like the terms <strong>\u201Ccore\u201D</strong> and <strong>\u201Creadout\u201D</strong> and think they should be adopted as the standard nomenclature for such a model. In the figure above, the <span style="${"color:blue"}">blue parameters</span> (<span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.83333em;vertical-align:-0.15em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.13889em;"}">W</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.2805559999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">t</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span></span></span></span></span> and <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.83333em;vertical-align:-0.15em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.13889em;"}">W</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.151392em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">s</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span></span></span></span></span>) are shared by all On-RGCs and form the <strong>\u201Ccore\u201D</strong>. The <span style="${"color:green"}">green parameters</span> form the <strong>\u201Creadout\u201D</strong>.</p>
 <p>In this case, the core is simple and interpretable (it\u2019s a single space-time separable linear filter). The readout is also simple. It\u2019s a gain and offset term per neuron. But this conceptual framing scales nicely to talking about much more complicated neural network models and nicely delineates their distinctions. But, every model consists of a \u201Ccore\u201D and a \u201Creadout\u201D.</p>
 <h3 id="${"two-basic-types-of-cores"}">Two basic types of cores</h3>
@@ -6756,9 +6756,9 @@ var init_lurz_paper_e6887306 = __esm({
 <p><strong>Data-driven</strong> cores learn the core directly from the <strong>neural activity</strong>.</p>
 <p>This idea is really jsut something that has been said by others already (e.g., <a href="${"http://neurotheory.umd.edu/Publications_files/ARVSpreprint.pdf"}" rel="${"nofollow"}">this paper from Dan Butts</a>), but I\u2019m converging on certain language for talking about it myself: \u201Cdata-driven core\u201D vs. \u201Cgoal-directed core\u201D.</p>
 <p>The figure below demonstrates the logic of a data-driven core. It is trained end-to-end from stimulus to spikes. The core is shared by all neurons and the readout is neuron specific.</p>
-<img src="${"/labmeetinglurz/buttsdatadriven.png"}" style="${"max-width: 50em"}">
+<img src="${"/labmeetinglurz/buttsdatadriven.png"}" style="${"max-width: 50em"}" alt="${"diagram"}">
 <p>In contrast, a goal-directed core comes pre-trained (on some other dataset) and and forms a nonlinear basis for a linearized model of the neural responses.</p>
-<img src="${"/labmeetinglurz/buttstransfer.png"}" style="${"max-width: 50em"}">
+<img src="${"/labmeetinglurz/buttstransfer.png"}" style="${"max-width: 50em"}" alt="${"diagram"}">
 <p><strong>The advantages of a goal-directed core are:</strong></p>
 <ol><li>they can use much more data than is typically available in a neural recording</li>
 <li>they have an explicit task, so they provide convenient language for talking about what the core <em>does</em></li></ol>
@@ -6777,20 +6777,20 @@ var init_lurz_paper_e6887306 = __esm({
 <p>Therefore the response of neuron <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.65952em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">i</span></span></span></span></span> will be</p>
 <p><span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8879999999999999em;vertical-align:0em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.02778em;"}">r</span><span class="${"msupsub"}"><span class="${"vlist-t"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.8879999999999999em;"}"><span style="${"top:-3.063em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mopen mtight"}">(</span><span class="${"mord mathnormal mtight"}">i</span><span class="${"mclose mtight"}">)</span></span></span></span></span></span></span></span></span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span><span class="${"mrel"}">=</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:1.4822159999999998em;vertical-align:-0.4374159999999999em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.13889em;"}">F</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mord"}"><span class="${"delimsizing size1"}">[</span></span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mop"}"><span class="${"mop op-symbol small-op"}" style="${"position:relative;top:-0.0000050000000000050004em;"}">\u2211</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.18639799999999984em;"}"><span style="${"top:-2.40029em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.02691em;"}">w</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mathnormal mtight"}">h</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mathnormal mtight"}">c</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.43581800000000004em;"}"><span></span></span></span></span></span></span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.02691em;"}">w</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:1.0448em;"}"><span style="${"top:-2.5834080000000004em;margin-left:-0.02691em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">c</span></span></span></span><span style="${"top:-3.2198em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mopen mtight"}">(</span><span class="${"mord mathnormal mtight"}">i</span><span class="${"mclose mtight"}">)</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.11659199999999997em;"}"><span></span></span></span></span></span></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">v</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:1.0448em;"}"><span style="${"top:-2.3986920000000005em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.02691em;"}">w</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mathnormal mtight"}">h</span></span></span></span><span style="${"top:-3.2198em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mopen mtight"}">(</span><span class="${"mord mathnormal mtight"}">i</span><span class="${"mclose mtight"}">)</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.4374159999999999em;"}"><span></span></span></span></span></span></span><span class="${"mord"}"><span class="${"mord mathnormal"}">a</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">c</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.02691em;"}">w</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mathnormal mtight"}">h</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mord"}"><span class="${"delimsizing size1"}">]</span></span></span></span></span></span></p>
 <p>where <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.83333em;vertical-align:-0.15em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.13889em;"}">F</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span></span></span></span></span> is the activation function for neuron <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.65952em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">i</span></span></span></span></span>, which is an <a href="${"https://paperswithcode.com/method/elu"}" rel="${"nofollow"}">ELU</a> with an offset.</p>
-<img src="${"/labmeetinglurz/elu.png"}" style="${"max-width: 20em"}">
+<img src="${"/labmeetinglurz/elu.png"}" style="${"max-width: 20em"}" alt="${"diagram"}">
 <p>This reduces the number of parameters from <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.72777em;vertical-align:-0.08333em;"}"></span><span class="${"mord"}">2</span><span class="${"mord"}">3</span><span class="${"mord"}">0</span><span class="${"mord"}">4</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span><span class="${"mbin"}">\xD7</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">c</span></span></span></span></span> to <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.72777em;vertical-align:-0.08333em;"}"></span><span class="${"mord"}">2</span><span class="${"mord"}">3</span><span class="${"mord"}">0</span><span class="${"mord"}">4</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span><span class="${"mbin"}">+</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">c</span></span></span></span></span></p>
 <h3 id="${"trick-2-coordinate-readout-using-bilinear-interpolation-learned-with-pooling-steps-sinz-et-al-2018"}">Trick <a href="${"https://github.com/jcbyts/website/issues/2"}">#2</a>: coordinate readout using bilinear interpolation, learned with pooling steps (Sinz et al., 2018)</h3>
 <p>This approach assumes that each neuron has a feature vector that reads out from a spatial position (a single point) in the spatial output of the network.</p>
 <p>The spatial position for each neuron, <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.625em;vertical-align:-0.19444em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}">x</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">y</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span></span></span></span></span> are learned parameters. They are sampled at sub-pixel resolution using bilinear interpolation. The issue with learning <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.625em;vertical-align:-0.19444em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}">x</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">y</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span></span></span></span></span> is that if the initialization is far away from the true retinotopic location of the neuron, then the gradients will be zero. To circumvent this, the authors represent the feature space of the core at multiple scales using <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.64444em;vertical-align:0em;"}"></span><span class="${"mord"}">4</span></span></span></span></span> average pooling steps with <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.72777em;vertical-align:-0.08333em;"}"></span><span class="${"mord"}">4</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span><span class="${"mbin"}">\xD7</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:0.64444em;vertical-align:0em;"}"></span><span class="${"mord"}">4</span></span></span></span></span> pooling with a stride of <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.64444em;vertical-align:0em;"}"></span><span class="${"mord"}">4</span></span></span></span></span>, such that the final stage is a single pixel. They then learn a feature vector that combines across these scales. <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.625em;vertical-align:-0.19444em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}">x</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">y</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span></span></span></span></span> can be any value within a <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.72777em;vertical-align:-0.08333em;"}"></span><span class="${"mord"}">1</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span><span class="${"mbin"}">\xD7</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:0.64444em;vertical-align:0em;"}"></span><span class="${"mord"}">1</span></span></span></span></span> feature space and that way there are gradients to support the learning of the features and the position.</p>
 <p>This readout idea comes from <a href="${"https://arxiv.org/abs/1506.02025"}" rel="${"nofollow"}">spatial transformer layers</a>. The basic transform operation is an affine transform of a grid of sampling points.</p>
-<img src="${"/labmeetinglurz/spatialtransformer.png"}" style="${"max-width: 50em"}">
+<img src="${"/labmeetinglurz/spatialtransformer.png"}" style="${"max-width: 50em"}" alt="${"diagram"}">
 <p>The difference here is that the sample is a single point for each neuron and it is sampling that point in a coordinate system that is the same regardless of the pooling size. That way the initialization always has something to start with.</p>
-<img src="${"/labmeetinglurz/pointreadout.png"}" style="${"max-width: 50em"}">
+<img src="${"/labmeetinglurz/pointreadout.png"}" style="${"max-width: 50em"}" alt="${"diagram"}">
 <p><strong>This has two cool benefits:</strong></p>
 <ol><li><p>The number of parameters is reduced from <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.72777em;vertical-align:-0.08333em;"}"></span><span class="${"mord"}">2</span><span class="${"mord"}">3</span><span class="${"mord"}">0</span><span class="${"mord"}">4</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span><span class="${"mbin"}">+</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">c</span></span></span></span></span> to <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.72777em;vertical-align:-0.08333em;"}"></span><span class="${"mord"}">2</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span><span class="${"mbin"}">+</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">m</span><span class="${"mord mathnormal"}">c</span></span></span></span></span>, where <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">m</span></span></span></span></span> is the number of pooling steps, and <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">c</span></span></span></span></span> is the number of channels.</p></li>
 <li><p><strong>Eyetracking!</strong> Because the readout is parameterized as an x,y coordinate, they can shift the entire readout around with a \u201Cshifter network\u201D that operates on the pupil position in a video of the eye.</p></li></ol>
 <p>The full model in the 2018 paper is schematized here:</p>
-<img src="${"/labmeetinglurz/sinz2018.png"}" style="${"max-width: 30em"}">
+<img src="${"/labmeetinglurz/sinz2018.png"}" style="${"max-width: 30em"}" alt="${"diagram"}">
 <p>Okay, so now that we have a sense of the readout, we\u2019re ready for the new tricks introduced in Lurz et al., 2020.</p>
 <h2 id="${"new-tricks-for-learning-the-readout"}">New Tricks for learning the readout</h2>
 <p>Using the same bilinear interpolation readout from Sinz et al., 2018, the authors improve the learning of the <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.625em;vertical-align:-0.19444em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}">x</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">y</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span></span></span></span></span> for each neuron. They do so by using the \u201Creparameterization trick\u201D (Kingma and Welling)</p>
@@ -6804,15 +6804,15 @@ var init_lurz_paper_e6887306 = __esm({
 <p>Second, we reparameterized the loss to take the sampling step outsize of the optimization. This reparameterization trick let us take the gradients with respect to the parameters we\u2019re interested in fitting. It\u2019s the same trick they use to do the sampling here.</p>
 <p>One final reminder about VAEs is that this is a generative modeling approach with Bayesian inference for the latents, but it can also be referred to in coding theory terms like <em>Endoding</em> and <em>Decoding</em>.</p>
 <p>The basic idea is pictured here</p>
-<img src="${"/labmeetinglurz/kingmavaelearning.png"}" style="${"max-width: 30em"}">
+<img src="${"/labmeetinglurz/kingmavaelearning.png"}" style="${"max-width: 30em"}" alt="${"diagram"}">
 <p>I\u2019m going to skip derivations and you can look at the link above if you want them. The key point is that by starting with the objective of maximizing the marginal likelihood <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1em;vertical-align:-0.25em;"}"></span><span class="${"mord mathnormal"}">p</span><span class="${"mopen"}">(</span><span class="${"mord mathnormal"}">x</span><span class="${"mclose"}">)</span></span></span></span></span> you end up with two terms in the loss: one that is a KL divergence between the posterior approximation <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1.036108em;vertical-align:-0.286108em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">q</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord mathnormal"}" style="${"margin-right:0.04398em;"}">z</span><span class="${"mord"}">\u2223</span><span class="${"mord mathnormal"}">x</span><span class="${"mclose"}">)</span></span></span></span></span> and the true (intractable) posterior <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1em;vertical-align:-0.25em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}">p</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.33610799999999996em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.02778em;"}">\u03B8</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord mathnormal"}" style="${"margin-right:0.04398em;"}">z</span><span class="${"mord"}">\u2223</span><span class="${"mord mathnormal"}">x</span><span class="${"mclose"}">)</span></span></span></span></span> and another known as the Evidence Lower Bound (ELBO) that I\u2019m showing here:</p>
 <p><span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1.036108em;vertical-align:-0.286108em;"}"></span><span class="${"mord"}"><span class="${"mord"}"><span class="${"mord mathcal"}">L</span></span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.02778em;"}">\u03B8</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span><span class="${"mrel"}">=</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:1.2332799999999997em;vertical-align:-0.38327999999999984em;"}"></span><span class="${"mord"}"><span class="${"mord"}"><span class="${"mord mathbb"}">E</span></span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3448em;"}"><span style="${"top:-2.5198em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.03588em;"}">q</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3448em;"}"><span style="${"top:-2.3487714285714287em;margin-left:-0.03588em;margin-right:0.07142857142857144em;"}"><span class="${"pstrut"}" style="${"height:2.5em;"}"></span><span class="${"sizing reset-size3 size1 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.29011428571428566em;"}"><span></span></span></span></span></span></span><span class="${"mopen mtight"}">(</span><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.04398em;"}">z</span><span class="${"mord mtight"}">\u2223</span><span class="${"mord mathnormal mtight"}">x</span><span class="${"mclose mtight"}">)</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.38327999999999984em;"}"><span></span></span></span></span></span></span><span class="${"mord"}"><span class="${"delimsizing size1"}">[</span></span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mop"}">lo<span style="${"margin-right:0.01389em;"}">g</span></span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}">p</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.33610799999999996em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.02778em;"}">\u03B8</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">z</span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span><span class="${"mbin"}">\u2212</span><span class="${"mspace"}" style="${"margin-right:0.2222222222222222em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:1.20001em;vertical-align:-0.35001em;"}"></span><span class="${"mop"}">lo<span style="${"margin-right:0.01389em;"}">g</span></span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">q</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">z</span></span><span class="${"mord"}">\u2223</span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span><span class="${"mord"}"><span class="${"delimsizing size1"}">]</span></span></span></span></span></span></p>
 <p>I\u2019m not showing the KL term here because, due to the non-negativity of the KL divergence, the ELBO is a lower bound on the log-likelihood of the data.</p>
 <p>We want to maximize the ELBO, <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1.036108em;vertical-align:-0.286108em;"}"></span><span class="${"mord"}"><span class="${"mord"}"><span class="${"mord mathcal"}">L</span></span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.02778em;"}">\u03B8</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span></span></span></span></span>, w.r.t. the parameters <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.69444em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}" style="${"margin-right:0.02778em;"}">\u03B8</span></span></span></span></span> and <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8888799999999999em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span></span></span></span></span>, because this approximately maximizes the marginal likelihood and minimizes the KL divergence of the approximation to the true posterior.</p>
 <p>Maximizing the the ELBO w.r.t. <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.69444em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}" style="${"margin-right:0.02778em;"}">\u03B8</span></span></span></span></span> is straightforward because the expectation is take w.r.t. the distribution <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1.036108em;vertical-align:-0.286108em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">q</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">z</span></span><span class="${"mord"}">\u2223</span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span></span></span></span></span> so we can move the gradient operator inside the expectation.</p>
-<img src="${"/labmeetinglurz/wrttheta.png"}" style="${"max-width: 30em"}">
+<img src="${"/labmeetinglurz/wrttheta.png"}" style="${"max-width: 30em"}" alt="${"diagram"}">
 <p>Maximizing the the ELBO w.r.t. <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8888799999999999em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span></span></span></span></span> is tricky because the expectation is w.r.t. the distribution <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1.036108em;vertical-align:-0.286108em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">q</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">z</span></span><span class="${"mord"}">\u2223</span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span></span></span></span></span>, which is a function of <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8888799999999999em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span></span></span></span></span>.</p>
-<img src="${"/labmeetinglurz/wrtphi.png"}" style="${"max-width: 30em"}">
+<img src="${"/labmeetinglurz/wrtphi.png"}" style="${"max-width: 30em"}" alt="${"diagram"}">
 <p>This is where the \u201Creparameterization trick\u201D comes in. <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1.036108em;vertical-align:-0.286108em;"}"></span><span class="${"mord"}"><span class="${"mord"}"><span class="${"mord mathcal"}">L</span></span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.02778em;"}">\u03B8</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span></span></span></span></span> can be differentiated w.r.t. <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8888799999999999em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span></span></span></span></span> with a change of variables.</p>
 <p>First, express the random variable <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}" style="${"margin-right:0.04398em;"}">z</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span><span class="${"mrel"}">\u223C</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:1.036108em;vertical-align:-0.286108em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">q</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">z</span></span><span class="${"mord"}">\u2223</span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span></span></span></span></span> as a differentiable and invertable transformation of another random variable <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">\u03F5</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span><span class="${"mrel"}">\u223C</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:1em;vertical-align:-0.25em;"}"></span><span class="${"mord"}"><span class="${"mord mathcal"}" style="${"margin-right:0.14736em;"}">N</span></span><span class="${"mopen"}">(</span><span class="${"mord"}">0</span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord text"}"><span class="${"mord textrm"}">I</span></span><span class="${"mclose"}">)</span></span></span></span></span>,<span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8888799999999999em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span></span></span></span></span>, and <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span></span></span></span></span></p>
 <p><span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord text"}"><span class="${"mord textrm"}">z</span></span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span><span class="${"mrel"}">=</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:1em;vertical-align:-0.25em;"}"></span><span class="${"mord text"}"><span class="${"mord textrm"}">g</span></span><span class="${"mopen"}">(</span><span class="${"mord mathnormal"}">\u03F5</span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mclose"}">)</span></span></span></span></span></p>
@@ -6820,7 +6820,7 @@ var init_lurz_paper_e6887306 = __esm({
 <p><span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1.1332799999999998em;vertical-align:-0.38327999999999984em;"}"></span><span class="${"mord"}"><span class="${"mord"}">\u2207</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mord"}"><span class="${"mord"}"><span class="${"mord mathbb"}">E</span></span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3448em;"}"><span style="${"top:-2.5198em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.03588em;"}">q</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3448em;"}"><span style="${"top:-2.3487714285714287em;margin-left:-0.03588em;margin-right:0.07142857142857144em;"}"><span class="${"pstrut"}" style="${"height:2.5em;"}"></span><span class="${"sizing reset-size3 size1 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.29011428571428566em;"}"><span></span></span></span></span></span></span><span class="${"mopen mtight"}">(</span><span class="${"mord mathnormal mtight"}" style="${"margin-right:0.04398em;"}">z</span><span class="${"mord mtight"}">\u2223</span><span class="${"mord mathnormal mtight"}">x</span><span class="${"mclose mtight"}">)</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.38327999999999984em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">[</span><span class="${"mord mathnormal"}" style="${"margin-right:0.10764em;"}">f</span><span class="${"mopen"}">(</span><span class="${"mord mathnormal"}" style="${"margin-right:0.04398em;"}">z</span><span class="${"mclose"}">)</span><span class="${"mclose"}">]</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span><span class="${"mrel"}">=</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:1.1052em;vertical-align:-0.3551999999999999em;"}"></span><span class="${"mord"}"><span class="${"mord"}"><span class="${"mord mathbb"}">E</span></span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.34480000000000005em;"}"><span style="${"top:-2.5198em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03F5</span><span class="${"mrel mtight"}">\u223C</span><span class="${"mord mtight"}"><span class="${"mord mathcal mtight"}" style="${"margin-right:0.14736em;"}">N</span></span><span class="${"mopen mtight"}">(</span><span class="${"mord mtight"}">0</span><span class="${"mpunct mtight"}">,</span><span class="${"mord mtight"}">1</span><span class="${"mclose mtight"}">)</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3551999999999999em;"}"><span></span></span></span></span></span></span><span class="${"mopen"}">[</span><span class="${"mord"}"><span class="${"mord"}">\u2207</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.3361079999999999em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mtight"}"><span class="${"mord mathnormal mtight"}">\u03D5</span></span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.286108em;"}"><span></span></span></span></span></span></span><span class="${"mord mathnormal"}" style="${"margin-right:0.10764em;"}">f</span><span class="${"mopen"}">(</span><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">g</span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">z</span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span><span class="${"mclose"}">)</span><span class="${"mclose"}">)</span><span class="${"mclose"}">]</span></span></span></span></span></p>
 <p>This reparameterization means <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:1em;vertical-align:-0.25em;"}"></span><span class="${"mord mathnormal"}" style="${"margin-right:0.10764em;"}">f</span><span class="${"mopen"}">(</span><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">g</span><span class="${"mopen"}">(</span><span class="${"mord text"}"><span class="${"mord textrm"}">z</span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord text"}"><span class="${"mord textrm"}">x</span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span><span class="${"mclose"}">)</span><span class="${"mclose"}">)</span></span></span></span></span> can be automatically differentiated w.r.t. the parameters <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8888799999999999em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}">\u03D5</span></span></span></span></span> using whatever software is your current favorite (Tensorflow, Pytorch).</p>
 <p>The schematic that illustrates this can be seen here:</p>
-<img src="${"/labmeetinglurz/kingmavaereparameterization.png"}" style="${"max-width: 30em"}">
+<img src="${"/labmeetinglurz/kingmavaereparameterization.png"}" style="${"max-width: 30em"}" alt="${"diagram"}">
 <h2 id="${"new-trick-1-reparameterization--sampling"}">New Trick <a href="${"https://github.com/jcbyts/website/issues/1"}">#1</a>: reparameterization + sampling</h2>
 <p>The model still uses the poisson loss, but now it depends on random variables <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.625em;vertical-align:-0.19444em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}">x</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">y</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span><span class="${"mrel"}">\u223C</span><span class="${"mspace"}" style="${"margin-right:0.2777777777777778em;"}"></span></span><span class="${"base"}"><span class="${"strut"}" style="${"height:1em;vertical-align:-0.25em;"}"></span><span class="${"mord"}"><span class="${"mord mathcal"}" style="${"margin-right:0.14736em;"}">N</span></span><span class="${"mopen"}">(</span><span class="${"mord"}"><span class="${"mord mathnormal"}">\u03BC</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord"}">\u03A3</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mclose"}">)</span></span></span></span></span>, where <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.8777699999999999em;vertical-align:-0.19444em;"}"></span><span class="${"mord"}"><span class="${"mord mathnormal"}">\u03BC</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span><span class="${"mpunct"}">,</span><span class="${"mspace"}" style="${"margin-right:0.16666666666666666em;"}"></span><span class="${"mord"}"><span class="${"mord"}">\u03A3</span><span class="${"msupsub"}"><span class="${"vlist-t vlist-t2"}"><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.31166399999999994em;"}"><span style="${"top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"}"><span class="${"pstrut"}" style="${"height:2.7em;"}"></span><span class="${"sizing reset-size6 size3 mtight"}"><span class="${"mord mathnormal mtight"}">i</span></span></span></span><span class="${"vlist-s"}">\u200B</span></span><span class="${"vlist-r"}"><span class="${"vlist"}" style="${"height:0.15em;"}"><span></span></span></span></span></span></span></span></span></span></span> are learned parameters.</p>
 <p>The new loss function involves an expectation over the distribution of <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.43056em;vertical-align:0em;"}"></span><span class="${"mord mathnormal"}">x</span></span></span></span></span> and <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.625em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}" style="${"margin-right:0.03588em;"}">y</span></span></span></span></span>.</p>
@@ -6835,15 +6835,15 @@ var init_lurz_paper_e6887306 = __esm({
 <p>Neurons in V1 are organized spatially such that cortical space maps onto visual space. This is known as retinotopy because cortical space forms a map that is in retinal (and therefore visual) coordinates.</p>
 <p>Using this additional information, the authors learn a mapping from cortical space (where they measured the location of the neurons) to the <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.625em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}">\u03BC</span></span></span></span></span> parameter. This reduced the total number of parameters per neuron by 2 and makes shifts in <span class="${"math math-inline"}"><span class="${"katex"}"><span class="${"katex-html"}" aria-hidden="${"true"}"><span class="${"base"}"><span class="${"strut"}" style="${"height:0.625em;vertical-align:-0.19444em;"}"></span><span class="${"mord mathnormal"}">\u03BC</span></span></span></span></span> shared.</p>
 <p>Figure 2 in the paper illustrates this conceptually.</p>
-<img src="${"/labmeetinglurz/lurzfig2.png"}" style="${"max-width: 40em"}">
+<img src="${"/labmeetinglurz/lurzfig2.png"}" style="${"max-width: 40em"}" alt="${"diagram"}">
 <p>Now they\u2019re really showing off! With all of these new tricks in place, they are ready to train cores and test them on witheld datasets\u2026 yea, witheld <em>datasets</em>, not just witheld <em>data</em>.</p>
 <h3 id="${"generalization-and-performance"}">Generalization and Performance</h3>
 <p>The rest of the paper just shows how well these different readouts work for different sets of training and test data. I don\u2019t have much to say except the new readout easily beats the state-of-the-art. And it generalizes better than VGG-16 as a core model.</p>
-<img src="${"/labmeetinglurz/lurzfig3.png"}" style="${"max-width: 30em"}">
+<img src="${"/labmeetinglurz/lurzfig3.png"}" style="${"max-width: 30em"}" alt="${"diagram"}">
 <p><strong>Figure 3:</strong> Performance of end-to-end trained networks. Performance for different subsets of neurons (linestyle) and number of training examples (x-axis). The same core architecture was trained for two different readouts with and without feature sharing (color) on the matched neurons of the 4-S:matched core set (Fig. 1, green). Both networks show increasing performance with number of images However, the network with the Gaussian readout achieves a higher final performance (light blue vs. orange). While the Gaussian readout profits from feature sharing (light vs. dark blue), the factorized readout is hurt by it (yellow vs. orange). Shaded areas depict 95% confidence intervals across random picks of the neuron subsets</p>
-<img src="${"/labmeetinglurz/lurzfig4.png"}" style="${"max-width: 60em"}">
+<img src="${"/labmeetinglurz/lurzfig4.png"}" style="${"max-width: 60em"}" alt="${"diagram"}">
 <p><strong>Figure 4:</strong> Generalization to other neurons in the same animal. A core trained on 3597 neurons and up to 17.5k images generalizes to new neurons (pink and yellow line). A fully trained core yields very good predictive performance even when the readout is trained on far less data (yellow). If the readout is trained with all data, even a sub-optimal core can yield a good performance (pink). Both transfer conditions outperform a network directly trained end-to-end on the transfer dataset (brown). For the full dataset, all training conditions converge to the same performance. Except in the best-core/diff-readout condition for very few training data, the Gaussian readout (B) outperforms the factorized readout (A). The data for both the training and transfer comes from the 4-S:matched dataset (Fig 1, green). Not that the different number of images can be from the core or transfer set, depending on the transfer condition.</p>
-<img src="${"/labmeetinglurz/lurzfig5.png"}" style="${"max-width: 30em"}">
+<img src="${"/labmeetinglurz/lurzfig5.png"}" style="${"max-width: 30em"}" alt="${"diagram"}">
 <p><strong>Figure 5:</strong> Generalization across animals. Prediction performance in fraction oracle correlation as a function of
 training examples in the transfer set for
 a Gaussian readout (x-axis) and different ways to obtain the core (colors).
@@ -6861,17 +6861,17 @@ line; direct condition).</p>
   }
 });
 
-// .svelte-kit/output/server/chunks/matlab-arduino-78a91bba.js
-var matlab_arduino_78a91bba_exports = {};
-__export(matlab_arduino_78a91bba_exports, {
+// .svelte-kit/output/server/chunks/matlab-arduino-af47a402.js
+var matlab_arduino_af47a402_exports = {};
+__export(matlab_arduino_af47a402_exports, {
   default: () => Matlab_arduino,
   metadata: () => metadata3
 });
 var metadata3, Matlab_arduino;
-var init_matlab_arduino_78a91bba = __esm({
-  ".svelte-kit/output/server/chunks/matlab-arduino-78a91bba.js"() {
+var init_matlab_arduino_af47a402 = __esm({
+  ".svelte-kit/output/server/chunks/matlab-arduino-af47a402.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_ssr();
     metadata3 = {
       "title": "A Fast(er) interface for Arduino from Matlab",
@@ -28411,9 +28411,9 @@ var init_src32 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/motion-illusions-d12aa38b.js
-var motion_illusions_d12aa38b_exports = {};
-__export(motion_illusions_d12aa38b_exports, {
+// .svelte-kit/output/server/chunks/motion-illusions-f08dbb95.js
+var motion_illusions_f08dbb95_exports = {};
+__export(motion_illusions_f08dbb95_exports, {
   default: () => Motion_illusions,
   metadata: () => metadata4
 });
@@ -28436,10 +28436,10 @@ function onInterval(callback, milliseconds2) {
   };
 }
 var css$a, Icon, css$9, Tweet, css$8, Number_1, InView, css$7, Scrubber, css$6, BucketedImage, css$5, PlayControls, css$4, DualScrubber, css$3, OrangutanScrubber, css$2, numberOfFrames, OrangutanFrames, css$1, MarioScrubber, css, BarScrubber, metadata4, Motion_illusions;
-var init_motion_illusions_d12aa38b = __esm({
-  ".svelte-kit/output/server/chunks/motion-illusions-d12aa38b.js"() {
+var init_motion_illusions_f08dbb95 = __esm({
+  ".svelte-kit/output/server/chunks/motion-illusions-f08dbb95.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_src32();
     init_ssr();
     css$a = {
@@ -29127,17 +29127,17 @@ ${validate_component(Tweet, "Tweet").$$render($$result, { id: "13353021029570068
   }
 });
 
-// .svelte-kit/output/server/chunks/noisy-better-f2ca926f.js
-var noisy_better_f2ca926f_exports = {};
-__export(noisy_better_f2ca926f_exports, {
+// .svelte-kit/output/server/chunks/noisy-better-9856855c.js
+var noisy_better_9856855c_exports = {};
+__export(noisy_better_9856855c_exports, {
   default: () => Noisy_better,
   metadata: () => metadata5
 });
 var metadata5, Noisy_better;
-var init_noisy_better_f2ca926f = __esm({
-  ".svelte-kit/output/server/chunks/noisy-better-f2ca926f.js"() {
+var init_noisy_better_9856855c = __esm({
+  ".svelte-kit/output/server/chunks/noisy-better-9856855c.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_ssr();
     metadata5 = {
       "title": "The noisier model is better?",
@@ -29153,13 +29153,13 @@ var init_noisy_better_f2ca926f = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/index.json-5ceb5087.js
-var index_json_5ceb5087_exports = {};
-__export(index_json_5ceb5087_exports, {
+// .svelte-kit/output/server/chunks/index.json-8a6de939.js
+var index_json_8a6de939_exports = {};
+__export(index_json_8a6de939_exports, {
   get: () => get3
 });
 async function get3() {
-  const pages = await Promise.all(Object.entries({ "/src/routes/blog/foodservice-academia.svx": () => Promise.resolve().then(() => (init_foodservice_academia_d635871d(), foodservice_academia_d635871d_exports)), "/src/routes/blog/lurz-paper.svx": () => Promise.resolve().then(() => (init_lurz_paper_e6887306(), lurz_paper_e6887306_exports)), "/src/routes/blog/matlab-arduino.svx": () => Promise.resolve().then(() => (init_matlab_arduino_78a91bba(), matlab_arduino_78a91bba_exports)), "/src/routes/blog/motion-illusions.svx": () => Promise.resolve().then(() => (init_motion_illusions_d12aa38b(), motion_illusions_d12aa38b_exports)), "/src/routes/blog/noisy-better.svx": () => Promise.resolve().then(() => (init_noisy_better_f2ca926f(), noisy_better_f2ca926f_exports)) }).map(async ([path2, page]) => {
+  const pages = await Promise.all(Object.entries({ "/src/routes/blog/foodservice-academia.svx": () => Promise.resolve().then(() => (init_foodservice_academia_c324d790(), foodservice_academia_c324d790_exports)), "/src/routes/blog/lurz-paper.svx": () => Promise.resolve().then(() => (init_lurz_paper_bddb85f3(), lurz_paper_bddb85f3_exports)), "/src/routes/blog/matlab-arduino.svx": () => Promise.resolve().then(() => (init_matlab_arduino_af47a402(), matlab_arduino_af47a402_exports)), "/src/routes/blog/motion-illusions.svx": () => Promise.resolve().then(() => (init_motion_illusions_f08dbb95(), motion_illusions_f08dbb95_exports)), "/src/routes/blog/noisy-better.svx": () => Promise.resolve().then(() => (init_noisy_better_9856855c(), noisy_better_9856855c_exports)) }).map(async ([path2, page]) => {
     const filename = path2.split("/").pop();
     const slug = filename.replace(/\.svx$/, "");
     try {
@@ -29174,22 +29174,22 @@ async function get3() {
     body: pages.sort((a3, b) => new Date(b.date) - new Date(a3.date))
   };
 }
-var init_index_json_5ceb5087 = __esm({
-  ".svelte-kit/output/server/chunks/index.json-5ceb5087.js"() {
+var init_index_json_8a6de939 = __esm({
+  ".svelte-kit/output/server/chunks/index.json-8a6de939.js"() {
     init_shims();
   }
 });
 
-// .svelte-kit/output/server/chunks/__layout-3565d250.js
-var layout_3565d250_exports = {};
-__export(layout_3565d250_exports, {
+// .svelte-kit/output/server/chunks/__layout-fc9a576f.js
+var layout_fc9a576f_exports = {};
+__export(layout_fc9a576f_exports, {
   default: () => _layout
 });
 var css$12, Nav, Footer, css2, _layout;
-var init_layout_3565d250 = __esm({
-  ".svelte-kit/output/server/chunks/__layout-3565d250.js"() {
+var init_layout_fc9a576f = __esm({
+  ".svelte-kit/output/server/chunks/__layout-fc9a576f.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_ssr();
     css$12 = {
       code: "nav.svelte-1yg3xhu{align-items:center;display:flex;flex-wrap:wrap;justify-content:space-between;margin:0 -.6em;padding:.9em 0;white-space:nowrap}.link.svelte-1yg3xhu{--tw-text-opacity:1;background:none;color:rgb(75 85 99/var(--tw-text-opacity));padding:.3em .6em}.links.svelte-1yg3xhu{align-items:center;display:flex}",
@@ -29225,9 +29225,9 @@ ${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}`;
   }
 });
 
-// .svelte-kit/output/server/chunks/error-bf451d0b.js
-var error_bf451d0b_exports = {};
-__export(error_bf451d0b_exports, {
+// .svelte-kit/output/server/chunks/error-1fcc0634.js
+var error_1fcc0634_exports = {};
+__export(error_1fcc0634_exports, {
   default: () => Error2,
   load: () => load
 });
@@ -29235,10 +29235,10 @@ function load({ error: error2, status }) {
   return { props: { error: error2, status } };
 }
 var Error2;
-var init_error_bf451d0b = __esm({
-  ".svelte-kit/output/server/chunks/error-bf451d0b.js"() {
+var init_error_1fcc0634 = __esm({
+  ".svelte-kit/output/server/chunks/error-1fcc0634.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_ssr();
     Error2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { status } = $$props;
@@ -29259,12 +29259,12 @@ ${error2.stack ? `<pre>${escape2(error2.stack)}</pre>` : ``}`;
   }
 });
 
-// .svelte-kit/output/server/chunks/Publication-1cfec0e2.js
+// .svelte-kit/output/server/chunks/Publication-dade8372.js
 var publications, css3, Publication;
-var init_Publication_1cfec0e2 = __esm({
-  ".svelte-kit/output/server/chunks/Publication-1cfec0e2.js"() {
+var init_Publication_dade8372 = __esm({
+  ".svelte-kit/output/server/chunks/Publication-dade8372.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     publications = [
       {
         authors: "SL Cloherty*, JL Yates*, D Graf, GC DeAngelis, JF Mitchell",
@@ -29432,9 +29432,9 @@ var init_Publication_1cfec0e2 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/index-01d428c8.js
-var index_01d428c8_exports = {};
-__export(index_01d428c8_exports, {
+// .svelte-kit/output/server/chunks/index-307b025f.js
+var index_307b025f_exports = {};
+__export(index_307b025f_exports, {
   default: () => Routes
 });
 function writable2(value, start2 = noop5) {
@@ -29575,12 +29575,12 @@ function tweened(value, defaults = {}) {
   };
 }
 var subscriber_queue2, lineW, maxItems, LinesHr, LatestPublications, Home, Routes;
-var init_index_01d428c8 = __esm({
-  ".svelte-kit/output/server/chunks/index-01d428c8.js"() {
+var init_index_307b025f = __esm({
+  ".svelte-kit/output/server/chunks/index-307b025f.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_src32();
-    init_Publication_1cfec0e2();
+    init_Publication_dade8372();
     init_ssr();
     subscriber_queue2 = [];
     lineW = 50;
@@ -29670,16 +29670,16 @@ ${validate_component(LatestPublications, "LatestPublications").$$render($$result
   }
 });
 
-// .svelte-kit/output/server/chunks/example-markdown-7546688c.js
-var example_markdown_7546688c_exports = {};
-__export(example_markdown_7546688c_exports, {
+// .svelte-kit/output/server/chunks/example-markdown-3cf36404.js
+var example_markdown_3cf36404_exports = {};
+__export(example_markdown_3cf36404_exports, {
   default: () => Example_markdown
 });
 var Example_markdown;
-var init_example_markdown_7546688c = __esm({
-  ".svelte-kit/output/server/chunks/example-markdown-7546688c.js"() {
+var init_example_markdown_3cf36404 = __esm({
+  ".svelte-kit/output/server/chunks/example-markdown-3cf36404.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_ssr();
     Example_markdown = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return `<p><strong>Note that despite this file having an md extension, it can support all Svelte language features (like scripting). Do not import untrusted or user-created markdown files.</strong></p>
@@ -29744,17 +29744,17 @@ which you wish to be displayed literally, ex.: \`foo\`, *bar*, etc.</p>
   }
 });
 
-// .svelte-kit/output/server/chunks/publications-9d28e871.js
-var publications_9d28e871_exports = {};
-__export(publications_9d28e871_exports, {
+// .svelte-kit/output/server/chunks/publications-2ea630a8.js
+var publications_2ea630a8_exports = {};
+__export(publications_2ea630a8_exports, {
   default: () => Publications
 });
 var Publications;
-var init_publications_9d28e871 = __esm({
-  ".svelte-kit/output/server/chunks/publications-9d28e871.js"() {
+var init_publications_2ea630a8 = __esm({
+  ".svelte-kit/output/server/chunks/publications-2ea630a8.js"() {
     init_shims();
-    init_app_1a513ba3();
-    init_Publication_1cfec0e2();
+    init_app_96b74246();
+    init_Publication_dade8372();
     init_ssr();
     Publications = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return `${$$result.head += `${$$result.title = `<title>Jacob Yates: Publications</title>`, ""}`, ""}
@@ -29769,9 +29769,9 @@ var init_publications_9d28e871 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/__layout-4650aa0a.js
-var layout_4650aa0a_exports = {};
-__export(layout_4650aa0a_exports, {
+// .svelte-kit/output/server/chunks/__layout-119e7716.js
+var layout_119e7716_exports = {};
+__export(layout_119e7716_exports, {
   default: () => _layout2,
   load: () => load2
 });
@@ -29790,21 +29790,18 @@ async function load2({ page, fetch: fetch2, session, context }) {
   };
 }
 var _layout2;
-var init_layout_4650aa0a = __esm({
-  ".svelte-kit/output/server/chunks/__layout-4650aa0a.js"() {
+var init_layout_119e7716 = __esm({
+  ".svelte-kit/output/server/chunks/__layout-119e7716.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_src32();
     init_ssr();
     _layout2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let title;
       let slug;
       let isDraft;
-      let { segment } = $$props;
       let { metadata: metadata6 = {} } = $$props;
       const formatDate2 = timeFormat("%b %e, %Y");
-      if ($$props.segment === void 0 && $$bindings.segment && segment !== void 0)
-        $$bindings.segment(segment);
       if ($$props.metadata === void 0 && $$bindings.metadata && metadata6 !== void 0)
         $$bindings.metadata(metadata6);
       title = metadata6?.title;
@@ -29820,9 +29817,9 @@ var init_layout_4650aa0a = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/blog-399dc043.js
-var blog_399dc043_exports = {};
-__export(blog_399dc043_exports, {
+// .svelte-kit/output/server/chunks/blog-5646e84f.js
+var blog_5646e84f_exports = {};
+__export(blog_5646e84f_exports, {
   default: () => Blog,
   load: () => load3
 });
@@ -29839,10 +29836,10 @@ async function load3({ page, fetch: fetch2, session, context }) {
   };
 }
 var Blog;
-var init_blog_399dc043 = __esm({
-  ".svelte-kit/output/server/chunks/blog-399dc043.js"() {
+var init_blog_5646e84f = __esm({
+  ".svelte-kit/output/server/chunks/blog-5646e84f.js"() {
     init_shims();
-    init_app_1a513ba3();
+    init_app_96b74246();
     init_src32();
     init_ssr();
     Blog = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -29862,17 +29859,17 @@ var init_blog_399dc043 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/cv-9d76ff56.js
-var cv_9d76ff56_exports = {};
-__export(cv_9d76ff56_exports, {
+// .svelte-kit/output/server/chunks/cv-fc0260db.js
+var cv_fc0260db_exports = {};
+__export(cv_fc0260db_exports, {
   default: () => Cv
 });
 var cv, Cv;
-var init_cv_9d76ff56 = __esm({
-  ".svelte-kit/output/server/chunks/cv-9d76ff56.js"() {
+var init_cv_fc0260db = __esm({
+  ".svelte-kit/output/server/chunks/cv-fc0260db.js"() {
     init_shims();
-    init_app_1a513ba3();
-    init_Publication_1cfec0e2();
+    init_app_96b74246();
+    init_Publication_dade8372();
     init_ssr();
     cv = [
       {
@@ -30067,7 +30064,7 @@ var init_cv_9d76ff56 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/app-1a513ba3.js
+// .svelte-kit/output/server/chunks/app-96b74246.js
 function noop5() {
 }
 function assign(tar, src) {
@@ -30208,9 +30205,9 @@ function init2(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-0802e6a4.js",
+      file: assets + "/_app/start-ed707d7c.js",
       css: [assets + "/_app/assets/start-464e9d0a.css"],
-      js: [assets + "/_app/start-0802e6a4.js", assets + "/_app/chunks/vendor-0fd8ff1a.js"]
+      js: [assets + "/_app/start-ed707d7c.js", assets + "/_app/chunks/vendor-0fd8ff1a.js"]
     },
     fetched: void 0,
     floc: false,
@@ -30254,8 +30251,8 @@ function render(request, {
   return respond({ ...request, host }, options, { prerender });
 }
 var identity6, is_client, now2, raf, tasks, current_component, escaped2, missing_component, on_destroy, css4, Root, base, assets, user_hooks, template, options, default_settings, empty4, manifest, get_hooks, module_lookup, metadata_lookup;
-var init_app_1a513ba3 = __esm({
-  ".svelte-kit/output/server/chunks/app-1a513ba3.js"() {
+var init_app_96b74246 = __esm({
+  ".svelte-kit/output/server/chunks/app-96b74246.js"() {
     init_shims();
     init_ssr();
     identity6 = (x5) => x5;
@@ -30365,7 +30362,7 @@ ${``}`;
           type: "endpoint",
           pattern: /^\/blog\.json$/,
           params: empty4,
-          load: () => Promise.resolve().then(() => (init_index_json_5ceb5087(), index_json_5ceb5087_exports))
+          load: () => Promise.resolve().then(() => (init_index_json_8a6de939(), index_json_8a6de939_exports))
         },
         {
           type: "page",
@@ -30425,21 +30422,21 @@ ${``}`;
       externalFetch: hooks.externalFetch || fetch
     });
     module_lookup = {
-      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_3565d250(), layout_3565d250_exports)),
-      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_bf451d0b(), error_bf451d0b_exports)),
-      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_01d428c8(), index_01d428c8_exports)),
-      "src/routes/example-markdown.md": () => Promise.resolve().then(() => (init_example_markdown_7546688c(), example_markdown_7546688c_exports)),
-      "src/routes/publications.svelte": () => Promise.resolve().then(() => (init_publications_9d28e871(), publications_9d28e871_exports)),
-      "src/routes/blog/__layout.svelte": () => Promise.resolve().then(() => (init_layout_4650aa0a(), layout_4650aa0a_exports)),
-      "src/routes/blog/foodservice-academia.svx": () => Promise.resolve().then(() => (init_foodservice_academia_d635871d(), foodservice_academia_d635871d_exports)),
-      "src/routes/blog/motion-illusions.svx": () => Promise.resolve().then(() => (init_motion_illusions_d12aa38b(), motion_illusions_d12aa38b_exports)),
-      "src/routes/blog/matlab-arduino.svx": () => Promise.resolve().then(() => (init_matlab_arduino_78a91bba(), matlab_arduino_78a91bba_exports)),
-      "src/routes/blog/noisy-better.svx": () => Promise.resolve().then(() => (init_noisy_better_f2ca926f(), noisy_better_f2ca926f_exports)),
-      "src/routes/blog/lurz-paper.svx": () => Promise.resolve().then(() => (init_lurz_paper_e6887306(), lurz_paper_e6887306_exports)),
-      "src/routes/blog.svelte": () => Promise.resolve().then(() => (init_blog_399dc043(), blog_399dc043_exports)),
-      "src/routes/cv.svelte": () => Promise.resolve().then(() => (init_cv_9d76ff56(), cv_9d76ff56_exports))
+      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_fc9a576f(), layout_fc9a576f_exports)),
+      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_1fcc0634(), error_1fcc0634_exports)),
+      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_307b025f(), index_307b025f_exports)),
+      "src/routes/example-markdown.md": () => Promise.resolve().then(() => (init_example_markdown_3cf36404(), example_markdown_3cf36404_exports)),
+      "src/routes/publications.svelte": () => Promise.resolve().then(() => (init_publications_2ea630a8(), publications_2ea630a8_exports)),
+      "src/routes/blog/__layout.svelte": () => Promise.resolve().then(() => (init_layout_119e7716(), layout_119e7716_exports)),
+      "src/routes/blog/foodservice-academia.svx": () => Promise.resolve().then(() => (init_foodservice_academia_c324d790(), foodservice_academia_c324d790_exports)),
+      "src/routes/blog/motion-illusions.svx": () => Promise.resolve().then(() => (init_motion_illusions_f08dbb95(), motion_illusions_f08dbb95_exports)),
+      "src/routes/blog/matlab-arduino.svx": () => Promise.resolve().then(() => (init_matlab_arduino_af47a402(), matlab_arduino_af47a402_exports)),
+      "src/routes/blog/noisy-better.svx": () => Promise.resolve().then(() => (init_noisy_better_9856855c(), noisy_better_9856855c_exports)),
+      "src/routes/blog/lurz-paper.svx": () => Promise.resolve().then(() => (init_lurz_paper_bddb85f3(), lurz_paper_bddb85f3_exports)),
+      "src/routes/blog.svelte": () => Promise.resolve().then(() => (init_blog_5646e84f(), blog_5646e84f_exports)),
+      "src/routes/cv.svelte": () => Promise.resolve().then(() => (init_cv_fc0260db(), cv_fc0260db_exports))
     };
-    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-342a02c5.js", "css": ["assets/pages/__layout.svelte-243c153a.css"], "js": ["pages/__layout.svelte-342a02c5.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-5aa7872b.js", "css": [], "js": ["error.svelte-5aa7872b.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-e25d433e.js", "css": ["assets/Publication-8993e706.css"], "js": ["pages/index.svelte-e25d433e.js", "chunks/vendor-0fd8ff1a.js", "chunks/Publication-b9f7b53f.js"], "styles": [] }, "src/routes/example-markdown.md": { "entry": "pages/example-markdown.md-3e1103c1.js", "css": [], "js": ["pages/example-markdown.md-3e1103c1.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/publications.svelte": { "entry": "pages/publications.svelte-949e0a42.js", "css": ["assets/Publication-8993e706.css"], "js": ["pages/publications.svelte-949e0a42.js", "chunks/vendor-0fd8ff1a.js", "chunks/Publication-b9f7b53f.js"], "styles": [] }, "src/routes/blog/__layout.svelte": { "entry": "pages/blog/__layout.svelte-5e790048.js", "css": [], "js": ["pages/blog/__layout.svelte-5e790048.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/foodservice-academia.svx": { "entry": "pages/blog/foodservice-academia.svx-f0c0d871.js", "css": [], "js": ["pages/blog/foodservice-academia.svx-f0c0d871.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/motion-illusions.svx": { "entry": "pages/blog/motion-illusions.svx-b3795550.js", "css": ["assets/pages/blog/motion-illusions.svx-9ea925e9.css"], "js": ["pages/blog/motion-illusions.svx-b3795550.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/matlab-arduino.svx": { "entry": "pages/blog/matlab-arduino.svx-0a39f38f.js", "css": [], "js": ["pages/blog/matlab-arduino.svx-0a39f38f.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/noisy-better.svx": { "entry": "pages/blog/noisy-better.svx-8f16cd30.js", "css": [], "js": ["pages/blog/noisy-better.svx-8f16cd30.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/lurz-paper.svx": { "entry": "pages/blog/lurz-paper.svx-8d3d0e5f.js", "css": [], "js": ["pages/blog/lurz-paper.svx-8d3d0e5f.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog.svelte": { "entry": "pages/blog.svelte-3f984cd7.js", "css": [], "js": ["pages/blog.svelte-3f984cd7.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/cv.svelte": { "entry": "pages/cv.svelte-7b1e980c.js", "css": ["assets/Publication-8993e706.css"], "js": ["pages/cv.svelte-7b1e980c.js", "chunks/vendor-0fd8ff1a.js", "chunks/Publication-b9f7b53f.js"], "styles": [] } };
+    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-342a02c5.js", "css": ["assets/pages/__layout.svelte-243c153a.css"], "js": ["pages/__layout.svelte-342a02c5.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-5aa7872b.js", "css": [], "js": ["error.svelte-5aa7872b.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-e25d433e.js", "css": ["assets/Publication-8993e706.css"], "js": ["pages/index.svelte-e25d433e.js", "chunks/vendor-0fd8ff1a.js", "chunks/Publication-b9f7b53f.js"], "styles": [] }, "src/routes/example-markdown.md": { "entry": "pages/example-markdown.md-3e1103c1.js", "css": [], "js": ["pages/example-markdown.md-3e1103c1.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/publications.svelte": { "entry": "pages/publications.svelte-949e0a42.js", "css": ["assets/Publication-8993e706.css"], "js": ["pages/publications.svelte-949e0a42.js", "chunks/vendor-0fd8ff1a.js", "chunks/Publication-b9f7b53f.js"], "styles": [] }, "src/routes/blog/__layout.svelte": { "entry": "pages/blog/__layout.svelte-de78c67d.js", "css": [], "js": ["pages/blog/__layout.svelte-de78c67d.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/foodservice-academia.svx": { "entry": "pages/blog/foodservice-academia.svx-f0c0d871.js", "css": [], "js": ["pages/blog/foodservice-academia.svx-f0c0d871.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/motion-illusions.svx": { "entry": "pages/blog/motion-illusions.svx-b3795550.js", "css": ["assets/pages/blog/motion-illusions.svx-9ea925e9.css"], "js": ["pages/blog/motion-illusions.svx-b3795550.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/matlab-arduino.svx": { "entry": "pages/blog/matlab-arduino.svx-0a39f38f.js", "css": [], "js": ["pages/blog/matlab-arduino.svx-0a39f38f.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/noisy-better.svx": { "entry": "pages/blog/noisy-better.svx-8f16cd30.js", "css": [], "js": ["pages/blog/noisy-better.svx-8f16cd30.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog/lurz-paper.svx": { "entry": "pages/blog/lurz-paper.svx-25053c60.js", "css": [], "js": ["pages/blog/lurz-paper.svx-25053c60.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/blog.svelte": { "entry": "pages/blog.svelte-3f984cd7.js", "css": [], "js": ["pages/blog.svelte-3f984cd7.js", "chunks/vendor-0fd8ff1a.js"], "styles": [] }, "src/routes/cv.svelte": { "entry": "pages/cv.svelte-7b1e980c.js", "css": ["assets/Publication-8993e706.css"], "js": ["pages/cv.svelte-7b1e980c.js", "chunks/vendor-0fd8ff1a.js", "chunks/Publication-b9f7b53f.js"], "styles": [] } };
   }
 });
 
@@ -30452,7 +30449,7 @@ init_shims();
 // .svelte-kit/output/server/app.js
 init_shims();
 init_ssr();
-init_app_1a513ba3();
+init_app_96b74246();
 
 // .svelte-kit/netlify/entry.js
 init2();

@@ -20,7 +20,7 @@ Many groups have now presented advantages to thinking of neural population activ
 
 The simplest versions of this have a single linear filter as the core. For example, [Batty et al., 2017](https://openreview.net/pdf?id=HkEI22jeg) used knowledge of the cell class to group retinal ganglion cells and learn a single space-time linear filter for all neurons of the same class. Their "multitask LN" model has a single filter for all On-RGCs and each neuron simply scales that filter's response with a neuron specific gain and offset term and then passes that through a sigmoid nonlinearity.
 
-<img src="/labmeetinglurz/battymultitaskln.png" style="max-width: 50em"/>
+<img src="/labmeetinglurz/battymultitaskln.png" style="max-width: 50em" alt="diagram" />
 
 I really like the terms **"core"** and **"readout"** and think they should be adopted as the standard nomenclature for such a model. In the figure above, the <span style="color:blue">blue parameters</span> ($W_t$ and $W_s$) are shared by all On-RGCs and form the **"core"**. The <span style="color:green">green parameters</span> form the **"readout"**.
 
@@ -38,11 +38,11 @@ This idea is really jsut something that has been said by others already (e.g., [
 
 The figure below demonstrates the logic of a data-driven core. It is trained end-to-end from stimulus to spikes. The core is shared by all neurons and the readout is neuron specific.
 
-<img src="/labmeetinglurz/buttsdatadriven.png" style="max-width: 50em"/>
+<img src="/labmeetinglurz/buttsdatadriven.png" style="max-width: 50em" alt="diagram" />
 
 In contrast, a goal-directed core comes pre-trained (on some other dataset) and and forms a nonlinear basis for a linearized model of the neural responses.
 
-<img src="/labmeetinglurz/buttstransfer.png" style="max-width: 50em"/>
+<img src="/labmeetinglurz/buttstransfer.png" style="max-width: 50em" alt="diagram" />
 
 **The advantages of a goal-directed core are:**
 
@@ -78,7 +78,7 @@ $r^{(i)} = F_i \big[\sum_{w,h,c} w_{c}^{(i)}v_{w,h}^{(i)}a_{c,w,h}\big]$
 
 where $F_i$ is the activation function for neuron $i$, which is an [ELU](https://paperswithcode.com/method/elu) with an offset.
 
-<img src="/labmeetinglurz/elu.png" style="max-width: 20em"/>
+<img src="/labmeetinglurz/elu.png" style="max-width: 20em" alt="diagram" />
 
 This reduces the number of parameters from $2304 \times c$ to $2304 + c$
 
@@ -90,11 +90,11 @@ The spatial position for each neuron, $x_i,y_i$ are learned parameters. They are
 
 This readout idea comes from [spatial transformer layers](https://arxiv.org/abs/1506.02025). The basic transform operation is an affine transform of a grid of sampling points.
 
-<img src="/labmeetinglurz/spatialtransformer.png" style="max-width: 50em"/>
+<img src="/labmeetinglurz/spatialtransformer.png" style="max-width: 50em" alt="diagram" />
 
 The difference here is that the sample is a single point for each neuron and it is sampling that point in a coordinate system that is the same regardless of the pooling size. That way the initialization always has something to start with.
 
-<img src="/labmeetinglurz/pointreadout.png" style="max-width: 50em"/>
+<img src="/labmeetinglurz/pointreadout.png" style="max-width: 50em" alt="diagram" />
 
 **This has two cool benefits:**
 
@@ -104,7 +104,7 @@ The difference here is that the sample is a single point for each neuron and it 
 
 The full model in the 2018 paper is schematized here:
 
-<img src="/labmeetinglurz/sinz2018.png" style="max-width: 30em"/>
+<img src="/labmeetinglurz/sinz2018.png" style="max-width: 30em" alt="diagram" />
 
 Okay, so now that we have a sense of the readout, we're ready for the new tricks introduced in Lurz et al., 2020.
 
@@ -131,7 +131,7 @@ Second, we reparameterized the loss to take the sampling step outsize of the opt
 One final reminder about VAEs is that this is a generative modeling approach with Bayesian inference for the latents, but it can also be referred to in coding theory terms like _Endoding_ and _Decoding_.
 
 The basic idea is pictured here
-<img src="/labmeetinglurz/kingmavaelearning.png" style="max-width: 30em"/>
+<img src="/labmeetinglurz/kingmavaelearning.png" style="max-width: 30em" alt="diagram" />
 
 I'm going to skip derivations and you can look at the link above if you want them. The key point is that by starting with the objective of maximizing the marginal likelihood $p(x)$ you end up with two terms in the loss: one that is a KL divergence between the posterior approximation $q_{\phi}(z|x)$ and the true (intractable) posterior $p_{\theta}(z|x)$ and another known as the Evidence Lower Bound (ELBO) that I'm showing here:
 
@@ -143,11 +143,11 @@ We want to maximize the ELBO, $\mathcal{L}_{\theta,\phi}(\textrm{x})$, w.r.t. th
 
 Maximizing the the ELBO w.r.t. $\theta$ is straightforward because the expectation is take w.r.t. the distribution $q_{\phi}(\textrm{z}|\textrm{x})$ so we can move the gradient operator inside the expectation.
 
-<img src="/labmeetinglurz/wrttheta.png" style="max-width: 30em"/>
+<img src="/labmeetinglurz/wrttheta.png" style="max-width: 30em" alt="diagram" />
 
 Maximizing the the ELBO w.r.t. $\phi$ is tricky because the expectation is w.r.t. the distribution $q_{\phi}(\textrm{z}|\textrm{x})$, which is a function of $\phi$.
 
-<img src="/labmeetinglurz/wrtphi.png" style="max-width: 30em"/>
+<img src="/labmeetinglurz/wrtphi.png" style="max-width: 30em" alt="diagram" />
 
 This is where the "reparameterization trick" comes in. $\mathcal{L}_{\theta,\phi}(\textrm{x})$ can be differentiated w.r.t. $\phi$ with a change of variables.
 
@@ -162,7 +162,7 @@ $\nabla_{\phi}\mathbb{E}_{q_{\phi}(z|x)}[f(z)] = \mathbb{E}_{\epsilon \sim \math
 This reparameterization means $f(g(\textrm{z},\textrm{x},\phi))$ can be automatically differentiated w.r.t. the parameters $\phi$ using whatever software is your current favorite (Tensorflow, Pytorch).
 
 The schematic that illustrates this can be seen here:
-<img src="/labmeetinglurz/kingmavaereparameterization.png" style="max-width: 30em"/>
+<img src="/labmeetinglurz/kingmavaereparameterization.png" style="max-width: 30em" alt="diagram" />
 
 ## New Trick #1: reparameterization + sampling
 
@@ -192,7 +192,7 @@ Using this additional information, the authors learn a mapping from cortical spa
 
 Figure 2 in the paper illustrates this conceptually.
 
-<img src="/labmeetinglurz/lurzfig2.png" style="max-width: 40em"/>
+<img src="/labmeetinglurz/lurzfig2.png" style="max-width: 40em" alt="diagram" />
 
 Now they're really showing off! With all of these new tricks in place, they are ready to train cores and test them on witheld datasets... yea, witheld _datasets_, not just witheld _data_.
 
@@ -200,15 +200,15 @@ Now they're really showing off! With all of these new tricks in place, they are 
 
 The rest of the paper just shows how well these different readouts work for different sets of training and test data. I don't have much to say except the new readout easily beats the state-of-the-art. And it generalizes better than VGG-16 as a core model.
 
-<img src="/labmeetinglurz/lurzfig3.png" style="max-width: 30em"/>
+<img src="/labmeetinglurz/lurzfig3.png" style="max-width: 30em" alt="diagram" />
 
 **Figure 3:** Performance of end-to-end trained networks. Performance for different subsets of neurons (linestyle) and number of training examples (x-axis). The same core architecture was trained for two different readouts with and without feature sharing (color) on the matched neurons of the 4-S:matched core set (Fig. 1, green). Both networks show increasing performance with number of images However, the network with the Gaussian readout achieves a higher final performance (light blue vs. orange). While the Gaussian readout profits from feature sharing (light vs. dark blue), the factorized readout is hurt by it (yellow vs. orange). Shaded areas depict 95% confidence intervals across random picks of the neuron subsets
 
-<img src="/labmeetinglurz/lurzfig4.png" style="max-width: 60em"/>
+<img src="/labmeetinglurz/lurzfig4.png" style="max-width: 60em" alt="diagram" />
 
 **Figure 4:** Generalization to other neurons in the same animal. A core trained on 3597 neurons and up to 17.5k images generalizes to new neurons (pink and yellow line). A fully trained core yields very good predictive performance even when the readout is trained on far less data (yellow). If the readout is trained with all data, even a sub-optimal core can yield a good performance (pink). Both transfer conditions outperform a network directly trained end-to-end on the transfer dataset (brown). For the full dataset, all training conditions converge to the same performance. Except in the best-core/diff-readout condition for very few training data, the Gaussian readout (B) outperforms the factorized readout (A). The data for both the training and transfer comes from the 4-S:matched dataset (Fig 1, green). Not that the different number of images can be from the core or transfer set, depending on the transfer condition.
 
-<img src="/labmeetinglurz/lurzfig5.png" style="max-width: 30em"/>
+<img src="/labmeetinglurz/lurzfig5.png" style="max-width: 30em" alt="diagram" />
 
 **Figure 5:** Generalization across animals. Prediction performance in fraction oracle correlation as a function of
 training examples in the transfer set for
