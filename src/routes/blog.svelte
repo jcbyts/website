@@ -1,5 +1,5 @@
 <script context="module">
-  export async function load({ page, fetch, session, context }) {
+  export async function load({ fetch }) {
     const url = "/blog.json";
 
     const res = await fetch(url);
