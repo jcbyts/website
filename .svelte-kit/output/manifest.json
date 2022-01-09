@@ -1,6 +1,6 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-ed707d7c.js",
+    "file": "start-2565e3a0.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
@@ -124,7 +124,7 @@
     ]
   },
   "src/routes/blog/lurz-paper.svx": {
-    "file": "pages/blog/lurz-paper.svx-25053c60.js",
+    "file": "pages/blog/lurz-paper.svx-2cc25f62.js",
     "src": "src/routes/blog/lurz-paper.svx",
     "isEntry": true,
     "isDynamicEntry": true,
