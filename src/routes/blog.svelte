@@ -1,23 +1,18 @@
 <script context="module">
+  import { getPages } from "./index.json.js";
   export async function load({ fetch }) {
-    const url = "/blog.json";
-
-    const res = await fetch(url);
-
-    if (res.ok) {
-      const posts = await res.json();
-
-      return {
-        props: {
-          posts,
-        },
-      };
-    }
+    const posts = await getPages();
 
     return {
-      status: res.status,
-      error: new Error(`Could not load ${url}`),
+      props: {
+        posts,
+      },
     };
+
+    // return {
+    //   status: res.status,
+    //   error: new Error(`Could not load ${url}`),
+    // };
   }
 </script>
 

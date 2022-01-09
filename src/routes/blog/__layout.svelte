@@ -1,27 +1,23 @@
 <script context="module">
-  export async function load({ url }) {
-    const jsonUrl = "/blog.json";
-    console.log("url", url);
+  import { getPages } from "./index.json.js";
+  export async function load(params) {
+    const posts = await getPages();
+    console.log("posts", posts);
 
-    const path = url.pathname;
+    const path = params.url.pathname;
 
-    const res = await fetch(url.origin + jsonUrl);
-
-    if (res.ok) {
-      const posts = await res.json();
-      const metadata = posts.find((d) => d["slug"] === path.split("/")[2]);
-
-      return {
-        props: {
-          metadata,
-        },
-      };
-    }
+    const metadata = posts.find((d) => d["slug"] === path.split("/")[2]);
 
     return {
-      status: res.status,
-      error: new Error(`Could not load ${url}`),
+      props: {
+        metadata,
+      },
     };
+
+    // return {
+    //   status: res.status,
+    //   error: new Error(`Could not load ${params.url}`),
+    // };
   }
 </script>
 
