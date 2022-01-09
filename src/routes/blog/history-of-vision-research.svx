@@ -1,0 +1,12 @@
+---
+title: A history of vision research
+date: 2022-3-3
+description: A perplexing situation where a worse model is better
+draft: true
+---
+
+<script>
+import ResearchTimeline from "../../components/research-timeline"
+</script>
+
+<ResearchTimeline />
