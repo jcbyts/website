@@ -1,5 +1,5 @@
 <script context="module">
-  import { getPages } from "./index.json.js";
+  import { getPages } from "./blog/index.json.js";
   export async function load({ fetch }) {
     const posts = await getPages();
 
