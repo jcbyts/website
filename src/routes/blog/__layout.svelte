@@ -1,9 +1,11 @@
 <script context="module">
-  export async function load({ page, fetch, session, context }) {
-    const url = "/blog.json";
-    const { path } = page;
+  export async function load({ url }) {
+    const jsonUrl = "/blog.json";
+    console.log("url", url);
 
-    const res = await fetch(url);
+    const path = url.pathname;
+
+    const res = await fetch(url.origin + jsonUrl);
 
     if (res.ok) {
       const posts = await res.json();

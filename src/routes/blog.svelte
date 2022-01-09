@@ -32,7 +32,7 @@
 
 <h1>Thoughts</h1>
 
-<div class="space-y-12 -mx-14">
+<div class="space-y-12 md:-mx-14">
   {#each posts.filter((d) => !d.draft && d.slug) as { slug, title, date, description } (slug)}
     <article
       class="bg-white py-6 md:py-10 px-5 md:px-14 shadow-lg shadow-blue-50 hover:shadow-blue-100 transition-all transform hover:-translate-y-1"
