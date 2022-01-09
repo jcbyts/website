@@ -32,10 +32,10 @@ const estree_walk = require("estree-walker").walk;
 const magicString = require("magic-string");
 const fs = require("fs");
 
-if (fs.existsSync(input_file) || fs.existsSync(output_file)) {
-  console.log('error: input or output file exists. run this script only once');
-  process.exit(1);
-}
+// if (fs.existsSync(input_file) || fs.existsSync(output_file)) {
+//   console.log('error: input or output file exists. run this script only once');
+//   process.exit(1);
+// }
 
 console.log(`move file: ${base_file} --> ${input_file}`)
 fs.renameSync(base_file, input_file);
