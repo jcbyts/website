@@ -5,7 +5,7 @@
 
 ### The Active Vision and Neural Computation Lab opens
 
-My lab will be opening at the [Herbert Wertheim School of Optometry and Vision Science](https://optometry.berkeley.edu/) at UC Berkeley in July 2022 and will be recruiting at all levels soon. If you're interested in working together, shoot me an [email](yates@berkeley.edu) (more below).
+My lab will be opening at the [Herbert Wertheim School of Optometry and Vision Science](https://optometry.berkeley.edu/) at UC Berkeley in July 2022 and will be recruiting at all levels soon. If you're interested in working together, shoot me an [email](mailto:yates@berkeley.edu) (more below).
 
 Research in the lab will be broadly focused on how primate brains extract information about the world using vision.
 
