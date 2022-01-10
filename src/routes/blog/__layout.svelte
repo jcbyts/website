@@ -2,7 +2,6 @@
   import { getPages } from "./index.json.js";
   export async function load(params) {
     const posts = await getPages();
-    console.log("posts", posts);
 
     const path = params.url.pathname;
 
@@ -13,11 +12,6 @@
         metadata,
       },
     };
-
-    // return {
-    //   status: res.status,
-    //   error: new Error(`Could not load ${params.url}`),
-    // };
   }
 </script>
 
@@ -30,6 +24,8 @@
   $: title = metadata?.title;
   $: slug = metadata?.slug;
   $: isDraft = metadata?.draft;
+
+  $: isFullWidth = metadata?.layout === "full-width";
   const formatDate = timeFormat("%b %e, %Y");
 </script>
 
@@ -47,19 +43,23 @@
   {formatDate(new Date(metadata?.date))}
 </div>
 
-<div
-  class="content bg-white mt-10 -mx-14 py-16 px-14 shadow-2xl shadow-blue-50"
->
-  {#if isDraft}
-    {#if dev}
-      <blockquote>
-        This draft is visible because you're working locally.
-      </blockquote>
-      <slot />
+<div class="content mt-10 -mx-14" class:breakout={isFullWidth}>
+  <div
+    class="bg-white py-16 px-14 shadow-2xl shadow-blue-50 {isFullWidth
+      ? 'mx-[2em]'
+      : ''}"
+  >
+    {#if isDraft}
+      {#if dev}
+        <blockquote>
+          This draft is visible because you're working locally.
+        </blockquote>
+        <slot />
+      {:else}
+        This post is in progress!
+      {/if}
     {:else}
-      This post is in progress!
+      <slot />
     {/if}
-  {:else}
-    <slot />
-  {/if}
+  </div>
 </div>
