@@ -1,5 +1,13 @@
 [
   {
+    "authors": "JL Yates, SH Coop, GH Sarch, R Wu, D Butts, M Rucci, JF Mitchell",
+    "year": 2021,
+    "title": "Beyond Fixation: detailed characterization of neural selectivity in free viewing primates",
+    "journal": "Preprint",
+    "link": "https://www.biorxiv.org/content/10.1101/2021.11.06.467566v1"
+  },
+
+  {
     "authors": "SL Cloherty*, JL Yates*, D Graf, GC DeAngelis, JF Mitchell",
     "year": 2020,
     "title": "Motion perception in the common marmoset",
@@ -8,7 +16,6 @@
     "highlights": [
       {
         "title": "Faculty of 1000 (F1000Prime) entry",
-        "authors": "Marcello Rosa",
         "link": "https://facultyopinions.com/prime/737076579"
       }
     ]
@@ -18,7 +25,6 @@
     "year": 2019,
     "title": "Discrete stepping and nonlinear ramping dynamics underlie spiking responses of LIP neurons during decision-making",
     "journal": "Neuron",
-    "page": "1249-1258",
     "link": "https://pillowlab.princeton.edu/pubs/Zoltowski19_Neuron_StepRampLIP.pdf"
   },
   {
@@ -26,7 +32,6 @@
     "year": 2018,
     "title": "Gaze and the control of foot placement when walking in natural terrain",
     "journal": "Current Biology",
-    "page": "1224-1233",
     "link": "https://d1wqtxts1xzle7.cloudfront.net/56342614/1-s2.0-S0960982218303099-main.pdf?1523985307=&response-content-disposition=inline%3B+filename%3DGaze_and_the_Control_of_Foot_Placement_W.pdf&Expires=1605545857&Signature=IXmcSJW0Tm4rhuOnGqnNdYEv9nyJhsoM5-sfmWO8yhaMA0Z6ordEQkpRz5MKqaKPX5U2dLIsjCMSLKEbrT8pH~Y8Bn-DNT1wQaIt1Q6SUH5qqZjxU1qJCcoX~8azSDMekmA-eQzgVJDvcZdIbKvajp3KfYiNvwxxtuQuxDzgllRzD4FtKDRx7edsZvMfm-94lHi1JWCxA2IwbY8r01YcxPwN77v24KmGbMAYhel5fENzOGCKiL8zsRxAUs02DlPRkFGw7Dte8egzCRYWHWb3ani9lP9wds75NvbU~wvkTbK6kmLfbXI9WNYcx1D6fZ8bl6r5pBk9C0I8NeoFZ7UNyQ__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA"
   },
   {
@@ -34,7 +39,6 @@
     "year": 2017,
     "title": "Functional dissection of signal and noise in MT and LIP during decision-making",
     "journal": "Nature Neuroscience",
-    "page": "1285-",
     "link": "https://www.nature.com/articles/nn.4611.pdf?origin=ppub"
   },
   {
@@ -42,7 +46,6 @@
     "year": 2017,
     "title": "The role of the lateral intraparietal area in (the study of) decision making",
     "journal": "Annual review of neuroscience",
-    "page": "40-",
     "link": "https://www.annualreviews.org/doi/full/10.1146/annurev-neuro-072116-031508"
   },
   {
@@ -50,7 +53,6 @@
     "year": 2016,
     "title": "Dissociated functional significance of decision-related activity in the primate\ndorsal stream",
     "journal": "Nature",
-    "page": "535: 285–288",
     "link": "http://www.nature.com/nature/journal/v535/n7611/full/nature18617.html",
     "highlights": [
       {
@@ -88,7 +90,6 @@
     "year": 2016,
     "title": "Response to comment on “single-trial spike trains in parietal cortex reveal\ndiscrete steps during decision-making”",
     "journal": "Science",
-    "page": "351(6280):1406",
     "link": "http://science.sciencemag.org/content/351/6280/1406.3.long"
   },
   {
@@ -96,7 +97,6 @@
     "year": 2015,
     "title": "Single-trial spike trains in parietal cortex reveal discrete steps during\ndecision-making",
     "journal": "Science",
-    "page": "349(6244), 184-187",
     "link": "http://www.sciencemag.org/content/349/6244/184.abstract"
   },
   {
@@ -104,7 +104,6 @@
     "year": 2015,
     "title": "Continuous Psychophysics: Target-tracking to Measure Visual Sensitivity",
     "journal": "Journal of Vision",
-    "page": "15(3), 14",
     "link": "/bonnen15JOVKalmantracking.pdf",
     "pdf": true
   },
@@ -113,7 +112,6 @@
     "year": 2010,
     "title": "V1 is not uniquely identified by polarity reversals of responses to upper\nand lower visual field stimuli",
     "journal": "Neuroimage",
-    "page": "52(4), 1401-1409",
     "link": "/ales2010NeuroImage.pdf",
     "pdf": true
   }
