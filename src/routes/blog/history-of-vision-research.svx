@@ -3,10 +3,13 @@ title: A history of vision research
 date: 2022-3-3
 description: A perplexing situation where a worse model is better
 draft: true
+layout: full-width
 ---
 
 <script>
-import ResearchTimeline from "../../components/research-timeline"
+import ResearchTimeline from "../../components/ResearchTimeline.svelte"
+import SimuliRecordingExample from "../../components/SimuliRecordingExample.svelte"
 </script>
 
+<SimuliRecordingExample />
 <ResearchTimeline />
