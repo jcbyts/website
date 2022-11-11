@@ -1,5 +1,29 @@
 [
   {
+    "authors": "Liska JP, Rowley DP, Nguyen TTK, Muthmann J, Butts DA, Yates JL, Huk AC",
+    "year": 2022,
+    "title": "Running modulates primate and rodent visual cortex via common mechanism but quantitatively distinct implementation",
+    "journal": "Preprint",
+    "link": "https://www.biorxiv.org/content/10.1101/2022.06.13.495712v2"
+  },
+
+  {
+    "authors": "Parker PRL, Martins DM, Leonard ESP, Casey NM, Sharp SL, Abe ETT, Smear EC, Yates JL, Mitchell JF, Niell CM",
+    "year": 2022,
+    "title": "A dynamic sequence of visual processing initiated by gaze shifts",
+    "journal": "Preprint",
+    "link": "https://www.biorxiv.org/content/10.1101/2022.08.23.504847v1"
+  },
+
+  {
+    "authors": "Talluri BC, Kang I, Lazere A, Quinn KR, Kaliss N, Yates JL, Butts DA, Nienborg H",
+    "year": 2022,
+    "title": "Activity in primate visual cortex is minimally driven by spontaneous movements",
+    "journal": "Preprint",
+    "link": "https://www.biorxiv.org/content/10.1101/2022.09.08.507006v1"
+  },
+
+  {
     "authors": "JL Yates, SH Coop, GH Sarch, R Wu, D Butts, M Rucci, JF Mitchell",
     "year": 2021,
     "title": "Beyond Fixation: detailed characterization of neural selectivity in free viewing primates",

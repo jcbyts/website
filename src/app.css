@@ -11,6 +11,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply font-sans;
   @apply bg-sky-50;
@@ -96,6 +100,15 @@ li {
   margin: 0.6em 0;
 }
 
+ul {
+  list-style: disc;
+}
+
+li::marker {
+  content: '-  ';
+  color: var(--a1);
+}
+
 a {
   @apply text-sky-600;
   background: rgba(255, 255, 255, 1);
@@ -117,6 +130,7 @@ blockquote {
 hr {
   @apply bg-white;
   height: 1px;
+  padding: 0;
   appearance: none;
   margin: 6em 0;
   outline: none;

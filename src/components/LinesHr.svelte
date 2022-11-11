@@ -44,8 +44,8 @@
     $rotations = [...items.map(getAngle), ...$rotations].slice(0, maxItems);
   };
   const colorScale = scaleSqrt()
-    .domain([0, 600])
-    .range(["#0ea5e9", "#e2e8f0"])
+    .domain([100, 150, 500])
+    .range(["#f39c12", "#0ea5e9", "#e2e8f0"])
     // .interpolate(interpolateHclLong)
     .clamp(true);
   $: x, y, updateRotations();

@@ -3,11 +3,11 @@
   import LatestPublications from "../components/LatestPublications.svelte";
 </script>
 
-### The Active Vision and Neural Computation Lab opens
+### The Active Vision and Neural Computation Lab
 
-My lab will be opening at the [Herbert Wertheim School of Optometry and Vision Science](https://optometry.berkeley.edu/) at UC Berkeley in July 2022 and will be recruiting at all levels soon. If you're interested in working together, shoot me an [email](mailto:yates@berkeley.edu) (more below).
+My lab is recruiting PhD students and postdocs. If you're interested in working together, shoot me an [email](mailto:yates@berkeley.edu). Open positions and projects are [listed below](#open-positions-and-pre-requisites).
 
-Research in the lab will be broadly focused on how primate brains extract information about the world using vision.
+Research in the lab is broadly focused on how primate brains extract information about the world using vision during natural behavior.
 
 **Why vision?**
 
@@ -23,22 +23,29 @@ We approach our research questions by collaborating closely with neurophysiologi
 
 #### Open positions and pre-requisites
 
-I am looking for students and postdocs to join my lab. The work we do is fairly technical, so it is helpful to have some existing skills. But everything can be learned so I'm mostly looking for enthusiasm a good work ethic. The general topics are listed below and pre-requisites for success on each topic area.
+I am looking for students and postdocs to join my lab. The work we do is fairly technical, so it is helpful to have some existing skills in machine learning and statistical modeling.
 
 Students and postdocs will be encouraged to connect across these multiple topics. 
 
-**Statistical Models of Neural Activity**
-If you are interested in neural modeling, it is helpful if you have some background in machine learning. All of our models are currently written in python using pytorch, so some familiarity or confidence you can learn it quickly is helpful. Experience analyzing neural data is helpful but not necessary.
+**Postdoc/PhD student for Machine Learning Models of Visual Neural Activity**
 
-**High-resolution Eye Tracking**
-We are interested in pushing the limits of how well we can measure eye movements in humans and monkeys. We use a range of approaches to do this, but there are two basic settings where we aim to improve existing technology: The laboratory and the wild.
+I am recruiting a highly motivated and skilled postdoc and PhD student to develop and analyze predictive machine learning models for cortical and subcortical visual areas in free-viewing monkeys. Collaborations are ongoign with Professors Jude Mitchell, Alex Huk, Bevil Conway, and Greg Horwitz. For more information on the data and approach, see our recent [preprint](https://www.biorxiv.org/content/10.1101/2021.11.06.467566v1.full).
 
-Eye tracking in the lab is controlled and we can customize all the hardware and geometry. If you are interested in this, experience with C++ and using hardware APIs is helpful. It is also helpful to have a basic familiarity with optics and computer vision. Currently, our algorithms run using OpenCV so they are easy to program.
+The candidate is expected to develop novel data-driven CNN-based machine learning models for recorded neurons in LGN, V1, V2, V4, and MT cortex, analyze the trained models to better understand how populations of neurons in visual cortex are modulated by behavior and eye movements. The cadidate will develop predictions that can be tested in subsequent neurophysiological or psychophysical experiments. The position is purely computational, but the candidate is expected to work closely with the experimental collaborators.
 
-We are also interested in using machine learning to measure eye movements in freely moving animals (even in the wild). Experience with computer vision is helpful.
+The ideal candidate has a degree in machine learning, physics, math, electrical engineering, or related fields, and a strong background in mathematics, machine learning, or statistics, with prior experience in (computational) neuroscience.
 
-**Perception**
-In the lab, we study how eye movements format visual input to support perception. We show visual stimuli using Matlab via Psychtoolbox. Some programming experience is helpful.
+**How to apply:**
+
+If you're interested in joining the lab, I'd love to hear from you! To make sure it's a good fit for you and the lab, [email me](mailto:yates@berkeley.edu) with the following information:
+
+- Your Curriculum Vitae.
+- A short statement of purpose outlining your interest in this research area.
+- A short list of your existing skills and those you would like to acquire.
+- Known programming languages and experience with pytorch. Any example code (e.g., on github or bitbucket).
+- Possible start date.
+
+The subject line should indicate whether you are interested in a postdoc of PhD student position.
 
 
 <LinesHr />
