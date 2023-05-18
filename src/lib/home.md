@@ -5,7 +5,7 @@
 
 ### The Active Vision and Neural Computation Lab
 
-My lab is recruiting PhD students and postdocs. If you're interested in working together, shoot me an [email](mailto:yates@berkeley.edu). Open positions and projects are [listed below](#open-positions-and-pre-requisites).
+<!-- My lab is recruiting PhD students and postdocs. If you're interested in working together, shoot me an [email](mailto:yates@berkeley.edu). Open positions and projects are [listed below](#open-positions-and-pre-requisites). -->
 
 Research in the lab is broadly focused on how primate brains extract information about the world using vision during natural behavior.
 
@@ -21,7 +21,7 @@ Humans are primates. Like other primates, we have forward-facing eyes and a larg
 **Approach**
 We approach our research questions by collaborating closely with neurophysiologists. We help design experiments and analyze neural data collected in other labs using statistical models and machine learning. We also develop new eye-tracking technology in-house and test perceptual predictions from our neural models using psychophysics with high-resolution eye-tracking.
 
-#### Open positions and pre-requisites
+<!-- #### Open positions and pre-requisites
 
 I am looking for students and postdocs to join my lab. The work we do is fairly technical, so it is helpful to have some existing skills in machine learning and statistical modeling.
 
@@ -45,7 +45,7 @@ If you're interested in joining the lab, I'd love to hear from you! To make sure
 - Known programming languages and experience with pytorch. Any example code (e.g., on github or bitbucket).
 - Possible start date.
 
-The subject line should indicate whether you are interested in a postdoc of PhD student position.
+The subject line should indicate whether you are interested in a postdoc of PhD student position. -->
 
 
 <LinesHr />
