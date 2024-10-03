@@ -1,0 +1,97 @@
+---
+title: The Brain's Inside-Out Perspective. Reconciling Perception and Neuroscience
+date: 2024-10-03
+description:
+draft: true
+---
+
+> Visual 1: Timeline infographic showing key figures and ideas in perception theory
+>
+> Include Alhazen (1021), Helmholtz (1870s), Hubel & Wiesel (1960s), Srinivasan (1982), Mumford (1990s)
+> Use icons to represent their key contributions (e.g., eye for Alhazen, microscope for Hubel & Wiesel)
+
+
+When you first learn about vision in a neuroscience class, you might experience a kind of cognitive dissonance. On one hand, you're taught about perception as a process of active interpretation. On the other, you learn about neurons that seem to passively filter incoming information. This disconnect isn't just confusing for students—it reflects a fundamental tension in how we understand the brain.
+
+Let's start with perception. The idea that our brain actively interprets sensory information, rather than passively receiving it, isn't new. In fact, it's ancient. Almost a thousand years ago, the Arab scientist Alhazen proposed that vision involves judgment and inference. Fast forward to the 1870s, and we find the German physicist Hermann von Helmholtz articulating a similar idea more formally. Helmholtz suggested that perception is a process of unconscious inference—our brain's best guess about what's out there in the world.
+
+> Visual 2: Interactive demonstration of visual illusions
+>
+> Include 2-3 classic illusions (e.g., Müller-Lyer, Kanizsa triangle)
+> Allow users to toggle between the raw stimulus and an interpretation of what the brain "sees"
+
+This view of perception as inference is compelling. It explains why we sometimes see things that aren't there (illusions) or fail to see things that are (inattentional blindness). It accounts for how we can perceive a stable world despite our eyes constantly darting around. And it fits nicely with the modern concept of the Bayesian brain—the idea that our perceptions are shaped by prior probabilities learned from experience. We assume faces are convex because they almost always are. We interpret ambiguous shading patterns as if light comes from above because that's usually true in our world.
+
+> Visual 3: Simplified diagram of the visual cortex
+>
+> Show hierarchical structure from V1 to higher areas
+> Use color coding to indicate increasing complexity of features detected
+
+But then you turn to the neuroscience of vision, and suddenly you're in a different world. Here, the story often begins with Hubel and Wiesel in the 1960s, discovering that cells in the visual cortex respond to specific patterns of light—edges, bars, and the like. This led to the concept of receptive fields: each neuron has a particular pattern it's looking for in the visual input.
+
+> Visual 4: Interactive demonstration of receptive fields
+>
+> Show an image and simulated neuronal responses
+> Allow users to move a stimulus across the image and see how different "neurons" respond
+
+Building on this, researchers like Tony Movshon developed more sophisticated models. Neurons were described as linear-nonlinear filters, sometimes combined into energy models for complex cells. These models are fundamentally feedforward: information flows from the eyes through a series of processing stages, each extracting more complex features from the input.
+
+This feedforward view of vision aligns well with the deep learning revolution in AI. Convolutional Neural Networks (CNNs), which have achieved human-level performance on many visual tasks, are essentially a silicon implementation of this feedforward, hierarchical feature extraction idea.
+
+> Visual 5: Side-by-side comparison of biological and artificial neural networks
+>
+> Show simplified diagrams of a biological neural network and a CNN
+> Highlight similarities in hierarchical structure and feature extraction
+
+So we have two perspectives: perception as active inference, and vision as passive filtering. Both are supported by evidence. Both have led to important insights and technological advances. But they don't quite fit together.
+
+It's not that neuroscientists were unaware of the inferential view of perception. In fact, there have been several attempts to bridge this gap. In 1982, Srinivasan and colleagues proposed a theory of predictive coding in the retina. This suggested that neural circuits might be comparing incoming signals with predictions, encoding only the differences. In the 1990s, David Mumford outlined a framework for hierarchical Bayesian inference in the cortex, where higher levels predict the inputs to lower levels.
+
+> Visual 6: Conceptual diagram of predictive coding
+>
+> Show hierarchical levels with both feedforward and feedback connections
+> Use animations to illustrate the flow of predictions and prediction errors
+
+These ideas were intriguing, but they didn't immediately catch on. Why? Partly because the feedforward models were working so well. They explained a lot of data and inspired successful AI systems. But there was also a more fundamental problem: the evidence.
+
+If the brain is constantly making predictions and comparing them with sensory input, shouldn't we see signs of these predictions in neural activity? Shouldn't there be massive feedback signals carrying predictions from higher brain areas to lower ones?
+
+But that's not what neuroscientists found. When they looked for effects of feedback in visual processing, they mostly found subtle modulations. Higher brain areas might slightly enhance or suppress activity in lower areas, but there was no sign of the kind of strong, specific prediction signals that many theories suggested.
+
+> Visual 7: Graphical representation of expected vs observed feedback effects
+>
+> Show hypothetical strong prediction signals next to actual observed subtle modulations
+> Use size and color to emphasize the difference
+
+This is the puzzle we're left with. Our best theories of perception tell us the brain must be doing some kind of inference, some kind of prediction. But our best measurements of brain activity show us something that looks a lot more like passive, feedforward filtering.
+
+How do we resolve this? One possibility is that our theories of perception are just wrong. Maybe the brain really is just a fancy filter, and all that talk of inference and prediction is misguided.
+
+But I don't think that's the answer. The inferential view of perception explains too much, fits too well with our subjective experience, to be completely wrong. And we know the brain has massive feedback connections—they must be doing something important.
+
+Instead, I suspect the answer lies in looking more closely at the math. When we say the brain is doing "inference" or "prediction," what exactly do we mean? What computations does that actually imply?
+
+> Visual 8: Teaser equation or diagram
+>
+> Show a simplified mathematical formulation of inference or prediction
+> Use visual elements to hint at how this might be implemented in a neural network
+
+It turns out that when you work through the equations, you find something surprising. The kinds of computations required for inferential perception don't necessarily look like explicit prediction and comparison. In some cases, they can be implemented in networks that look a lot like the feedforward, filtering models we're familiar with.
+
+In the next post, we'll dive into this idea. We'll look at how the mathematics of sparse coding—a influential model of early vision—can be implemented in a neural network without any explicit prediction signals. This will set us up to explore a broader framework for thinking about perception and learning, based on a principle called the Evidence Lower Bound (ELBO).
+
+But before we get there, I want to emphasize why this matters. Understanding how the brain perceives isn't just an academic exercise. It's fundamental to understanding consciousness, learning, and mental health. It's crucial for developing better AI systems and brain-computer interfaces. And at a deeper level, it's about understanding how we, as physical systems, can have rich internal models of the world.
+
+> Visual 9: Conceptual illustration of "brain as world model"
+>
+> Show a brain containing a miniature, simplified version of the external world
+> Use semi-transparent layers or cutaways to suggest internal complexity
+
+The idea that perception might be a kind of inference, a kind of prediction, is profound. It suggests that in some sense, we're all constantly hallucinating—constructing our reality as much as perceiving it. Our perceptions are our brain's best guesses about the causes of our sensations.
+
+But if that's true, how does it actually work in a brain made of neurons? That's the question we'll start to answer in the next post. Stay tuned.
+
+> Visual 10: Teaser image for next post
+>
+> Show a neuron or neural network alongside mathematical symbols
+> Use a "to be continued" style graphic to create anticipation
