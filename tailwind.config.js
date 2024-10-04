@@ -1,12 +1,14 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				serif: ["DM Serif Display", "serif"],
-				mono: ["Fira Code", "monospace"],
+				sans: ['Inter', ...defaultTheme.fontFamily.sans],
+				serif: ["Parclo", ...defaultTheme.fontFamily.serif],
       },
     },
   },

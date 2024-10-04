@@ -16,7 +16,7 @@
   <div class="list">
     {#each cv as { title, items }, i (title)}
       <div class="section" in:fly|global={{ x: -30, delay: i * 200 }}>
-        <h3 class="font-sans text-lg font-light text-stone-500">{title}</h3>
+        <h3 class="font-sans text-lg text-stone-500">{title}</h3>
 
         <div
           class="space-y-12"
@@ -33,12 +33,12 @@
           {#each items || [] as { title, when, who, authors, where, tag, footnote }}
             <div class="px-8 py-5 flex justify-between" key={title}>
               <div class="">
-                <h3 class="mt-0 font-sans font-bold text-xl mb-1">{title}</h3>
+                <h3 class="mt-0 font-semibold text-xl mb-1">{title}</h3>
                 {#each [who, authors].filter((d) => d) as d (d)}
-                  <div class="text-stone-500 text-sm">{d}</div>
+                  <div class="text-stone-500 text-sm font-sans">{d}</div>
                 {/each}
                 {#each [where, tag, footnote].filter((d) => d) as d (d)}
-                  <div class="text-stone-500 text-sm">{d}</div>
+                  <div class="text-stone-500 text-sm font-sans">{d}</div>
                 {/each}
               </div>
               <div class="font-sans text-stone-500 text-sm mt-1">{when}</div>

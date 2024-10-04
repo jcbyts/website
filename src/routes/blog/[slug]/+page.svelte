@@ -19,11 +19,11 @@
 </svelte:head>
 
 <h1 class="mb-0">{title}</h1>
-<div class="mt-2 font-mono text-gray-500">
+<div class="mt-5 font-sans text-gray-500">
   {formatDate(new Date(date))}
 </div>
 
-<div class="content mt-10 -mx-14" class:breakout={isFullWidth}>
+<div class="content mt-10 -mx-14 font-serif" class:breakout={isFullWidth}>
   <div
     class="bg-white py-16 px-14 shadow-2xl shadow-blue-50 {isFullWidth
       ? 'mx-[2em]'

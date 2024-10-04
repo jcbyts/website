@@ -9,7 +9,7 @@
 </script>
 
 <div
-  class="publication flex flex-col bg-white py-10 px-14 shadow-lg shadow-stone-50 hover:shadow-stone-100 transition-all transform hover:-translate-y-1"
+  class="publication flex flex-col bg-white py-10 px-14 shadow-lg shadow-stone-50"
 >
   <header>
     <a href={link} class="header flex flex-col">
@@ -37,9 +37,9 @@
   <div class="mt-6 space-x-1 flex flex-wrap items-center">
     {#each authors.split(",").map((d) => d.trim()) as author}
       <div
-        class="py-1 px-3 bg-stone-50 border border-stone-500 text-stone-500 font-sans text-sm rounded-sm mt-1"
-        class:!text-sky-500={["JL Yates", "JL Yates*", "Yates JL", "Yates JL*"].some(d => author.includes(d))}
-        class:!bg-sky-50={["JL Yates", "JL Yates*", "Yates JL", "Yates JL*"].some(d => author.includes(d))}
+        class="py-1 px-3 bg-stone-50 border border-stone-500 text-stone-500 font-sans font-medium text-xs rounded-sm mt-1"
+        class:!text-indigo-500={["JL Yates", "JL Yates*", "Yates JL", "Yates JL*"].some(d => author.includes(d))}
+        class:!bg-indigo-50={["JL Yates", "JL Yates*", "Yates JL", "Yates JL*"].some(d => author.includes(d))}
       >
         {author}
       </div>
@@ -49,25 +49,25 @@
     class="flex flex-col md:flex-row md:justify-between md:items-center mt-4 md:mt-5 flex-wrap text-stone-500"
   >
     <div>
-      <span class="font-bold text-stone-500">{journal}</span>
+      <span class="font-bold text-stone-500 font-sans">{journal}</span>
       <span class="font-light font-mono text-sm ml-2">{year}</span>
     </div>
     <div class="ml-auto font-light font-sans text-sm mt-1 md:mt-0">{page}</div>
   </div>
   {#if highlights}
-    <div class="">
+    <div class="mt-5">
       {#each highlights as { title, where, authors, link } (authors)}
         <div
           class="flex flex-col md:flex-row md:justify-between md:items-center mt-6 md:mt-3"
         >
-          <a href={link} class="text-stone-500 hover:underline leading-5 text-sm font-semibold">
+          <a href={link} class="text-stone-500 hover:underline leading-5 text-base font-semibold font-sans">
             {title}
             {#if where}
               in
               <i>{where}</i>
             {/if}
           </a>
-          <div class="text-stone-500 text-sm md:text-left mt-2 md:mt-0">
+          <div class="text-stone-500 text-sm md:text-left mt-2 md:mt-0 font-sans">
             {authors || ""}
           </div>
         </div>

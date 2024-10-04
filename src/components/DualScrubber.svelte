@@ -38,7 +38,7 @@
 </script>
 
 <InView bind:isInViewProp={isInView}>
-  <div class="c">
+  <div class="c font-sans">
     <div class="left">
       <div class="top">
         <PlayControls
@@ -81,7 +81,7 @@
             index={rightFrameIndex}
             alt="Slices of the video" />
         </Scrubber>
-        <div class="annotation">
+        <div class="annotation flex items-center space-x-2">
           Time
           <Icon name="arrow" direction="s" />
         </div>
@@ -120,11 +120,16 @@
     bottom: 0.5em;
     right: 1em;
     color: var(--a3);
-    font-size: 0.9em;
+    font-size: 0.8em;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     z-index: 10;
+    display: flex;
+    align-items: center;
+  }
+  .annotation :global(svg) {
+    margin-left: 0.5em;
   }
 
   @media (max-width: 500px) {

@@ -1,9 +1,73 @@
-@import url("https://rsms.me/inter/inter.css");
-
+@import url('https://rsms.me/inter/inter.css');
 @font-face {
-  font-family: "Fira Code";
-  src: url("/fonts/FiraCode-VF.woff2") format("woff2"),
-    url("/fonts/FiraCode-VF.woff") format("woff");
+	font-family: 'Parclo';
+	font-weight: 900;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-ExtraBlack.woff') format('woff'),
+		url('/fonts/ParcloSerif-ExtraBlack.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Parclo';
+	font-style: italic;
+	font-weight: 900;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-ExtraBlackItalic.woff') format('woff'),
+		url('/fonts/ParcloSerif-ExtraBlackItalic.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Parclo';
+	font-weight: 800;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-Black.woff') format('woff'),
+		url('/fonts/ParcloSerif-Black.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Parclo';
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-Bold.woff') format('woff'),
+		url('/fonts/ParcloSerif-Bold.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Parclo';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-BoldItalic.woff') format('woff'),
+		url('/fonts/ParcloSerif-BoldItalic.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Parclo';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-Medium.woff') format('woff'),
+		url('/fonts/ParcloSerif-Medium.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Parclo';
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-Regular.woff') format('woff'),
+		url('/fonts/ParcloSerif-Regular.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Parclo';
+	font-style: normal;
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-Italic.woff') format('woff'),
+		url('/fonts/ParcloSerif-Italic.woff2') format('woff2');
+}
+@font-face {
+	font-family: 'Parclo';
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url('/fonts/ParcloSerif-Light.woff') format('woff'),
+		url('/fonts/ParcloSerif-Light.woff2') format('woff2');
 }
 
 /* Write your global styles here, in PostCSS syntax */
@@ -16,8 +80,9 @@ html {
 }
 
 body {
-  @apply font-sans;
-  @apply bg-stone-50;
+  /* @apply font-sans; */
+  @apply font-serif;
+  @apply bg-white;
   @apply text-stone-800;
   font-size: 1.2em;
   line-height: 1.66em;
@@ -37,24 +102,24 @@ body {
 
 h1 {
   @apply font-serif;
-  letter-spacing: 0.01em;
   margin: 1.5em 0 1em;
-  font-size: 4em;
-  font-weight: 900;
+  font-size: 3em;
+  font-weight: 800;
   line-height: 1.05em;
 }
 h2 {
   @apply font-serif;
-  margin: 2.5em 0 1em;
-  font-size: 3em;
-  font-weight: 900;
+  margin: 2.5em 0 0.8em;
+  font-size: 2.5em;
+  font-style: italic;
+  font-weight: 700;
   line-height: 1.3em;
 }
 h3 {
   @apply font-serif;
   margin: 2.7em 0 0.8em;
-  font-size: 1.6em;
-  font-weight: 300;
+  font-size: 1.5em;
+  font-weight: 600;
   line-height: 1.3em;
 }
 @media (max-width: 800px) {
@@ -172,7 +237,7 @@ button:not(.plain) {
 }
 
 .container {
-  max-width: min(50em, 90vw);
+  max-width: min(57em, 90vw);
   min-height: 90vh;
   margin: 0 auto;
 }
@@ -262,3 +327,19 @@ blockquote > p + p {
   .header-link:before {
     content: "#";
   } */
+
+  img,
+  video {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+p + img,
+p + video {
+  margin-top: 2em;
+}
+
+img + p,
+video + p {
+  margin-top: 2em;
+}

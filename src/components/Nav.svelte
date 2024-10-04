@@ -14,6 +14,7 @@
 
 <style>
   nav {
+    @apply font-sans;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,7 +24,7 @@
     margin: 0 -0.6em;
   }
   .link {
-    padding: 0.3em 0.6em;
+    padding: 0.3em 1.6em;
     background: none;
     @apply text-stone-600;
   }

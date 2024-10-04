@@ -4,7 +4,7 @@ date: 2021-5-10
 description: Major speedup for Arduino through serial buffer and IOPort
 ---
 
-I recently had to setup an experimental rig with an interface between Matlab and an Arduino. The goal of the interface was to read out the position of a treadmill using a rotary encoder. This must be a pretty common situation in neuroscience these days, but my first foray into setting it up (through the official [matlab arduino toolbox](https://www.mathworks.com/hardware-support/arduino-matlab.html)) was way too slow for any reasonable experiment. I figured I'd write up my notes on the process here. If you know a better way to do this, please email or message me!
+I recently had to set up an experimental rig with an interface between Matlab and an Arduino. The goal of the interface was to read out the position of a treadmill using a rotary encoder. This must be a pretty common situation in neuroscience these days, but my first foray into setting it up (through the official [matlab arduino toolbox](https://www.mathworks.com/hardware-support/arduino-matlab.html)) was way too slow for any reasonable experiment. I figured I'd write up my notes on the process here. If you know a better way to do this, please email or message me!
 
 ### Approach 1: Matlab arduino toolbox
 
