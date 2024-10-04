@@ -1,5 +1,6 @@
 <script>
-  import { interpolateHclLong, range, scaleLinear, scaleSqrt } from "d3";
+  import { scaleSqrt } from "d3-scale";
+  import { range } from "d3-array";
   import { tweened } from "svelte/motion";
 
   let width = 2200;

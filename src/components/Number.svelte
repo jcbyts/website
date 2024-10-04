@@ -1,6 +1,7 @@
 <script>
-  import * as d3 from "d3";
-  const { format: d3Format, interpolate, timer: d3Timer } = d3;
+  import { format as d3Format} from "d3-format"
+  import { interpolate } from "d3-interpolate"
+  import { timer as d3Timer } from "d3-timer"
 
   export let number = null;
   export let format = ",.2f";

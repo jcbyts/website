@@ -5,12 +5,12 @@ description: The one in which we talk about motion
 ---
 
 <script>
-  import Icon from "../../components/Icon.svelte";
-  import Tweet from "../../components/Tweet.svelte";
-  import OrangutanScrubber from "../../components/MotionIllusions/OrangutanScrubber.svelte";
-  import OrangutanFrames from "../../components/MotionIllusions/OrangutanFrames.svelte";
-  import MarioScrubber from "../../components/MotionIllusions/MarioScrubber.svelte";
-  import BarScrubber from "../../components/MotionIllusions/BarScrubber.svelte";
+  import Icon from "$src/components/Icon.svelte";
+  import Tweet from "$src/components/Tweet.svelte";
+  import OrangutanScrubber from "$src/components/MotionIllusions/OrangutanScrubber.svelte";
+  import OrangutanFrames from "$src/components/MotionIllusions/OrangutanFrames.svelte";
+  import MarioScrubber from "$src/components/MotionIllusions/MarioScrubber.svelte";
+  import BarScrubber from "$src/components/MotionIllusions/BarScrubber.svelte";
 </script>
 
 There have been a lot of visual motion illusions going around Twitter recently. I think it is super cool that people find these motion demos so compelling. However, I've been surprised to see lots of claims that there is "no motion" in the illusions and most people seem to think there's some perceptual magic going on.

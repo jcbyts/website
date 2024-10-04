@@ -4,7 +4,7 @@
   functions = "functions/"
 
 [dev]
- command = "svelte-kit dev"
+ command = "vite dev"
 
 [functions]
   directory = "netlify/functions"

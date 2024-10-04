@@ -1,3 +1,4 @@
+import rehypeKatexSvelte from "rehype-katex-svelte";
 import remarkGithub from "remark-github"
 import remarkAbbr from "remark-abbr"
 import remarkMath from "remark-math"
@@ -33,7 +34,7 @@ export default {
       },
     ],
     [
-      rehypeKatex,
+      rehypeKatexSvelte,
       {
         output: "html",
         displayMode: true,

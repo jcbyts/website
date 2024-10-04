@@ -7,8 +7,8 @@ layout: full-width
 ---
 
 <script>
-import ResearchTimeline from "../../components/ResearchTimeline.svelte"
-import SimuliRecordingExample from "../../components/SimuliRecordingExample.svelte"
+import ResearchTimeline from "$src/components/ResearchTimeline.svelte"
+import SimuliRecordingExample from "$src/components/SimuliRecordingExample.svelte"
 </script>
 
 <SimuliRecordingExample />

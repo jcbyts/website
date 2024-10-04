@@ -8,7 +8,7 @@
   <title>Jacob Yates</title>
 </svelte:head>
 
-<div class="c" in:fly={{ y: 30 }}>
+<div class="c" in:fly|global={{ y: 30 }}>
   <Content />
 </div>
 

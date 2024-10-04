@@ -1,26 +1,9 @@
-<script context="module">
-  import { getPages } from "./blog/index.json.js";
-  export async function load({ fetch }) {
-    const posts = await getPages();
-
-    return {
-      props: {
-        posts,
-      },
-    };
-
-    // return {
-    //   status: res.status,
-    //   error: new Error(`Could not load ${url}`),
-    // };
-  }
-</script>
-
 <script>
-  import { timeFormat } from "d3";
+  import { timeFormat } from "d3-time-format";
 
-  export let posts = [];
-  // console.log("posts", posts);
+  export let data;
+  const posts = data.posts
+  console.log(posts)
 
   const formatDate = timeFormat("%b %e, %Y");
 </script>

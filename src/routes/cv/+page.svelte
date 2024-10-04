@@ -2,7 +2,7 @@
   import { fly } from "svelte/transition";
 
   import Publication from "$src/components/Publication.svelte";
-  import publications from "./_publications.json";
+  import publications from "../publications/_publications.json";
   import cv from "./_cv.json";
 </script>
 
@@ -15,7 +15,7 @@
 
   <div class="list">
     {#each cv as { title, items }, i (title)}
-      <div class="section" in:fly={{ x: -30, delay: i * 200 }}>
+      <div class="section" in:fly|global={{ x: -30, delay: i * 200 }}>
         <h3>{title}</h3>
 
         <div

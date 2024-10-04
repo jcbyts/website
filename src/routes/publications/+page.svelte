@@ -19,7 +19,7 @@
   </p>
   <div class="-ml-14 space-y-12">
     {#each publications as publication, i (publication.title)}
-      <div in:fly={{ x: -30, delay: i * 200 }}>
+      <div in:fly|global={{ x: -30, delay: i * 200 }}>
         <Publication {...publication} />
       </div>
     {/each}
