@@ -17,7 +17,8 @@ html {
 
 body {
   @apply font-sans;
-  @apply bg-sky-50;
+  @apply bg-stone-50;
+  @apply text-stone-800;
   font-size: 1.2em;
   line-height: 1.66em;
   letter-spacing: -0.006em;
@@ -25,8 +26,8 @@ body {
   --a1: #3498db;
   --a2: #1abc9c;
   --a3: #f39c12;
-  --tc: #2f3542;
-  --grey1: #8c96a8;
+  --tc: #1c1917;
+  --grey1: #78716c;
 }
 @media (max-width: 800px) {
   body {
@@ -36,6 +37,7 @@ body {
 
 h1 {
   @apply font-serif;
+  letter-spacing: 0.01em;
   margin: 1.5em 0 1em;
   font-size: 4em;
   font-weight: 900;
@@ -51,8 +53,8 @@ h2 {
 h3 {
   @apply font-serif;
   margin: 2.7em 0 0.8em;
-  font-size: 1.9em;
-  font-weight: 900;
+  font-size: 1.6em;
+  font-weight: 300;
   line-height: 1.3em;
 }
 @media (max-width: 800px) {
@@ -110,7 +112,7 @@ li::marker {
 }
 
 a {
-  @apply text-sky-600;
+  @apply text-stone-600;
   background: rgba(255, 255, 255, 1);
   padding: 0.1em 0.3em;
   margin: -0.1em -0.3em;
@@ -137,7 +139,7 @@ hr {
   border: none;
 }
 .white hr {
-  @apply bg-slate-100;
+  @apply bg-stone-100;
 }
 
 .button:not(.plain),
@@ -197,15 +199,15 @@ p + blockquote {
   margin-top: 3em;
 }
 blockquote {
-  padding: 1em 1.6em;
-  color: #264c67;
-  background: #f0f7fc;
+  padding: 2em 2em;
+  @apply bg-stone-100;
+  @apply text-stone-700;
   font-style: normal;
   border: none;
 }
 
 blockquote strong {
-  color: #264c67;
+  @apply text-stone-900;
 }
 
 ul {

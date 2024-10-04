@@ -13,20 +13,20 @@
 <div class="space-y-12 md:-mx-14">
   {#each posts.filter((d) => !d.draft && d.slug) as { slug, title, date, description } (slug)}
     <article
-      class="bg-white py-6 md:py-10 px-5 md:px-14 shadow-lg shadow-blue-50 hover:shadow-blue-100 transition-all transform hover:-translate-y-1"
+      class="bg-white flex flex-col py-6 md:py-10 px-5 md:px-14 shadow-lg shadow-stone-50 hover:shadow-stone-100 transition-all transform hover:-translate-y-1"
     >
-      <header>
+      <header class="flex flex-col">
         <a href="/blog/{slug}">
-          <h3 class="mt-0 text-gray-900">
+          <h3 class="mt-0 !mb-1 text-stone-900">
             {title}
           </h3>
         </a>
-        <small class="font-mono text-gray-500 text-sm"
+        <small class="font-sans text-stone-500 text-sm"
           >{formatDate(new Date(date))}</small
         >
       </header>
       {#if description}
-        <section class="mt-3">
+        <section class="mt-5 text-lg">
           <p>{description}</p>
         </section>
       {/if}

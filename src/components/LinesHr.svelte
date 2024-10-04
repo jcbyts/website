@@ -46,7 +46,7 @@
   };
   const colorScale = scaleSqrt()
     .domain([100, 150, 500])
-    .range(["#f39c12", "#0ea5e9", "#e2e8f0"])
+    .range(["#fde68a", "#a5b4fc", "#fff"])
     // .interpolate(interpolateHclLong)
     .clamp(true);
   $: x, y, updateRotations();
