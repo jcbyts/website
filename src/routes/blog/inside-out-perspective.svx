@@ -1,69 +1,98 @@
 ---
-title: The Brain's Inside-Out Perspective. Reconciling Perception and Neuroscience
+title: Reconciling Generative and Feedforward Models of Visual Cortex
 date: 2024-10-03
 description:
 draft: true
 ---
 
-> Visual 1: Timeline infographic showing key figures and ideas in perception theory
->
-> Include Alhazen (1021), Helmholtz (1870s), Hubel & Wiesel (1960s), Srinivasan (1982), Mumford (1990s)
-> Use icons to represent their key contributions (e.g., eye for Alhazen, microscope for Hubel & Wiesel)
+When you first learn about vision in a neuroscience class, you might experience a kind of cognitive dissonance. On one hand, you're taught about perception as a process of active interpretation. On the other, you learn about neurons that seem to filter incoming information in an adaptive, but mostly passive way. This disconnect isn't just confusing for students—it reflects a fundamental tension in how we understand the brain. How can we reconcile the idea of perception as inference with the feedforward, hierarchical processing we see in the brain?
+
+What follows is a blog post that attempts to stay light on technical details, while still providing a deep dive into the topic. I will cover the basics of perception as inference, the neuroscience of vision, and the challenges of reconciling the two. I will then introduce a simple generative model and show how it can be updated without ever explicitly forming a “prediction” vector. This is a way to perform inference without generating, and it provides a signature of what we are looking for in neurobiologically plausible accounts of how the brain processes sensory information while performing inference.
 
 
-When you first learn about vision in a neuroscience class, you might experience a kind of cognitive dissonance. On one hand, you're taught about perception as a process of active interpretation. On the other, you learn about neurons that seem to passively filter incoming information. This disconnect isn't just confusing for students—it reflects a fundamental tension in how we understand the brain.
 
-Let's start with perception. The idea that our brain actively interprets sensory information, rather than passively receiving it, isn't new. In fact, it's ancient. Almost a thousand years ago, the Arab scientist Alhazen proposed that vision involves judgment and inference. Fast forward to the 1870s, and we find the German physicist Hermann von Helmholtz articulating a similar idea more formally. Helmholtz suggested that perception is a process of unconscious inference—our brain's best guess about what's out there in the world.
+## Perception: Illusions and inference
 
-> Visual 2: Interactive demonstration of visual illusions
->
-> Include 2-3 classic illusions (e.g., Müller-Lyer, Kanizsa triangle)
-> Allow users to toggle between the raw stimulus and an interpretation of what the brain "sees"
+Let's start with perception. The idea that our brain actively interprets sensory information, rather than passively receiving it, isn't new. In fact, it's ancient. Almost a thousand years ago, the midieval scientist [Ḥasan Ibn al-Haytham](https://en.wikipedia.org/wiki/Ibn_al-Haytham#Unconscious_inference) (a.k.a. Alhazen) proposed that vision involves judgment and inference. Fast forward to the 1870s, and we find the physicist and polymath Hermann von Helmholtz articulating a similar idea more formally. Helmholtz suggested that perception is a process of [unconscious inference](https://en.wikipedia.org/wiki/Unconscious_inference)—our brain's best guess about what's out there in the world.
 
-This view of perception as inference is compelling. It explains why we sometimes see things that aren't there (illusions) or fail to see things that are (inattentional blindness). It accounts for how we can perceive a stable world despite our eyes constantly darting around. And it fits nicely with the modern concept of the Bayesian brain—the idea that our perceptions are shaped by prior probabilities learned from experience. We assume faces are convex because they almost always are. We interpret ambiguous shading patterns as if light comes from above because that's usually true in our world.
+What exactly does that mean? Why can't we just "see" the senses? Illusions are a good way to get an intuition that the brain actively interprates sensory datae, so let's take a quick tour of some classic visual illusions.
 
-> Visual 3: Simplified diagram of the visual cortex
->
-> Show hierarchical structure from V1 to higher areas
-> Use color coding to indicate increasing complexity of features detected
+### The rotating mask illusion
 
-But then you turn to the neuroscience of vision, and suddenly you're in a different world. Here, the story often begins with Hubel and Wiesel in the 1960s, discovering that cells in the visual cortex respond to specific patterns of light—edges, bars, and the like. This led to the concept of receptive fields: each neuron has a particular pattern it's looking for in the visual input.
+<div class="w-full flex justify-center flex-col md:flex-row">
+  <img src="/insideout/face.gif" style="max-width: 20em" alt="https://www.richardgregory.org/experiments/video/chaplin.htm" />
 
-> Visual 4: Interactive demonstration of receptive fields
->
-> Show an image and simulated neuronal responses
-> Allow users to move a stimulus across the image and see how different "neurons" respond
+<p class="md:ml-9">
+When the mask rotates around to the back side, you suddenly see as a convex face rotating in the opposite direction. The standard interpretation for this is that real faces are never concave like this, so the brain overrides the sensory input. Of course, if you actually look at a mask in the real world, you get input from two eyes and that depth information provides strong enough evidence that the mask is concave to override this effect.
+</p>
+</div>
 
-Building on this, researchers like Tony Movshon developed more sophisticated models. Neurons were described as linear-nonlinear filters, sometimes combined into energy models for complex cells. These models are fundamentally feedforward: information flows from the eyes through a series of processing stages, each extracting more complex features from the input.
+### Lightness from above
 
-This feedforward view of vision aligns well with the deep learning revolution in AI. Convolutional Neural Networks (CNNs), which have achieved human-level performance on many visual tasks, are essentially a silicon implementation of this feedforward, hierarchical feature extraction idea.
+<img src="/insideout/lightness_above.webp" class="mt-9" style="max-width: 50em" alt="https://www.richardgregory.org/experiments/video/chaplin.htm" />
 
-> Visual 5: Side-by-side comparison of biological and artificial neural networks
->
-> Show simplified diagrams of a biological neural network and a CNN
-> Highlight similarities in hierarchical structure and feature extraction
+Although all the circles in this image are flat with a gradient on them, you, like me, probably percieve them as either convex bumps or concave holes. And the ones with lighter shades on top look like bumps while the ones with lighter shades on the bottom look like holes. This, it is taught, is because the brain assumes that light comes from above and interprets the shading accordingly.
 
-So we have two perspectives: perception as active inference, and vision as passive filtering. Both are supported by evidence. Both have led to important insights and technological advances. But they don't quite fit together.
+## The Bayesian Brain
+"Perception is our best guess as to what is in the world, given our current sensory evidence and our prior experience.” - Hermann von Helmholtz
 
-It's not that neuroscientists were unaware of the inferential view of perception. In fact, there have been several attempts to bridge this gap. In 1982, Srinivasan and colleagues proposed a theory of predictive coding in the retina. This suggested that neural circuits might be comparing incoming signals with predictions, encoding only the differences. In the 1990s, David Mumford outlined a framework for hierarchical Bayesian inference in the cortex, where higher levels predict the inputs to lower levels.
+A lot of these illusions can be explained by suggesting that the brain infers something about the world given the senses. For example, the prior knowledge that faces are never concave inverts the percept of mask. Similarly, the prior knowledge that light typically comes from above and casts shadows leads to the interpretation of the circles as bumps. How do we formalize? Bayes rule does just that. 
 
-> Visual 6: Conceptual diagram of predictive coding
->
-> Show hierarchical levels with both feedforward and feedback connections
-> Use animations to illustrate the flow of predictions and prediction errors
+<img src="/insideout/bayes_rule.png" class="" style="max-width: 38em" alt="Bayes Rule" />
 
-These ideas were intriguing, but they didn't immediately catch on. Why? Partly because the feedforward models were working so well. They explained a lot of data and inspired successful AI systems. But there was also a more fundamental problem: the evidence.
+The sensory data coming is forms the likelihood (the probability of the sensory data given some state), which is combined with the prior (probability of the state) to support the percept, which is really about the state of the world and not the sense data directly.
+
+<img src="/insideout/bayesian_object.gif" class="" style="max-width: 38em" alt="Bayesian Objects" />
+
+This picture from [this review](https://www.sciencedirect.com/science/article/abs/pii/S0959438803000424) demonstrates the idea nicely. The sensory data shown in the top left is a 2D projection of a 3D shape. This is ambiguous. Many possible 3D objects could project to this exact 2D form. However, most of those are unlikely. The prior probability of the different 3D shapes is combined with the ambiguous 2D image to support our percept of a cuboid.
+
+How does this happen in the brain?
+
+I don't want to pretend that neuroscientists don't have ideas about this, they do. But I do want to emphasize that the standard model of visual processing at the neuronal level -- the one you find in textbooks -- looks quite different.
+
+## The standard model (an overly brief history)
+
+<img src="/insideout/standard_model.png" class="" style="max-width: 38em" alt="The Standard Model" />
+
+The ["standard model"](https://www.nature.com/articles/nn1606) of visual processing is a series of linear-nonlinear cascade of processing stages, which was developed starting in the 1970s. This figure depicts the computational framework for understanding "simple" and "complex" cells as well as additional nonlinearities that are present. These are typically captured with a divisive normalization step at each stage. Further work has added in and some extra-retinal gain from things like attention (that can also be modeled as part of [divisive normalization](https://pmc.ncbi.nlm.nih.gov/articles/PMC2752446/)). This model remains a really good model of visual [cortical areas](https://www.biorxiv.org/content/10.1101/2024.12.16.628781v1.abstract).
+
+
+### Origins with Hubel and Wiesel: receptive fields and feature extraction
+
+Vision research got a big boost in the 1960s with the pioneering work of Hubel and Wiesel. I'll write about the importance of this work for the development of convolutional neural networks (CNN) separately, but prior to Hubel and Wiesel, people didn't really know what to expect in cortex. They knew that neurons in the retina had "receptive fields" (localized light-sensing regions) and they knew that these neurons projected to the LGN and then to primary visual cortex (V1). But from that point on, all bets were kind of off. Lashley, for example, thought that primary visual cortex would hold [engrams](https://en.wikipedia.org/wiki/Engram_(neuropsychology)). Hubel and Wiesel showed definitively that this was not the case. Neurons in V1 had receptive fields, and they were organized in a way that suggested a hierarchy of feature extraction. They used simple wiring diagrams to form a model of how V1 neurons might build new selectivity from their inputs.
+
+<img src="/insideout/simple_complex.png" class="" style="max-width: 38em" alt="Simple and Complex Cells" />
+
+In this classic figure, they demonstrated that what they called "simple" cells in V1 could be built out of thalamic LGN inputs, and that "complex" cells could be built out of simple cells. This observation lead directly to the development of the first [CNN](https://link.springer.com/article/10.1007/BF00344251). Back in 
+
+### Movshon and the development of the "standard model"
+
+In the 1970s, Tony Movshon and colleagues formalized computational principles that could capture the response properties of simple cells. He showed that under a range of conditions simple cells could be understood as linear filters followed by a static rectifying nonlinearity (a half-wave rectification). Complex cells, in contrast, "exhibit [gross nonlinearities](https://www.cns.nyu.edu/~tony/Publications/movshon-thompson-tolhurst-1978b.pdf)". In the 80s, that nonlinearity was formalized as either a max-pooling or an energy operation and many others including (but not limited to) Duane Albrecht, Russ DeValois, and Ralph Freeman showed substantial additional nonlinearities such as contrast gain control, surround suppression, and cross-orientation suppression. In the early 1990s all of these nonlinear observations were captured under a single divisive nonlinear operation, which is now known as divisive normalization. Interestingly, Bill Geisler and David Heeger came up with a very similar model at about the same time to capture contrast gain control. The 2000s brought more modern machine learning and statistical techniques to allow these models to be fit directly to data, adn the 2010s saw the emergence of [data-driven](https://www.annualreviews.org/content/journals/10.1146/annurev-vision-091718-014731) and [goal-driven](https://www.nature.com/articles/nn.4244) deep neural networks to understand cortical neurons. All the while, more and more extra-retinal signals were added to the model, including attention, decision, and motor signals.
+
+The standard model comes from and elegant [systems-identification approach](https://www.annualreviews.org/content/journals/10.1146/annurev.neuro.29.051605.113024) to understanding the brain, which is appealing to the engineering-minded neuroscientists. Non-engineers (biologists and physicits who accidentally found themselves studying brains) tend to dislike the standard model. Mainly because it's not a brain (which is fair), it's a function approximation to neurons, and they don't like that. However, I also think they don't like that it's better at predicting neurons than anything they came up with. I will grant them point one, which is what this blog post is about. It's hard to understand how simply stacking these computations on top of each other will give us a brain, even if it's a decent function approximation to visual cortical neurons.
+
+### The problem
+So we have two perspectives: perception as inference, and vision as passive (albeit adaptive) filtering. Both are supported by evidence. Both have led to important insights and technological advances. But they don't quite fit together.
+
+## Predictive Coding
+It's not that neuroscientists were unaware of the inferential view of perception. In fact, there have been several attempts to bridge this gap. Early on, Barlow and colleagues articulated a perspective that some computational objective needs to govern how a brain learns to do this processing. Whether it is efficient coding, predictive coding (or some other coding), the 80s and 90s saw the development of a number of theories that tried to reconcile the two perspectives.
+
+Probably the most famous example of an attempt to reconcile the two perspectives (Perception as inference and Neurons as adaptive filters) is predictive coding, which has been applied widely in neuroscience and now machine learning. The general idea is clearly articulated in Rajesh Rao and Dana Ballard's 1999 [paper](https://www.nature.com/articles/nn0199_79). 
+
+<img src="/insideout/PC_original.png" class="" style="max-width: 38em" alt="Predictive coding" />
+
+The figure (reproduced from [here](https://arxiv.org/html/2407.04117v1) ) shows the general framework of predictive coding, which posits neurons in sensory cortex perform hierarchical inference over a generative model with top-down connections carrying predictions and feedforward signals carrying prediction errors.
+Their claim is that neurons in visual cortex can be understood "as residual error detectors, signaling the difference between an input signal and its statistical prediction based on an efficient internal model of natural images". In otherwords, adaptive filters result from inference over a model of natural images. This is a powerful framework, with a huge caveate: there is very little direct evidence for it. 
+
+What I mean by that is that neuroscientists have not found good evidence for feedback consistent with detailed predictions. Although the field's perspective on the feedforward view of visual cortex is changing in the last decade -- with experimental results showing that motor signals are present in sensory areas ( [1](https://www.cell.com/neuron/fulltext/S0896-6273(10)00059-0), [2](https://www.nature.com/articles/s41593-019-0502-4), [3](https://www.science.org/doi/abs/10.1126/science.aav7893)) -- I am very skeptical of generality these results, which we have repeatedly failed to replicate in primates ( [4](https://www.nature.com/articles/s41593-023-01459-5), [5](https://elifesciences.org/articles/87736)). I will cover the details of this in another post, but in the meantime, you can read our [perspective](https://www.cell.com/trends/neurosciences/fulltext/S0166-2236(24)00228-5) on the matter. For the purposes here, even with [strong motor signals](https://www.nature.com/articles/s41586-022-05196-w), [attention](https://www.cell.com/AJHG/fulltext/S0896-6273(09)00695-3), and [decision signals](https://www.nature.com/articles/nature07821), no one finds detailed visual predictions ( [7](https://arxiv.org/abs/2107.12979)).
 
 If the brain is constantly making predictions and comparing them with sensory input, shouldn't we see signs of these predictions in neural activity? Shouldn't there be massive feedback signals carrying predictions from higher brain areas to lower ones?
 
-But that's not what neuroscientists found. When they looked for effects of feedback in visual processing, they mostly found subtle modulations. Higher brain areas might slightly enhance or suppress activity in lower areas, but there was no sign of the kind of strong, specific prediction signals that many theories suggested.
+But that's not what neuroscientists find. When they looked for effects of feedback in visual processing, they mostly find subtle modulations. Higher brain areas might slightly enhance or suppress activity in lower areas in a modulatory, but there was no sign of the kind of strong, specific prediction signals that many theories suggested.
 
-> Visual 7: Graphical representation of expected vs observed feedback effects
->
-> Show hypothetical strong prediction signals next to actual observed subtle modulations
-> Use size and color to emphasize the difference
+This is the puzzle we're left with. Our best theories of perception tell us the brain must be doing some kind of inference, some kind of prediction. But our best measurements and models of brain activity show us something that looks a lot more like passive (albeit adaptive) feedforward* filtering.
 
-This is the puzzle we're left with. Our best theories of perception tell us the brain must be doing some kind of inference, some kind of prediction. But our best measurements of brain activity show us something that looks a lot more like passive, feedforward filtering.
+*I'm using feedforward loosely here. I do include recurrent circuits in this definition. I am trying to contrast the idea that higher areas are feeding back detailed predictions. To date, the best models of visual cortical areas are feedforward CNNs or RNNs with no hierarchical feedback [8](https://www.biorxiv.org/content/10.1101/2023.03.21.533548v4.abstract).
 
 How do we resolve this? One possibility is that our theories of perception are just wrong. Maybe the brain really is just a fancy filter, and all that talk of inference and prediction is misguided.
 
@@ -71,27 +100,191 @@ But I don't think that's the answer. The inferential view of perception explains
 
 Instead, I suspect the answer lies in looking more closely at the math. When we say the brain is doing "inference" or "prediction," what exactly do we mean? What computations does that actually imply?
 
-> Visual 8: Teaser equation or diagram
->
-> Show a simplified mathematical formulation of inference or prediction
-> Use visual elements to hint at how this might be implemented in a neural network
+## Prediction Without Generating: Sparse Coding and the Locally Competitive Algorithm (LCA)
 
-It turns out that when you work through the equations, you find something surprising. The kinds of computations required for inferential perception don't necessarily look like explicit prediction and comparison. In some cases, they can be implemented in networks that look a lot like the feedforward, filtering models we're familiar with.
+One of the intriguing features of **predictive coding** (PC) is that it is typically described as the brain “predicting” incoming sensory data and then comparing that prediction to the real data. But from a neurophysiological perspective, there is not much direct evidence that neurons in the cortex explicitly create and store a copy of that full prediction. Admittedly, Rao and Ballard's PC neurons represent the residual (the prediction error) rather than the full prediction, but it is typically assumed that they got that prediction from the feedback. Even in Friston's [free energy principle](https://www.frontiersin.org/articles/10.3389/fncom.2010.00119/full), you are stuck with explicit predictions and (even worse in my opinion) additional neurons encoding the precision. 
 
-In the next post, we'll dive into this idea. We'll look at how the mathematics of sparse coding—a influential model of early vision—can be implemented in a neural network without any explicit prediction signals. This will set us up to explore a broader framework for thinking about perception and learning, based on a principle called the Evidence Lower Bound (ELBO).
+Reminder, there is a lot of support for **feedforward receptive fields** (i.e., weights mapping inputs to some internal representation) and **recurrent feedback** (connections among neurons themselves). Below, I show how a simple sparse-coding inference scheme that was developed by Chris Rozell and Bruno Olshausen can be implemented *without* ever forming an explicit “prediction” vector. Nevertheless, it still accomplishes the same job: inferring latent variables $z$ that explain the data $x$.
 
-But before we get there, I want to emphasize why this matters. Understanding how the brain perceives isn't just an academic exercise. It's fundamental to understanding consciousness, learning, and mental health. It's crucial for developing better AI systems and brain-computer interfaces. And at a deeper level, it's about understanding how we, as physical systems, can have rich internal models of the world.
 
-> Visual 9: Conceptual illustration of "brain as world model"
->
-> Show a brain containing a miniature, simplified version of the external world
-> Use semi-transparent layers or cutaways to suggest internal complexity
+### A Simple Generative Model
 
-The idea that perception might be a kind of inference, a kind of prediction, is profound. It suggests that in some sense, we're all constantly hallucinating—constructing our reality as much as perceiving it. Our perceptions are our brain's best guesses about the causes of our sensations.
+We start with a generative model of the form:
 
-But if that's true, how does it actually work in a brain made of neurons? That's the question we'll start to answer in the next post. Stay tuned.
+$$
+x = \Phi \, z + \varepsilon, \quad \varepsilon \sim \mathcal{N}(0, \sigma^2 I).
+$$
 
-> Visual 10: Teaser image for next post
->
-> Show a neuron or neural network alongside mathematical symbols
-> Use a "to be continued" style graphic to create anticipation
+- $x \in \mathbb{R}^d$: The observed data (e.g., an image).  
+- $z \in \mathbb{R}^m$: Latent variables or “features.”  
+- $\Phi \in \mathbb{R}^{d \times m}$: A dictionary or set of “receptive fields.”  
+- $\varepsilon$: Gaussian noise.
+- $\sigma^2 = 1$: Noise variance is one for convenience later.
+
+Under a sparsity prior (e.g., an $(\ell_1)$ penalty on $(z))$, we can write the (negative) log-posterior (dropping additive constants) as:
+
+$$
+\mathcal{L}(z) = \frac{1}{2\sigma^2}\,\| x - \Phi z \|_2^2 + \lambda \, \| z \|_1.
+$$
+
+This is the well-known sparse coding generative model proposed by [Olshausen and Field](https://www.nature.com/articles/381607a0.pdf). Importantly, altough it is a linear generative model, it is **not** a linear model, as you will see in the next section.
+
+### Inference Without Explicit Predictions
+
+In a typical predictive-coding approach, you might form the “prediction”, $\hat{x} = \Phi z$, and compute the error, $e = \hat{x} - x$. But let’s see how we can update $z$ without ever explicitly constructing $\hat{x}$.
+
+
+Let's look back at our loss function:
+$$
+\mathcal{L}(z) = \frac{1}{2\sigma^2}\,\| x - \Phi z \|_2^2 + \lambda \, \| z \|_1.
+$$
+
+There are two tasks we need to perform: we need to learn the dictionary $\Phi$ and the latent variables $z$. Here, we will focus on updating $z$ while assuming that $\Phi$ has already been learned. In more neuroscience speak, this is our attempt to model perception. The brain has already learned its generative model, and now it needs to infer the latent variables that best explain the sense data, $x$. Note: yes, this is overly simplistic, but we can gain some powerful intuitions from it.
+
+So, how do we set $z$ to minimize $\mathcal{L}(z)$? We can do this by taking the gradient of $\mathcal{L}(z)$ with respect to $z$ and updating $z$ in the direction of the negative gradient. This is a standard approach in optimization known as gradient descent. Combined with our sparsity-inducing Laplacian prior, this can be seen as MAP inference over the latents. 
+
+Below is a derivation of the gradient of $\mathcal{L}(z)$ (Note: technically it is the subgradient because of the $\ell_1$ term):
+
+$$
+\mathcal{L}(z) = \frac{1}{2\,\sigma^2}\,\bigl\|\,x - \Phi\,z\,\bigr\|_{2}^{2} + \lambda \,\|z\|_{1}.
+$$
+
+**First term:** For the term
+$\frac{1}{2\,\sigma^2}\,\|\,x - \Phi\,z\,\|_{2}^{2}$, 
+
+let $r(z) = x - \Phi z$. Then
+
+$$
+\|r(z)\|_2^2 \;=\; (x - \Phi z)^\top (x - \Phi z).
+$$
+
+Taking the gradient with respect to $z$:
+
+$$
+\nabla_z \|r(z)\|_2^2 
+\;=\; \nabla_z \bigl[ (x - \Phi z)^\top (x - \Phi z) \bigr]
+\;=\; 2\,\Phi^\top\bigl(\Phi z - x\bigr).
+$$
+
+Including the factor $\tfrac{1}{2\,\sigma^2}$ and take advantage of the fact that we set $\sigma^2=1$:
+
+$$
+\nabla_z 
+\Bigl[
+  \tfrac{1}{2\,\sigma^2}\,\|x - \Phi z\|_2^2
+\Bigr]
+\;=\; 
+\tfrac{1}{2\,\sigma^2} \,\times\, 2\,\Phi^\top(\Phi z - x)
+\;=\;
+\Phi^\top(\Phi z - x).
+$$
+
+**Second term:** The $\ell_1$ term is
+
+
+
+$$
+\lambda\,\|z\|_1 \;=\; \lambda \sum_i |z_i|.
+$$
+
+Its subgradient with respect to $z$ is
+
+$$
+\lambda\,\mathrm{sign}(z),
+$$
+
+where $\mathrm{sign}(z)$ is applied element-wise:
+
+$$
+(\mathrm{sign}(z))_i 
+\;=\;
+\begin{cases}
++1, & z_i > 0,\\
+-1, & z_i < 0,\\
+\text{any value in }[-1,+1], & z_i = 0.
+\end{cases}
+$$
+
+**Full Gradient Update**
+Putting these together, the subgradient of $\mathcal{L}(z)$ at gradient update iteration $t$ is:
+$$
+\nabla_z \mathcal{L}\bigl(z^{(t)}\bigr)
+=
+\frac{1}{\sigma^2}
+\Phi^\top
+\bigl(\Phi\,z^{(t)} - x\bigr)
+\;+\;
+\lambda \,\mathrm{sign}\!\bigl(z^{(t)}\bigr).
+$$
+
+A simple gradient descent step with step size $\eta_z$ gives:
+$$
+z^{(t+1)}
+=
+z^{(t)}
+\;-\;
+\eta_z
+\Bigl[
+  \underbrace{\frac{1}{\sigma^2}\,\Phi^\top\bigl(\Phi\,z^{(t)} - x\bigr)}_{\text{derivative of quadratic term}}
+  \;+\;
+  \underbrace{\lambda\,\mathrm{sign}\!\bigl(z^{(t)}\bigr)}_{\ell_1\text{ subgradient}}
+\Bigr].
+$$
+
+Notice that this still has still has that $\Phi\,z^{(t)}$ term in it, meaning that the full prediction is present at every step. This updates the latents, $z$ with a weighted sum of the prediction error, $\Phi^\top e^{(t)}$. 
+
+
+However, notice that multiplying out $\Phi^\top e^{(t)}$ yields:
+$$
+\Phi^\top e^{(t)}
+\;=\;
+\Phi^\top (\Phi\,z^{(t)} - x)
+\;=\;
+\Phi^\top \Phi\,z^{(t)}
+\;-\;
+\Phi^\top x
+.
+$$
+
+This has a pretty interesting form. Nowhere does the full prediction exist. Instead, we can interpret these terms in neurally plausible ways. 
+
+- $\Phi^\top x$ acts like a **feedforward** drive (receptive field).  
+- $\Phi^\top \Phi$ is just a matrix, which acts like a set of **recurrent** (lateral) weights.
+
+There is no prediction anymore. It's just a good old-fashined recurrent neural network.
+
+$$
+z^{(t+1)}
+=
+z^{(t)}
+\;-\;
+\eta_z
+\biggl[
+  \frac{1}{\sigma^2}
+  \Bigl(
+    \underbrace{\Phi^\top \Phi\,z^{(t)}}_{\text{recurrent}}
+    \;-\;
+    \underbrace{\Phi^\top x}_{\text{feedforward}}
+  \Bigr)
+  \;+\;
+  \lambda\,\mathrm{sign}\!\bigl(z^{(t)}\bigr)
+\biggr].
+$$
+
+Starting from $z^{(0)} = \mathbf{0}$ (all zeros) and iterating this update will (in many practical 
+settings) drive $z$ toward a sparse solution, and the dynamics of $z$ naturally capture many of the nonlinearities [observed in V1](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003191).
+
+
+Crucially, nowhere in this update do we store $\Phi z^{(t)}$ as an explicit “prediction.” Yet functionally, the network is performing the same operation as a predictive-coding model would. Importantly, nowhere are we storing the full error term $e^{(t)}$ or the full “predicted image” $\hat{x}$ in a buffer. Further, because the learning of $\Phi$ results in sparse, localized, receptive fields, the lateral interactions between neurons are *local* in some sense. Notably, they are local in the pixel space of the input and some topological constraints would need to be made on the latents themselves to make those things match eachother, but that's kind of besides the point here. The key point is that a generative model can operate without generating and that gives us some sense of what to look for when building generative models.
+
+### Why This Matters
+
+2. **Neural Plausibility**:  
+There is limited evidence for detailed predictions being formed sent around in cortical circuits. On the other hand, there **is** evidence for strong feedforward receptive fields and extensive recurrent connectivity. This update rule shows that inference over a generative model can be realized using those two mechanisms alone.
+
+2. **Ruling out codes**:  
+This also shows us that our intuitions might be quite wrong until we "crank through the math". I have to thank Bruno Olshausen for pointing this out to me. The "standard model" camp might criticize predictive coding, saying "yea, but we don't see predictions and our feed-forward + recurrent models are the best". But, here we ended up with a feedforward + recurrent model that is effectively doing (one-layer) predicive coding. The latent variables $(z)$ are being updated to better explain the data, *without* ever generating a separate “predicted” version of $(x)$.
+
+This is what I think we are looking for. Well, not this exactly. But the point holds. We can't rule out codes based on intuitions or cartoons. I'd further argue that it's probably not worth trying to map a normative theory directly on to anything that doesn't look somewhat like the standard model. What we want is a model that starts with hierarchical Bayesian inference and ends up with a spiking neural network with local connections and fairly coarse modulatory feedback. 
+
+

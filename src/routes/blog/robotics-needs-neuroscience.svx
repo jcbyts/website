@@ -1,0 +1,118 @@
+---
+title: Robotics needs neuroscience
+date: 2024-10-03
+description: NeuroAI for robotics
+draft: true
+---
+
+
+## The modeest state of NeuroAI
+
+In theory, the goal of NeuroAI was to take insights from neuroscience to "catalyze the next-generation of Artificial Intelligence". In practice, NeuroAI has amounted to a rebranding of computational neuroscience. Neuroscientists are using insights from modern machine learning (aka AI) to better understand the brain. There's a lot of reasons to like this -- AI models provide an in silico brain we can study - but it's not quite the original mission as I understood it.
+
+<img
+  src="/neuroairobot/neuroAI.png"
+  alt="The arrows are drawn to reflect the proportionality of the work being done (credit: Hadi Vafaii)" />
+
+The other direction does happen (and has always happened) but it is usually filtered through computer scientists. Rarely does a neuroscientist directly trigger an AI revolution. A common refrain from most ML grad students is that neuroscience has nothing to contribute, but every time someone more senior (and more famous) gives a talk, they tell us all where their inspiration comes from and it's usually a neuroscience or cognitive psychology result.
+
+### Reasons for inspiration: Efficiency and feats of accomplishment
+The reasons for drawing inspiration from the brain are pretty obvious. Even in the modern AI era, where models can match or surpass human performance on certain tasks, the brain does everything it does with incredible efficiency. Modern AI is so power hungry that big tech companies are literally hiring nuclear engineers to build power plants to run their [compute centers](https://thedeepdive.ca/meta-joins-tech-giants-in-nuclear-power-race/). In contrast, human brains accomplish all of their tasks on the power of an incandescent lightbulb, roughly 20 Watts [1](https://pmc.ncbi.nlm.nih.gov/articles/PMC8364152/). The brain is remarkably metabolically costly from biology's perspective, consuming 20% of the body's total energy budget and 10x more per gram than a muscle fiber, but it is unbelievably efficient compared to modern AI.
+
+It's not like computer scientists and engineers do not know this. Edge computing and neuromorphic hardware are all attempts to gain brain-like efficiency. It seems increasingly clear to me that the place where neuroAI matters and where the potential for revolution is, is in robotics, both to build better robots and to spur a revolution in neuroscience.
+
+## Robotics needs neuroscience
+Looking from the outside, it seems like robotics is having a heyday. The field is advancing rapidly, AI has found its natural application beyond language, and the potential for robots to revolutionize our world is clear. But there are some fundamental problems.
+
+### 1) Compute is expensive
+A real robot needs to adapt and learn from its ever-changing environment. This is not unlike real brains. However, currenat AI models are way too intensive to train and even too expensive to run on robots.  
+
+SOTA models cannot run on robots and communication is trivially jammed. Modern AI is incredible. Human-like visual judgement is becoming possible (gemini 3D), but these models do not run ON the robot. Modern robots have many local processes, but rely on communication to cloud compute for heavy lifting. This is both expensive
+
+### 2) Relying on cloud compute is problemeatic
+Relying on a link between the robot and the cloud cannot work in extreme conditions (like inside the Fukushima reactor when radiation blocks comms) or in cases where communication can be jammed. It is trivial to disrupt wireless communication and this means that robots doing important tasks could be hacked, interrupted, or disabled. This means robots can only be trusted in fairly limited settings like in Warehouses, where the environments are controled and communications are stable. This is missing the bulk of the potential for robots.
+
+### 3) Two many possible solutions and symmetries. 
+Learning everything from data is the AI way. However, because biology separates evolutionary, developmental, and learning timescales, many things are not "learned" de novo.  It's likely that the constraints imposed by biology not only produce more efficient solutions, but they also constrain the space of representations in ways that make solutions simpler. I'll expand on this below.
+
+
+### Three ideas from neuroscience
+
+#### 1) foveation and fingertips: the geometry of the sensors matter
+
+All animals have a region of high sensor resolution that contrast with areas of low resolution. Primates and birds of prey have an overrepresentation of the foveal region at the center of gaze (birds of prey have two!). We also overrpesent our finger tips. Mice overrepresent whiskers. In contrast MAEs, LLMs, CNNs, all process everything everywhere. I'll call this the "fovea everywhere" problem and although we know this is wasted compute, it also likely shapes the learned representations dramatically and in useful ways. 
+
+The fovea is different than the periphery.
+
+
+The ganglion cell density changes by a factor of 1000-4000 between peripheral and central retina. [2](https://pubmed.ncbi.nlm.nih.gov/2288097/)
+
+in contrast, int he periphery, the numbers are reversed. If you try to capture the complexity of the fovea everywhere, you will need to much compute to put on a robot.
+
+https://www.nature.com/articles/s41592-024-02497-y
+
+for every cone photo receptor 3-4 Ganglion cells for every cone in the fovea. One ganglion cell per cone at 15 degrees. [2](https://pubmed.ncbi.nlm.nih.gov/2288097/)
+
+
+
+Andrew watson has a formula[3](https://jov.arvojournals.org/article.aspx?articleid=2279458)
+
+Information rate of the optic nerve is under 1Mbit/s (875,000 bits · s−1) [5](https://www.cell.com/current-biology/fulltext/S0960-9822(06)01639-3?_returnURL)
+
+More off bipolar cells than ON bipolar cells in the fovea [4](https://www.cambridge.org/core/journals/visual-neuroscience/article/abs/cell-density-ratios-in-a-foveal-patch-in-macaque-retina/69E3EA4838DB1F6133EE238B0756EBCD)
+
+
+## The embodied Turing test
+[Zador](https://www.nature.com/articles/s41467-023-37180-x)
+
+## Neuroscience needs robotics
+[virtual fly](https://www.nature.com/articles/s41592-024-02497-y)
+[virtual mouse](https://www.nature.com/articles/s41586-024-07633-4) 
+
+One of the key missing features of neuroscience right now is the embodiment problem.
+
+We have known for a long time that brains without agency simply do not work.
+I have written before about how the sensory signal contains a echo of the self because it was all sampled by the body. How it is likely that you can't separate it.
+
+It is incredibly difficult to do neuroscience that causally manipulates embodiment, and given how gruesome some of the early experiments were conceptually, I don't know if we want to.
+
+But robotics is a way to do this. Robots are embodied and they must accomplish a lot of the things brains do.
+
+It is no secret that RL and WOrld models are increasingly hot right now and robotics and AI are having a heyday.
+
+There are some trivial reasons why the current directions aren't going to work for actual robots out in the world in demanding tasks.
+
+The main one is that compute is still massively intensive with current AI. Training an LLM to run a robot requires (insert some numbers).
+
+Running inference requires GPUs and connection to communicate with a heavy compute server?
+
+The way out of this is "edge computing". (find referenes)
+
+But this is a clear place that we can draw inspiration from the brain. All brains are embodied. Even mice accomplish interesting tasks from the POV of current day robotics.
+
+And human brains run on the power consumption of an incandescent lightbulb. So this is massively more energy efficient than modern AI.
+
+1) Compute is too intensive for inexpensive robots.
+2) this requires communications that can easily go down (won't work for military applications, won't work without service meaning there are limited tasks they can be allowed to do)
+
+The three main problems facing modern robotics are related to compute
+1) the "fovea everywhere" problem. All animals have a region of high sensor resolution that contrast with areas of low resolution. Primates and birds of prey have an overrepresentation of the foveal region at the center of gaze. We also overrpesent our finger tips. Mice over represent whiskers. In contrast MAEs, LLMs, CNNs, all process everything everywhere.
+The fovea is VERY different than the periphery. For every 1 cone photoreceptor in the fovea, youhave 100 V1 neurons. 
+in contrast, int he periphery, the numbers are reversed. If you try to capture the complexity of the fovea everywhere, you will need to much compute to put on a robot.
+
+2) Information is not coupled to metabolic cost. In most models, floating point operations that represent the information in the system are not directly related to metabolic cost. 
+In contrast, in the brain, spikes carry information and they cost ATP. Recently we showed that switching to Poisson distributed latent spaces in VAEs generates a similar coupling
+between information and cost of firing. This resulted in sparse coding emerging as a subclass of Variational inference with poisson distributions. The direct coupling of information and 
+
+3) Information Bottlenecks and selection. Vision is our highest bandwidth sense. The retina takes 120 million photoreceptors and sends that information down the optic nerve at 1MB/sec. However, humans can only operate at roughly 10bits/sec depending on how you compute it, it might be 40Bits/sec. This is a massive loss of information. And a loss that probably occurs hierarchically.
+It would be a mistake to take video sensors and immediately pump them into a ViT and hope for the best.
+
+4) Starting with primitives. Biological intelligence separates the evolutionary and developmental timescales. Neural circuits for movement are remarkably preserved. The vestibular and oculomotor systems are remarkably preserved across all vertebrates, which is why the Lamprey is a reasonable models.
+All animals with image forming eyes move in a saccade and fixate pattern. This does not need to be learned.
+The idea is that motion primitives should be built in. And sensor primitves (ie., rare genetic cell classes in the retina, should also be there). If you start with a sensor that just takes
+
+
+# On efficiency
+
+### The 20 watt number can be found here
+1) Balasubramanian V. Brain power. Proceedings of the National Academy of Sciences. 2021 Aug 10;118(32):e2107022118.

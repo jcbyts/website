@@ -1,0 +1,43 @@
+---
+title: Data Quality Issues pervasive in systems neuroscience
+date: 2023-11-24
+description: Electrode drift
+draft: true
+---
+
+This post is about data quality issues in systems neuroscience. Although I am going to spend most of my time talking about the International Brain Lab's data, I in no way think this is a problem unique to the IBL. In fact,
+I know they are on the forefront of trying to solve these issues. But they happened to release a really nice [dashboard]((https://viz.internationalbrainlab.org/app) for exploring their data, so it's easier to use it as an example.
+
+<video
+  src="/ibldata/IBL1_nav.mov"
+  autoplay
+  loop
+  muted
+  style="max-width: min(100%, 160em)" />
+
+Let's start off by saying that the [International Brain Lab](https://www.internationalbrainlab.com/) data dashboard is the most impressive dashboards for inspecting data that I have seen in neuroscience. By far! I mean, you can see where every recording sessions happened. It's visualized as a probe inserted in a brain. And when you click on that probe, you can see all the meta data about that session.
+
+After selecting a session, you can not just see the meta data on the right, but you can scroll down and explore that actual data. I think this is one of the coolest things I have seen in a long time in neuro.
+
+Sorry to sound like a broken record, but that's really impressive. This is the kind of thing that I think (hope) we'll see more of as AI tools help us all build generative User Interfaces. In the meantime, it is available only to those who can afford to pay for frontend expertiese.
+
+Here, you'll see me navigate through one session. You see the spike raster from the entire recording. And below, you can even click on individual trials.
+
+<video
+  src="/ibldata/IBL2_session.mov"
+  autoplay
+  loop
+  muted
+  style="max-width: min(100%, 160em)" />
+
+
+
+Okay, I'm still just in awe of how awesome this is. But this where the awesomeness stops. This is a post about problems. The first dataset I clicked on (and the one I've shown you here) has signatures of data quality issues that are common in acute multi-electrode array recordings and can be seen in the spike raster.
+
+<img
+  src="/ibldata/IBL_example_discontinuity.png"
+  alt="The red arrows show discontinuities in the recording" />
+
+Each row of this raster shows the spike times of a "unit" from the recording. Time is on the x-axis. I've highlighted the visual features that I find salient. The red arrows point to discontinuities in the recording. At each of those red arrows, an abrubpt vertical shift in the raster is present. Some neurons have disappeared. Some have a appeared. At those discontinuities, it is no longer the same raster before and after. It has been shifted. 
+
+When this type of visual signature is present

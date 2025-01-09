@@ -1,0 +1,52 @@
+---
+title: The Sensory Self
+date: 2024-10-03
+description: AI needs to be embodied to do anything brainlike
+draft: true
+---
+
+## Is the Self really an Illusion? Lessons from Color Perception
+
+I've been using Sam Harris' Waking Up app for the past two years - probably not as regularly as I hoped to. While I've found tremendous value in many aspects of the app, I can't fully embrace the daily meditation practices because I think they overstate the illusory nature of the self. In fact, I'm canceling my subscription this year, largely because of this philosophical disagreement.
+
+The core teaching in Waking Up, like many non-dual meditation traditions, is that recognizing the true nature of consciousness reveals the self is an illusion. The practice often focuses on recognizing that all experience simply appears in consciousness, and when you look for the observer - the "self" who seems to be experiencing everything - you can't find it. Harris suggests that modern neuroscience, particularly work highlighted in Anil Seth's recent book Being You, supports this view of consciousness and the illusory nature of self.
+
+But I think this interpretation might be missing something crucial. To understand why, we need to look more carefully at how our brain constructs experience, and particularly at what it means for something to be a "construction" rather than an "illusion." When trying to think through something as complicated and nuanced as the self, I find it helpful to reason about something we understand a bit better. One of the most straightforward parallels is how we perceive color.
+
+In his book "Being You," Anil Seth argues that consciousness is a kind of "controlled hallucination" - our brain's best guess about reality rather than a direct perception of it. This idea is perhaps easiest to grasp when we think about color perception. We don't directly see wavelengths of light; instead, our brain constructs color experiences to help us track meaningful properties of the world, like the reflectance properties of surfaces.
+
+There are two ways you can experience this for yourself. One of the simplest is to view the myriad of color illusions available on the internet. 
+
+Ted Adelson's checkerboard illusion shows us that the same RGB values on the monitor produce different percepts depending on the context. Another way is to visit the Exploratorium in San Francisco and enter the Sodium Bulb room. Sodium bulbs, the orange light they used to make street lights out of, emit only one wavelength. As a result, the world appears like a sepia toned monochromatic scene. Importantly, the actual reflectance properties of the surfaces haven't changed - a red apple still has the physical properties that make it reflect red light under normal conditions, and if you turn on a normal flashlight, you can effectively paint color onto your experience. I highly recommend you go check this out because this is the starting point for the analogy. The physical world has not changed. What's changed is your brain's ability to perceive these properties.
+
+Seth (and Harris) suggests our sense of self works similarly - it's a construction that helps us track real properties of our body and its relationship to the world. Just as color perception isn't a direct window into wavelengths but rather a useful construction for tracking surface properties, our sense of self isn't a direct window into consciousness but rather a useful construction for tracking our bodily states and agency. I do not want to get into any digressions into Free Will and Agency, so here I really mean that the sense of self is a useful construction for tracking the body's states. But there is, in fact, a body. 
+
+This analogy continues to work when comparing to non-dual meditation practices that seem to dissolve the sense of self. Consider the practice of "looking for your head" - attempting to directly perceive your own head from your first-person perspective. When you try this, you might notice that you can't actually find your head in your immediate experience. This is often presented as revealing the illusory nature of the self.
+
+But perhaps this is more like becoming aware of the lack of color vision in your peripheral vision. When you try to discriminate colors without looking directly at them, you'll notice you can't - even though your normal experience seems to include rich color throughout your visual field. This revelation doesn't mean color is an illusion; it just reveals something about how our perceptual systems work. It reveals that we can't localize or discriminate color in the periphery.
+
+Similarly, meditation practices that dissolve the sense of self might be revealing the constructed nature of self-perception rather than proving the self is an illusion. Just as your inability to see colors in your peripheral vision doesn't negate the reality of surface reflectance properties, your ability to temporarily disrupt self-perception doesn't negate the reality of the bodily processes and properties it normally tracks.
+
+### The sodium lamp of the self
+I want to take this analogy literally because it might help us think through some of the more nuanced aspects of self-perception. In my analogy, tools that dissolve self-perception (like sensory deprevation and psychedelics) are like the sodium lamp. They temporarily disrupt inference over the properties of the world. Tools like "looking for your head" are like discriminating color in the periphery. You can't do it, and it gives you a glimpse into the constructive nature of your perception, but it is not revealing a lack of color in the world.
+
+This analogy might help us think through the self. Just as we have "color constancy" - the ability to perceive consistent colors under varying illumination - we likely have "self constancy" mechanisms that maintain a consistent sense of self across varying conditions. For example, we do not feel like a different person when we are tired or hungry, or our heart rates are high during exercise, even though our bodily states are dramatically different. This is a perceptual inference, not an illusion. However, this hints at why such changes in phsyical state might slowly modify self perception.
+
+### The sensory self
+I want to introduce the concept of the "sensory self" -- the sum of all raw data the brain receives about the body. This includes interoceptive signals like heart rate, hunger, and fatigue, as well as exteroceptive signals like touch, vision, and hearing. If you were to compare the sensory data coming from your retina to mine, you would see they are not the same. Our physical posture and how we move shape the sensory data we receive. This is why when you wear a VR headset that is miscalibrated to the wrong height, it feels like you are wading through the floor or floating in the air. The sensory data has the self entangled in it. If the brain is to infer the causes of the sensory data to infer the structure in the world, it must infer that the self is the thing that is entangled in all of this data. Whatever that thing is is real. I think we should call that thing the self. The most accurate inference over all the sensory data and intentions is the self. And that is what people already mean when they say "self".
+
+
+### Implications for meditation
+I simply cannot accept the interpretation that the self is an illusion. Or a "structured hallucination". It is an inference over a real thing. All perception is inference. That conscious experience can be described as a space where all of these inferences appear neither tells us how consciousness arises or is particularly useful. I think it primarily reveals that if you change your policy (i.e., if you change the goals of your inferences) you can change how those perceptions appear. Just as my perception of 
+
+### Generative models without generation
+I'll write about this in a more technical blog post, but I think this 
+
+
+### Conclusions and 
+This view suggests that the value of non-dual practices isn't in transcending the self but in understanding its constructed nature while remaining grounded in the physical and biological realities it tracks. It also reveals the potentual power in modifying those biological realities to modify self-perception. Changing your appearanec, your health, your heart rate, and your posture in a constant way all have the potentual to have long lasting changes in your self-perception. This suggests a "fake it till you make it" appoach to self-improvement might really work. 
+
+It also suggests that this more physical (inference based) perspective on the self might help us:
+Develop flexibility in our modes of self-perception
+Understand the reciprical relationship between our experience shapes our sense of self
+Reduce suffering that comes from rigid or inflexible self-models while still appreciating its grounding in reality
