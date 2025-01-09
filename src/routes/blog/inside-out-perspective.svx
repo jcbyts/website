@@ -2,7 +2,7 @@
 title: Reconciling Generative and Feedforward Models of Visual Cortex
 date: 2024-10-03
 description:
-draft: true
+draft: false
 ---
 
 When you first learn about vision in a neuroscience class, you might experience a kind of cognitive dissonance. On one hand, you're taught about perception as a process of active interpretation. On the other, you learn about neurons that seem to filter incoming information in an adaptive, but mostly passive way. This disconnect isn't just confusing for students—it reflects a fundamental tension in how we understand the brain. How can we reconcile the idea of perception as inference with the feedforward, hierarchical processing we see in the brain?
