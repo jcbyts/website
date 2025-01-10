@@ -26,7 +26,7 @@ const fetchMarkdownPosts = async () => {
 				slug
 			};
 		})
-	)).filter(post => !post.metadata.draft)
+	))
 
 	return allPosts;
 };
