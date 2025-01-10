@@ -29,17 +29,11 @@
       ? 'mx-[2em]'
       : ''}"
   >
-    {#if draft}
-      {#if dev}
-        <blockquote>
-          This draft is visible because you're working locally.
-        </blockquote>
-        	<Content />
-      {:else}
-        This post is in progress!
-      {/if}
-    {:else}
-      	<Content />
+    {#if draft && dev}
+      <blockquote>
+        This is a draft and won't show up on the index page.
+      </blockquote>
     {/if}
+    <Content />
   </div>
 </div>
