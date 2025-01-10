@@ -33,3 +33,8 @@
     </article>
   {/each}
 </div>
+
+<!-- hidden links to keep draft posts in the build -->
+{#each posts as { slug } (slug)}
+  <a href="/blog/{slug}" hidden></a>
+{/each}
