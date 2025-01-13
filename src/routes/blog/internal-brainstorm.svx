@@ -1,0 +1,69 @@
+---
+title: Neuroscience AI Brainstorm
+date: 2025-1-10
+description: An actual route forward for neuroAI
+draft: true
+---
+
+
+Over the past month, I’ve been reflecting on some key themes that emerged at NeurIPS this year. It feels like we’re at a pivotal moment—one where neuroscience and vision research could meaningfully intersect with AI in ways that haven’t been possible before. I think this is a window of opportunity we shouldn’t miss.
+
+At NeurIPS, it became clear that the era of scaling large language models (LLMs) is coming to an end. For years, LLMs dominated AI research, fueled by scaling laws and brute computational force. But now, even Ilya Sutskever acknowledge [the limitations](https://youtu.be/1yvBqasHLZs?feature=shared&t=523) of this approach. The field is pivoting, and the new frontier seems to be vision and agents, with a renewed focus on generative models. The term "World Model" is being floated around (we'll get to that). Fei-Fei Li’s [keynote](https://neurips.cc/virtual/2024/invited-talk/101127) underscored this shift. Her company, World Labs, has raised an excess of $230 million to advance vision generative models and robotics. This isn’t just an academic exercise; it’s a massive influx of funding into problems we care about.
+
+Two things are apparent to me that I will detail below:
+- Neuroscience could benefit massively from having the ability to wield simulations and generative models like the ones World Labs is working with.
+- For robotics especially, the next generation of AI could benefit from vision research.
+
+
+## How Neuroscience would benefit from largescale graphics and generative models
+
+I think this is immediately apparent, but I'm going to outline it in detail anyway. What largescale simulations lets us achieve is a neuroscience of what *must be* not just what is. Essentially, synthetic worlds would endow researches with the ability to test the ideas that began with Barlow and Attneave at scale and with biological realism, which would let us not only do truly predictive neuroscience research (like physics does), but also put clear bounds on what we must find in the brain. This is uniquely possible for sensory neuroscience and particularly vision, which I will elaborate on below.
+
+It has long been understood that the natural statistics of sensory data constrain the space of representations that the [brain learns](https://www.annualreviews.org/content/journals/10.1146/annurev.neuro.24.1.1193). In vision, "natural statistics" has overwhelmingly mean "natural images" and occasionaly meant the statistics of features of the world (i.e., [natural "scenes"](https://www.annualreviews.org/content/journals/10.1146/annurev.psych.58.110405.085632)). But it never means natural sensory data -- the data that the brain actually receives. This is both because we have never had the ability to generate this data at scale and because we didn't have clear measurements of what the brain actually receives. Both are possible now.
+
+In the case of natural images, they constrain the represantions. Cardinal biases in orientation statistics manifest [in perception](https://www.nature.com/articles/nn.2831) and can predict the distribution of tuning in [visual cortex](https://ieeexplore.ieee.org/abstract/document/6895201). In fact, these biases in the data distribution are so profound that they effect any model trained with [gradient descent](https://www.nature.com/articles/s41467-022-35659-7).
+
+But the brain doesn't receive images. It receives light sampled by moving eyes. The statistics of the retinal input are formed both by the structure of the world and by the geometry of the body and eyes that are sampling the world. Here, it is important to zoom out beyond humans and takes quick look at how animals sample the visual world. All animals with image-forming eyes, in fact, all vertebrates sample the world with a ["saccade and fixate"](https://pubmed.ncbi.nlm.nih.gov/31254533/) pattern of eye movements. There are essentially only two types of eye movements among vertebrates: orienting movements and stabilizing movements. A small number of species have adopted scanning strategies, but those tend to have linear retinas instead of 2D spatially arranged sensors.
+
+A fixating observer changes the distribution of retinal velocities dramatically. This is just one form of "Active Vision", but stabilizing eye movements create distributions of retinal velocities that are eccentricity dependent. They take ill-posed 3D geometry problems and make them [trivial](https://link.springer.com/article/10.1007/BF00133571). Importantly, this has nothing to do with having a fovea. All vertebrates will have a region of the retina with lower velocities because of the stabilizing movements. Previous work has shown that simply simulating the geometry of 
+
+https://www.jneurosci.org/content/36/32/8399.short
+
+
+
+
+
+
+
+
+## Where Neuroscience Can Help
+The key idea I’ve been circling around is that AI and neuroscience both need world models, but AI’s approach feels incomplete. In order for agents—whether biological or artificial—to act intelligently, they need to infer the causes of their sensory inputs and generate predictions about their world. Neuroscience has been grappling with these ideas for decades. Saccade and fixation, for example, are universal strategies in biological vision. Every single organism with image-forming eyes—whether it’s a lamprey, goldfish, or human—uses this mechanism to orient and stabilize its gaze. Remarkably, this approach predates lungs in evolutionary history.
+
+Saccade and fixation are more than just a quirk of biology; they shape the natural statistics of motion on the retina. For a fixating observer, motion distributions are eccentricity-dependent—slow motions cluster at the fovea, while faster motions dominate the periphery. This isn’t just a coincidence; it’s an adaptation that simplifies motion inference and optimizes the placement of sensors like photoreceptors. Yet, this foundational strategy is largely absent in AI. Computer vision systems treat the world as static and uniformly sampled, neglecting the dynamic, self-centered sampling strategies that biological systems rely on.
+
+What AI Is Doing Instead
+Right now, AI is training massive foundation models that attempt to represent all possible perspectives, scenes, and bodies. This approach assumes that you can capture everything in one universal model and then fine-tune or map it to specific applications later. While this might work for centralized, server-based systems, it’s highly inefficient for edge computing, where energy and computational costs matter. It also flies in the face of efficient coding principles: biological systems don’t waste resources modeling every possible world—they optimize for the constraints of their own geometry and sensory apparatus.
+
+This is where I think we, as neuroscientists, have a unique contribution to make. We understand that every visual system exists in an Umwelt, not a Welt. Each organism perceives the world through the lens of its own sensory and motor constraints, and its neural systems are optimized accordingly. If AI were to adopt a similar approach—training models tailored to the specific geometry and motion statistics of the body they serve—it could dramatically improve efficiency, especially for robotics and edge applications.
+
+Why Now?
+This brings me to why I think the timing is so critical. The tools we need to explore these ideas—synthetic data, realistic simulations, and scalable compute—are finally within reach. Platforms like NVIDIA’s Omniverse and Omni-Gibson are making it possible to generate high-fidelity data that incorporates natural motion statistics and sensory geometries. Yet these tools require significant computational resources and technical expertise that most academic labs, including ours, can’t readily access.
+
+At the same time, the AI industry is heavily investing in generative models and vision. This alignment of interests is rare, and I believe it’s an opportunity for us to secure funding and partnerships to explore these questions at scale. I’ve seen firsthand how much demand there is for synthetic data in our own community—from Doris’s questions about ground truth factors of variation to Ren’s work on cone sampling and optic flow, and even Hadi’s explorations of how data distributions shape neural representations.
+
+What’s Missing
+For us to make meaningful progress, we need a collaborative effort that brings together diverse expertise:
+
+Oculomotor dynamics: People like Jorge Otero-Millan, who understand how the eyes move and stabilize vision, are critical for simulating realistic visual inputs.
+Graphics and simulation: We need to strike the right balance between toy models and realistic environments, ensuring we capture the statistics that matter most.
+Generative models: Researchers like Bruno have been leading the charge on sparse coding and generative approaches, but scaling these ideas to incorporate 3D scene geometry and binocular vision is a major challenge.
+Finally, and perhaps most importantly, we need funding to make this work possible. Traditional academic grants aren’t designed to support the level of compute and engineering required, but private funding in AI is booming. If we can articulate our insights and align them with industry priorities, I believe we can secure the resources we need.
+
+Next Steps
+I’d love to hear your thoughts on these ideas and explore how we might move forward. Do you think there’s an appetite for this kind of collaborative effort? Are there key people or projects we should bring into the conversation? If we’re aligned, I think it’s worth considering how we can pitch this vision to potential funders. The time feels right, and I don’t want us to miss this window.
+
+Looking forward to hearing your thoughts.
+
+Best,
+[Your Name]
+

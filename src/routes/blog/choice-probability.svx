@@ -1,7 +1,0 @@
----
-title: A Brief History of Choice Probability
-date: 2022-11-24
-description: What is choice probability and why do we care about it?
-draft: true
----
-

@@ -5,7 +5,7 @@ description: AI needs to be embodied to do anything brainlike
 draft: true
 ---
 
-## Is the Self really an Illusion? Lessons from Color Perception
+## Is "the Self" an Illusion? Lessons from Color Perception
 
 I've been using Sam Harris' Waking Up app for the past two years - probably not as regularly as I hoped to. While I've found tremendous value in many aspects of the app, I can't fully embrace the daily meditation practices because I think they overstate the illusory nature of the self. In fact, I'm canceling my subscription this year, largely because of this philosophical disagreement.
 
