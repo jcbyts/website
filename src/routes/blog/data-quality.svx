@@ -5,8 +5,23 @@ description: Electrode drift
 draft: true
 ---
 
-This post is about data quality issues in systems neuroscience. Although I am going to spend most of my time talking about the International Brain Lab's data, I in no way think this is a problem unique to the IBL. In fact,
-I know they are on the forefront of trying to solve these issues. But they happened to release a really nice [dashboard]((https://viz.internationalbrainlab.org/app) for exploring their data, so it's easier to use it as an example.
+This post is about data quality issues in systems neuroscience and why I am enormously suspicious of *any* result about uncontrolled brain state.
+
+### I don't trust results about brain state
+I think they're mostly artifacts. Don't get me wrong. I believe in "states" of the brain and I believe those will manifest as changes neural activity. I'm just highly skeptical that I can trust any result I read. Others have written about how our statistical tools are poorly suited for these [questions](https://www.biorxiv.org/content/10.1101/2020.11.29.402719v3.abstract). My collaborators and I have discussed how this might majorly change how we interepret results on [movement-related signals](https://www.cell.com/trends/neurosciences/fulltext/S0166-2236(24)00228-5). But in general, I'm pretty bearish on experimental neuroscience right now because of pervasive data quality issues and a lack of attention to addressing them.
+
+
+### Data quality issues abound in systems neuroscience
+There are data quality issues everywhere in science and systems neuroscience is no different. I think these issues matter. Call me old fashioned, but I think that we need to know whether a spike came from a single neuron or not if we are to rule in and out different neural codes. Moreover, right now the field excited about scientific questions where data quality [really matters](https://www.cell.com/trends/neurosciences/fulltext/S0166-2236(24)00228-5). 
+
+This is a post about a specific type of dataquality issue and how pervasive it is. Although I am going to spend ALL of my time talking about the International Brain Lab's data, I in no way think this is a problem unique to the IBL. In fact,
+I know they are on the forefront of trying to [solve these issues](https://www.biorxiv.org/content/10.1101/2022.05.09.491042v7). But they happened to release a really nice [dashboard](https://viz.internationalbrainlab.org/app) for exploring their data, so it's easier to use it as an example. Everything here is genearally true of the field. That's what is so great about the IBL, it represents a large collection of labs. This is a representative slice. This should update your prior about whether you trust experimental neuroscience.
+
+More importantly, the IBL is at the forefront of trying to solve these issues and they are transparent. So, if anything, much of experimental neuroscience is WORSE than this.
+
+### The IBL is aweseome
+
+Let's start off by saying that the [International Brain Lab](https://www.internationalbrainlab.com/) data dashboard is the most impressive dashboard for inspecting data in neuroscience! By far! I mean, you can see where every recording sessions happened. It's visualized as a probe inserted in a brain. And when you click on that probe, you can see all the meta data about that session.
 
 <video
   src="/ibldata/IBL1_nav.mov"
@@ -15,13 +30,13 @@ I know they are on the forefront of trying to solve these issues. But they happe
   muted
   style="max-width: min(100%, 160em)" />
 
-Let's start off by saying that the [International Brain Lab](https://www.internationalbrainlab.com/) data dashboard is the most impressive dashboards for inspecting data that I have seen in neuroscience. By far! I mean, you can see where every recording sessions happened. It's visualized as a probe inserted in a brain. And when you click on that probe, you can see all the meta data about that session.
+
 
 After selecting a session, you can not just see the meta data on the right, but you can scroll down and explore that actual data. I think this is one of the coolest things I have seen in a long time in neuro.
 
-Sorry to sound like a broken record, but that's really impressive. This is the kind of thing that I think (hope) we'll see more of as AI tools help us all build generative User Interfaces. In the meantime, it is available only to those who can afford to pay for frontend expertiese.
+Sorry to sound like a broken record, but that's really impressive. This is the kind of thing that I think (hope) we'll see more of as AI tools help us all build generative User Interfaces.
 
-Here, you'll see me navigate through one session. You see the spike raster from the entire recording. And below, you can even click on individual trials.
+Here, you'll see me navigate through one session. You see the population spike raster from the entire recording. And below, you can even click on individual trials.
 
 <video
   src="/ibldata/IBL2_session.mov"
@@ -31,13 +46,71 @@ Here, you'll see me navigate through one session. You see the spike raster from 
   style="max-width: min(100%, 160em)" />
 
 
+### The problem
 
-Okay, I'm still just in awe of how awesome this is. But this where the awesomeness stops. This is a post about problems. The first dataset I clicked on (and the one I've shown you here) has signatures of data quality issues that are common in acute multi-electrode array recordings and can be seen in the spike raster.
+But this where the awesomeness stops. This is a post about problems. The first dataset I clicked on (and the one I've shown you here) has signatures of data quality issues that are common in acute multi-electrode array recordings and can be seen in the spike raster. I'll note, these are present in practically EVERY dataset in the IBL dashboard. I struggled to find one that did not have this problem.
 
 <img
   src="/ibldata/IBL_example_discontinuity.png"
   alt="The red arrows show discontinuities in the recording" />
 
-Each row of this raster shows the spike times of a "unit" from the recording. Time is on the x-axis. I've highlighted the visual features that I find salient. The red arrows point to discontinuities in the recording. At each of those red arrows, an abrubpt vertical shift in the raster is present. Some neurons have disappeared. Some have a appeared. At those discontinuities, it is no longer the same raster before and after. It has been shifted. 
+Each row of this raster shows the spike times of a "unit" from the recording. Time is on the x-axis. These are the results of ["spike sorting"](https://www.nature.com/articles/s41592-024-02232-7#:~:text=Spike%20sorting%20is%20the%20computational,electrical%20fields%20between%20nearby%20neurons.), where raw voltage traces are converted into the times and identities of action potentials from a population of neurons. This is pretty normal for what a spike raster looks like. Importantly, these are often not shown like this in papers. Again, this is what is so amazing about the IBL. The level of transparency is incredible. But, this raster has signatures that reflect the presence of a major artifact that makes many scientific questions (e.g., about "brain state") difficult if not impossible to answer.
 
-When this type of visual signature is present
+I've highlighted the visual feature I'm talking about. The red arrows point to discontinuities in the recording. At each of those red arrows, an abrubpt vertical shift in the raster is present. Some neurons have disappeared. Some have a appeared. At those discontinuities, it is no longer the same raster before and after. It has been shifted. 
+
+When this type of visual signature is present, something happened. It could be that the brain "state" changed, but more likely the animal moved or the probe moved. This is what we call "electrode drift". How can we tell?
+
+Thanks to the incredible dashboard, we can click into individual "good" units and see the spike waveforms and investigate whether there are signatures of drift in the electrode (i.e., not in the brain state).
+
+<img
+  src="/ibldata/select_unit.png"
+  alt="You can select and inspect individual units. Amazing!" />
+
+Below, you can see all of the relevant information about this unit. 
+
+<img
+  src="/ibldata/example_cutoff.png"
+  alt="The red arrows show when the unit disappeared" />
+
+Panels **B-E** show the spike raster conditioned by task events. Panel **F** shows the spike waveform positioned on the probe. You can see that the waveform is visible across many channels, which assists spike sorting SNR. Panel **G** shows behavioral performance. Panel **H** and **I** show us the inter-spike interval distribution and support the claim this is a "good" unit as it has a refractory period consistent with real neurons... 
+
+And then we get to the panel that can tell us whether something is up with the discontinuities we saw, panel **J**. Panel **J** shows the amplitude of the spike waveform over time. I've highlighted it with a red box. You can see a cluster of points that is pretty stable over time, until the second discontinuity, and then, the unit dissappears. Of course, it's possible the brain state changed, and this neuron stopped firing. But how can we tell?
+
+### The electrode drifted
+If we click other units in that session, we can find some that appear after the discontinuity and some that disappear. It's hard to find units that survive. That is all consistent with an abrupt shift in the array. But, when we find units that fire throughout the whole session, they have absolutely insane drift. Take this one for example.
+<img
+  src="/ibldata/crazy_drift.png"
+  alt="This unit has crazy drift" />
+
+This unit has a very low waveform amplitude and low firing for the first 2000 seconds. Then it goes silent. Then the waveform grows and the firing rate increases, and then it disappears until the 6000 second mark when it reappears. Now, when I saw this, I thought for sure that this must not be a "good" unit. So I scrolled back up and then counted the units and sure enough, this one is labeled good. But across the board for this entire session, none of the good units are stable over the whole session and many have massive drift throughout.
+
+### The problem is pervasive
+
+I turned on the "show advanced metrics" tab and kept clicking around and the pattern of drift is in practically every session. I'm just going to show a few more examples so you get the idea.
+
+<img
+  src="/ibldata/example_drift.png"
+  alt="This unit has crazy drift" />
+
+
+<img
+  src="/ibldata/even_more_drift.png"
+  alt="This unit has crazy drift" />
+
+<img
+  src="/ibldata/more_drift.png"
+  alt="This unit has crazy drift" />
+
+
+<img
+  src="/ibldata/never_well_isolated.png"
+  alt="This unit has crazy drift" />
+
+
+It's hard to find a stable, well-isolated unit. And I think that's a problem. There are some questions where it is less of a problem. If you are using spike-triggered averaging, then you are simply asking about the stimulus distribution conditioned on spikes. It is kind of less of a problem if you miss some spikes. You reduce your power, but don't get the answer substantially wrong. However, if you are using likelihood-based models or, even worse, asking questions about internal states, where you didn't randomly (i.e., causally) manipulate the state, this is not a good thing.
+
+### Conclusion
+This is not a problem that is unique to the IBL. In fact, they're probably in better shape than most small labs that are collecting this type of data. But it IS a problem. The field has been improving the methods in this space, but we should really think hard about whether we trust ANY of the science that has come of these methods in the last 10 years. I don't. I don't think any of this will become textbook. And I think that's a problem. 
+
+
+
