@@ -5,10 +5,10 @@ description:
 draft: False
 ---
 
-### What are feedback connections in the visual system for?
-Any good wiring diagram of the visual system reveals a network of areas with reciprical connections. Although there is strong evidence that the primate visual system is organized hierarchically with retinal input passing through a sequence of areas conveniently named by their order (V1, V2, ...), there is equal evidence for so-called "feedback" or "top-down" connections running the opposite direction. Ask a random Neuroscientist what these connections are for and you'll get an opinionated answer. But the problem, we're told, is that we don't understand it. A second problem is people believe wildly different things about what the empirical evidence supports. On the one hand, you have people who think feedback *is* the main story. The brain, they say, is a generative model. "Perception is a controlled hallucination". They point to fMRI studies showing huge effects of cognition on early sensory areas. They interpret the smallest changes in firing rates as the tip of a much larger iceberg, "if only we could understand it".
+## What are feedback connections in the visual system for?
+Any good wiring diagram of the visual system reveals a network of areas with reciprocal connections. Although there is strong evidence that the primate visual system is organized hierarchically with retinal input passing through a sequence of areas conveniently named by their order (V1, V2, ...), there is equal evidence for so-called "feedback" or "top-down" connections running the opposite direction. Ask a random Neuroscientist what these connections are for and you'll get an opinionated answer. But the problem, we're told, is that we don't understand it. A second problem is people believe wildly different things about what the empirical evidence supports. On the one hand, you have people who think feedback *is* the main story. The brain, they say, is a generative model. "Perception is a controlled hallucination". They point to fMRI studies showing huge effects of cognition on early sensory areas. They interpret the smallest changes in firing rates as the tip of a much larger iceberg, "if only we could understand it".
 
-In contrast, the vast majority of empirical evidence at the level of single neuron spiking suggests that feedback is a small modulatory effect. In what is often referred to as "the standard model", neurons in visual cortex (and other sensory areas) are primarily feedforward (locally recurrennt) neural networks with some weak modulatory gain fedback. The standard model is pretty bomb proof empirically. Moreoever, whenever a big feedback effect appears, the more careful studies that emerge in its wake usually find smaller effects -- a manifestation of the [decline effect](https://en.wikipedia.org/wiki/Decline_effect). What remains is a consistent small modulatory effect.
+In contrast, the vast majority of empirical evidence at the level of single neuron spiking suggests that feedback is a small modulatory effect. In what is often referred to as "the standard model", neurons in visual cortex (and other sensory areas) are primarily feedforward (locally recurrent) neural networks with some weak modulatory gain fed back. The standard model is pretty bomb proof empirically. Moreover, whenever a big feedback effect appears, the more careful studies that emerge in its wake usually find smaller effects -- a manifestation of the [decline effect](https://en.wikipedia.org/wiki/Decline_effect). What remains is a consistent small modulatory effect.
 
 I think the good news is both sides are probably right! We might be closer to understanding feedback than we thought. In this blog post, I take the stance that indeed the brain learns a generative model of the senses, and perception is inference over the states of that model. But, I argue the standard model is a major clue to the answer of what inference looks like and we get hints of what feedback is doing.
 
@@ -20,7 +20,7 @@ What do I mean by "inference" over a "generative model"?
 
 Let's start with perception. The idea that our brain actively interprets sensory information, rather than passively receiving it, isn't new. In fact, it's ancient. Almost a thousand years ago, the scientist [Ḥasan Ibn al-Haytham](https://en.wikipedia.org/wiki/Ibn_al-Haytham#Unconscious_inference) (a.k.a. Alhazen) proposed that vision involves judgment and inference. Fast forward to the 1870s, and we find the physicist and polymath Hermann von Helmholtz articulating a similar idea more formally. Helmholtz suggested that perception is a process of [unconscious inference](https://en.wikipedia.org/wiki/Unconscious_inference)—our brain's best guess about what's out there in the world.
 
-What exactly does that mean? Why can't we just "see" the senses? Well, illusions are a good way to get an intuition that the brain actively interprates sensory datae, so let's take a quick tour of some classic visual illusions.
+What exactly does that mean? Why can't we just "see" the senses? Well, illusions are a good way to get an intuition that the brain actively interprets sensory data, so let's take a quick tour of some classic visual illusions.
 
 ### The rotating mask illusion
 
@@ -247,7 +247,7 @@ z^{(t)}
 \;-\;
 \eta_z
 \Bigl[
-  \underbrace{\frac{1}{\sigma^2}\,\Phi^\top\bigl(\Phi\,z^{(t)} - x\bigr)}_{\text{derivative of quadratic term}}
+  \underbrace{\frac{1}{\sigma^2}\,\Phi^\top\bigl(\Phi\,z^{(t)} - x\bigr)}_{\text{gradient of MSE}}
   \;+\;
   \underbrace{\lambda\,\mathrm{sign}\!\bigl(z^{(t)}\bigr)}_{\ell_1\text{ subgradient}}
 \Bigr].
@@ -258,13 +258,13 @@ So, there we have it. The update rule for MAP inference over the Olshausen and F
 
 **But this is where the magic happens.** Notice that multiplying out $\Phi^\top e^{(t)}$ removes the prediction term altogether:
 $$
-\Phi^\top e^{(t)}
+\underbrace{\Phi^\top e^{(t)}}_{\text{weigthed sum of prediction error}}
 \;=\;
-\Phi^\top (\Phi\,z^{(t)} - x)
+\Phi^\top (\underbrace{\Phi\,z^{(t)}}_{\text{prediction}} - x)
 \;=\;
-\Phi^\top \Phi\,z^{(t)}
+\underbrace{\Phi^\top \Phi\,z^{(t)}
 \;-\;
-\Phi^\top x
+\Phi^\top x}_{\text{no explicit prediction term}}
 .
 $$
 
@@ -273,22 +273,22 @@ This has a pretty interesting form. Nowhere does the full prediction exist. Inst
 - $\Phi^\top x$ acts like a **feedforward** drive (receptive field).  
 - $\Phi^\top \Phi$ is just a matrix, which acts like a set of **recurrent** (lateral) weights.
 
-It's just a good old-fashined recurrent neural network. Another way of putting this is that the prediction error has moved into the latent space instead of the input space. This is really important and illuminating. 
+It's just a good old-fashined recurrent neural network. Another way of putting this is that the prediction error has moved into the latent space instead of the input space. This is really important and illuminating.
 
 $$
 z^{(t+1)}
 =
 z^{(t)}
-\;-\;
+\;+\;
 \eta_z
 \biggl[
   \frac{1}{\sigma^2}
   \Bigl(
-    \underbrace{\Phi^\top \Phi\,z^{(t)}}_{\text{recurrent}}
-    \;-\;
     \underbrace{\Phi^\top x}_{\text{feedforward}}
+    \;-\;
+    \underbrace{\Phi^\top \Phi\,z^{(t)}}_{\text{recurrent}}
   \Bigr)
-  \;+\;
+  \;-\;
   \lambda\,\mathrm{sign}\!\bigl(z^{(t)}\bigr)
 \biggr].
 $$
@@ -304,7 +304,7 @@ Crucially, nowhere in this update do we store $\Phi z^{(t)}$ as an explicit “p
 There is limited evidence for detailed predictions being formed sent around in cortical circuits. On the other hand, there **is** evidence for strong feedforward receptive fields and extensive recurrent connectivity. The update rule we derived here shows that inference over a generative model can be realized using those two mechanisms alone.
 
 2. **Ruling out codes**:  
-This also shows us that our intuitions might be quite wrong until we "crank through the math". I have to thank Bruno Olshausen and Christian Shewmake for pointing this out to me. The "standard model" camp regularly criticizes predictive coding, saying "yea, but we don't see predictions and our feed-forward + recurrent models are the best". But, here we ended up with a feedforward + recurrent model that is effectively doing (one-layer) predicive coding. The latent variables $(z)$ are being updated to better explain the data, *without* ever generating a separate “predicted” version of $(x)$.
+This also shows us that our intuitions might be quite wrong until we "crank through the math". I have to thank Bruno Olshausen and Christian Shewmake for pointing this out to me. The "standard model" camp regularly criticizes predictive coding, saying "yea, but we don't see predictions and our feed-forward + recurrent models are the best". They'll go as far as sying "it's the wrong loss. the brain doesn't try to predict the pixels". But, here we ended up with a feedforward + recurrent model that fell out from trying to predict pixels. The latent variables $(z)$ are being updated to better explain the data, *without* ever generating a separate “predicted” version of $(x)$.
 
 **Here's the big deal:** this is what I think we are looking for. Well, not this exactly. But I think many in the field are holding out hope that feedback is the main story in the brain and that the "standard model" is somehow wrong. I don't think the empirical results will change. Feedback is weak modulation. The standard model is a good functional model of visual processing. It replicates. I'd go further to argue that any experimentalist that finds something that fundamentally violates the standard model didn't control for something. Any theorist that proposes a theory that dramatically violates the standard model got the wrong answer.
 
