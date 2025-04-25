@@ -5,11 +5,10 @@ description: Foundation models are only as good as the data
 draft: true
 ---
 
-
 Neural foundation models are coming (some are already here). What are the promises and pitfalls of this way of thinking?
 
 ### Foundation what?
-Unless you've been living under a rock, you've probably heard about foundation models. What are they? and what do they mean for neuroscience? \emph{foundation} models are large AI models that form the base of specialized tasks. For example, you've heard of ChatGPT. Chat GPT is a chat bot trained on top of a foundation model (GPT-3 or 4, 4o, etc.). The amount of compute needed to build a specific application (like the chat bot) is small compared to the generalized pretraining (no that's not what GPT stands for). GPT gets at the fundamentals of the idea though. It is Generative Pre-trained Transformer. The idea behind GPT is that you train a transformer on a large dataset to do next token prediction. 
+Unless you've been living under a rock, you've probably heard about foundation models. What are they? and what do they mean for neuroscience? foundation models are large AI models that form the base of specialized tasks. For example, you've heard of ChatGPT. Chat GPT is a chat bot trained on top of a foundation model (GPT-3 or 4, 4o, etc.). The amount of compute needed to build a specific application (like the chat bot) is small compared to the generalized pretraining (no that's not what GPT stands for). GPT gets at the fundamentals of the idea though. It is Generative Pre-trained Transformer. The idea behind GPT is that you train a transformer on a large dataset to do next token prediction. 
 
 We're all well aware the there have been major breakthroughs in AI in the last 10 years. Prominant members of the AI community will claim that vision is "solved" andlanguage is "solved" and now we know what the recipe for success is: next token prediciton. 
 
