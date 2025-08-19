@@ -1,0 +1,334 @@
+---
+title: How I learned ot Stop Worrying and Love the Free Energy Principle
+date: 2025-08-19
+description: How I Learned to Stop Worrying and Love the KL Divergence
+draft: true
+---
+
+<script>
+  import GaussianOptimizationDemo from "$src/components/GaussianOptimizationDemo.svelte";
+</script>
+
+In my lab, we've been thinking a lot about how the brain learns a model of the world and how it uses it to act intelligently. This seems to be the crux of intelligence.
+
+How do brains do this? If we understood this completely, we could build a brain. A brain like ours. That would be pretty cool. At that point, I'd have to close up shop and move on to some other research direction. Interestingly, out of all the theories in neuroscience, very few could ever be used to actually build a brain -- and most don't even pretend they could! However, there is one that at least claims to. It's called the Free Energy Principle. If you haven't heard of it, you should watch this nice [animated youtube short](https://www.youtube.com/watch?v=iPj9D9LgK2A) that introduces it quite well.
+
+The [Free Energy Principle (FEP)](https://www.researchgate.net/profile/Mel-Andrews/publication/324246948_The_Free_Energy_Principle_An_Accessible_Introduction_to_its_Derivations_Applications_Implications/links/5cdb9a5f92851c4eaba05f25/The-Free-Energy-Principle-An-Accessible-Introduction-to-its-Derivations-Applications-Implications.pdf) is a so-called "general theory" and a lot of neuroscientists I know don't like it. There are two types of criticisms I've heard: Either people can't make any sense of it, or it's "unfalsifiable" and they aren't sure if it is any [more useful than Bayesian inference](https://arxiv.org/pdf/1901.07945) or some more familiar theory.
+
+This blog post is meant to be a gentle introduction to the math behind the FEP. We're going to start really simple and find that it stays pretty simple, but it gives us nice mathematical quantities for talking about concepts we are interested in. In the same way that Bayesian inference has been a powerful tool for formalizing certain perceptual phenomena, FEP provides a few addiional quantities that are useful for talking about what brains do. For a related (and genuinely more thoughtful) post, check out Hadi's blog [here](https://mysterioustune.com/2025/01/13/world-models-adaptation-and-surprise-part-1/#more-498).
+
+**Note:** The title here is a reference to a dark comedy from the height of the cold war called "Dr. Strangelove Or: how I learned to stop worrying and love the bomb". I haven't seen the movie since I was a kid, and I don't remember anything except the line "not only is it possible. it is essential." and that's how I now feel about the KL Divergence.
+
+<img src="/kl/drfreeenergy.png" class="" style="max-width: 38em" alt="Left is the original movie poster. Right is Dr. Free Energy. Karl Friston on top, and the cybernetics seance from the Macy conference on the bottom" />
+<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">Left is the original movie poster. Right is Dr. Free Energy. Karl Friston on top, and the cybernetics seance from the Macy conference on the bottom</p>
+
+
+## The problem
+Let's start out with some solid ground: there IS a world out there. And the brain just gets samples from it through the senses. I'm going to massively over-simplify the problem in this blog post (don't worry, it still works even if we don't do this), but let's pretend the brain is passive and only receives sensory samples, $$X \sim P_{\text{world}}$$. $$P_{\text{world}}$$ is **the true generating processs** of the world. The brain does not have $$P_{\text{world}}$$ and so it cannot evaluate the density $$p_{\text{world}}(x)$$ even though it can get samples from it. 
+
+For now, we're going to assume sammples are i.i.d. (ignoring actions/dynamics). That is a very incorrect assumption for brains, but it makes the math easier, so we're going to stick with it for now to gain some intuitions.
+
+The brain can't evaluate $$p_{\text{world}}(x)$$, because that's literally the physics of the world, but it can evaluate its own model of it $$p_{\text{brain}}(x)$$ for any $$x$$. Let's say the brain's model is parametric, so we write it as $$p_\theta(x)$$. How do you fit a good $$p_\theta(x)$$ to $$p_{\text{world}}(x)$$ given only samples? That's what we're going to solve here. 
+
+What follows is a simple walkthrough in notation that I like, but is unusual in the active inference literature. I think you'll find that the math lends itself quite nicely to talking about what the brain is doing.
+
+## Setup
+This section lays out all the math facts that you need for all the derivations that come.
+
+### **1) Log-likelihood**
+
+Suppose we have a model $$p_\theta(x)$$ of the world, and we observe samples $$x_1, \dots, x_n \sim P_{\text{world}}$$. The **likelihood** is just the probability our model assigns to the observed data:
+
+$$
+L(\theta; x_{1:n}) = \prod_{i=1}^n p_\theta(x_i).
+$$
+
+Because multiplying many small numbers quickly becomes impractical, we usually work with the **log-likelihood**:
+
+$$
+\ell_n(\theta) = \frac{1}{n} \sum_{i=1}^n \log p_\theta(x_i).
+$$
+
+### Intuition
+Think of the log-likelihood as a **surprise meter**. If your model assigns high probability to what actually happened, the log-likelihood is high; if it assigns low probability, the log-likelihood is very negative. Maximizing the log-likelihood is just trying to reduce your surprise across many observations.
+
+
+### Interactive demo of minimizing the negative log-likelihood
+
+<GaussianOptimizationDemo />
+
+### **2) Expectations and the Law of Large Numbers**
+An Expectation is the average quantity you would get from many draws under the data-generating law $$P$$. We write it as $$\mathbb{E}_{x\sim P}[\cdot]$$ and formally $$\mathbb{E}_{x\sim P}[f(x)] = \int f(x) p(x) dx$$.
+If your samples $$X_1,\dots,X_n$$ come from $$P$$, then their average log-likelihood converges to that expectation as $$n$$ grows:
+$$
+\ell_n(\theta) \xrightarrow[]{a.s.} \mathbb{E}_{P}[\log p_\theta(X)].
+$$
+
+Intuition: If you just average samples generated from $$P$$, they arrive with probability $$p(x)$$, so the average of log-likelihood of the samples is a weighted average (weighted by $$p(x)$$).
+
+### **3) KL divergence**
+
+The Kullback–Leibler (KL) divergence is our main quantity of interest. It measures the mismatch between two distributions — in this case, the true world distribution $$P_{\text{world}}$$ and the brain’s model $$P_{\text{brain}}$$. Its definition is:
+
+$$
+D_{\mathrm{KL}}(P_{\text{world}}\|P_{\text{brain}})
+= \mathbb{E}_{X \sim P_{\text{world}}}\!\left[ \log \frac{p_{\text{world}}(X)}{p_{\text{brain}}(X)} \right].
+$$
+
+### Intuition: KL as an expected log-likelihood ratio
+- For a **single sample** $$x$$, the term  
+  $$
+  \log \frac{p_{\text{world}}(x)}{p_{\text{brain}}(x)}
+  $$  
+  is the **log-likelihood ratio**: it tells you how much more (or less) surprised the brain’s model is compared to the true world for that sample.  
+
+- If you repeat this across **many samples from the world**, the law of large numbers says the average converges to the expectation under $$P_{\text{world}}$$. That expectation *is* the KL divergence.  
+
+- So the KL divergence is the **typical log-likelihood gap** between the world and the brain’s model.
+
+### Properties worth knowing
+- $$D_{\mathrm{KL}}(P \| Q) \geq 0$$, and it’s 0 iff $$P=Q$$.  
+- It’s **asymmetric**: $$D_{\mathrm{KL}}(P\|Q) \neq D_{\mathrm{KL}}(Q\|P)$$.  
+- Connection to cross-entropy:  
+  $$
+  D_{\mathrm{KL}}(P\|p_\theta) = H(P, p_\theta) - H(P),
+  $$  
+  where $$H(P, p_\theta) = \mathbb{E}_{P}[-\log p_\theta(X)]$$ is the cross-entropy.
+
+## Maximum likelihood is KL minimization
+
+Let’s connect log-likelihood to KL divergence.  I got this intuition from Alex Alemi's [blog post](https://blog.alexalemi.com/kl-is-all-you-need.html). It actually took me a really long time to wrap my head around his explanation, in part because of the way he uses $$P$$ and $$Q$$, which is different than typical variational inference notation. So this is my attempt to distill the main point in my own notation.
+
+What is happening when we maximize likelihood? Or, equivalently, when we minimize negative log-likelihood?
+
+Well, with enough samples, we can use **point 2** above. With a large number of samples, the average negative log-likelihood converges to the **expected negative log-likelihood** (NLL) under the true world distribution:
+
+$$
+\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_\theta(X)\big].
+$$
+
+Make it equal to itself and use the trick of multiplying and dividing by the same thing:
+
+$$
+\begin{aligned}
+\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_\theta(X)\big]
+&= \mathbb{E}_{X\sim P_{\text{world}}}\!\left[-\log \frac{p_\theta(X)}{p_{\text{world}}(X)} - \log p_{\text{world}}(X)\right] \\
+&= \underbrace{\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_{\text{world}}(X)\big]}_{\text{world entropy } H(P_{\text{world}})} 
++ \underbrace{\mathbb{E}_{X\sim P_{\text{world}}}\!\left[\log \frac{p_{\text{world}}(X)}{p_\theta(X)}\right]}_{D_{\mathrm{KL}}(P_{\text{world}}\|p_\theta)}.
+\end{aligned}
+$$
+
+So the key identity is:
+
+$$
+\underbrace{\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_\theta(X)\big]}_{\text{expected NLL}}
+\;=\;
+\underbrace{H\!\big(P_{\text{world}}\big)}_{\text{world entropy (constant in }\theta\text{)}}
+\;+\;
+\underbrace{D_{\mathrm{KL}}\!\big(P_{\text{world}}\;\|\;p_\theta\big)}_{\text{model mismatch (world }\|\text{ brain)}}.
+$$
+
+The first term (entropy of the world) does not depend on $$\theta$$. So minimizing expected NLL **is the same as** minimizing the KL divergence between $$P_{\text{world}}$$ and $$P_{\text{brain}}$$! That is kind of satisfying: Maximizing likelihood makes the brain’s model assign high probability to what the world actually produces. Equivalently, it tunes $$P_{\text{brain}}$$ to get as close as possible to $$P_{\text{world}}$$.
+
+
+## Hidden causes: the brain’s internal variables
+
+So far we treated the brain’s model as a direct mapping from observations to probabilities, $$p_\theta(x)=p_{\text{brain}}(x)$$. That’s too simple, because the brain needs to be able to flexibly encode the state of the world in terms of *hidden causes*. Let's call these hidden causes $$Z$$. Importantly, these are not the “real” physical causes; they’re useful internal variables the brain uses to understand the world.
+
+The brain’s model says: first sample a hidden cause $$Z$$ from a prior, then generate an observation $$X$$ from a likelihood.
+
+$$
+p_{\text{brain}}(x,z) \;=\; p_\theta(x) \;=\; \int p_\theta(x,z)\,dz.
+$$
+
+Here we have the static parameters of the brain $$\theta$$, which could map onto the weights of a neural network (or the synapses in a brain). And we have the latent variables $$Z$$, which are the internal latent variables the brain uses to understand the world (which could map onto the activations or spikes of neurons).
+
+Two things we want to do with this model:
+
+1. **Learning** (adapt the world's statistics): make $$p_{\text{brain}}(x)$$ match $$P_{\text{world}}(x)$$ as well as possible using samples $$X\sim P_{\text{world}}$$.
+2. **Inference** (adapt to the sampled data): given an observation $$x$$, infer its hidden causes via the *posterior*
+   $$
+   p_{\text{brain}}(z\mid x) \;=\; \frac{p_{\text{brain}}(x\mid z)\,p_{\text{brain}}(z)}{p_{\text{brain}}(x)}.
+   $$
+
+This is just Bayes rule and it maps nicely on to [words we use to describe perception](https://jake.vision/blog/inside-out-perspective).
+
+I want to spend another moment to discuss this issue of *isomorphism* between $$P_{\text{brain}}$$ and $$P_{\text{world}}$$. The way Bayesian inference is typically introduced in perception is that the brain is inferring the causes in "the world" from "the senses".
+
+<img src="/kl/bayes_rule.png" class="" style="max-width: 38em" alt="Bayes Rule" />
+
+But that's NOT what is happening here. $$Z$$ are in $$P_{\text{brain}}$$. They are NOT in $$P_{\text{world}}$$. To learn to act intelligently in the world, $$Z$$ likely have high mutual information between relevant groundtruth causes in the world -- the intuitive physics level, but no more. The key point is to remember that $$Z$$ are not the "real" causes in the world (or your experiment). They are the brain's internal representation of the world.
+
+<img src="/kl/bayes_rule_brain.png" class="" style="max-width: 38em" alt="Bayes Rule for P Brain" />
+
+Now, even though $$Z$$ are just causes that the brain made up, that denominator $$p_{\text{brain}}(x)=\int p_{\text{brain}}(x,z)\,dz$$ is still usually intractable, which makes the exact posterior $$p_{\text{brain}}(z\mid x)$$ intractable too. 
+
+We're going to get around this by inventing a density we *can* evaluate and just try to optimize the parameters for that. 
+
+
+## Deriving the Evidence Lower Bound (a.k.a. Free Energy)
+
+To get around the intractable posterior, we just invent a density we can evaluate, $$q_\phi(z\mid x)$$. Is this even reasonable? This is the backbone of variational inference, and what we're going to do here is derive a quantity known in machine learning as the **Evidence Lower Bound** (ELBO). The ELBO is typically derived using something called Jensen's inequality, so I'll show that first, but then we'll do it without it to see what we were missing.
+
+### With Jensen’s inequality (lower bound)
+
+
+** Jensen’s inequality**
+Jensen's inequality says that the average of a logarithm is always less than (or equal to) the logarithm of the average:
+$$
+\log \mathbb{E}[Y] \;\ge\; \mathbb{E}[\log Y]
+\quad\text{(equality if$$Y$$ is degenerate).}
+$$
+It's often explained in terms related to concavity, but if you think about the shape of the logarithm, it's pretty intuitive. The logarithm is *compressive* for large values and *explosive* near zero, so a few tiny $$Y$$ values pull the *average of logs* way down. If you *average first*, those tiny values are cushioned before taking the log.
+
+Here's the derivation you see in most places:
+Start from the model evidence:
+$$
+\log p_\theta(x)
+= \log \int p_\theta(x,z)\,dz
+= \log \int q_\phi(z\mid x)\,\frac{p_\theta(x,z)}{q_\phi(z\mid x)}\,dz.
+$$
+
+Apply Jensen’s inequality (log of an expectation ≥ expectation of the log):
+$$
+\log p_\theta(x)
+\;\ge\;
+\mathbb{E}_{q_\phi}\!\left[\log \frac{p_\theta(x,z)}{q_\phi(z\mid x)}\right]
+\;=\;
+\mathbb{E}_{q_\phi}[\log p_\theta(x,z)] \;-\; \mathbb{E}_{q_\phi}[\log q_\phi(z\mid x)].
+$$
+
+And we're done! Call that thing the **ELBO**:
+$$
+\mathrm{ELBO}(x;\theta,\phi)
+\;:=\;
+\mathbb{E}_{q_\phi}[\log p_\theta(x,z)] \;-\; \mathbb{E}_{q_\phi}[\log q_\phi(z\mid x)]
+\;=\;
+\mathbb{E}_{q_\phi}[\log p_\theta(x\mid z)] \;-\; D_{\mathrm{KL}}\!\big(q_\phi(z\mid x)\,\|\,p_\theta(z)\big).
+$$
+
+Importantly, the **(variational) Free Energy** is $$\mathcal{F}(x;\theta,\phi):=-\mathrm{ELBO}(x;\theta,\phi)$$:
+$$
+\mathcal{F}(x;\theta,\phi)
+\;=\;
+\mathbb{E}_{q_\phi}\!\Big[\log q_\phi(z\mid x) - \log p_\theta(x,z)\Big].
+$$
+
+There you go! It's not that mystical how to get there. But what is it good for?
+
+Well, we can see from the inequality that it's a bound on the "model evidence"... what we were calling log-likelihood at the top, $$p_\theta(x)$$
+
+But what disappeared in that inequality? What are we actually doing when we minimize Free Energy?
+
+Let'srederive without Jensen and see what we're missing.
+
+### Without Jensen (the exact identity)
+
+Start with any tractable density \(q_\phi(z\mid x)\) (whose integral is 1):
+
+$$
+\begin{aligned}
+\log p_\theta(x)
+&= \log p_\theta(x)\!\int q_\phi(z\mid x)\,dz  \qquad\quad\ \ \text{(insert 1 = }\int q_\phi) \\
+&= \int q_\phi(z\mid x)\,\log p_\theta(x)\,dz \qquad\qquad\text{(move constant inside)}\\
+&= \mathbb{E}_{z\sim q_\phi(z\mid x)}\!\big[\log p_\theta(x)\big] \\
+&= \mathbb{E}_{q_\phi}\!\Big[\log p_\theta(x) + \log p_\theta(z\mid x) - \log p_\theta(z\mid x)\Big] \quad \text{(add and subtract)}\\
+&= \mathbb{E}_{q_\phi}\!\Big[\log \tfrac{p_\theta(x)\,p_\theta(z\mid x)}{p_\theta(z\mid x)}\Big] \\
+&= \mathbb{E}_{q_\phi}\!\Big[\log \tfrac{p_\theta(x,z)}{p_\theta(z\mid x)}\Big] \qquad\qquad\ \ \ \ \ \text{(Bayes: }p_\theta(x)\,p_\theta(z\mid x)=p_\theta(x,z))\\
+&= \mathbb{E}_{q_\phi}\!\Big[\log \tfrac{p_\theta(x,z)\,q_\phi(z\mid x)}{p_\theta(z\mid x)\,q_\phi(z\mid x)}\Big] \quad \text{(multiply/divide by }q_\phi)\\
+&= \mathbb{E}_{q_\phi}\!\Big[\log \tfrac{p_\theta(x,z)}{q_\phi(z\mid x)}\Big]
+   \;+\; \mathbb{E}_{q_\phi}\!\Big[\log \tfrac{q_\phi(z\mid x)}{p_\theta(z\mid x)}\Big] \\
+&= \underbrace{\mathbb{E}_{q_\phi}\!\Big[\log \tfrac{p_\theta(x,z)}{q_\phi(z\mid x)}\Big]}_{\displaystyle \text{ELBO}(x;\theta,\phi)}
+   \;+\;
+   \underbrace{D_{\mathrm{KL}}\!\big(q_\phi(z\mid x)\,\|\,p_\theta(z\mid x)\big)}_{\text{inference gap}\ \ge 0}.
+\end{aligned}
+$$
+
+Therefore,
+$$
+\boxed{\ \log p_\theta(x) \;=\; \mathrm{ELBO}(x;\theta,\phi) \;+\; D_{\mathrm{KL}}\!\big(q_\phi(z\mid x)\,\|\,p_\theta(z\mid x)\big)\ }.
+$$
+
+Two equivalent forms of the ELBO are worth highlighting.  
+Both show the same object, but emphasize different intuitions:
+
+$$
+\mathrm{ELBO}(x;\theta,\phi)
+= 
+\underbrace{\mathbb{E}_{q_\phi}\!\big[\log p_\theta(x,z)\big]}_{\text{fit joint model}}
+-
+\underbrace{\mathbb{E}_{q_\phi}\!\big[\log q_\phi(z\mid x)\big]}_{\text{penalize inference complexity}}.
+$$
+
+Equivalently, by splitting the joint into prior and likelihood:
+
+$$
+\mathrm{ELBO}(x;\theta,\phi)
+=
+\underbrace{\mathbb{E}_{q_\phi}\![\log p_\theta(x\mid z)]}_{\text{reconstruction / data fit}}
+-
+\underbrace{D_{\mathrm{KL}}\!\big(q_\phi(z\mid x)\,\|\,p_\theta(z)\big)}_{\text{regularize latents toward prior}}.
+$$
+
+
+**Intuition:**  
+- The **first form** (joint vs. inference) is the “Free Energy” style: it says “make the joint model high under \(q\), but keep the recognition density simple.”  
+- The **second form** (likelihood vs. KL) is the “VAE” style: it says “reconstruct the data well while regularizing your hidden causes.”  
+
+Both are just two perspectives on the same bound.
+
+
+
+
+### Putting it all together
+
+Let's combine some things here and then see what we've learned.
+
+First, remember that Free Energy is the negative ELBO:
+$$
+\mathcal{F}(x;\theta,\phi)
+\;=\;
+-\mathrm{ELBO}(x;\theta,\phi).
+$$
+
+so, 
+
+$$
+\mathcal{F}(x;\theta,\phi)
+\;=\;
+-\log p_\theta(x) \;+\; D_{\mathrm{KL}}\!\big(q_\phi(z\mid x)\,\|\,p_\theta(z\mid x)\big).
+$$
+
+Second, remember our trick up above that minimizing the negative log-likelihood is the same as minimizing the KL divergence between the world and the brain's model:
+
+$$
+\underbrace{\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_\theta(X)\big]}_{\text{expected NLL}}
+\;=\;
+\underbrace{H\!\big(P_{\text{world}}\big)}_{\text{world entropy (constant in }\theta\text{)}}
+\;+\;
+\underbrace{D_{\mathrm{KL}}\!\big(P_{\text{world}}\;\|\;p_\theta\big)}_{\text{model mismatch (world }\|\text{ brain)}}.
+$$
+
+Let's put these together and see what happens when we minimize the Free Energy:
+
+$$
+\boxed{
+\;\mathbb{E}_{X\sim P_{\text{world}}}\big[\mathcal{F}(X;\theta,\phi)\big]
+=
+\underbrace{H\!\big(P_{\text{world}}\big)}_{\text{constant in }\theta,\phi}
++
+\underbrace{D_{\mathrm{KL}}\!\big(P_{\text{world}}\,\|\,p_\theta\big)}_{\text{model mismatch (world }\|\text{ brain)}}
++
+\underbrace{\mathbb{E}_{X\sim P_{\text{world}}}\!\left[D_{\mathrm{KL}}\!\big(q_\phi(z\mid X)\,\|\,p_\theta(z\mid X)\big)\right]}_{\text{inference mismatch }(q\|\text{ true brain posterior})}
+\;}
+$$
+
+**Conclusion (what minimizing Free Energy does):**
+- Improves the **generative model** (minimizes $$D_{\mathrm{KL}}(P_{\text{world}}\|p_\theta)$$).  
+- Improves **inference** (minimizes the expected $$D_{\mathrm{KL}}\big(q_\phi(z\mid X)\,\|\,p_\theta(z\mid X)\big)$$).  
+- The world’s entropy is a constant—you can’t change physics; you can only make your **brain model** and **inference** better.
+
+
+## Conclusion
+In this blog post, we derived the free energy principle from first principles. We learned that simply trying to assign high probability to probable events is equivalent to making the brain's model fit the world well (by minimizing KL divergence). We learned that the Evidence Lower Bound (ELBO) is pretty easy to derive, even without Jensen's inequality and that it leads to an exact identity rather than a bound, where maximizing ELBO is actually minimizing two intractable KLs that we're really interested in minimizing. 
+

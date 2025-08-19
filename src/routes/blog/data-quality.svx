@@ -106,8 +106,10 @@ I turned on the "show advanced metrics" tab and kept clicking around different s
 
 It's hard to find a stable, well-isolated unit. I think that's a problem. There are some questions where it is less of a problem. If you are using spike-triggered averaging to measure receptive fields, then you are simply asking about the stimulus distribution conditioned on spikes. It is kind of less of a problem if you miss some spikes. You reduce your power, but don't get the answer substantially wrong. However, if you are using likelihood-based models or, even worse, asking questions about internal states, where you didn't randomly (i.e., causally) manipulate the state, this is not a good thing.
 
-### Conclusion
+### Consequences
 This is not a problem that is unique to the IBL. In fact, they're probably in better shape than most small labs that are collecting this type of data. But it IS a problem. The field has been improving the methods in this space, but we should really think hard about whether we trust ANY of the science that has come of these methods in the last 10 years. I don't. I don't think any of this will become textbook. And I think that's a problem.
+
+The bigger problem is that because it is so pervasive, individual labs are incentivized to ignore this problem and publish using state of the art methods. If you actually only reported on the true stable single units in your data, 1) you wouldn't have hundreds or thousands of neurons anymore, and 2) you'd be biased towards subsampling the units with big spikes. Thus, I think it's a race to the bottom where everyone is only holding themselves to the standards of the field, because if they held themselves to higher standards, they wouldn't publish anything and they'd be out of business pretty fast.
 
 So what do we do? Well, for one, we need to invest heavily in data quality and spike sorting metrics. These are initiatives the IBL has been [pushing on](https://figshare.com/articles/online_resource/Spike_sorting_pipeline_for_the_International_Brain_Laboratory/19705522?file=49783080) and they should become more standard. Impressive [drift correction algorithms](https://www.biorxiv.org/content/10.1101/2024.11.06.622160v1) can help, but they cannot recover neurons that were lost.
 

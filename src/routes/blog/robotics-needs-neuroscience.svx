@@ -14,7 +14,7 @@ In theory, the goal of NeuroAI was to take insights from neuroscience to "cataly
   src="/neuroairobot/neuroAI.png"
   alt="The arrows are drawn to reflect the proportionality of the work being done (credit: Hadi Vafaii)" />
 
-The other direction does happen (and has always happened) but it is usually filtered through computer scientists. Rarely does a neuroscientist directly trigger an AI revolution. A common refrain from most ML grad students is that neuroscience has nothing to contribute, but every time someone more senior (and more famous) gives a talk, they tell us all where their inspiration comes from and it's usually a neuroscience or cognitive psychology result.
+The other direction does happen (and has always happened) but it is usually filtered through computer scientists. Rarely does a neuroscientist directly trigger an AI revolution. A common refrain from most ML grad students is that neuroscience has nothing to contribute, but every time someone more senior (and more famous) gives a talk, they tell us all where their inspiration comes from and it's usually a neuroscience or (more often) a cognitive psychology result.
 
 ### Reasons for inspiration: Efficiency and feats of accomplishment
 The reasons for drawing inspiration from the brain are pretty obvious. Even in the modern AI era, where models can match or surpass human performance on certain tasks, the brain does everything it does with incredible efficiency. Modern AI is so power hungry that big tech companies are literally hiring nuclear engineers to build power plants to run their [compute centers](https://thedeepdive.ca/meta-joins-tech-giants-in-nuclear-power-race/). In contrast, human brains accomplish all of their tasks on the power of an incandescent lightbulb, roughly 20 Watts [1](https://pmc.ncbi.nlm.nih.gov/articles/PMC8364152/). The brain is remarkably metabolically costly from biology's perspective, consuming 20% of the body's total energy budget and 10x more per gram than a muscle fiber, but it is unbelievably efficient compared to modern AI.
@@ -22,7 +22,7 @@ The reasons for drawing inspiration from the brain are pretty obvious. Even in t
 It's not like computer scientists and engineers do not know this. Edge computing and neuromorphic hardware are all attempts to gain brain-like efficiency. It seems increasingly clear to me that the place where neuroAI matters and where the potential for revolution is, is in robotics, both to build better robots and to spur a revolution in neuroscience.
 
 ## Robotics needs neuroscience
-Looking from the outside, it seems like robotics is having a heyday. The field is advancing rapidly, AI has found its natural application beyond language, and the potential for robots to revolutionize our world is clear. But there are some fundamental problems.
+Looking from the outside, it seems like robotics is having a heyday. The field is advancing rapidly, AI has finally found its natural application beyond language, and the potential for robots to revolutionize our world is clear. But there are some fundamental problems.
 
 ### 1) Compute is expensive
 A real robot needs to adapt and learn from its ever-changing environment. This is not unlike real brains. However, currenat AI models are way too intensive to train and even too expensive to run on robots.  
@@ -32,8 +32,8 @@ SOTA models cannot run on robots and communication is trivially jammed. Modern A
 ### 2) Relying on cloud compute is problemeatic
 Relying on a link between the robot and the cloud cannot work in extreme conditions (like inside the Fukushima reactor when radiation blocks comms) or in cases where communication can be jammed. It is trivial to disrupt wireless communication and this means that robots doing important tasks could be hacked, interrupted, or disabled. This means robots can only be trusted in fairly limited settings like in Warehouses, where the environments are controled and communications are stable. This is missing the bulk of the potential for robots.
 
-### 3) Two many possible solutions and symmetries. 
-Learning everything from data is the AI way. However, because biology separates evolutionary, developmental, and learning timescales, many things are not "learned" de novo.  It's likely that the constraints imposed by biology not only produce more efficient solutions, but they also constrain the space of representations in ways that make solutions simpler. I'll expand on this below.
+### 3) Too data hungry
+Learning everything from data is the AI way. However, because biology separates evolutionary, developmental, and learning timescales, many things are not "learned" de novo.  It's likely that the constraints imposed by biology not only produce more efficient solutions, but they also constrain the space of representations in ways that make solutions simpler. I'll expand on this below. Right now AI robotics 
 
 
 ### Three ideas from neuroscience

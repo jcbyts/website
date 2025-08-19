@@ -1,25 +1,72 @@
 ---
-title: Foundation Models
-date: 2025-4-19
-description: Foundation models are only as good as the data
+title: Foundation Models for Neuroscience
+date: 2025-04-19
+description: Foundation models promise a lot, but neuroscience isn’t ready to scale like AI did.
 draft: true
 ---
 
-Neural foundation models are coming (some are already here). What are the promises and pitfalls of this way of thinking?
+Neural foundation models are coming (some are already here). But are we ready for what they actually require—and what they really deliver?
 
 ### Foundation what?
-Unless you've been living under a rock, you've probably heard about foundation models. What are they? and what do they mean for neuroscience? foundation models are large AI models that form the base of specialized tasks. For example, you've heard of ChatGPT. Chat GPT is a chat bot trained on top of a foundation model (GPT-3 or 4, 4o, etc.). The amount of compute needed to build a specific application (like the chat bot) is small compared to the generalized pretraining (no that's not what GPT stands for). GPT gets at the fundamentals of the idea though. It is Generative Pre-trained Transformer. The idea behind GPT is that you train a transformer on a large dataset to do next token prediction. 
 
-We're all well aware the there have been major breakthroughs in AI in the last 10 years. Prominant members of the AI community will claim that vision is "solved" andlanguage is "solved" and now we know what the recipe for success is: next token prediciton. 
+Unless you’ve been living under a rock, you’ve probably heard of foundation models. They’re large AI systems trained on massive datasets that generalize to a wide range of tasks. You train them once, and then fine-tune or prompt them to do just about anything. ChatGPT is one of the most familiar examples. It’s a chatbot built on top of a foundation model (GPT-3, GPT-4, etc.), trained to predict the next token in a sequence of text. This approach embodies the ``Bitter Lesson'' where a remarkably simple objective (predict the next token) combined with an enormous amount of data (and a really impressive engineering stack to process it), leads to something, well, incredible.
 
-It's really that simple. Transformers are magic for taking advantage of current hardware architectures and they can do highly dynamic and nonlinear processing (cite polysamenticity post).
+This approach has delivered some huge wins in AI and science. The [Nobel Prize in chemistry in 2024](https://www.nobelprize.org/prizes/chemistry/2024/summary/) went to three scientists who used AlphaFold, a foundation model for protein structure, to predict the structure of dozens of proteins that were previously unsolved. I'd venture that a huge swath of scientists are spending time figuring out how to apply this approach to their own domains. The key idea is simple: format your scientific question problem as as a loss function you can optimize, throw a ton of data and compute at it, and you’ll get something useful out.
 
-We understand now that major breakthroughs are possible in science (see Alpha fold) if we can format the data correctly. If we can turn a scientific question into next token prediciton, then the engineers can do what they're good at. We already sort of do that in neuroscience when we try to train data-driven models to predict spiking activitiy. We want the best p(spike|everything else). 
+For many neuroscientists, this is already how we think. We've been fitting data-driven descriptive models to neurons using numerical optimization for [decades](https://www.annualreviews.org/content/journals/10.1146/annurev.neuro.29.051605.113024). Unsurprisingly, there are broad calls to follow the lead of AlphaFold and scale up this approach in [neuroscience](https://www.thetransmitter.org/neuroai/accepting-the-bitter-lesson-and-embracing-the-brains-complexity/).
 
-We will see lots of efforts to replicate this success in neuroscience. This will primarily be funded by private foundations and philanthropy because study section has little appetite for this way of thinking, but it'd definitely coming for neuroscience. 
+The responses to the Dyer and Richards article are worth reading, especially the one from David Sussillo, but can we build a foundation model for neuroscience? and, what would it give us?
 
+The answer to the first question is "probably", but maybe we should be cautious.
 
-Here's the problem. Any afficionado of LLMs will be able to tell you that next token prediciton is only as good as the data and I think this is a problem for neuroscience, because neuroscience data is not very good. 
+### Problem 1: Data
 
-Recording from brains is hard. And every tool we have has major limitations. fMRI is barely measuring the plumbing of the brain [cite]. It's a decent proxy for the underlying computations, in teh same way that you can use things like temperature and fan speed to detect nefarious computation on computers. But it's limited. What about 2phoon? It's slow and suffers from a myriad of artifacts realted to the particulars of how it is imaged. Okay, spikes then. They are the gold standard and they 
+Foundation models are only as good as the data they’re trained on. And neuroscience data is… not great.
 
+Recording from brains is hard. Every tool has major limitations. fMRI? It’s a slow measure of blood oxygenation, not neural computation. Two-photon imaging? Beautiful spatial detail, but slow and artifact-prone. Electrophysiology? The gold standard, but sample sizes are small, subsampled, and increasingly poor quality. 
+
+Even our best open datasets—like from IBL or the Allen Institute—are highly specific : one species, one setup, one behavior. There’s no shared protocol, no aligned vocabulary. Foundation models thrive on scale and alignment. Neuroscience has neither.
+
+### What foundation models actually give you
+
+Here’s the other thing that often gets missed in the hype: ChatGPT didn’t *solve* language. It didn’t explain syntax, or how kids learn grammar, or why words mean what they do. But it gave us what solving language would have given us: the ability to generate, translate, summarize, and converse fluently.
+
+It gave us **operational understanding**—the ability to do useful things without necessarily knowing why they work.
+
+That’s powerful. And if we can pull it off in neuroscience, it would be transformative. Imagine models that can decode intent, predict mental state, guide a neuroprosthetic, detect disorders before symptoms appear. These don’t require scientific understanding—they just require prediction that works.
+
+That’s enough to change lives. And it’s why foundation models are still worth chasing.
+
+### But prediction ≠ understanding
+
+Still, science isn’t just about getting the answer—it’s about understanding the system.
+
+A model that predicts spikes well isn’t necessarily telling you how the brain computes. It might just be picking up on correlations in the data. It could be exploiting quirks of the task, the subject, or the stimulus. And unless we open the box and understand the computation inside, we won’t be any closer to a theory of the brain.
+
+That’s the risk: we end up building black boxes that *work*, but teach us nothing.
+
+There’s an alternative. Use these large models as experimental systems. Train them to perform the same tasks as animals. Analyze their internal structure. Compare their representations and dynamics to real circuits. Use them to generate hypotheses. In short: reverse-engineer them. That’s where the insight lives.
+
+### Learn from the limits of LLMs
+
+If we don’t proceed carefully, we’ll repeat the mistakes of large language models.
+
+LLMs hallucinate. They confidently generate false facts. They overfit quirks in training data. They reflect bias, amplify noise, and often generalize poorly outside their domain.
+
+In neuroscience, the analogs are easy to imagine. A model that predicts spikes accurately, but only because it’s learned the eye movement pattern of a particular animal. A decoder that only works on one task, in one lab. A BCI that breaks down when arousal state changes.
+
+That’s not robustness. That’s fragility at scale.
+
+### Where we go from here
+
+So what’s the path forward?
+
+It’s not to abandon foundation models. It’s to **earn them**. That means building the conditions that made GPT and AlphaFold possible: big, aligned datasets. Open infrastructure. Shared benchmarks. Teams of engineers and scientists working together.
+
+It also means staying honest about what we’re doing. Operational tools can be transformative. But if we want science—not just applications—we need models we can interrogate, not just deploy.
+
+Foundation models could help us treat disease, decode thought, and restore movement. But if we want to understand the brain—truly understand it—we’ll need more than predictions. We’ll need interpretation, theory, and better data.
+
+It’s not one or the other. It’s both.
+
+---
