@@ -1,5 +1,5 @@
 ---
-title: How I learned ot Stop Worrying and Love the Free Energy Principle
+title: How I learned to stop worrying and love the Free Energy Principle
 date: 2025-8-19
 description: A gentle introduction to the Free Energy Principle and the mother principle, KL Divergence minimization
 draft: false
