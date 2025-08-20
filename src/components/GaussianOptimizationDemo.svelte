@@ -482,13 +482,13 @@
     <!-- Left panel: 2D Gaussian visualization -->
     <div style="border: 2px solid #ddd; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
       <h4 style="margin-top: 0; margin-bottom: 15px; color: #333; font-weight: 600;">Data Points & Model Distribution</h4>
-      <svg bind:this={gaussianSvg} width="400" height="400"></svg>
+      <svg style="overflow: visible" bind:this={gaussianSvg} width="400" height="400"></svg>
     </div>
 
     <!-- Right panel: Log-likelihood plot -->
     <div style="border: 2px solid #ddd; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
       <h4 style="margin-top: 0; margin-bottom: 15px; color: #333; font-weight: 600;">Average Log-Likelihood vs Steps</h4>
-      <svg bind:this={likelihoodSvg} width="400" height="400"></svg>
+      <svg style="overflow: visible" bind:this={likelihoodSvg} width="400" height="400"></svg>
     </div>
   </div>
 
