@@ -326,38 +326,3 @@ In this blog post, we derived the free energy principle from first principles. W
 
 
 <img src="/kl/klmeme.png" class="" style="max-width: 38em" alt="Everything is KL minimization" />
-
-## Appendix
-
-It felt incomplete to leave out some more notes on the Free Energy. The ELBO ($$-\mathcal{F}$$) is written multiple ways and those have different interpretations.
-
-### Carving up the ELBO
-
-Two equivalent forms of the ELBO are worth highlighting.  
-Both show the same object, but emphasize different intuitions:
-
-$$
-\mathrm{ELBO}(x;\theta,\phi)
-= 
-\underbrace{\mathbb{E}_{q_\phi}\!\big[\log p_\theta(x,z)\big]}_{\text{fit joint model}}
--
-\underbrace{\mathbb{E}_{q_\phi}\!\big[\log q_\phi(z\mid x)\big]}_{\text{penalize inference complexity}}.
-$$
-
-Equivalently, by splitting the joint into prior and likelihood:
-
-$$
-\mathrm{ELBO}(x;\theta,\phi)
-=
-\underbrace{\mathbb{E}_{q_\phi}\![\log p_\theta(x\mid z)]}_{\text{reconstruction / data fit}}
--
-\underbrace{D_{\mathrm{KL}}\!\big(q_\phi(z\mid x)\,\|\,p_\theta(z)\big)}_{\text{regularize latents toward prior}}.
-$$
-
-
-**Intuition:**  
-- The **first form** (joint vs. inference) is the “Free Energy” style: it says “make the joint model high under \(q\), but keep the recognition density simple.”  
-- The **second form** (likelihood vs. KL) is the “VAE” style: it says “reconstruct the data well while regularizing your hidden causes.”  
-
-Both are just two perspectives on the same bound.
-

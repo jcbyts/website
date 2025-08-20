@@ -11,6 +11,12 @@
   node_bundler = "esbuild"
 
 [[redirects]]
+  from = "/blog/*"
+  to = "/blog/:splat.html"
+  status = 200
+  force = false
+
+[[redirects]]
   from = "/*"
   to = "/200.html"
   status = 200
