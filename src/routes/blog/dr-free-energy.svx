@@ -6,14 +6,7 @@ draft: false
 ---
 
 <script>
-  import { browser } from "$app/environment";
-  let Demo = null;
-
-  if (browser) {
-    import("$src/components/GaussianOptimizationDemo.svelte").then((m) => {
-      Demo = m.default;
-    });
-  }
+  import GaussianOptimizationDemo from "$src/components/GaussianOptimizationDemo.svelte";
 </script>
 
 In my lab, we've been thinking a lot about how the brain learns a model of the world and how it uses it to act intelligently. This seems to be the crux of intelligence.
