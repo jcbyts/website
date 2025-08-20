@@ -1,7 +1,7 @@
 ---
 title: Reconciling Generative and Feedforward Models of Visual Cortex
 date: 2024-10-03
-description:
+description: Where I attempt to convince you that feedforward models ARE just inference over a generative model.
 draft: False
 ---
 
