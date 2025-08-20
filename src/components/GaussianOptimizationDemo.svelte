@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { browser } from "$app/environment";
   import { select, selectAll } from "d3-selection";
   import { axisBottom, axisLeft } from "d3-axis";
   import { line } from "d3-shape";
@@ -13,6 +14,7 @@
   let numPoints = 500;
 
   onMount(async () => {
+    if (!browser) return;
 
     class GaussianOptimizationDemo {
       constructor() {
