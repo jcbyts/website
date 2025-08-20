@@ -20,7 +20,7 @@ We approach our research questions by collaborating closely with neurophysiologi
 
 #### Open positions and pre-requisites
 
-There are no open positions, but I'm happy to chat about working together if you send me an email.
+I'm currently not looking to hire, but I'm always interested in talking with talented students and postdocs if you're interested in working together. Shoot me an, yates@berkeley.edu, if you're interested!
 
 <!-- #### Open positions and pre-requisites
 

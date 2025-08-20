@@ -49,7 +49,7 @@
         this.logLikelihoods = [];
         this.isRunning = false;
         this.meanLearningRate = 0.1;  // Natural gradient allows larger steps for mean
-        this.covLearningRate = 0.01;   // Smaller rate for covariance to maintain stability
+        this.covLearningRate = 0.1;   // Smaller rate for covariance to maintain stability
 
         // Generate data points
         this.generateData(500);
@@ -245,7 +245,11 @@
         this.modelCov[1][1] += this.covLearningRate * gradients.covGrad[1][1];
         
         // Ensure covariance matrix remains positive definite
-        this.ensurePositiveDefinite();
+        // this.ensurePositiveDefinite();
+        // this.modelCov = [
+        //   [this.modelCov[0][0], 0.5*(this.modelCov[0][1]+this.modelCov[1][0])],
+        //   [0.5*(this.modelCov[0][1]+this.modelCov[1][0]), this.modelCov[1][1]]
+        // ];
         
         this.step++;
         
@@ -305,28 +309,45 @@
           [invCovS[1][0] * invCov[0][0] + invCovS[1][1] * invCov[1][0], invCovS[1][0] * invCov[0][1] + invCovS[1][1] * invCov[1][1]]
         ];
 
-        const covGrad = [
-          [0.5 * (invCovSinvCov[0][0] - invCov[0][0]), 0.5 * (invCovSinvCov[0][1] - invCov[0][1])],
-          [0.5 * (invCovSinvCov[1][0] - invCov[1][0]), 0.5 * (invCovSinvCov[1][1] - invCov[1][1])]
+        // const covGrad = [
+        //   [0.5 * (invCovSinvCov[0][0] - invCov[0][0]), 0.5 * (invCovSinvCov[0][1] - invCov[0][1])],
+        //   [0.5 * (invCovSinvCov[1][0] - invCov[1][0]), 0.5 * (invCovSinvCov[1][1] - invCov[1][1])]
+        // ];
+        const covNatGrad = [
+          [S[0][0] - this.modelCov[0][0], S[0][1] - this.modelCov[0][1]],
+          [S[1][0] - this.modelCov[1][0], S[1][1] - this.modelCov[1][1]],
         ];
 
         return {
           meanGrad: naturalMeanGrad,  // Use natural gradient for mean
-          covGrad: covGrad
+          covGrad: covNatGrad
         };
       }
       
       ensurePositiveDefinite() {
-        // Simple approach: ensure diagonal elements are positive and off-diagonal is small
-        this.modelCov[0][0] = Math.max(0.1, this.modelCov[0][0]);
-        this.modelCov[1][1] = Math.max(0.1, this.modelCov[1][1]);
-        
-        // Ensure |off-diagonal| < sqrt(diagonal product)
-        const maxOffDiag = 0.9 * Math.sqrt(this.modelCov[0][0] * this.modelCov[1][1]);
-        this.modelCov[0][1] = Math.max(-maxOffDiag, Math.min(maxOffDiag, this.modelCov[0][1]));
-        this.modelCov[1][0] = this.modelCov[0][1]; // Keep symmetric
+        // Symmetrize
+        const A = [
+          [this.modelCov[0][0], 0.5*(this.modelCov[0][1]+this.modelCov[1][0])],
+          [0.5*(this.modelCov[0][1]+this.modelCov[1][0]), this.modelCov[1][1]]
+        ];
+        // tiny floor on eigenvalues (rarely needed with nat-grad)
+        const tr = A[0][0] + A[1][1];
+        const det = A[0][0]*A[1][1] - A[0][1]*A[1][0];
+        const disc = Math.sqrt(Math.max(tr*tr/4 - det, 0));
+        let l1 = tr/2 + disc, l2 = tr/2 - disc;
+        const eps = 1e-6; if (l2 < eps) l2 = eps;
+        // Rebuild (same eigenvectors as A)
+        let v1x, v1y;
+        if (Math.abs(A[0][1]) > 1e-12) { v1x = l1 - A[1][1]; v1y = A[0][1]; }
+        else { v1x = 1; v1y = 0; }
+        const nrm = Math.hypot(v1x, v1y); v1x/=nrm; v1y/=nrm;
+        const v2x = -v1y, v2y = v1x;
+        this.modelCov = [
+          [l1*v1x*v1x + l2*v2x*v2x, l1*v1x*v1y + l2*v2x*v2y],
+          [l1*v1x*v1y + l2*v2x*v2y, l1*v1y*v1y + l2*v2y*v2y]
+        ];
       }
-      
+
       computeLogLikelihood() {
         let ll = 0;
         const det = this.determinant(this.modelCov);
@@ -338,7 +359,11 @@
           const quadForm = diff[0] * (invCov[0][0] * diff[0] + invCov[0][1] * diff[1]) +
                           diff[1] * (invCov[1][0] * diff[0] + invCov[1][1] * diff[1]);
 
-          ll += -0.5 * (Math.log(2 * Math.PI) + Math.log(det) + quadForm);
+          // ll += -0.5 * (Math.log(2 * Math.PI) + Math.log(det) + quadForm);
+          // ll += -0.5 * (2 * Math.log(2 * Math.PI) + Math.log(det) + quadForm);
+          ll += -Math.log(2 * Math.PI) - 0.5 * Math.log(det) - 0.5 * quadForm;
+
+
         }
 
         // Return normalized log-likelihood (average per data point)
