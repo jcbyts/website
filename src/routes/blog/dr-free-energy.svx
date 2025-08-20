@@ -94,12 +94,8 @@ Log-likelihood is a function of the model parameters $$\theta$$, and all it tell
 
 Below is a simple example with a 2D Gaussian. The samples, $$x_i$$, are shown in red. Our model is a 2D Gaussian, $$p_\theta(x) = \mathcal{N}(\mu, \Sigma)$$, with parameters $$\theta = (\mu, \Sigma)$$. The log-likelihood is the sum of the log probabilities of each sample. You can hit "Run Optimization" to see what happens if we simply step along the gradient of the log-likelihood.
 
-{#if Demo}
-  <svelte:component this={Demo} />
-{:else}
-  <div style="margin: 1em 0; color: #666;">Loading interactive demo…</div>
-{/if}
-
+<GaussianOptimizationDemo />
+  
 What happened? Well, our parameters $$\mu$$ and $$\Sigma$$ converged to the true parameters that generated the data. Why? Why does assigning high probability to likely samples make our model fit the true generating distribution?
 
 Well, it turns out that minimizing the negative log-likelihood is the same as minimizing the KL divergence between $$P_{\text{world}}$$ and $$P_\theta$$.  I got this intuition from Alex Alemi's [blog post](https://blog.alexalemi.com/kl-is-all-you-need.html). It actually took me a really long time to wrap my head around his explanation, in part because of the way he uses $$P$$ and $$Q$$, which is different than typical variational inference notation. So this is my attempt to distill the main point in my own notation.
