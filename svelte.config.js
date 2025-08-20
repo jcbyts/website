@@ -11,7 +11,8 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter({
 			fallback: '200.html',
-			strict: false
+			strict: false,
+			precompress: false
 		}),
 
 		alias: {
