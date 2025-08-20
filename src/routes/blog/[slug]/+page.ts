@@ -2,7 +2,13 @@ export const prerender = 'auto';
 
 export async function load({ params }) {
 	try {
-		const post = await import(`../${params.slug}.svx`);
+		// Use a more explicit import strategy for complex components
+		let post;
+		if (params.slug === 'KL-is-everything') {
+			post = await import('../KL-is-everything.svx');
+		} else {
+			post = await import(`../${params.slug}.svx`);
+		}
 		const Content = post.default;
 
 		// Check if this is a draft post and we're in production
