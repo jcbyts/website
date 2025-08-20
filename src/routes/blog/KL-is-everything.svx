@@ -6,7 +6,17 @@ draft: false
 ---
 
 <script>
-  import GaussianOptimizationDemo from "$src/components/GaussianOptimizationDemo.svelte";
+  import { onMount } from "svelte";
+  import { browser } from "$app/environment";
+
+  let GaussianOptimizationDemo;
+
+  onMount(async () => {
+    if (browser) {
+      const module = await import("$src/components/GaussianOptimizationDemo.svelte");
+      GaussianOptimizationDemo = module.default;
+    }
+  });
 </script>
 
 In my lab, we've been thinking a lot about how the brain learns a model of the world and how it uses it to act intelligently. This seems to be the crux of intelligence.
@@ -94,7 +104,13 @@ Log-likelihood is a function of the model parameters $$\theta$$, and all it tell
 
 Below is a simple example with a 2D Gaussian. The samples, $$x_i$$, are shown in red. Our model is a 2D Gaussian, $$p_\theta(x) = \mathcal{N}(\mu, \Sigma)$$, with parameters $$\theta = (\mu, \Sigma)$$. The log-likelihood is the sum of the log probabilities of each sample. You can hit "Run Optimization" to see what happens if we simply step along the gradient of the log-likelihood.
 
-<GaussianOptimizationDemo />
+{#if GaussianOptimizationDemo}
+  <svelte:component this={GaussianOptimizationDemo} />
+{:else}
+  <div style="padding: 40px; text-align: center; background-color: #f5f5f5; border-radius: 8px;">
+    Loading interactive demo...
+  </div>
+{/if}
 
 What happened? Well, our parameters $$\mu$$ and $$\Sigma$$ converged to the true parameters that generated the data. Why? Why does assigning high probability to likely samples make our model fit the true generating distribution?
 
