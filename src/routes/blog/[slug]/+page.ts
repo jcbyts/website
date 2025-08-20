@@ -5,11 +5,18 @@ export async function load({ params }) {
 		// Use import.meta.glob for reliable dynamic imports in production
 		const modules = import.meta.glob('../*.svx');
 
+		// Debug logging
+		console.log('Available modules:', Object.keys(modules));
+		console.log('Looking for slug:', params.slug);
+
 		// Find the matching module by slug
 		const modulePath = `../${params.slug}.svx`;
+		console.log('Trying module path:', modulePath);
+
 		const moduleLoader = modules[modulePath];
 
 		if (!moduleLoader) {
+			console.log('Module not found. Available paths:', Object.keys(modules));
 			throw new Error(`No module found for slug: ${params.slug}`);
 		}
 
