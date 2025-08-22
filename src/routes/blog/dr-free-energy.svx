@@ -24,16 +24,14 @@ This blog post is meant to be a gentle introduction to the math behind the FEP. 
 
 
 ## The problem
-Let's start out with some solid ground: there IS a world out there. And the brain just gets samples from it through the senses. I'm going to massively over-simplify the problem in this blog post (don't worry, it still works even if we don't do this), but let's pretend the brain is passive and only receives sensory samples, $$X \sim P_{\text{world}}$$. $$P_{\text{world}}$$ is **the true generating processs** of the world. The brain does not have $$P_{\text{world}}$$ and so it cannot evaluate the density $$p_{\text{world}}(x)$$ even though it can get samples from it. 
+Let's start out with some solid ground: there IS a world out there. And the brain just gets samples from it through the senses. I'm going to massively over-simplify the problem in this blog post (don't worry, it still works even if we don't do this), but let's pretend the brain is passive and only receives sensory samples, $$X \sim p_{\text{world}}$$. 
 
-For now, we're going to assume sammples are i.i.d. (ignoring actions/dynamics). That is a very incorrect assumption for brains, but it makes the math easier, so we're going to stick with it for now to gain some intuitions.
+$$p_{\text{world}}$$ is **the true generating processs** of the world. The brain does not have $$p_{\text{world}}$$ and so it cannot evaluate the density $$p_{\text{world}}(x)$$ even though it can get samples from it. For now, we're going to assume sammples are i.i.d. (ignoring actions/dynamics). That is a very incorrect assumption for brains, but it makes the math easier, so we're going to stick with it for now to gain some intuitions.
 
 <img src="/kl/Pworld_Pbrain_simple.png" class="" style="max-width: 38em" alt="P world and P brain" />
 <p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">The world generates data. The brain can only sample this data and must adjust its own internal model to match.</p>
 
-The brain can't evaluate $$p_{\text{world}}(x)$$, because that's literally the physics of the world, but it can evaluate its own model of it $$p_{\text{brain}}(x)$$ for any $$x$$. Let's say the brain's model is parametric, so we write it as $$p_\theta(x)$$. How do you fit a good $$p_\theta(x)$$ to $$p_{\text{world}}(x)$$ given only samples? That's what we're going to solve here. 
-
-
+The brain can't evaluate $$p_{\text{world}}(x)$$, because that's literally the physics of the world, but it can evaluate its own model of it $$p_{\text{brain}}(x)$$ for any $$x \in X$$. Let's say the brain's model has parameters, $$\theta$$, so we write it as $$p_\theta(x)$$. How do you fit a good $$p_\theta(x)$$ to $$p_{\text{world}}(x)$$ given only samples? That's what we're going to solve here. 
 
 What follows is a simple walkthrough in notation that I like, but is unusual in the active inference literature. I think you'll find that the math lends itself quite nicely to talking about what the brain is doing.
 
@@ -42,13 +40,13 @@ This section lays out all the math facts that you need for all the derivations t
 
 ### **1) Log-likelihood**
 
-Suppose we have a model $$p_\theta(x)$$ of the world, and we observe samples $$x_1, \dots, x_n \sim P_{\text{world}}$$. The **likelihood** is just the probability our model assigns to the observed data:
+Suppose we have the brain's model, $$p_\theta(x)$$, and i.i.d. samples from the world, $$x_1, \dots, x_n \sim p_{\text{world}}$$. The **likelihood** is just the probability density evaluated at the observed data combined across all samples:
 
 $$
-L(\theta; x_{1:n}) = \prod_{i=1}^n p_\theta(x_i).
+L(\theta) = \prod_{i=1}^n p_\theta(x_i).
 $$
 
-Because multiplying many small numbers quickly becomes impractical, we usually work with the **log-likelihood**:
+Given fixed data, the likelihood is a function of the parameters $$\theta$$. The reason we can multiply them all together is the i.i.d. assumption I made above. Because multiplying many small numbers quickly becomes impractical, we usually work with the **log-likelihood**, here the average log-likelihood or per-sample log-likelihood:
 
 $$
 \ell_n(\theta) = \frac{1}{n} \sum_{i=1}^n \log p_\theta(x_i).
@@ -57,14 +55,28 @@ $$
 ### Intuition
 Think of the log-likelihood as a **surprise meter**. If your model assigns high probability to what actually happened, the log-likelihood is high; if it assigns low probability, the log-likelihood is very negative. Maximizing the log-likelihood is just trying to reduce your surprise across many observations.
 
+
 ### **2) Expectations and the Law of Large Numbers**
-An Expectation is the average quantity you would get from many draws under the data-generating law $$P$$. We write it as $$\mathbb{E}_{x\sim P}[\cdot]$$ and formally $$\mathbb{E}_{x\sim P}[f(x)] = \int f(x) p(x) dx$$.
-If your samples $$X_1,\dots,X_n$$ come from $$P$$, then their average log-likelihood converges to that expectation as $$n$$ grows:
+
+An Expectation is the average quantity you would get from many draws under the data-generating law, $$p(x)$$. The expectation of a function $$f$$ is
 $$
-\ell_n(\theta) \xrightarrow[]{a.s.} \mathbb{E}_{P}[\log p_\theta(X)].
+\mathbb{E}_{x\sim p}[f(x)] \;=\; \int f(x)\,p(x)\,dx 
+\quad\text{(sum if \(x\) is discrete).}
 $$
 
-Intuition: If you just average samples generated from $$P$$, they arrive with probability $$p(x)$$, so the average of log-likelihood of the samples is a weighted average (weighted by $$p(x)$$).
+If $$x_1,\dots,x_n \stackrel{\text{iid}}{\sim} p$$, then by the law of large numbers
+$$
+\frac{1}{n}\sum_{i=1}^n f(x_i) \xrightarrow[]{\text{a.s.}} \mathbb{E}_{x\sim p}[f(x)].
+$$
+
+If we apply this to our log-likelihood above, we get:
+$$
+\ell_n(\theta) \;=\; \frac{1}{n}\sum_{i=1}^n \log p_\theta(X_i)
+\;\xrightarrow[]{\text{a.s.}}\; \mathbb{E}_{x\sim p}\!\big[\log p_\theta(x)\big].
+$$
+
+*Intuition:* averaging samples from $$p$$ weights values by how often they occur. Points with larger $$p(x)$$ show up more and pull the average toward them, so the average of log-likelihood of the samples is a weighted average (weighted by $$p(x)$$) and converges to the expectation with enough samples.
+
 
 ### **3) KL divergence**
 
