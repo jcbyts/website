@@ -7,31 +7,32 @@ draft: false
 
 <script>
   import GaussianOptimizationDemo from "$src/components/GaussianOptimizationDemo.svelte";
+    import { min } from "d3-array";
 </script>
 
 In my lab, we've been thinking a lot about how the brain learns a model of the world and how it uses it to act intelligently. This seems to be the crux of intelligence.
 
 How do brains do this? If we understood this completely, we could build a brain. A brain like ours. That would be pretty cool. At that point, I'd have to close up shop and move on to some other research direction. Interestingly, out of all the theories in neuroscience, very few could ever be used to actually build a brain -- and most don't even pretend they could! However, there is one that at least claims to. It's called the Free Energy Principle. If you haven't heard of it, you should watch this nice [animated youtube short](https://www.youtube.com/watch?v=iPj9D9LgK2A) that introduces it quite well.
 
-The [Free Energy Principle (FEP)](https://www.researchgate.net/profile/Mel-Andrews/publication/324246948_The_Free_Energy_Principle_An_Accessible_Introduction_to_its_Derivations_Applications_Implications/links/5cdb9a5f92851c4eaba05f25/The-Free-Energy-Principle-An-Accessible-Introduction-to-its-Derivations-Applications-Implications.pdf) is a so-called "general theory" and a lot of neuroscientists I know don't like it. There are two types of criticisms I've heard: Either people can't make any sense of it, or it's "unfalsifiable" and they aren't sure if it is any [more useful than Bayesian inference](https://arxiv.org/pdf/1901.07945) or some more familiar theory.
+The [Free Energy Principle (FEP)](https://www.researchgate.net/profile/Mel-Andrews/publication/324246948_The_Free_Energy_Principle_An_Accessible_Introduction_to_its_Derivations_Applications_Implications/links/5cdb9a5f92851c4eaba05f25/The-Free-Energy-Principle-An-Accessible-Introduction-to-its-Derivations-Applications-Implications.pdf) is a so-called "general theory" and a lot of neuroscientists I know don't like it. There are two main types of criticisms I've heard: Either people can't make any sense of it, or it's "unfalsifiable" and they aren't sure if it is any [more useful than Bayesian inference](https://arxiv.org/pdf/1901.07945) or some more familiar theory.
 
-This blog post is meant to be a gentle introduction to the math behind the FEP. We're going to start really simple and find that it stays pretty simple, but it gives us nice mathematical quantities for talking about concepts we are interested in. In the same way that Bayesian inference has been a powerful tool for formalizing certain perceptual phenomena, FEP provides a few additional quantities that are useful for talking about what brains do. Moreover, we're going to find that one quantity, the KL Divergence, is at the heart of it all. For a related (and genuinely more thoughtful) post, check out Hadi's blog [here](https://mysterioustune.com/2025/01/13/world-models-adaptation-and-surprise-part-1/#more-498).
+This blog post is meant to be a gentle introduction to the math behind the FEP. We're going to start really simple and find that it stays pretty simple, but it gives us nice mathematical quantities for talking about concepts we are interested in. In the same way that Bayesian inference has been a powerful tool for formalizing certain perceptual phenomena, FEP provides a few additional quantities that are useful for talking about what brains do. Moreover, we're going to find that one quantity, the KL Divergence, is at the heart of it all. For a related (and genuinely more thoughtful) post, check out Hadi's blog [here](https://mysterioustune.com/2025/01/13/world-models-adaptation-and-surprise-part-1/#more-498). Finally, we're going to stop short of active inference here and punt entirely on action. I'll revisit that in a future blog post, but this will remain a good primer for that.
 
 **Note:** The title here is a reference to a dark comedy from the height of the cold war called "Dr. Strangelove Or: how I learned to stop worrying and love the bomb". I haven't seen the movie since I was a kid, and I don't remember anything except the line **"not only is it possible. it is essential."** and that's how I now feel about the KL Divergence.
 
-<img src="/kl/drfreeenergy.png" class="" style="max-width: 38em" alt="Left is the original movie poster. Right is the new and modified Dr. Free Energy" />
-<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">Left is the original movie poster. Right is the new and modified Dr. Free Energy, or: how I learned to stop worrying and love the KL Divergence. Karl Friston on top, and the "cybernetics seance" from the Macy conference (with Norbert Weiner, John von Neumann, Walter Pitts, Margaret Mead and others) on the bottom.</p>
+<img src="/kl/drfreeenergy.png" class="" style="max-width: min(100%, 38em)" alt="Left is the original movie poster. Right is the new and modified Dr. Free Energy" />
+<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">Left is the original movie poster. Right is the new and modified Dr. Free Energy, or: how I learned to stop worrying and love the Free Energy Principle. Karl Friston on top, and the "cybernetics seance" from the Macy conference (with Norbert Weiner, John von Neumann, Walter Pitts, Margaret Mead and others) on the bottom.</p>
 
 
 ## The problem
 Let's start out with some solid ground: there IS a world out there. And the brain just gets samples from it through the senses. I'm going to massively over-simplify the problem in this blog post (don't worry, it still works even if we don't do this), but let's pretend the brain is passive and only receives sensory samples, $$X \sim p_{\text{world}}$$. 
 
-$$p_{\text{world}}$$ is **the true generating processs** of the world. The brain does not have $$p_{\text{world}}$$ and so it cannot evaluate the density $$p_{\text{world}}(x)$$ even though it can get samples from it. For now, we're going to assume sammples are i.i.d. (ignoring actions/dynamics). That is a very incorrect assumption for brains, but it makes the math easier, so we're going to stick with it for now to gain some intuitions.
+$$p_{\text{world}}$$ is **the true generating processs** of the world for our passive brain. The brain does not have  access the true generating process, $$p_{\text{world}}$$, and so it cannot evaluate the density $$p_{\text{world}}(x)$$ even though it can get samples from it. For now, we're going to assume sammples are i.i.d. (ignoring actions/dynamics). That is a very incorrect assumption for brains, but it makes the math easier, so we're going to stick with it for now to gain some intuitions.
 
-<img src="/kl/Pworld_Pbrain_simple.png" class="" style="max-width: 38em" alt="P world and P brain" />
-<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">The world generates data. The brain can only sample this data and must adjust its own internal model to match.</p>
+<img src="/kl/Pworld_Pbrain_simple.png" class="" style="max-width: min(100%, 22em)" alt="P world and P brain" />
+<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">The world generates data. The brain can only sample this data and must adjust its own internal model to match. In all cases, the brain can only evaluate its own model density p_brain.</p>
 
-The brain can't evaluate $$p_{\text{world}}(x)$$, because that's literally the physics of the world, but it can evaluate its own model of it $$p_{\text{brain}}(x)$$ for any $$x \in X$$. Let's say the brain's model has parameters, $$\theta$$, so we write it as $$p_\theta(x)$$. How do you fit a good $$p_\theta(x)$$ to $$p_{\text{world}}(x)$$ given only samples? That's what we're going to solve here. 
+I'm going to be careful to keep track of what is in the world and what is in the brain, and will keep the notation clear. The brain can't evaluate $$p_{\text{world}}(x)$$, because that's literally the physics of the world, but it can evaluate its own model of it $$p_{\text{brain}}(x)$$ for any $$x \in X$$. Let's say the brain's model has parameters, $$\theta$$, so we write it as $$p_\theta(x)$$. How do you fit a good $$p_\theta(x)$$ to $$p_{\text{world}}(x)$$ given only samples? That's what we're going to solve here. 
 
 What follows is a simple walkthrough in notation that I like, but is unusual in the active inference literature. I think you'll find that the math lends itself quite nicely to talking about what the brain is doing.
 
@@ -53,7 +54,7 @@ $$
 $$
 
 ### Intuition
-Think of the log-likelihood as a **surprise meter**. If your model assigns high probability to what actually happened, the log-likelihood is high; if it assigns low probability, the log-likelihood is very negative. Maximizing the log-likelihood is just trying to reduce your surprise across many observations.
+Think of the log-likelihood as a **surprise meter** with the sign flipped. If your model assigns high probability to what actually happened, the log-likelihood is high; if it assigns low probability, the log-likelihood is very negative. So if an improbable event happens, your negative log-likelihood spikes positive. Therefore, minimizing the negative log-likelihood, or equivalently, maximizing the log-likelihood, is just trying to reduce your surprise across many observations.
 
 
 ### **2) Expectations and the Law of Large Numbers**
@@ -69,7 +70,7 @@ $$
 \frac{1}{n}\sum_{i=1}^n f(x_i) \xrightarrow[]{\text{a.s.}} \mathbb{E}_{x\sim p}[f(x)].
 $$
 
-If we apply this to our log-likelihood above, we get:
+If we apply this to our per-sample log-likelihood above, we get:
 $$
 \ell_n(\theta) \;=\; \frac{1}{n}\sum_{i=1}^n \log p_\theta(X_i)
 \;\xrightarrow[]{\text{a.s.}}\; \mathbb{E}_{x\sim p}\!\big[\log p_\theta(x)\big].
@@ -77,10 +78,12 @@ $$
 
 *Intuition:* averaging samples from $$p$$ weights values by how often they occur. Points with larger $$p(x)$$ show up more and pull the average toward them, so the average of log-likelihood of the samples is a weighted average (weighted by $$p(x)$$) and converges to the expectation with enough samples.
 
+*Importantly:* the expectation is w.r.t. $$p$$, the true generating process of the data. Our model log likelihood is evaluating $$p_\theta(x)$$, but it's evaluated at samples from $$p$$.
+
 
 ### **3) KL divergence**
 
-The Kullback–Leibler (KL) divergence is our main quantity of interest. It measures the mismatch between two distributions — in this case, the true world distribution $$P_{\text{world}}$$ and the brain’s model $$P_{\text{brain}}$$. Its definition is:
+The Kullback–Leibler (KL) divergence will emerge as a quantity of major interest. Here, I'm going to introduce it using it's definition, but I really want to emphasize that it emerges in the derivation below. I want to define it here so we're prepared to recognize it when it shows up, so we can interpret it accordingly. The KL divergence measures the mismatch between two distributions — in this case, the true world distribution $$P_{\text{world}}$$ and the brain’s model $$P_{\text{brain}}$$. Its definition is:
 
 $$
 D_{\mathrm{KL}}(P_{\text{world}}\|P_{\text{brain}})
@@ -92,7 +95,7 @@ Let's go back to basic statistics. For a **single sample** $$x$$, we know how to
 
 Now, what happens if we're sampling from $$P$$ and then evaluating the log-likelihood ratio compared to $$Q$$? Well, then we get the KL divergence! It's an expected log-likelihood ratio when you're sampling from the first density. It's bounded at $$0$$. It has to be positive. And what it tell us is how much extra “surprise” we get when we use $$Q$$ (the wrong model) to explain data generated by $$P$$. 
 
-For our problem, if the brain’s internal model matches the world perfectly, the KL is 0 — no extra surprise. But the more the brain’s predictions diverge from the world’s samples, the larger the KL becomes. In other words, KL measures the cost of pretending the brain’s model generated the data when in fact it came from the world. This is exactly what we want to minimize. The brain wants to minimize the KL divergence between its model and the world.
+For our problem, if the brain’s internal model matches the world perfectly, the KL is 0 — no extra surprise. But the more the brain’s predictions diverge from the world’s samples, the larger the KL becomes. In other words, KL measures the cost of pretending the brain’s model generated the data when in fact it came from the world. This is exactly what we want to minimize. Small KL is the mathematical equivelent of saying the "the brain's model fits the world well".
 
 
 ### Properties worth knowing
@@ -106,37 +109,50 @@ For our problem, if the brain’s internal model matches the world perfectly, th
 
 ## Maximum likelihood is KL minimization
 
-Log-likelihood is a function of the model parameters $$\theta$$, and all it tells you is the log probability of each sample. If we maximize the log-likelihood (or equivalently, minimize the negative log-likelihood), what happens? 
+Given fixed data, the log-likelihood is a function of the model parameters $$\theta$$, and all it tells you is the log probability of each sample. If we maximize the log-likelihood (or equivalently, minimize the negative log-likelihood), what happens? This is a classic technique in statistics called maximum likelihood estimation, and we're going to walk through a visual example of what it looks like when the average log-likelihood is maximized.
 
-Below is a simple example with a 2D Gaussian. The samples, $$x_i$$, are shown in red. Our model is a 2D Gaussian, $$p_\theta(x) = \mathcal{N}(\mu, \Sigma)$$, with parameters $$\theta = (\mu, \Sigma)$$. The log-likelihood is the sum of the log probabilities of each sample. You can hit "Run Optimization" to see what happens if we simply step along the gradient of the log-likelihood.
+Below is a simple example with a true generating distribution that is a 2D Gaussian. The data, $$x_i$$, are shown in red. Our model is also a 2D Gaussian and is shown in blue. The model, $$p_\theta(x) = \mathcal{N}(\mu, \Sigma)$$, with parameters $$\theta = (\mu, \Sigma)$$. Withough knowing the true parameters, we can evaluate the average log-likelihood of the data under our model, and we can adjust our parameters to maximize this quantity by stepping along the derivative with respect to the parameters. At first, our model is not overlapping with the data. You can hit "Run Optimization" to see what happens if we simply step along the gradient (derivative) of the log-likelihood.
 
 <GaussianOptimizationDemo />
   
-What happened? Well, our parameters converged to the true parameters that generated the data. Why? Why does assigning high probability to likely samples make our model fit the true generating distribution?
+What happened? Well, our parameters converged to the true parameters that generated the data. Try hitting reset and running it a few times. The blue density (our model) starts in a random location and orientation, but it always converges to the true distribution. You can also see the parameters converge. I've listed the true mean and the model estimate. 
 
-Well, it turns out that minimizing the negative log-likelihood is the same as minimizing the KL divergence between $$P_{\text{world}}$$ and $$P_\theta$$.  I got this intuition from Alex Alemi's [blog post](https://blog.alexalemi.com/kl-is-all-you-need.html). It actually took me a really long time to wrap my head around his explanation, in part because of the way he uses $$P$$ and $$Q$$, which is different than typical variational inference notation. So this is my attempt to distill the main point in my own notation.
+
+It's fun to watch the animation, and is a totally standard method in statistics. But did you ever stop to ask why this works? Why does assigning high probability to likely samples make our model fit the true generating distribution?
 
 What is happening when we maximize likelihood? Or, equivalently, when we minimize negative log-likelihood?
 
-Well, with enough samples, we can use **point 2** above. With a large number of samples, the average negative log-likelihood converges to the **expected negative log-likelihood** (NLL) under the true world distribution:
+Let's rearrange some terms using the fun facts from above and see what happens. With enough samples, we can use **point 2** above. With a large number of samples, the average negative log-likelihood converges to the **expected negative log-likelihood** (NLL) under the true world distribution:
 
 $$
-\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_\theta(X)\big].
+\mathbb{E}_{x\sim p_{\text{world}}}\big[-\log p_\theta(x)\big].
 $$
 
-Make it equal to itself and use the trick of multiplying and dividing by the same thing and then group and rearrange terms:
+Make it equal to itself and add and subtract $$\mathbb{E}_{x\sim p_{\text{world}}}\big[-\log p_{\text{world}}(x)\big]$$:
 
 $$
 \begin{aligned}
-\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_\theta(X)\big]
-&= \mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_\theta(X)\big]  + \mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_{\text{world}}(X)\big] - \mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_{\text{world}}(X)\big]  \\
-&= \mathbb{E}_{X\sim P_{\text{world}}}\!\left[-\log \frac{p_\theta(X)}{p_{\text{world}}(X)} - \log p_{\text{world}}(X)\right] \\
-&= \underbrace{\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_{\text{world}}(X)\big]}_{\text{world entropy } H(P_{\text{world}})} 
-+ \underbrace{\mathbb{E}_{X\sim P_{\text{world}}}\!\left[\log \frac{p_{\text{world}}(X)}{p_\theta(X)}\right]}_{D_{\mathrm{KL}}(P_{\text{world}}\|p_\theta)}.
+\mathbb{E}_{x\sim p_{\text{world}}}\big[-\log p_\theta(x)\big]
+&= \mathbb{E}_{x\sim p_{\text{world}}}\big[-\log p_\theta(x)\big]  + \mathbb{E}_{x\sim p_{\text{world}}}\big[-\log p_{\text{world}}(x)\big] - \mathbb{E}_{x\sim p_{\text{world}}}\big[-\log p_{\text{world}}(x)\big]  \\
 \end{aligned}
 $$
 
-So the key identity is:
+Now we can combine the first two terms using the log rule $$\log a - \log b = \log \frac{a}{b}$$:
+
+$$
+\begin{aligned}
+&= \mathbb{E}_{x\sim p_{\text{world}}}\!\left[-\log \frac{p_\theta(x)}{p_{\text{world}}(x)} - \log p_{\text{world}}(x)\right] \\
+\end{aligned}
+$$
+And then split the expectation and simply recognize the KL divergence and the entropy of the world:
+$$
+\begin{aligned}
+&= \underbrace{\mathbb{E}_{x\sim p_{\text{world}}}\big[-\log p_{\text{world}}(x)\big]}_{\text{world entropy } H(p_{\text{world}})} 
++ \underbrace{\mathbb{E}_{x\sim p_{\text{world}}}\!\left[\log \frac{p_{\text{world}}(x)}{p_\theta(x)}\right]}_{D_{\mathrm{KL}}(p_{\text{world}}\|p_\theta)}.
+\end{aligned}
+$$
+
+So there you have it. We started with the average log-likelihood and rerranged the terms and it revealed that minimizing the negative log-likelihood is equivalent to minimizing the KL divergence between the world and the brain's model.
 
 $$
 \underbrace{\mathbb{E}_{X\sim P_{\text{world}}}\big[-\log p_\theta(X)\big]}_{\text{expected NLL}}
@@ -146,17 +162,20 @@ $$
 \underbrace{D_{\mathrm{KL}}\!\big(P_{\text{world}}\;\|\;p_\theta\big)}_{\text{model mismatch (world }\|\text{ brain)}}.
 $$
 
-The first term (entropy of the world) does not depend on $$\theta$$. So minimizing expected NLL **is the same as** minimizing the KL divergence between $$P_{\text{world}}$$ and $$P_{\text{brain}}$$! That is kind of satisfying: Maximizing likelihood makes the brain’s model assign high probability to what the world actually produces. Equivalently, it tunes $$P_{\text{brain}}$$ to get as close as possible to $$P_{\text{world}}$$.
+The first term (entropy of the world) does not depend on $$\theta$$. Therefore, minimizing expected NLL **is the same as** minimizing the KL divergence between $$P_{\text{world}}$$ and $$P_{\text{brain}}$$! 
+
+That simple result is satisfying: Maximizing likelihood makes the brain’s model assign high probability to what the world actually produces AND it tunes $$P_{\text{brain}}$$ to get as close as possible to $$P_{\text{world}}$$. This intuition helps unpack Alex Alemi's wonderful [blog post](https://blog.alexalemi.com/kl-is-all-you-need.html) on KL divergences and how central they are. Maximum likelihood is just a special case of KL minimization. Additionally, this is not true for any arbitrary distance metric or divergence. As far as I know, the KL divergence has a priveleged status.
 
 
-<img src="/kl/MLvsKL.png" class="" style="max-width: 38em" alt="KL is better" />
+
+<img src="/kl/MLvsKL.png" class="" style="max-width: min(100%, 38em)" alt="KL is better" />
 
 ## Hidden causes: the brain’s internal variables
 
 So far we treated the brain’s model as a direct mapping from observations to probabilities, $$p_\theta(x)=p_{\text{brain}}(x)$$. That’s too simple, because the brain needs to be able to flexibly encode the state of the world in terms of *hidden causes*. Let's call these hidden causes $$Z$$. Importantly, these are not the “real” physical causes; they’re useful internal variables the brain uses to understand the world.
 
-<img src="/kl/Pworld_Pbrain_bayesian.png" class="" style="max-width: 38em" alt="P world and P brain (Bayesian)" />
-<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">The world generates data. The brain wants to learn the hidden causes of the data. Again, it can only sample this data and must both adjust its internal model and infer the latent causes. Importantly all these causes are in the brain NOT the world.</p>
+<img src="/kl/Pworld_Pbrain_bayesian.png" class="" style="max-width: min(100%, 22em)" alt="P world and P brain (Bayesian)" />
+<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">All samples of data come from the true generating process p_world. The brain wants to explain these samples using a generative model with hidden causes, z. The brain can only sample from p_world, but it does not evaluate it. To fit the data well, it must adjust the parameters of its internal model as well as infer the latent causes. Importantly all these causes are in the brain NOT the world. The density that generates samples is the world. The densities used for inference are in the brain.</p>
 
 The brain’s model says: first sample a hidden cause $$Z$$ from a prior, then generate an observation $$X$$ from a likelihood.
 
@@ -174,21 +193,21 @@ Two things we want to do with this model:
    p_{\text{brain}}(z\mid x) \;=\; \frac{p_{\text{brain}}(x\mid z)\,p_{\text{brain}}(z)}{p_{\text{brain}}(x)}.
    $$
 
-This is just Bayes rule and it maps nicely on to [words we use to describe perception](https://jake.vision/blog/inside-out-perspective).
+This is just Bayes rule and it maps nicely on to [words we use to describe perception](https://jake.vision/blog/inside-out-perspective). But, I want to spend a moment to belabor a recurring issue in perceptual psychology.The way Bayesian inference is typically introduced in perception is that the brain is inferring the causes in "the world" from "the senses".
 
-I want to spend another moment to discuss this issue of *isomorphism* between $$P_{\text{brain}}$$ and $$P_{\text{world}}$$. The way Bayesian inference is typically introduced in perception is that the brain is inferring the causes in "the world" from "the senses".
+<img src="/kl/bayes_rule.png" class="" style="max-width: min(100%, 48em)" alt="Bayes Rule" />
 
-<img src="/kl/bayes_rule.png" class="" style="max-width: 38em" alt="Bayes Rule" />
+In a typical Bayesian Brain experiment, psychologists and neuroscientists will test to see if the subject has behavior that looks like Bayesian inference *over the parameters of their experiment*. For example, they might show drifting motion where some motions are more likely than others and see if the subjectls learn to integrate the prior probabilities of the motion (in the experiment) with the incoming visual evidence.
 
-But that's NOT what is happening here. $$Z$$ are in $$P_{\text{brain}}$$. They are NOT in $$P_{\text{world}}$$. To learn to act intelligently in the world, $$Z$$ likely have high mutual information between relevant groundtruth causes in the world -- the intuitive physics level, but no more. The key point is to remember that $$Z$$ are not the "real" causes in the world (or your experiment). They are the brain's internal representation of the world.
+But that's NOT what is happening here. $$Z$$ are in $$P_{\text{brain}}$$. They are NOT in $$P_{\text{world}}$$. The experiment is part of $$P_{\text{world}}$$, but $$Z$$ are not. To learn to act intelligently in the world, $$Z$$ likely have high mutual information between relevant groundtruth causes in the world -- the intuitive physics level, but no more. The key point is to remember that $$Z$$ are not the "real" causes in the world (or your experiment). They are the brain's internal representation of the world.
 
-<img src="/kl/bayes_rule_brain.png" class="" style="max-width: 38em" alt="Bayes Rule for P Brain" />
+<img src="/kl/bayes_rule_brain.png" class="" style="max-width: min(100%, 48em)" alt="Bayes Rule for P Brain" />
 
 Now, even though $$Z$$ are just causes that the brain made up, that denominator $$p_{\text{brain}}(x)=\int p_{\text{brain}}(x,z)\,dz$$ is still usually intractable, which makes the exact posterior $$p_{\text{brain}}(z\mid x)$$ intractable too. 
 
 We're going to get around this by inventing a density we *can* evaluate and just try to optimize the parameters for that. We just invent a density we can evaluate, $$q_\phi(z\mid x)$$. Is this even reasonable? In the next section we'll see that it is and why it works is quite satisfying.
 
-<img src="/kl/Pworld_Pbrain_variational.png" class="" style="max-width: 38em" alt="P world and P brain (Variational)" />
+<img src="/kl/Pworld_Pbrain_variational.png" class="" style="max-width: min(100%, 22em)" alt="P world and P brain (Variational)" />
 <p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">The world still generates data. The brain wants to learn the hidden causes of the data. Again, it can only sample this data and must both adjust its internal model and infer the latent causes. Now it uses a variational approximation to the true posterior.</p>
 
 ## Deriving the Evidence Lower Bound (a.k.a. Free Energy)
@@ -246,7 +265,7 @@ Let's rederive without Jensen and see what we're missing.
 
 ### Without Jensen (the exact identity)
 
-Start with any tractable density \(q_\phi(z\mid x)\) (whose integral is 1):
+Start with any tractable density $$q_\phi(z\mid x)$$ (whose integral is 1):
 
 $$
 \begin{aligned}
@@ -266,7 +285,10 @@ $$
 \end{aligned}
 $$
 
-Therefore,
+<div class="w-full text-center">
+   Therefore,
+   </div>
+
 $$
 \boxed{\ \log p_\theta(x) \;=\; \mathrm{ELBO}(x;\theta,\phi) \;+\; D_{\mathrm{KL}}\!\big(q_\phi(z\mid x)\,\|\,p_\theta(z\mid x)\big)\ }.
 $$
@@ -286,7 +308,9 @@ $$
 -\mathrm{ELBO}(x;\theta,\phi).
 $$
 
+<div class="w-full text-center">
 so, 
+</div>
 
 $$
 \mathcal{F}(x;\theta,\phi)
@@ -329,4 +353,4 @@ In this blog post, we derived the free energy principle from first principles. W
 
 
 
-<img src="/kl/klmeme.png" class="" style="max-width: 38em" alt="Everything is KL minimization" />
+<img src="/kl/klmeme.png" class="" style="max-width: min(100%, 38em)" alt="Everything is KL minimization" />

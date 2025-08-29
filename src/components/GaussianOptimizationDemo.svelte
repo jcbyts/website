@@ -502,24 +502,24 @@
   }
 </script>
 
-<div id="likelihood-demo" style="display: flex; flex-direction: column; align-items: center; margin: 30px 0; padding: 20px; background-color: #fafafa; border-radius: 8px;">
-  <div style="display: flex; gap: 40px; margin-bottom: 30px;">
+<div id="likelihood-demo" class="font-sans" style="display: flex; flex-direction: column; align-items: center; margin: 30px 0; padding: 1.5em 1em; background-color: #fafafa; border-radius: 8px;">
+  <div class="flex flex-wrap" style="display: flex; gap: 1em; margin-bottom: 30px;">
     <!-- Left panel: 2D Gaussian visualization -->
-    <div style="border: 2px solid #ddd; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-      <h4 style="margin-top: 0; margin-bottom: 15px; color: #333; font-weight: 600;">Data Points & Model Distribution</h4>
-      <svg style="overflow: visible" bind:this={gaussianSvg} width="400" height="400"></svg>
+    <div class="flex-1 flex flex-col items-center" style="padding: 1.5em; background-color: white; border-radius: 8px;">
+      <h4 class="whitespace-nowrap mb-2 font-sans text-xl text-center mt-0 font-medium">Data Points & Model Distribution</h4>
+      <svg style="overflow: visible" bind:this={gaussianSvg} class="w-[400px] max-w-[90%]" viewBox="0 0 400 400"></svg>
     </div>
 
     <!-- Right panel: Log-likelihood plot -->
-    <div style="border: 2px solid #ddd; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-      <h4 style="margin-top: 0; margin-bottom: 15px; color: #333; font-weight: 600;">Average Log-Likelihood vs Steps</h4>
-      <svg style="overflow: visible" bind:this={likelihoodSvg} width="400" height="400"></svg>
+    <div class="flex-1 flex flex-col items-center" style="padding: 1.5em; background-color: white; border-radius: 8px;">
+      <h4 class="whitespace-nowrap mb-2 font-sans text-xl text-center mt-0 font-medium">Average Log-Likelihood vs Steps</h4>
+      <svg style="overflow: visible" bind:this={likelihoodSvg} class="w-[400px] max-w-[90%]" viewBox="0 0 400 400"></svg>
     </div>
   </div>
 
   <!-- Number of points input -->
   <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-    <label for="numPoints" style="font-weight: 500; color: #333;">Number of Data Points:</label>
+    <label for="numPoints" class="font-mono text-sm">Number of Data Points:</label>
     <input
       id="numPoints"
       type="number"
@@ -527,18 +527,19 @@
       min="10"
       max="2000"
       step="10"
-      style="padding: 8px 12px; border: 2px solid #ddd; border-radius: 4px; font-size: 14px; width: 80px; text-align: center;"
+      class="font-mono text-sm"
+      style="padding: 8px 12px; width: 80px; text-align: center;"
     />
   </div>
 
   <!-- Control buttons -->
-  <div style="display: flex; gap: 15px; margin-bottom: 20px;">
-    <button on:click={handleReset} style="padding: 12px 24px; font-size: 16px; background-color: #6c757d; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: background-color 0.2s;">Reset</button>
-    <button on:click={handleRun} style="padding: 12px 24px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: background-color 0.2s;">Run Optimization</button>
-    <button on:click={handleStep} style="padding: 12px 24px; font-size: 16px; background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: background-color 0.2s;">Single Step</button>
+  <div class="flex flex-wrap max-md:w-full" style="display: flex; gap: 15px; margin-bottom: 20px;">
+    <button on:click={handleReset} class="max-md:w-full" style="padding: 12px 24px; font-size: 16px; background-color: #6c757d; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: background-color 0.2s;">Reset</button>
+    <button on:click={handleRun} class="max-md:w-full" style="padding: 12px 24px; font-size: 16px; background-color: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: background-color 0.2s;">Run Optimization</button>
+    <button on:click={handleStep} class="max-md:w-full" style="padding: 12px 24px; font-size: 16px; background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; transition: background-color 0.2s;">Single Step</button>
   </div>
 
-  <div id="status" style="margin-top: 10px; font-family: 'Courier New', monospace; background-color: #f8f9fa; padding: 12px 20px; border-radius: 6px; border: 1px solid #e9ecef; color: #495057; font-size: 14px; min-width: 600px; text-align: center;"></div>
+  <div id="status" class="whitespace-pre-wrap font-mono text-xs my-2"></div>
 </div>
 
 <style>

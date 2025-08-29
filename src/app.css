@@ -119,7 +119,7 @@ h3 {
   @apply font-serif;
   margin: 2.7em 0 0.8em;
   font-size: 1.5em;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.3em;
 }
 @media (max-width: 800px) {
@@ -342,4 +342,10 @@ p + video {
 img + p,
 video + p {
   margin-top: 2em;
+}
+
+.katex-display {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 2em 0;
 }
