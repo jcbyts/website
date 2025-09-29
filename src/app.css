@@ -344,8 +344,134 @@ video + p {
   margin-top: 2em;
 }
 
+/* Math equation responsive styles */
 .katex-display {
   max-width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   padding: 2em 0;
+  /* Smooth scrolling for math equations */
+  scroll-behavior: smooth;
+  /* Better scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.katex-display::-webkit-scrollbar {
+  height: 6px;
+}
+
+.katex-display::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.katex-display::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
+}
+
+.katex-display::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* Inline math responsive handling */
+.katex {
+  font-size: 1em;
+  /* Allow line breaking for very long inline equations */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Mobile-specific math adjustments */
+@media (max-width: 768px) {
+  .katex-display {
+    padding: 1.5em 0;
+    /* Slightly smaller font on mobile for better fit */
+    font-size: 0.9em;
+    /* Add subtle background to indicate scrollable area */
+    background: linear-gradient(90deg,
+      rgba(248, 250, 252, 0.8) 0%,
+      transparent 10%,
+      transparent 90%,
+      rgba(248, 250, 252, 0.8) 100%);
+    border-radius: 4px;
+    /* Add padding to prevent equations from touching edges */
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  /* Make inline math slightly smaller on mobile */
+  .katex {
+    font-size: 0.95em;
+  }
+
+  /* Ensure very long equations don't break layout */
+  .katex-display .katex {
+    min-width: max-content;
+  }
+}
+
+/* Very small screens (phones in portrait) */
+@media (max-width: 480px) {
+  .katex-display {
+    font-size: 0.85em;
+    padding: 1em 0.25em;
+  }
+
+  .katex {
+    font-size: 0.9em;
+  }
+}
+
+/* Enhanced scroll indicators for math equations */
+.katex-display.math-scrollable {
+  position: relative;
+}
+
+.katex-display.math-scrollable::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(90deg, transparent, rgba(248, 250, 252, 0.9));
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.katex-display.math-scrollable::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(90deg, rgba(248, 250, 252, 0.9), transparent);
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.katex-display.math-scrolling::before,
+.katex-display.math-scrolling::after {
+  opacity: 0.3;
+}
+
+/* Scroll hint styling */
+.math-scroll-hint {
+  transition: opacity 0.3s ease;
+}
+
+/* Better focus styles for accessibility */
+.katex-display:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Ensure math doesn't interfere with text selection */
+.katex-display .katex {
+  user-select: text;
+  -webkit-user-select: text;
 }

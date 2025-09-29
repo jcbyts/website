@@ -208,7 +208,7 @@ Now, even though $$Z$$ are just causes that the brain made up, that denominator 
 We're going to get around this by inventing a density we *can* evaluate and just try to optimize the parameters for that. We just invent a density we can evaluate, $$q_\phi(z\mid x)$$. Is this even reasonable? In the next section we'll see that it is and why it works is quite satisfying.
 
 <img src="/kl/Pworld_Pbrain_variational.png" class="" style="max-width: min(100%, 22em)" alt="P world and P brain (Variational)" />
-<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">The world still generates data. The brain wants to learn the hidden causes of the data. Again, it can only sample this data and must both adjust its internal model and infer the latent causes. Now it uses a variational approximation to the true posterior.</p>
+<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">The world still generates data. All samples come from p_world. The brain wants to learn the hidden causes in its generative model of the data. Again, it can only sample from p_world, but it does not evaluate it and z all live in p_brain. The brain adjusts its parameters, theta, and infers the latent causes, z. To do this, it uses a variational approximation to the true posterior. This is a distribution it knows how to evaluate and avoides the intractable integral.</p>
 
 ## Deriving the Evidence Lower Bound (a.k.a. Free Energy)
 
