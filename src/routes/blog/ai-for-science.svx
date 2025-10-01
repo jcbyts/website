@@ -1,7 +1,7 @@
 ---
-title: AI is going to revolutionize science
+title: AI for science
 date: 2025-9-15
-description: but maybe not the way you think
+description: AI is going to revolutionize science, but maybe not the way you think
 draft: false
 ---
 
@@ -60,3 +60,7 @@ We don’t publish the dead ends, the bad hunches, the intuitions that didn’t 
 This is why I’m bullish about AI (and about the future more broadly). The debates about whether algorithms are “intelligent” or whether AGI is coming soon feel beside the point to this.
 
 We don’t need AGI to make huge breakthroughs in science. I truly think we are just around the corner from having huge breakthroughs that result from LLMs. At this very moment, there are thousands of scientists talking to LLMs to help unlock a new way of thinking about their particular problems. At least one of them is going to make a breakthrough. Subtle finetuning of existing LLMs could dramatically increase the rate of these breakthroughs.
+
+
+### Acknowledgements
+Rohan Pandey of Periodic Labs 
