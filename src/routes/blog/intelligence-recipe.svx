@@ -1,0 +1,77 @@
+---
+title: Recipe for Intelligence
+date: 2025-9-30
+description: A recipe for building an intelligent agent
+draft: true
+---
+
+## AGI or Stone Soup?
+
+There's no denying that Large language models (LLMs) have been absolutely astonishing. Despite this, academics have largely denied that there is any intelligence there. Gary Marcus is the [loudest](https://fortune.com/2025/08/24/is-ai-a-bubble-market-crash-gary-marcus-openai-gpt5/) of the bunch, but its a fairly common stance: *whatever this is, it's not intelligence*. My favorite version of the critique is from Alison Gopnik, where she borrows the folktale of [Stone Soup](https://simons.berkeley.edu/news/stone-soup-ai) as a metaphor. LLMs only appear to be intelligent because they borrowed our intelligence as the ingredients.
+
+In contrast to the academics, experts on the industry side claim AGI "takeoff" might happen as soon as [2027](https://ai-2027.com/). I still hear regular confidence that digital agents will be solved with current approaches and there is widespread faith in [the Bitter Lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html). But now even Ruchard Sutton -- Mr. Bitter Lesson himself -- is making the rounds insiting that LLMs [can't get there](https://garymarcus.substack.com/p/game-over-for-pure-llms-even-turing).
+
+No matter how you slice it, we've run out of data, next-token prediction is not quite there. Slapping RL on top of LLMs is a start, but probably not enough. I think the cracks are showing and there's a growing chorus of voices calling for algorithmic development. Even a return to the diverse funding environment and pursuit of ideas that lead to the LLM breakthrough. I think that would be great, but I also think there are three key ingredients that are necessary for any intelligence and we should keep them in mind.
+
+## The Recipe
+
+In this post, I'm going to focus on the ingredients, because there are probably many ways to combine them. I think all intelligence will have these three core features. These are necessary (and possibly sufficient) for represnetations that support intelligence.  I introduce these in a particular order because they build on each other in sequence:
+
+-Geometry (Representation of Transformations)
+
+-Hierarchy (Coarse Graining)
+
+-Action (Active inference)
+
+## Geometry: A Rosetta Stone for Thought
+Geometry isn’t really about shapes. It is about how things relate to each other and the preservation of those relationships under certain transformations.
+
+- Rotate a square, and it’s still a square.
+
+- Transpose a melody into a higher key, and it’s still the same tune.
+
+- Move an object and all its parts move in relation to eachother.
+
+
+The structure and the transformations that preserve structure are central to understanding the world. And it is why geometry is the closest thing we have to a universal language. Ancient cultures discovered geometry independently: Greece (Euclid), China (Liu Hui), India (Sulba Sutras). Similarly, they discovered music theory and scales as frequency ratios. Why? Because it is a universal description of spacetime in the world we experience. 
+
+These ideas are quite old and so ubiquitious that philosophers wondered whether we have innate knowledge of geometry (what is known as "the Molyneux question"). Geometry is such a powerful way to describe the world that it transcends the individual senses. Imagine a blind person explaining an elephant to a sighted person (this is the opposite of the blind men and the elephant). Both people can easily understand the object because the descriptions of the structure and how it is transformed under actions are preserved.It's worth knowing that this is not a priori knowledge, but it can be learned increadibly rapidly. In a famous experiment investigating the Molyneux question, people who were blind from birth but recently gained sight (through cataract surgery) were able to learn to link visual experience to objects they had previously only experienced through touch in only days [of experience](https://opessoa.fflch.usp.br/sites/opessoa.fflch.usp.br/files/Molyneux_NatureNeuro2011.pdf). Geometry, then, becomes a Rosetta stone for the different parts of the brain. Vision, touch, and movement don’t share raw signals, but they can all agree on relational structure — which edge stayed parallel, which object just rotated. And humans can integrate uncertainty across modalities optimally. 
+
+Now, I am not claiming that geometry is explicitly represented, but whatever architecture is used to train intelligence must support the learning of transformations. In the extreme, this might be explicitely represented: like in the way the convolutions in a CNN are equivariant to translations. It is possible that geometric deep learning will prove the most fruitful. But it is likely something more relaxed will work just as well. What is most important is that moving features around in latent space should preserve the relationships between them just as moving things around in the world should preserve the relationships between them. There are likely many architectures that can support this, but it is essential. And current LLMs don't seem to have it.
+
+Despite all of the training data containing preserved relationships, LLMs don’t really capture geometry like I mean here. To do what they do, they do capture relationships, but they are not preserved under transformations. Interpretability work, especially from Anthropic, shows that concepts live in superposition — linearly mixing multiple entangled concepts in the same dense representations. The interpretability team at Anthropic highlighted the capacity to represnet high-dimensional concepts in a fixed latent space, which may also be a feature of some parts of the cortex (Rigotti). That’s why some researchers call LLMs paradoxically under-parameterized. Not because they’re too small — they have billions of weights — but because the way they represent concepts doesn’t carve out stable dimensions for preserving relationships.  They are underparameterized because they have to represent every instance of a concept, rather than the concept and transformations of it. 
+
+LLMs suffer just like Borges's "Funes the Memorious". In "Funes the Memorious", The titular character has a sort of brain damage where he remembers everything in excruciatingly particular detail but is unable to grasp abstract ideas. A dog seen at noon and later in the day are two different things to Funes. If this is your reality, with no ability to represent transformations, you can't have intelligence. And you are under-parameterized.
+
+So, part 1 of the recipe is geometry. And by that, I simply mean an architecture that facilitates the learning of relationships and transformations. 
+
+## Hierarchy (Coarse Graining)
+
+Intelligence isn’t about recording detail. In fact, it's the opposite, it's about throwing away detail, abstracting. The way we solve this is with hierarchy: compressing fine-grained signals into coarser, more abstract ones, while keeping their relationships intact (remember that last bit about Geometry).
+
+Hierarchical abstraction is essential for reasoning. When deciding which college to attend or job to take, you don’t simulate every sock you’ll wear. You think in broader abstractions.
+
+Similarly, in visual cortex, neurons at early stages respond to edges; higher stages combine those into shapes, then objects, then categories. Now wait a minute. Don't deep neural networks do this too? Yes, but not in the same way. The hierarchy in deep neural networks does get more abstract (e.g., object selectivity emerges in deep layers of CNNs), but because they are not explicitly representing transformations, the abstractions are not useful for abstract reasoning. Think about zooming out on Google maps, the streetnames and details disappear and more abstract concepts like pedestrian zones become visible. That is similar in the layers of a CNN or transformer. But now move the map and zoom back in and all the details are still there. That breaks in LLMs. Similarly, if I move a coffee cup from the table to my mouth, the image drawn on the side of the cup will move with it. Meaningful hierarchy only comes when transformations are represented and relationships are preserved.
+
+LLMs, despite being “deep” networks, don’t quite have this kind of hierarchy. Tracking concepts between layers in transformer architectures is a sparse thread through a dense web of attention mechanisms. Change one concept and a different web appears. That is why it takes whole additional neural networks to understand how a concept flows through the levels of Claude.
+ 
+And this is exactly where geometry and hierarchy intertwine: hierarchy without geometry doesn’t hold together. If the transformations aren’t consistent across levels, abstractions drift and lose meaning. The map you zoom out on at one level has to remain coherent when you zoom back in. 
+
+So, part 2 of the recipe is hierarchy. And by that, I mean an architecture that facilitates the learning of abstractions while still obeying the geometry.
+
+## Action (Active Inference)
+
+Action is the most important but it makes more sense if I present the other two first. Intelligence isn’t prediction; it’s intervention and counterfactual reasoning. We need to understand consequences. We act to learn—move our eyes, ask questions, try an experiment. In fact, learning largely doesn't happen without [action](https://dl.acm.org/doi/10.1145/3325480.3325525). This is a point that Sutton [makes](https://www.dwarkesh.com/p/richard-sutton) and I agree with him on this. Intelligent action requires a model of the world, and a good model of the world requires action. 
+
+To motivate this, I want to draw an example from our recent AI past: [Move 37](https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol). Move 37 was a move played by AlphaGo in its historic match against Lee Sedol in 2016. Move 37 was a move that no human would make (I don't know enough about Go to say more) and Alpha Go ended up winning the game. An exciting result of new wildly unconventional moves, human Go performance, which had saturated started [improving](https://www.pnas.org/doi/epdf/10.1073/pnas.2214840120). I think it's fairly safe to argue that a model trained only using next-token prediction on human games likely wouldn’t invent it. Action mattered.
+
+LLM-based digital agents now all have some RL on top of it, but it's probably not enough. They are still burdened with tHe represnetations they learned during pretraining.  They are not good representations for action. As already mentioned in the above sections (and detailed thoroughly by Anthropic) they are, in fact, particularly bad representations for acting. They are entangled. They are not compositional. 
+
+Here, I think active inference has the right starting point. The fundamnetal representation that needs to be learned is an action-conditioned state transition model. From the get go, the network must learn how the latents change when actions are taken. This is the starting point for active inference. What happens next, how you select actions, whether there is a value function, etc. are all secondary. 
+
+## Inferring the self. Good representations are actionable
+
+A real brain is not given data. It's housed inside a body and all sense data from the world is captured while moving through it. Hold your self as still as possible and you will notice that it is impossible. Your eyes move from word to word as you read this. So, the first thing you need to learn in the world is how to disentangle the self from all the input data. That is essential for intelligence. To be able to learn a world model and simulate counterfactual universes from it, you need to be able to disentangle the self from the world. Further, you ened to be able to infer what in the world will change when you take an action. This is essentialy what Gibson meant when he said we perceive affordances.
+
+An action-conditioned state transition model is the essential building block for intelligence. In this sence the Friston camp is right. The [``universal generative model''](https://www.verses.ai/research-blog/why-learn-if-you-can-infer-active-inference-for-robot-planning-control) has this key ingredient. And often, it comes with hierarchy. Where it fails, is that the models are often linear generative models and these representations do not facilitate the learning of transformations or the preservation of relationships across levels or with action. And that is essential.
+

@@ -1,7 +1,7 @@
 ---
-title: Data Quality Issues pervasive in systems neuroscience
+title: Why I don't trust most neuroscience results
 date: 2024-1-14
-description: Electrode drift
+description: Data quality issues are pervasive in neuroscience
 draft: false
 ---
 

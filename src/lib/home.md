@@ -1,68 +1,17 @@
 <script>
   import LinesHr from "../components/LinesHr.svelte";
-  import LatestPublications from "../components/LatestPublications.svelte";
+  import LatestThoughts from "../components/LatestThoughts.svelte";
 </script>
-
-# The Active Vision and Neural Computation Lab
-
-<!-- My lab is recruiting PhD students and postdocs. If you're interested in working together, shoot me an [email](mailto:yates@berkeley.edu). Open positions and projects are [listed below](#open-positions-and-pre-requisites). -->
-
-Research in the lab is broadly focused on how brains use vision to understand and move about the world.
-
-## Embodied vision
-Vision necessarily depends on movement because the light sensor we use (the retina) is stuck to the back of the eyes, which are constantly moving. Because of these movements, most new visual sensory stimulation is a result self-motion (movement of the eyes and head). In the lab, we are interested in understanding how these movements are part of the neural code.
-
-
-## Approach
-
-We approach our research questions by collaborating closely with neurophysiologists. We help design experiments and analyze neural data collected in other labs using [high-resolution eye tracking](https://www.nature.com/articles/s41467-023-38564-9). We also develop brain-inspired [generative models](https://openreview.net/pdf?id=ektPEcqGLb) and think about what it is that all brains are even doing.
-
-
-#### Open positions and pre-requisites
-
-I'm currently not looking to hire, but I'm always interested in talking with talented students and postdocs if you're interested in working together. Shoot me an, yates@berkeley.edu, if you're interested!
-
-<!-- #### Open positions and pre-requisites
-
-I am looking for students and postdocs to join my lab. The work we do is fairly technical, so it is helpful to have some existing skills in machine learning and statistical modeling.
-
-Students and postdocs will be encouraged to connect across these multiple topics.
-
-**Postdoc/PhD student for Machine Learning Models of Visual Neural Activity**
-
-I am recruiting a highly motivated and skilled postdoc and PhD student to develop and analyze predictive machine learning models for cortical and subcortical visual areas in free-viewing monkeys. Collaborations are ongoign with Professors Jude Mitchell, Alex Huk, Bevil Conway, and Greg Horwitz. For more information on the data and approach, see our recent [preprint](https://www.biorxiv.org/content/10.1101/2021.11.06.467566v1.full).
-
-The candidate is expected to develop novel data-driven CNN-based machine learning models for recorded neurons in LGN, V1, V2, V4, and MT cortex, analyze the trained models to better understand how populations of neurons in visual cortex are modulated by behavior and eye movements. The cadidate will develop predictions that can be tested in subsequent neurophysiological or psychophysical experiments. The position is purely computational, but the candidate is expected to work closely with the experimental collaborators.
-
-The ideal candidate has a degree in machine learning, physics, math, electrical engineering, or related fields, and a strong background in mathematics, machine learning, or statistics, with prior experience in (computational) neuroscience.
-
-**How to apply:**
-
-If you're interested in joining the lab, I'd love to hear from you! To make sure it's a good fit for you and the lab, [email me](mailto:yates@berkeley.edu) with the following information:
-
-- Your Curriculum Vitae.
-- A short statement of purpose outlining your interest in this research area.
-- A short list of your existing skills and those you would like to acquire.
-- Known programming languages and experience with pytorch. Any example code (e.g., on github or bitbucket).
-- Possible start date.
-
-The subject line should indicate whether you are interested in a postdoc of PhD student position. -->
-
 
 <LinesHr />
 
-## Current research topics
+## Hi, I'm Jake! 
 
-### Active vision and generative models
+I'm an Assistant Professor at UC Berkeley. My lab is located in the [Herbert Wertheim School of Optometry and Vision Science](https://vision.berkeley.edu/), the [Redwood Center for Theoretical Neuroscience](https://redwood.berkeley.edu/), and the [Helen Will Neuroscience Institute](https://hwni.berkeley.edu/). I'm broadly interested in how brains and artificial intelligence makes sense of the world. This is my personal website. The Yates lab website can be found [here](https://yates-lab.github.io/).
 
-All animals with image-forming eyes sample the workd with a “saccade and fixate” pattern of eye movements. Fixations are not snapshots. The eyes are never still, counter-rotating relative to body and/or head movements, and drifting during “fixations”, such that the input to the retina is better thought of as a spatiotemporal movie instead of a stable (or unstable) image. Our research aims to understand the algorithms the brain uses (in cortical visual areas) to utilize information that is generated by the motion of the eyes. To approach this, I use a combination of high-resolution eye-tracking and statistical models of both the visual input and neural activity in visual cortex.
-
-### Foveal Processing and eye movements
-
-Humans see best at the very center center of their visual field. This "high-resolution" region is called the fovea and, among mammals, only primates have one. The primate fovea is a highly-specialized anatomical adaptation for high-resolution spatial vision and it differs substantially from the peripheral retina and the retinas of other mammals.
 
 ---
 
-## Latest Publications
+## What I'm thinking about...
 
-<LatestPublications title="HI" />
+<LatestThoughts />
