@@ -1,0 +1,62 @@
+---
+title: AI is going to revolutionize science
+date: 2025-9-15
+description: but maybe not the way you think
+draft: false
+---
+
+## AI for Science
+
+I’m excited about the future. Despite all the volatility in the world, I think the next 10 years are going to bring major breakthroughs in science. That’s ultimately good for humanity. I think AI is going to play a huge role in driving this. "AI for science" is not a new idea, but it tends to mean different things to different people. Here, I'm going to summarize three paths I see and highlight the one I think will bear the most fruit in the short term.
+
+## Three paths for AI in Science
+
+### Path One: Science as Optimization
+This is the most common version I've heard. Just let AI solve the problem. This is the [AlphaFold](https://deepmind.google/science/alphafold/) path: Take your scientific question, reformulate it as an optimization problem, collect a ton of data, pray to the Bitter lesson gods, and hope your AI can solve it.
+
+This path will lead to major medical breakthroughs. I have no doubt about this. But I’m not *that* excited about it for science. This path kind of cuts the human scientist out of the loop and it doesn't really lead in any direct way to *understanding*. It is exciting for humanity at large, but it's not really my favorite. From my point of view, Science is in the business of *why* things are. Why is the sky blue? Why does this bright light appear in the sky at this time of year? For that, we want [parsimonious explanations](https://www3.itp.tu-berlin.de/fileadmin/a3233/upload/SS07/MMP/WignerNobelLect_01.pdf). That requires theory, theory that humans can interpret. 
+
+I suspect most practicing scientists are not that excited about this path either. With science as optimization, practicing scientists exist to collect and format data for AI. A subset have already embraced this idea and many are working on how to scale up data collection and model fitting. In neuroscience, we already do versions of this—predicting neural activity given measured behavior and sensory signals. There are already efforts underway to build large [foundation models of neural activity](https://www.nature.com/articles/s41586-025-08829-y). I'm on board. Let's get the big foundation models for science. This will lead to medical breakthroughs, but I don't think it's the most exciting path forward for the human endeavor we call "science".
+
+### Path Two: AI-driven Discovery
+An althernate path is that AI will lead the way in generating new (theoretical) discoveries. To borrow another Deepmind model, this is the AlphaGo path. AlphaGo is reinforcement learning model trained to play the game of Go. It beat Lee Sedol in 2016, and famously utilized a move ([move 37](https://x.com/karpathy/status/1884336943321997800?lang=en)) that no human would've ever made. What is exciting about this direction is not that AI became the best Go player. What is exciting is that human play got better after AlphaGo.
+
+Go is an ancient game. People had been playing it for centuries, and by many accounts, human performance had plateaued. Then move 37 came along and human players had to rethink the game. It created new gradients for humans to learn. This effect was quantified [here](https://www.pnas.org/doi/10.1073/pnas.2214840120) and it really highlights that an AI thinking "outside the box" can unlock paradigm shifts in otherwise stagnant fields of human study (here, Go). This is incredibly exciting. Think about all the fields where progress has slowed. AI could approach a scientific problem entirely differently, make a move we would never consider, and suddenly the entire landscape shifts. That’s a real breakthrough in understanding.
+
+<img src="/aiforscience/goDQI.png" class="" style="max-width: min(100%, 22em)" alt="Human Go moves improved after AlphaGo" />
+<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">Human Go moves improved in quality after AlphaGo. At a minimum they changed. The AI didn't just beat human players, it unlocked new gradients for learning among humans. This is the kind of paradigm shifting breakthrough that can happen with AI-dreiven discovery.</p>
+
+I'm excited about this path, but it has two obstacles. One is sociological and the other is technical. The sociological obstacle is that scientists will not like being "led" by AI. This sounds too much like "replacement". We don't just want to be technicians in a lab run by AIs, at least most scientists won't. I think it is exciting that the humans will improve through a partnership with the AI, but I don't think many will see it that way.
+
+The technical obstacle is that we don't have the right tools to train AI to make these kinds of discoveries. Notably, AlphaGo was trained with RL the entire way. It was able to learn through action and play Go in simulation. Until we can simulate the phsyical world accurately enough and with enough fidelity, or let AIs run science labs in the real world and update their knowledge, this is probably unlikely in the short term. I think it is unlikely that a model trained on next token prediction from all human Go moves could have made the breakthrough that AlphaGo did. I wonder whether slapping an RL layer on top of such a model would do as well. Basically, this is an exciting open area of research. Not something that can be solved now (in contrast to path one, which is available now).
+
+### Path Three: AI as a Thinking Partner
+The third path is somethign I think is more immediate, more appealing to scientists, and more likely to bear fruit in the short term. This is AI as a thinking tool. Scientists already do this. Additionally, it's totally orthogonal to any discussion about whether LLMs are "intelligent" or how to get AGI. 
+
+I use LLMs all the time to help me think through ideas. They're particularly helpful for math and code -- things that are hard to generate, but easy to verify. I've talked to PhD students in physics who claim ChatGPT (especially o3, but now 5) has completely changed their ability to solve tough problems. They even talk about learning to recognize “o3-shaped problems”, math problems that are particularly well-suited for ChagGPT o3. This is already a huge tool for thinking.
+
+### What’s Missing Right Now?
+
+There are two scenarios that I think LLMs should be good at but are not. 
+
+##### "I have a nail, find me a hammer"
+I’ve identified a bespoke problem that I am a domain expert in. Search all the scientific literature to find some esoteric piece of math that solves the problem and explain it to me. This seems very doable right now. It's about building the right structures to facilitate it.
+
+Models are okay at this, but nowhere near as good as they could be with only minor changes.
+
+##### "I have two hammers, can you combine them to build a screwdriver?"
+Okay, this metaphor is less good, but it shows up a lot. Not only can I articulate the problem well, but I also have identified two relevant papers that provide partial solutions. If only I could combine them.
+
+Here, the breakthrough is in combining two existing ideas. Current LLMs are surprisingly bad at this. What they can do—which is suprising given that they can't direclty combine the two papers—is explain each paper well enough that I, the scientist, can then see the connection and do the combining myself. So the missing piece is the ability to actually do that synthesis. 
+
+Scientists naturally this type of integration and synthesis. If we had all the training data in our heads, we couldn't help but see connections across fields and domains. Why can't the LLMs do it?
+
+I think one explanation that seems likely to me is that the training data don't show the actual process of science. ALl of our scientific literature (all text books, papers, etc.) is written with the end product. In fact, we write stories that don't even resemble the process of discovery. 
+
+We don’t publish the dead ends, the bad hunches, the intuitions that didn’t pan out -- the **thinking**. We publish logical threads after we already know the answer. No wonder LLMs can't get there. Now, we could make breakthroughs in RL/continual learning and have AI-run labs that learn to think, but I don't think we necessarily need that. I think we can get there now with slightly better training data. And that training data likely already exists in the millions of chats between scientists and LLMs. Scientists are already thinking through their problems with LLMs. We just need better ways of flagging users and chats that highlight thinking and use those.
+
+## The Opportunity Ahead
+
+This is why I’m bullish about AI (and about the future more broadly). The debates about whether algorithms are “intelligent” or whether AGI is coming soon feel beside the point to this.
+
+We don’t need AGI to make huge breakthroughs in science. I truly think we are just around the corner from having huge breakthroughs that result from LLMs. At this very moment, there are thousands of scientists talking to LLMs to help unlock a new way of thinking about their particular problems. At least one of them is going to make a breakthrough. Subtle finetuning of existing LLMs could dramatically increase the rate of these breakthroughs.
