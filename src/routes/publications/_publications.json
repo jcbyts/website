@@ -1,34 +1,130 @@
 [
   {
-    "authors": "Liska JP, Rowley DP, Nguyen TTK, Muthmann J, Butts DA, Yates JL, Huk AC",
-    "year": 2022,
-    "title": "Running modulates primate and rodent visual cortex via common mechanism but quantitatively distinct implementation",
-    "journal": "Preprint",
-    "link": "https://www.biorxiv.org/content/10.1101/2022.06.13.495712v2"
+    "authors": "H Vafaii, D Galor, JL Yates",
+    "year": 2025,
+    "title": "Brain-like variational inference",
+    "journal": "arXiv preprint (accepted at NeurIPS)",
+    "link": "https://arxiv.org/abs/2410.19315"
   },
 
   {
-    "authors": "Parker PRL, Martins DM, Leonard ESP, Casey NM, Sharp SL, Abe ETT, Smear EC, Yates JL, Mitchell JF, Niell CM",
-    "year": 2022,
+    "authors": "M Cai, D Galor, APS Kohli, JL Yates, L Waller",
+    "year": 2025,
+    "title": "Event2audio: Event-based optical vibration sensing",
+    "journal": "2025 IEEE International Conference on Computational Photography (ICCP)",
+    "link": "https://arxiv.org/abs/2507.03273"
+  },
+
+  {
+    "authors": "RA Ressmeyer, J Otero-Millan, GD Horwitz, JL Yates",
+    "year": 2025,
+    "title": "OpenIrisDPI: An Open-Source Digital Dual Purkinje Image Eye Tracker for Visual Neuroscience",
+    "journal": "bioRxiv",
+    "link": "https://www.biorxiv.org/content/10.1101/2025.04.18.649589v1"
+  },
+
+  {
+    "authors": "R Cao, D Galor, A Kohli, JL Yates, L Waller",
+    "year": 2025,
+    "title": "Noise2Image: noise-enabled static scene recovery for event cameras",
+    "journal": "Optica",
+    "link": "https://arxiv.org/abs/2404.01298"
+  },
+
+  {
+    "authors": "I Kang, BC Talluri, JL Yates, CM Niell, H Nienborg",
+    "year": 2025,
+    "title": "Is the impact of spontaneous movements on early visual cortex species specific?",
+    "journal": "Trends in Neurosciences",
+    "link": "https://www.cell.com/trends/neurosciences/fulltext/S0166-2236(24)00228-5",
+    "highlights": [
+      {
+        "title": "Transmitter article covering our work",
+        "link": "https://www.thetransmitter.org/animal-models/monkey-studies-throw-wrench-into-decade-old-idea-about-movements-effect-on-visual-cortex/"
+      }
+    ]
+    
+  },
+
+  {
+    "authors": "H Vafaii, D Galor, JL Yates",
+    "year": 2024,
+    "title": "Poisson variational autoencoders",
+    "journal": "Advances in Neural Information Processing Systems",
+    "link": "https://openreview.net/forum?id=ektPEcqGLb&referrer=%5Bthe%20profile%20of%20Hadi%20Vafaii%5D(%2Fprofile%3Fid%3D~Hadi_Vafaii1)"
+  },
+
+  {
+    "authors": "JP Liska, DP Rowley, TTK Nguyen, JO Muthmann, DA Butts, JL Yates, AC Huk",
+    "year": 2024,
+    "title": "Running modulates primate and rodent visual cortex differently",
+    "journal": "Elife",
+    "link": "https://elifesciences.org/reviewed-preprints/87736"
+  },
+
+
+  {
+    "authors": "R Sadeghi, R Ressmeyer, JL Yates, J Otero-Millan",
+    "year": 2024,
+    "title": "Open Iris-an open source framework for video-based eye-tracking research and development",
+    "journal": "Proceedings of the 2024 symposium on eye tracking research and applications",
+    "link": "https://dl.acm.org/doi/10.1145/3649902.3653348"
+  },
+
+  {
+    "authors": "SH Coop, JL Yates, JF Mitchell",
+    "year": 2024,
+    "title": "Pre-saccadic neural enhancements in marmoset area MT",
+    "journal": "Journal of Neuroscience",
+    "link": "https://www.jneurosci.org/content/44/4/e2034222023"
+  },
+
+  {
+    "authors": "CD Greenidge, B Scholl, JL Yates, JW Pillow",
+    "year": 2024,
+    "title": "Efficient decoding of large-scale neural population responses with Gaussian-process multiclass regression",
+    "journal": "Neural computation",
+    "link": "https://direct.mit.edu/neco/article/36/2/175/118688/Efficient-Decoding-of-Large-Scale-Neural"
+  },
+
+  {
+    "authors": "H Vafaii, JL Yates, D Butts",
+    "year": 2023,
+    "title": "Hierarchical VAEs provide a normative account of motion processing in the primate brain",
+    "journal": "Advances in Neural Information Processing Systems",
+    "link": "https://openreview.net/forum?id=1wOkHN9JK8&noteId=C4pzpnZd0y"
+  },
+
+  {
+    "authors": "PRL Parker, DM Martins, ESP Leonard, NM Casey, SL Sharp, ETT Abe, EC Smear, JL Yates, JF Mitchell, CM Niell",
+    "year": 2023,
     "title": "A dynamic sequence of visual processing initiated by gaze shifts",
-    "journal": "Preprint",
-    "link": "https://www.biorxiv.org/content/10.1101/2022.08.23.504847v1"
+    "journal": "Nature neuroscience",
+    "link": "https://www.nature.com/articles/s41593-023-01481-7"
   },
 
   {
-    "authors": "Talluri BC, Kang I, Lazere A, Quinn KR, Kaliss N, Yates JL, Butts DA, Nienborg H",
-    "year": 2022,
+    "authors": "BC Talluri, I Kang, A Lazere, KR Quinn, N Kaliss, JL Yates, DA Butts, H Nienborg",
+    "year": 2023,
     "title": "Activity in primate visual cortex is minimally driven by spontaneous movements",
-    "journal": "Preprint",
-    "link": "https://www.biorxiv.org/content/10.1101/2022.09.08.507006v1"
+    "journal": "Nature Neuroscience",
+    "link": "https://www.nature.com/articles/s41593-023-01459-5"
   },
 
   {
-    "authors": "JL Yates, SH Coop, GH Sarch, R Wu, D Butts, M Rucci, JF Mitchell",
-    "year": 2021,
-    "title": "Beyond Fixation: detailed characterization of neural selectivity in free viewing primates",
-    "journal": "Preprint",
-    "link": "https://www.biorxiv.org/content/10.1101/2021.11.06.467566v1"
+    "authors": "JL Yates, SH Coop, GH Sarch, RJ Wu, DA Butts, M Rucci, JF Mitchell",
+    "year": 2023,
+    "title": "Detailed characterization of neural selectivity in free viewing primates",
+    "journal": "Nature Communications",
+    "link": "https://www.nature.com/articles/s41467-023-38564-9"
+  },
+
+  {
+    "authors": "JL Yates, B Scholl",
+    "year": 2022,
+    "title": "Unraveling Functional Diversity of Cortical Synaptic Architecture Through the Lens of Population Coding",
+    "journal": "Frontiers in Synaptic Neuroscience",
+    "link": "https://www.frontiersin.org/journals/synaptic-neuroscience/articles/10.3389/fnsyn.2022.888214/full"
   },
 
   {
