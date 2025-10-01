@@ -1,7 +1,7 @@
 ---
 title: AI for science
 date: 2025-9-15
-description: AI is going to revolutionize science, but maybe not the way you think
+description: AI is going to revolutionize science, but there are multiple paths
 draft: false
 ---
 
