@@ -4,7 +4,7 @@
   import { onMount } from 'svelte';
 
   export let data
-  const {title, slug, url, draft, date, layout="default", Content} = data
+  const {title, slug, url, draft, date, layout="default", hideDefaultHeader=false, Content} = data
 
   $: isFullWidth = layout === "full-width";
   const formatDate = timeFormat("%b %e, %Y");
@@ -73,12 +73,14 @@
   />
 </svelte:head>
 
-<h1 class="mb-0">{title}</h1>
-<div class="mt-5 font-sans text-gray-500">
-  {formatDate(new Date(date))}
-</div>
+{#if !hideDefaultHeader}
+  <h1 class="mb-0">{title}</h1>
+  <div class="mt-5 font-sans text-gray-500">
+    {formatDate(new Date(date))}
+  </div>
+{/if}
 
-<div class="content mt-10 -mx-14 font-serif" class:breakout={isFullWidth}>
+<div class="content {hideDefaultHeader ? '' : 'mt-10 -mx-14'} font-serif" class:breakout={isFullWidth}>
   <div
     class="bg-white py-16 px-14 shadow-2xl shadow-blue-50 {isFullWidth
       ? 'mx-[2em]'
