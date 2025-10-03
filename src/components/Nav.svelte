@@ -32,4 +32,17 @@
     display: flex;
     align-items: center;
   }
+
+  @media (max-width: 768px) {
+    nav {
+      margin: 0;
+      padding: 0.9em 0.5em;
+    }
+    .link {
+      padding: 0.3em 0.8em;
+    }
+    .links {
+      gap: 0.5rem;
+    }
+  }
 </style>

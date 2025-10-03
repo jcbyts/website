@@ -77,6 +77,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -97,6 +98,7 @@ body {
 @media (max-width: 800px) {
   body {
     font-size: 1em;
+    overflow-x: hidden;
   }
 }
 
@@ -241,6 +243,27 @@ button:not(.plain) {
   max-width: min(57em, 90vw);
   min-height: 90vh;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 95vw;
+    padding: 0 0.75rem;
+  }
+
+  /* Ensure text doesn't overflow on mobile */
+  p, h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Prevent horizontal scrolling */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 .breakout {

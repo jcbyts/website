@@ -36,7 +36,7 @@ Geometry isn’t really about shapes. It is about how things relate to each othe
 
 - Move an object and all its parts move in relation to each other.
 
-Here is my working definition of geometry: the relational structure of things and the transformations that preserve that structure. Both the relationships and the transformations should be learned from data, but the architecture should make that learning natural rather than fragile.
+Here is the working definition of geometry I will use here: the relational structure of things and the transformations that preserve that structure. Both the relationships and the transformations should be learned from data, but the architecture should make that learning natural rather than fragile.
 
 This idea shows up everywhere. Ancient cultures discovered geometry independently: Euclid in Greece, Liu Hui in China, the Sulba Sutras in India. They also discovered music scales built on frequency ratios. Why? Because the world is structured around such invariances, and brains are especially good at discovering them.
 

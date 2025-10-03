@@ -10,10 +10,10 @@
 
 <h1>Thoughts</h1>
 
-<div class="space-y-12 md:-mx-14">
+<div class="space-y-12 -mx-2 md:-mx-14">
   {#each posts.filter((d) => !d.draft && d.slug) as { slug, title, date, description } (slug)}
     <article
-      class="bg-white flex flex-col py-6 md:py-10 px-5 md:px-14 shadow-lg shadow-stone-50"
+      class="bg-white flex flex-col py-6 md:py-10 px-3 md:px-14 shadow-lg shadow-stone-50"
     >
       <header class="flex flex-col">
         <a href="/blog/{slug}">

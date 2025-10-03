@@ -31,11 +31,11 @@
   });
 </script>
 
-<div class="-mx-14 space-y-12">
+<div class="space-y-12 -mx-2 md:-mx-14">
   {#each posts as post, i (post.slug)}
     <div in:fly|global={{ x: -30, delay: i * 200 }}>
       <article
-        class="bg-white flex flex-col py-6 md:py-10 px-5 md:px-14 shadow-lg shadow-stone-50"
+        class="bg-white flex flex-col py-6 md:py-10 px-3 md:px-14 shadow-lg shadow-stone-50"
       >
         <header class="flex flex-col">
           <a href="/blog/{post.slug}">
