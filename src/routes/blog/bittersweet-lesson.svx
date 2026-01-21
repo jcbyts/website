@@ -1,0 +1,59 @@
+---
+title: The Bittersweet Lesson
+date: 2025-9-30
+description: We want AI agents that "learn like we do". What does that even mean?
+draft: true
+---
+
+## The Bittersweet Lesson
+
+Richard Sutton’s [*Bitter Lesson*](http://www.incompleteideas.net/IncIdeas/BitterLesson.html) has been one of the most influential essays in AI. It distilled decades of experience into a simple truth: the methods that perform best are general purpose methods that **scale**, not the ones that **encode our intuitions**. Sutton argued that over time, hand-designed representations always lose to general-purpose learning and search.
+
+But the *final paragraph* of *The Bitter Lesson* walks a internally contradictory tightrope. I've reproduced it in full here so you can see that I'm not misrepresenting it:
+
+> “The second general point to be learned from the bitter lesson is that the actual contents of minds are tremendously, irredeemably complex; **we should stop trying to find simple ways to think about the contents of minds**, such as simple ways to think about space, objects, multiple agents, or symmetries. All these are part of the arbitrary, intrinsically-complex, outside world. They are not what should be built in, as their complexity is endless; instead we should build in only the meta-methods that can find and capture this arbitrary complexity. Essential to these methods is that they can find good approximations, but the search for them should be by our methods, not by us. **We want AI agents that can discover like we can**, not which contain what we have discovered. Building in our discoveries only makes it harder to see how the discovering process can be done.” [emphasis is mine]
+
+Sutton wants agents that *learn like we do*, yet insists we abandon any attempt to understand or embed the structures that make such learning possible. Now that Sutton is making the rounds arguing that [LLMs do not qualify as the Bitter Lesson](https://www.dwarkesh.com/p/richard-sutton), because they don't discover "like we can", it seems reasonable to take stock of what *like we can* means.
+
+## Agents that learn "like we do"
+
+The most concrete lesson neuroscience and psychology has to offer is that biological brains don’t start *tabula rasa*. They have strong inductive biases. If we want agents that learn like we do, these priors aren’t obstacles to generality—they’re its enablers. 
+Tony Zador has a nice review on this idea [here](https://www.nature.com/articles/s41467-019-11786-6), where he argues that the design principles of biological intelligence clearly deviate from general-purpose learning and that we should follow biology's guidance. Zador's review focuses heavily on "animal intelligence", and both Zador and Yann LeCun seem to think that solving animal intelligence is a [stepping stone](https://x.com/ylecun/status/1622300311573651458) to human-level intelligence. Here, I'm going to restrict the "we" in "learn like we do" to humans (and some other primates), and I'm going to focus on vision. My goal is to convince you to abandon the idea of completely general-purpose algorithms in favor of slighlty general purpose.
+
+### Example 1: Children seeing for the first time
+There are thousands of videos online capturing the [same moment](https://www.youtube.com/shorts/b4BdJI7CI1E): a child who has never seen clearly puts on glasses for the first time. Usually they struggle against the glasses while they're being put on, and then, the moment they look the through the lenses, the reaction is instantaneous. Their whole face lights up as the world snaps into focus. There’s no learning curve, no calibration period. This is zero-shot generalization. The world they already learned in low detail generalizes instantly to the full detail.
+
+A more extreme example of this genearlization comes from children who were born blind. A classic philophical question, [Molyneux’s problem](https://en.wikipedia.org/wiki/Molyneux%27s_problem), asks whether a person born blind, upon gaining sight, recognize shapes they had only known by touch? Amazingly, we now have the empirical answer. People born with cataracts who have their vision restored 
+
+Some geometry existed with no visual experience: https://pmc.ncbi.nlm.nih.gov/articles/PMC9879291/
+
+
+eople with restored vision can [match across senses](https://opessoa.fflch.usp.br/sites/opessoa.fflch.usp.br/files/Molyneux_NatureNeuro2011.pdf). Chickens [solve versions](https://royalsocietypublishing.org/doi/10.1098/rsbl.2024.0025) of Molyneux's problem instantly. Neuroscientists think working memory uses [ring attractors](https://www.pnas.org/doi/10.1073/pnas.2210622120) and cognitition leverages [codes for physical space](https://www.sciencedirect.com/science/article/pii/S0896627318308560?utm_source=chatgpt.com). 
+
+
+
+
+### Example 2: Face patches
+
+### Example 3: Prism goggles
+
+
+
+https://www.nature.com/articles/nn.4635
+
+https://www.science.org/doi/10.1126/science.1135163
+
+flys represent head direction in a [literal ring of neurons](https://www.simonsfoundation.org/2017/08/01/in-fruit-fly-brain-a-ring-for-navigation/). Humans and chicks can generalize from one modality to another with very little training. 
+
+<img src="/kl/Pworld_Pbrain_simple.png" class="" style="max-width: min(100%, 22em)" alt="P world and P brain" />
+<p style="text-align: center; font-style: italic; margin-top: 0.5em; color: #666;">The world generates data. The brain can only sample this data and must adjust its own internal model to match. In all cases, the brain can only evaluate its own model density p_brain.</p>
+
+
+The lesson is that vision, touch, movement, and thought can align `because they share relational structure. Geometry provides a common representational format across modalities.
+
+This is where today’s LLMs fall short. They do exhibit some relational structure (king–man+woman≈queen), but many features live in [superposition](https://transformer-circuits.pub/2023/monosemantic-features/index.html), entangled in shared dimensions rather than cleanly factorized. That makes transformations brittle and [context-dependent](https://transformer-circuits.pub/2025/attribution-graphs/methods.html). A concrete example comes from video models like Sora: one of the main advances in Sora 2 was ["stronger frame consistency"](https://dev.to/alifar/sora-2-next-generation-text-to-video-ai-explained-acl). But why was consistency a problem in the first place? Because the underlying representations weren’t biased toward stability under transformation. Geometry is precisely about this kind of stability. The right inductive bias makes consistency the default, not a patch.
+
+At their worst, models without geometry resemble Borges’s [Funes the Memorious](https://www.nature.com/articles/475453a). The titular character has a sort of brain damage where he remembers everything in excruciatingly particular detail but is unable to grasp abstract or maintain stable representations as they transform over time and space: Funes experiences the mane of a horse as a constantly changing flame that is in contrast to our (normal people's) [intuition of a simple geometric shape](https://en.wikipedia.org/wiki/Funes_the_Memorious). This is exactly what happenened in early video models. One solution is more data. Another is to *learn like we do* and build the right inductive biases into the model.
+
+
+So, if the *Bitter Lesson* was that hand-crafted content doesn’t outperform general-purpose learning at scale, the **bittersweet lesson** is that *some structure must still be built in*. The challenge is to find the minimal, compositional ingredients that make intelligence both general and efficient.

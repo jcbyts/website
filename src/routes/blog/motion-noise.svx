@@ -1,0 +1,46 @@
+---
+title: Second Order Motion
+date: 2026-01-21
+description: An interactive demo of motion-defined structure using webcam and WebGL2
+draft: false
+layout: full-width
+hideDefaultHeader: false
+---
+
+<script>
+  import MotionNoise from "$src/components/MotionNoise.svelte";
+</script>
+
+## Motion-Defined Structure
+
+This is an interactive demonstration of second-order motion perception. The demo uses your webcam to create a motion-defined noise pattern that reveals structure through motion alone.
+
+### How it works
+
+The algorithm:
+1. Captures video from your webcam
+2. Computes optical flow using block matching
+3. Warps a noise field according to the flow
+4. Blends the warped noise with fresh noise: `stim = ρ × warp(stim, flow) + √(1-ρ²) × noise`
+
+The parameter **ρ** (coherence) controls how much of the previous frame's noise persists. When ρ is high, noise patterns stick to moving objects, revealing their structure through motion alone.
+
+### Try it yourself
+
+Move your hand or an object in front of the camera. You should see the noise pattern "stick" to the moving object, making it visible even though each individual frame is just random noise.
+
+<MotionNoise />
+
+### Parameters
+
+- **ρ (coherence)**: Controls temporal correlation. Higher values make structure more visible but can leak static structure.
+- **flow gain**: Amplifies the optical flow. Increase if motion is too subtle.
+- **search radius**: How far to search for matching blocks. Larger = more accurate but slower.
+- **block size**: Size of blocks for matching. Larger = faster but less detailed flow.
+
+### The Science
+
+This demonstrates **second-order motion** perception—our visual system's ability to detect motion in patterns that have no first-order (luminance-based) motion energy. The noise is completely random in each frame, but the temporal correlation created by warping reveals structure.
+
+This type of motion is processed differently in the visual cortex than first-order motion, likely involving higher-level areas like MT/V5.
+
