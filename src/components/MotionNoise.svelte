@@ -197,6 +197,7 @@ in vec2 v_uv;
 out vec4 o;
 uniform sampler2D u_stim;
 uniform int u_useFloat;
+uniform float u_cropAmount;
 
 float readStim(vec2 uv){
   vec4 t = texture(u_stim, uv);
@@ -205,7 +206,10 @@ float readStim(vec2 uv){
 }
 
 void main(){
-  float s = readStim(v_uv);
+  // Crop edges to hide block artifacts
+  vec2 uv_cropped = mix(vec2(u_cropAmount), vec2(1.0 - u_cropAmount), v_uv);
+
+  float s = readStim(uv_cropped);
   float clip = 3.0;
   float x = clamp(s, -clip, clip);
   float y = (x + clip) / (2.0 * clip);
@@ -295,7 +299,13 @@ void main(){
   }
 
   function grabGrayscaleInto(bufFloat) {
+    offCtx.save();
+    // Flip horizontally and vertically to correct the image
+    offCtx.translate(INTERNAL_W, INTERNAL_H);
+    offCtx.scale(-1, -1);
     offCtx.drawImage(video, 0, 0, INTERNAL_W, INTERNAL_H);
+    offCtx.restore();
+
     const im = offCtx.getImageData(0,0,INTERNAL_W, INTERNAL_H).data;
     for (let i=0, j=0; j<bufFloat.length; j++, i+=4) {
       const r = im[i], g = im[i+1], b = im[i+2];
@@ -463,6 +473,8 @@ void main(){
     gl.useProgram(progRender);
 
     gl.uniform1i(gl.getUniformLocation(progRender, "u_useFloat"), useFloat ? 1 : 0);
+    // Crop 5% from each edge to hide block artifacts
+    gl.uniform1f(gl.getUniformLocation(progRender, "u_cropAmount"), 0.05);
 
     gl.activeTexture(gl.TEXTURE0);
     gl.bindTexture(gl.TEXTURE_2D, dstStim);
@@ -518,6 +530,24 @@ void main(){
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: -14px;
+    margin-right: -14px;
+  }
+
+  /* Mobile: fill the screen */
+  @media (max-width: 768px) {
+    .motion-noise-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      max-height: none;
+      margin: 0;
+      z-index: 10;
+    }
   }
 
   .motion-canvas {
@@ -536,6 +566,22 @@ void main(){
     padding: 10px;
     border-radius: 10px;
     max-width: 360px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Mobile: smaller HUD */
+  @media (max-width: 768px) {
+    .hud {
+      font-size: 11px;
+      padding: 8px;
+      max-width: calc(100vw - 20px);
+      left: 5px;
+      top: 5px;
+    }
+
+    .hud input {
+      width: 120px !important;
+    }
   }
 
   .hud input {
@@ -557,5 +603,12 @@ void main(){
   .tips {
     margin-top: 8px;
     opacity: 0.9;
+  }
+
+  /* Mobile: hide tips to save space */
+  @media (max-width: 768px) {
+    .tips {
+      display: none;
+    }
   }
 </style>
