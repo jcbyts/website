@@ -2,7 +2,7 @@
 title: Second Order Motion
 date: 2026-01-21
 description: An interactive demo of motion-defined structure using webcam and WebGL2
-draft: false
+draft: true
 layout: full-width
 hideDefaultHeader: false
 ---
