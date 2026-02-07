@@ -1,0 +1,93 @@
+---
+title: Massive Predictive Coding
+date: 2026-2-6
+description: What happens when belief states have inertia?
+draft: true
+---
+
+<script>
+  import MassivePCDemo from "$src/components/MassivePCDemo.svelte";
+</script>
+
+## §1 — The Standard Model (Massless)
+
+Consider a 2-layer predictive coding network receiving sensory input $$x(t)$$. Layer 1 state $$u_1$$ explains the input; layer 2 state $$u_2$$ provides a prior on $$u_1$$. The generative model says: the predicted input is $$\theta \cdot u_1$$, and the predicted $$u_1$$ is $$u_2$$.
+
+The **prediction errors** are:
+
+$$
+\varepsilon_1 = \frac{x - \theta \cdot u_1}{\sigma_1^2} \quad \leftarrow \text{sensory error}
+$$
+
+$$
+\varepsilon_2 = \frac{u_1 - u_2}{\sigma_2^2} \quad \leftarrow \text{higher-level error}
+$$
+
+The states update by gradient descent on variational free energy $$F$$. This gives first-order (massless) dynamics:
+
+$$
+\frac{du_1}{dt} = \theta \cdot \varepsilon_1 - \varepsilon_2 \quad \leftarrow \text{bottom-up error minus top-down error}
+$$
+
+$$
+\frac{du_2}{dt} = \varepsilon_2 \quad \leftarrow \text{driven by mismatch with } u_1
+$$
+
+These are **first-order ODEs**. Velocity $$du/dt$$ is fully determined by the current state. No memory of past velocity. No overshoot. A step input produces an exponential rise — a **lowpass filter**.
+
+
+## §2 — Adding Mass (The Massive Variant)
+
+Now suppose each state has **inertia**. Physically: the membrane has capacitance that interacts with slow recovery currents, giving second-order dynamics. We replace the first-order rule with:
+
+$$
+m \cdot \frac{d^2 u_1}{dt^2} + \gamma \cdot \frac{du_1}{dt} = \theta \cdot \varepsilon_1 - \varepsilon_2
+$$
+
+$$
+m \cdot \frac{d^2 u_2}{dt^2} + \gamma \cdot \frac{du_2}{dt} = \varepsilon_2
+$$
+
+The right-hand side is **identical** — same free energy, same prediction errors, same objective. The only change is the left-hand side: we've added an acceleration term $$m \cdot \ddot{u}$$. This is a choice about the **optimizer**, not the objective.
+
+The damping ratio $$\zeta = \gamma / (2\sqrt{m \cdot k})$$, where $$k$$ is the local curvature of $$F$$, determines the character:
+
+$$
+\zeta > 1 \rightarrow \text{Overdamped (recovers standard PC)}
+$$
+
+$$
+\zeta = 1 \rightarrow \text{Critically damped}
+$$
+
+$$
+\zeta < 1 \rightarrow \text{Underdamped (overshoot, ringing)}
+$$
+
+
+## §3 — What Changes?
+
+In the massless model, the **prediction error** is the thing that looks like a neuron — it has a transient response, it can be positive or negative, it signals surprise. That's why people hunt for "prediction error neurons."
+
+In the massive model, the **state itself** overshoots, rings, and shows onset transients. The velocity $$du/dt$$ — which is just the time derivative of the membrane potential, not a separate variable — spikes at onset and adapts. This **looks like a real neuron** without needing to be reinterpreted as an error unit.
+
+The prediction error $$\varepsilon$$ is still there, but it's just a **force**. It doesn't need its own neural population.
+
+
+## §4 — Simulation
+
+Below: a step stimulus $$x(t)$$ that turns on at $$t=1$$ and off at $$t=3.5$$. Compare the massless and massive responses. Adjust mass and damping to see the effect.
+
+<MassivePCDemo />
+
+
+## §5 — The Key Insight
+
+Look at the **velocity plot** ($$du_1/dt$$) for the massive system. It spikes at onset, overshoots, rings, and adapts. It has a sharp transient followed by decay — classic **high-pass** behavior. This is what real neurons look like in response to a step.
+
+In the massless model, $$du_1/dt$$ is just equal to the force — it mirrors the prediction error exactly. There's no distinction between "velocity" and "error." So we need separate error neurons.
+
+In the massive model, $$du_1/dt$$ has its own dynamics. It's **not** slaved to the current error. The state overshoots, which means the velocity reverses sign even while the error is still positive. This decoupling is what gives the response its neural character.
+
+**Bottom line**: if neurons have inertia (from slow currents, adaptation, etc.), then the "prediction error neuron" might just be a regular neuron whose transient response *is* the error signal — encoded in the dynamics, not in a separate population.
+

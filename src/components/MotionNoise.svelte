@@ -8,17 +8,37 @@
   // UI state
   let rho = 0.92;
   let gain = 1.0;
-  let radius = 4;
-  let blockSize = 10;
+  let flowSigma = 0.0;  // optional flow smoothing (0 = none)
+  let flowPrior = 0.5;  // Gaussian prior at zero velocity (regularization)
 
   // Internal resolution (keep small for phone)
   const INTERNAL_W = 192;
   const INTERNAL_H = 144;
 
-  // CPU grayscale buffers
+  // CPU grayscale buffers (float32 [0,1])
   let prevGray = new Float32Array(INTERNAL_W * INTERNAL_H);
   let currGray = new Float32Array(INTERNAL_W * INTERNAL_H);
   let flowDense = new Float32Array(INTERNAL_W * INTERNAL_H * 2);
+
+  // Pyramid buffers for Lucas-Kanade (3 levels: 192x144, 96x72, 48x36)
+  const pyramidLevels = 3;
+  const pyramids = {
+    prev: [],
+    curr: []
+  };
+
+  // Initialize pyramid levels
+  for (let L = 0; L < pyramidLevels; L++) {
+    const w = INTERNAL_W >> L;
+    const h = INTERNAL_H >> L;
+    pyramids.prev.push(new Float32Array(w * h));
+    pyramids.curr.push(new Float32Array(w * h));
+  }
+
+  // Temp buffers for separable blur and LK computation
+  const tmpA = new Float32Array(INTERNAL_W * INTERNAL_H);
+  const tmpB = new Float32Array(INTERNAL_W * INTERNAL_H);
+  const tmpWarp = new Float32Array(INTERNAL_W * INTERNAL_H);
 
   // Offscreen canvas for downsample + grayscale
   let off;
@@ -33,6 +53,8 @@
   let ping = true;
   let initializedPrev = false;
   let animationId;
+  let isUserFacing = false;
+  let lastVideoTime = -1;
 
   onMount(async () => {
     // Initialize WebGL
@@ -55,11 +77,16 @@
 
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: 'environment' }, 
+        video: { facingMode: 'environment' },
         audio: false
       });
       video.srcObject = stream;
       await video.play();
+
+      // Detect actual facing mode from track settings
+      const track = stream.getVideoTracks()[0];
+      const settings = track.getSettings?.() ?? {};
+      isUserFacing = settings.facingMode === 'user';
     } catch (err) {
       console.error("Camera access denied:", err);
       return;
@@ -124,6 +151,289 @@
     return p;
   }
 
+  function boxBlurSep(src, W, H, r, dst) {
+  // horizontal into tmpA
+  for (let y=0; y<H; y++) {
+    let sum = 0;
+    for (let k=-r; k<=r; k++) sum += src[y*W + Math.min(W-1, Math.max(0, k))];
+    for (let x=0; x<W; x++) {
+      tmpA[y*W + x] = sum / (2*r+1);
+      const x0 = Math.max(0, x - r);
+      const x1 = Math.min(W-1, x + r + 1);
+      sum += src[y*W + x1] - src[y*W + x0];
+    }
+  }
+  // vertical into dst
+  for (let x=0; x<W; x++) {
+    let sum = 0;
+    for (let k=-r; k<=r; k++) sum += tmpA[Math.min(H-1, Math.max(0, k))*W + x];
+    for (let y=0; y<H; y++) {
+      dst[y*W + x] = sum / (2*r+1);
+      const y0 = Math.max(0, y - r);
+      const y1 = Math.min(H-1, y + r + 1);
+      sum += tmpA[y1*W + x] - tmpA[y0*W + x];
+    }
+  }
+}
+
+// fast “matchable” image: high-pass + clamp
+function preprocessForFlow(gray, W, H) {
+  // small blur (r=2) -> tmpB
+  boxBlurSep(gray, W, H, 2, tmpB);
+
+  // high-pass
+  for (let i=0; i<gray.length; i++) {
+    let x = gray[i] - tmpB[i];
+    // clamp outliers (helps a lot on phone noise)
+    if (x < -0.2) x = -0.2;
+    if (x >  0.2) x =  0.2;
+    gray[i] = x;
+  }
+}
+
+// Downsample 2x2 average for pyramid
+function down2x(src, W, H, dst) {
+  const W2 = W >> 1;
+  const H2 = H >> 1;
+  for (let y = 0; y < H2; y++) {
+    const y0 = (2 * y) * W;
+    const y1 = (2 * y + 1) * W;
+    for (let x = 0; x < W2; x++) {
+      const x0 = 2 * x;
+      dst[y * W2 + x] = 0.25 * (src[y0 + x0] + src[y0 + x0 + 1] + src[y1 + x0] + src[y1 + x0 + 1]);
+    }
+  }
+}
+
+// Build image pyramid
+function buildPyramid(img, pyramid) {
+  // Level 0 is the original
+  pyramid[0].set(img);
+
+  // Downsample for each subsequent level
+  for (let L = 1; L < pyramidLevels; L++) {
+    const wPrev = INTERNAL_W >> (L - 1);
+    const hPrev = INTERNAL_H >> (L - 1);
+    down2x(pyramid[L - 1], wPrev, hPrev, pyramid[L]);
+  }
+}
+
+// Dense pyramid Lucas-Kanade optical flow
+function computeDensePyramidLK(prevPyr, currPyr, flowOut) {
+  const winSize = 11;  // LK window size
+  const halfWin = Math.floor(winSize / 2);
+  const iterations = 3;  // iterations per level
+
+  // Gaussian prior at zero velocity (regularization)
+  // Higher lambda = stronger bias toward zero flow
+  const lambda = flowPrior;  // Use UI parameter
+
+  // Store flow at each level for upsampling
+  let uPrev = null;
+  let vPrev = null;
+
+  // Start from coarsest level
+  for (let L = pyramidLevels - 1; L >= 0; L--) {
+    const W = INTERNAL_W >> L;
+    const H = INTERNAL_H >> L;
+    const prev = prevPyr[L];
+    const curr = currPyr[L];
+
+    // Allocate flow for this level
+    const u = new Float32Array(W * H);
+    const v = new Float32Array(W * H);
+
+    // If not coarsest, upsample flow from previous (coarser) level
+    if (uPrev !== null) {
+      const WPrev = INTERNAL_W >> (L + 1);
+      for (let y = 0; y < H; y++) {
+        for (let x = 0; x < W; x++) {
+          const xPrev = Math.floor(x / 2);
+          const yPrev = Math.floor(y / 2);
+          const iPrev = yPrev * WPrev + xPrev;
+          const i = y * W + x;
+          u[i] = uPrev[iPrev] * 2.0;
+          v[i] = vPrev[iPrev] * 2.0;
+        }
+      }
+    }
+
+    // Iterative refinement at this level
+    for (let iter = 0; iter < iterations; iter++) {
+      // Warp curr toward prev using current flow
+      warpBilinear(curr, W, H, u, v, tmpWarp);
+
+      // Compute gradients on warped image
+      const Ix = new Float32Array(W * H);
+      const Iy = new Float32Array(W * H);
+      computeGradients(tmpWarp, W, H, Ix, Iy);
+
+      // Compute temporal derivative
+      const It = new Float32Array(W * H);
+      for (let i = 0; i < W * H; i++) {
+        It[i] = tmpWarp[i] - prev[i];
+      }
+
+      // Solve LK for each pixel
+      for (let y = halfWin; y < H - halfWin; y++) {
+        for (let x = halfWin; x < W - halfWin; x++) {
+          let Axx = 0, Axy = 0, Ayy = 0, bx = 0, by = 0;
+
+          // Sum over window
+          for (let dy = -halfWin; dy <= halfWin; dy++) {
+            for (let dx = -halfWin; dx <= halfWin; dx++) {
+              const i = (y + dy) * W + (x + dx);
+              const ix = Ix[i];
+              const iy = Iy[i];
+              const it = It[i];
+
+              Axx += ix * ix;
+              Axy += ix * iy;
+              Ayy += iy * iy;
+              bx -= ix * it;
+              by -= iy * it;
+            }
+          }
+
+          // Solve 2x2 system with Gaussian prior at zero
+          // Add regularization: (A + lambda*I) * du = b - lambda*u
+          const i = y * W + x;
+          const Axx_reg = Axx + lambda;
+          const Ayy_reg = Ayy + lambda;
+          const bx_reg = bx - lambda * u[i];
+          const by_reg = by - lambda * v[i];
+
+          const det = Axx_reg * Ayy_reg - Axy * Axy;
+          if (det > 1e-4) {
+            let du = (Ayy_reg * bx_reg - Axy * by_reg) / det;
+            let dv = (-Axy * bx_reg + Axx_reg * by_reg) / det;
+
+            // Clamp step
+            du = Math.max(-1, Math.min(1, du));
+            dv = Math.max(-1, Math.min(1, dv));
+
+            u[i] += du;
+            v[i] += dv;
+          }
+        }
+      }
+    }
+
+    // Save flow for upsampling to next finer level
+    uPrev = u;
+    vPrev = v;
+  }
+
+  // Copy finest level flow to output (interleaved format)
+  for (let i = 0; i < INTERNAL_W * INTERNAL_H; i++) {
+    flowOut[i * 2 + 0] = uPrev[i];
+    flowOut[i * 2 + 1] = vPrev[i];
+  }
+
+  // Optional: smooth final flow
+  if (flowSigma > 0) {
+    const r = Math.max(1, Math.round(flowSigma));
+    const uSmooth = new Float32Array(INTERNAL_W * INTERNAL_H);
+    const vSmooth = new Float32Array(INTERNAL_W * INTERNAL_H);
+
+    for (let i = 0; i < INTERNAL_W * INTERNAL_H; i++) {
+      uSmooth[i] = flowOut[i * 2 + 0];
+      vSmooth[i] = flowOut[i * 2 + 1];
+    }
+
+    boxBlur2D(uSmooth, INTERNAL_W, INTERNAL_H, r, tmpA);
+    boxBlur2D(vSmooth, INTERNAL_W, INTERNAL_H, r, tmpB);
+
+    for (let i = 0; i < INTERNAL_W * INTERNAL_H; i++) {
+      flowOut[i * 2 + 0] = tmpA[i];
+      flowOut[i * 2 + 1] = tmpB[i];
+    }
+  }
+}
+
+// Bilinear warp
+function warpBilinear(src, W, H, u, v, dst) {
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      const i = y * W + x;
+      const fx = x + u[i];
+      const fy = y + v[i];
+
+      const x0 = Math.max(0, Math.min(W - 2, Math.floor(fx)));
+      const y0 = Math.max(0, Math.min(H - 2, Math.floor(fy)));
+      const x1 = x0 + 1;
+      const y1 = y0 + 1;
+
+      const wx = fx - x0;
+      const wy = fy - y0;
+
+      const i00 = y0 * W + x0;
+      const i10 = y0 * W + x1;
+      const i01 = y1 * W + x0;
+      const i11 = y1 * W + x1;
+
+      dst[i] = (1 - wx) * (1 - wy) * src[i00] +
+               wx * (1 - wy) * src[i10] +
+               (1 - wx) * wy * src[i01] +
+               wx * wy * src[i11];
+    }
+  }
+}
+
+// Compute gradients
+function computeGradients(img, W, H, Ix, Iy) {
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      const i = y * W + x;
+
+      const xm = Math.max(0, x - 1);
+      const xp = Math.min(W - 1, x + 1);
+      Ix[i] = (img[y * W + xp] - img[y * W + xm]) * 0.5;
+
+      const ym = Math.max(0, y - 1);
+      const yp = Math.min(H - 1, y + 1);
+      Iy[i] = (img[yp * W + x] - img[ym * W + x]) * 0.5;
+    }
+  }
+}
+
+// Box blur 2D
+function boxBlur2D(src, W, H, r, dst) {
+  if (r <= 0) {
+    dst.set(src);
+    return;
+  }
+
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      let sum = 0, cnt = 0;
+      for (let dx = -r; dx <= r; dx++) {
+        const xx = x + dx;
+        if (xx >= 0 && xx < W) {
+          sum += src[y * W + xx];
+          cnt++;
+        }
+      }
+      tmpA[y * W + x] = sum / cnt;
+    }
+  }
+
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      let sum = 0, cnt = 0;
+      for (let dy = -r; dy <= r; dy++) {
+        const yy = y + dy;
+        if (yy >= 0 && yy < H) {
+          sum += tmpA[yy * W + x];
+          cnt++;
+        }
+      }
+      dst[y * W + x] = sum / cnt;
+    }
+  }
+}
+
+
   const VS = `#version 300 es
 precision highp float;
 layout(location=0) in vec2 a_pos;
@@ -168,18 +478,40 @@ float readStim(vec2 uv){
 
 vec2 readFlow(vec2 uv){
   vec4 f = texture(u_flow, uv);
-  if (u_useFloat == 1) return f.rg;
-  vec2 x = (f.rg * 2.0 - 1.0);
-  return x * 8.0;
+  if (u_useFloat == 1) {
+    return f.rg;  // Direct pixel values
+  } else {
+    // Decode from UNORM8: map [0,1] -> [-MAX_FLOW, MAX_FLOW]
+    const float MAX_FLOW = 16.0;
+    return (f.rg * 2.0 - 1.0) * MAX_FLOW;
+  }
+}
+
+// BORDER_REFLECT101 for a single axis
+float reflect101(float x, float maxVal) {
+  float m = maxVal;
+  x = abs(x);
+  float period = 2.0 * m;
+  float t = mod(x, period);
+  if (t > m) t = period - t;
+  return t;
 }
 
 void main(){
   vec2 flow_px = readFlow(v_uv) * u_flowGain;
-  vec2 flow_uv = flow_px / u_texSize;
-  vec2 uv_warp = v_uv - flow_uv;
-  vec2 px = floor(uv_warp * u_texSize) + 0.5;
-  vec2 uv_nn = px / u_texSize;
-  float warped = readStim(uv_nn);
+
+  // Backward warp: p' = p - flow
+  vec2 p = v_uv * u_texSize - 0.5;  // pixel-centered coords
+  vec2 q = p - flow_px;
+
+  // Apply BORDER_REFLECT101
+  q.x = reflect101(q.x, u_texSize.x - 1.0);
+  q.y = reflect101(q.y, u_texSize.y - 1.0);
+
+  // Convert back to UV for nearest-neighbor sampling
+  vec2 uv_warp = (floor(q) + 0.5) / u_texSize;
+
+  float warped = readStim(uv_warp);
   float eps = randn(gl_FragCoord.xy);
   float rho_val = clamp(u_rho, 0.0, 0.999);
   float stim = rho_val * warped + sqrt(max(0.0, 1.0 - rho_val*rho_val)) * eps;
@@ -298,124 +630,45 @@ void main(){
     gl.bindTexture(gl.TEXTURE_2D, null);
   }
 
-  function grabGrayscaleInto(bufFloat) {
-    offCtx.save();
-    // Flip horizontally and vertically to correct the image
-    offCtx.translate(INTERNAL_W, INTERNAL_H);
-    offCtx.scale(-1, -1);
-    offCtx.drawImage(video, 0, 0, INTERNAL_W, INTERNAL_H);
-    offCtx.restore();
+function grabGrayscaleInto(bufFloat) {
+  offCtx.save();
+  offCtx.setTransform(1,0,0,1,0,0);
+  offCtx.clearRect(0,0,INTERNAL_W, INTERNAL_H);
 
-    const im = offCtx.getImageData(0,0,INTERNAL_W, INTERNAL_H).data;
-    for (let i=0, j=0; j<bufFloat.length; j++, i+=4) {
-      const r = im[i], g = im[i+1], b = im[i+2];
-      bufFloat[j] = (0.2126*r + 0.7152*g + 0.0722*b) / 255.0;
-    }
+  if (isUserFacing) {
+    offCtx.translate(INTERNAL_W, 0);
+    offCtx.scale(-1, 1); // mirror horizontally only
   }
 
-  function computeBlockFlow(prev, curr, W, H, blockSize, radius) {
-    const gw = Math.floor(W / blockSize);
-    const gh = Math.floor(H / blockSize);
-    const flow = new Float32Array(gw * gh * 2);
+  offCtx.drawImage(video, 0, 0, INTERNAL_W, INTERNAL_H);
+  offCtx.restore();
 
-    for (let by=0; by<gh; by++) {
-      for (let bx=0; bx<gw; bx++) {
-        const x0 = bx * blockSize;
-        const y0 = by * blockSize;
-        let bestSSD = Infinity;
-        let bestDx = 0, bestDy = 0;
-
-        for (let dy=-radius; dy<=radius; dy++) {
-          const yy = y0 + dy;
-          if (yy < 0 || yy + blockSize >= H) continue;
-          for (let dx=-radius; dx<=radius; dx++) {
-            const xx = x0 + dx;
-            if (xx < 0 || xx + blockSize >= W) continue;
-
-            let ssd = 0.0;
-            for (let y=0; y<blockSize; y++) {
-              const i1 = (y0 + y) * W + x0;
-              const i2 = (yy + y) * W + xx;
-              for (let x=0; x<blockSize; x++) {
-                const d = prev[i1 + x] - curr[i2 + x];
-                ssd += d*d;
-              }
-            }
-            if (ssd < bestSSD) {
-              bestSSD = ssd;
-              bestDx = dx;
-              bestDy = dy;
-            }
-          }
-        }
-
-        const k = (by * gw + bx) * 2;
-        flow[k+0] = bestDx;
-        flow[k+1] = bestDy;
-      }
-    }
-    return { flow, gw, gh };
+  const im = offCtx.getImageData(0,0,INTERNAL_W, INTERNAL_H).data;
+  for (let i=0, j=0; j<bufFloat.length; j++, i+=4) {
+    const r = im[i], g = im[i+1], b = im[i+2];
+    bufFloat[j] = (0.2126*r + 0.7152*g + 0.0722*b) / 255.0;
   }
+}
 
-  function upsampleFlowGridToDense(flow, gw, gh, W, H, blockSize, outDense) {
-    for (let y=0; y<H; y++) {
-      const by = Math.min(gh-1, Math.floor(y / blockSize));
-      for (let x=0; x<W; x++) {
-        const bx = Math.min(gw-1, Math.floor(x / blockSize));
-        const k = (by * gw + bx) * 2;
-        const o = (y * W + x) * 2;
-        outDense[o+0] = flow[k+0];
-        outDense[o+1] = flow[k+1];
-      }
-    }
-    boxBlurFlow(outDense, W, H, 1);
-    boxBlurFlow(outDense, W, H, 1);
-  }
 
-  function boxBlurFlow(f, W, H, r) {
-    if (r <= 0) return;
-    const tmp = new Float32Array(f.length);
-    for (let y=0; y<H; y++) {
-      for (let x=0; x<W; x++) {
-        let su=0, sv=0, cnt=0;
-        for (let dx=-r; dx<=r; dx++) {
-          const xx = x + dx;
-          if (xx<0||xx>=W) continue;
-          const i = (y*W + xx)*2;
-          su += f[i]; sv += f[i+1]; cnt++;
-        }
-        const o = (y*W + x)*2;
-        tmp[o] = su/cnt; tmp[o+1] = sv/cnt;
-      }
-    }
-    for (let y=0; y<H; y++) {
-      for (let x=0; x<W; x++) {
-        let su=0, sv=0, cnt=0;
-        for (let dy=-r; dy<=r; dy++) {
-          const yy = y + dy;
-          if (yy<0||yy>=H) continue;
-          const i = (yy*W + x)*2;
-          su += tmp[i]; sv += tmp[i+1]; cnt++;
-        }
-        const o = (y*W + x)*2;
-        f[o] = su/cnt; f[o+1] = sv/cnt;
-      }
-    }
-  }
+
 
   function uploadFlowTexture(tex, flowDense, W, H) {
     gl.bindTexture(gl.TEXTURE_2D, tex);
     if (useFloat) {
+      // Direct upload: flow values are in pixels
       gl.texSubImage2D(gl.TEXTURE_2D, 0, 0,0, W,H, gl.RG, gl.FLOAT, flowDense);
     } else {
+      // Encode to UNORM8: map [-MAX_FLOW, MAX_FLOW] -> [0, 255]
+      const MAX_FLOW = 16.0;
       const enc = new Uint8Array(W*H*4);
       for (let i=0; i<W*H; i++) {
         let u = flowDense[2*i+0];
         let v = flowDense[2*i+1];
-        u = Math.max(-8, Math.min(8, u));
-        v = Math.max(-8, Math.min(8, v));
-        const ru = ((u/8)*0.5 + 0.5) * 255;
-        const rv = ((v/8)*0.5 + 0.5) * 255;
+        u = Math.max(-MAX_FLOW, Math.min(MAX_FLOW, u));
+        v = Math.max(-MAX_FLOW, Math.min(MAX_FLOW, v));
+        const ru = ((u/MAX_FLOW)*0.5 + 0.5) * 255;
+        const rv = ((v/MAX_FLOW)*0.5 + 0.5) * 255;
         enc[4*i+0] = ru|0;
         enc[4*i+1] = rv|0;
         enc[4*i+2] = 0;
@@ -430,18 +683,44 @@ void main(){
     if (!gl || !video || !offCtx) return;
 
     resizeCanvasToDisplay();
-    grabGrayscaleInto(currGray);
 
-    if (!initializedPrev) {
+    // Only compute flow when new video frame arrives
+    const currentVideoTime = video.currentTime;
+    if (currentVideoTime !== lastVideoTime) {
+      lastVideoTime = currentVideoTime;
+
+      grabGrayscaleInto(currGray);
+
+      if (!initializedPrev) {
+        prevGray.set(currGray);
+        initializedPrev = true;
+        animationId = requestAnimationFrame(step);
+        return;
+      }
+
+      // Build pyramids
+      buildPyramid(prevGray, pyramids.prev);
+      buildPyramid(currGray, pyramids.curr);
+
+      // Compute dense pyramid LK flow
+      computeDensePyramidLK(pyramids.prev, pyramids.curr, flowDense);
+
+      // Sanity check for NaNs
+      for (let i = 0; i < flowDense.length; i += 2) {
+        if (!Number.isFinite(flowDense[i]) || !Number.isFinite(flowDense[i + 1])) {
+          console.warn('NaN flow at index', i);
+          flowDense[i] = 0;
+          flowDense[i + 1] = 0;
+        }
+      }
+
+      uploadFlowTexture(flowTex, flowDense, INTERNAL_W, INTERNAL_H);
+
+      // Advance frame
       prevGray.set(currGray);
-      initializedPrev = true;
-      animationId = requestAnimationFrame(step);
-      return;
     }
 
-    const { flow, gw, gh } = computeBlockFlow(prevGray, currGray, INTERNAL_W, INTERNAL_H, blockSize, radius);
-    upsampleFlowGridToDense(flow, gw, gh, INTERNAL_W, INTERNAL_H, blockSize, flowDense);
-    uploadFlowTexture(flowTex, flowDense, INTERNAL_W, INTERNAL_H);
+    // Render stimulus every frame (not just when video updates)
 
     const srcStim = ping ? stimTexA : stimTexB;
     const dstFbo  = ping ? fboB : fboA;
@@ -483,7 +762,6 @@ void main(){
     gl.drawArrays(gl.TRIANGLES, 0, 6);
 
     ping = !ping;
-    prevGray.set(currGray);
 
     animationId = requestAnimationFrame(step);
   }
@@ -504,17 +782,18 @@ void main(){
       <span>{gain.toFixed(2)}</span>
     </div>
     <div class="row">
-      <span>search radius</span>
-      <input type="range" min="1" max="8" step="1" bind:value={radius}>
-      <span>{radius}</span>
+      <span>flow smooth (σ)</span>
+      <input type="range" min="0" max="6" step="0.5" bind:value={flowSigma}>
+      <span>{flowSigma.toFixed(1)}</span>
     </div>
     <div class="row">
-      <span>block size</span>
-      <input type="range" min="6" max="18" step="2" bind:value={blockSize}>
-      <span>{blockSize}</span>
+      <span>flow prior (λ)</span>
+      <input type="range" min="0" max="2.0" step="0.1" bind:value={flowPrior}>
+      <span>{flowPrior.toFixed(1)}</span>
     </div>
     <div class="tips">
-      Tips: if single-frame structure leaks, try smaller <code>gain</code>, larger <code>block</code>, smaller <code>rad</code>, or lower <code>ρ</code>.
+      Dense pyramid Lucas-Kanade flow with Gaussian prior at zero velocity.
+      Adjust <code>λ</code> to reduce noise (higher = stronger bias toward zero flow).
       The display is intentionally pixelated (nearest-neighbor).
     </div>
   </div>
