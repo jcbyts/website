@@ -1,0 +1,110 @@
+---
+title: "There Is No Moat (And That's the Point)"
+date: 2026-3-5
+description: Universities don't need to beat AI labs. They need to do what only universities can do.
+draft: true
+---
+
+# There Is No Moat (And That's the Point)
+
+Last summer I saw a talk by Jascha Sohl-Dickstein that I haven't been able to stop thinking about.
+
+Jascha is most famous for inventing diffusion models—the technology behind Stable Diffusion, DALL-E, and much of the generative AI revolution. He now works at Anthropic. But his PhD was in theoretical neuroscience, at the Redwood Center at UC Berkeley, in Bruno Olshausen's lab. The idea for diffusion models came from a reading group there, drawing on concepts from non-equilibrium statistical physics. A university reading group in theoretical neuroscience produced one of the foundational technologies of the AI era.
+
+The paper sat essentially uncited for five years. Then it exploded.
+
+<img src="/nomoat/diffusion_citations.png" style="max-width: min(100%, 48em)" alt="Citation history for Deep Unsupervised Learning using Nonequilibrium Thermodynamics (Sohl-Dickstein et al., 2015). Published in 2015. Barely cited until 2021. Now over 11,000 citations." />
+
+*Citation history for "Deep Unsupervised Learning using Nonequilibrium Thermodynamics" (Sohl-Dickstein et al., 2015). Published in 2015. Barely cited until 2021. Now over 11,000 citations.*
+
+Keep that story in mind. We'll come back to it.
+
+The talk Jascha has been giving at universities is called "Advice for a (young) investigator in the first and last days of the Anthropocene." The title is a play on Ramón y Cajal's classic book of advice for young scientists, except Jascha's version opens with a chart of global GDP over time and a stick figure perched at the top of an exponential curve, calmly thinking: "I live in a totally normal time in history. I should plan for a future that is much like the present."
+
+<img src="/nomoat/jascha_slide.jpeg" style="max-width: min(100%, 48em)" alt="From Sohl-Dickstein's talk thread. The stick figure is you." />
+
+*From Sohl-Dickstein's talk thread. The stick figure is you.*
+
+The argument is simple and hard to refute. AI systems are improving on a trajectory that, if it continues even roughly, will produce systems smarter than any human researcher within a few years. This should change how you pick research problems, how you plan your career, and—if you run a university—how you run it.
+
+He's not alone. Dario Amodei, in his essay [*Machines of Loving Grace*](https://darioamodei.com/essay/machines-of-loving-grace), predicts that powerful AI will compress 50–100 years of biological and scientific progress into 5–10 years. Sam Altman, in [*The Intelligence Age*](https://ia.samaltman.com/), makes broadly similar claims about AI accelerating discovery across the board. Even if you think both are wrong on the details—and there are good reasons for skepticism on specifics—it's hard to argue they're wrong on direction.
+
+And here's the thing most people in the discourse miss: even if the current generation of models isn't everything the CEOs promise, it is probably good enough to *get us to* what they promise. The bootstrapping dynamic is real. AI that is 80% as good as a researcher at certain tasks still frees up that researcher to do higher-level work, which produces better AI, which frees up more researchers. You don't need AGI to kick off the spiral. You might just need what we have now, deployed well.
+
+So the question that matters is: what happens to the institutions where most of the world's science currently gets done?
+
+## The Consensus View Is Wrong
+
+The conventional wisdom says universities will become AI-powered versions of themselves. They'll automate grading, offer AI tutors, maybe produce papers faster. The actual threat—the thing that matters—is far more structural.
+
+Most people get the causal flow backwards. They assume the university model is so robust and deeply embedded that it will absorb AI as it absorbs all technologies. Universities survived the printing press, the internet, and open access. They're flexible. They'll adapt.
+
+But that assumes universities have some essential competitive advantage. They don't. The real reason universities persist is *not* because of their unique ability to teach, or even to discover. It's because they have a *monopoly on legitimacy*. A degree from MIT signals something to employers. It signals that you survived a gauntlet of peers, that you were taught by active researchers, that your thinking shaped you in specific ways. That signal is worth something because nobody else can create it the same way.
+
+But AI labs—or more accurately, well-funded private research labs—are systematically eroding that signal on the discovery front. They have resources universities can't match. They have computational resources. They have focus. They can iterate faster. And because they're publishing results (papers, models, benchmarks), they're creating their own legitimacy. OpenAI didn't get credibility by degree-granting. They got it by doing the research that mattered.
+
+For universities, this is a fundamental crisis. If the most important research is happening elsewhere, if the cutting edge of discovery has moved outside the walls, then the core justification for the university—that it's where knowledge lives—dissolves.
+
+The question is: can universities do *anything* that a well-funded lab can't do better?
+
+## What Universities Actually Have
+
+The answer is yes—but it requires abandoning the idea that universities should compete on the same axis as industry labs.
+
+Universities have a fundamentally different incentive structure. They are (theoretically) free from quarterly earnings pressure. They have graduate students who are, in essence, apprentices willing to work for years on hard problems with no guarantee of payoff. They have access to undergraduates who are in the prime of intellectual plasticity, not yet specialized into neat little roles. They have tenure, which creates space for intellectual risk-taking.
+
+But most importantly, they have something labs will never have: *friction*.
+
+This sounds like a weakness, but it's not. Friction is what forces you to think. If every tool is available, if every computation is frictionless, if you can run 10,000 experiments a day, you will run 10,000 experiments and analyze none of them deeply. You'll find patterns instead of understanding.
+
+Universities are slow. This is maddening for those of us trapped inside them. But the slowness is a feature. It forces deep work.
+
+Real fundamental science—the kind that produces breakthroughs rather than incremental improvements—happens when someone spends years on a problem. Years. Not weeks. Not even months. The kind of work where you fail 100 times, learn something from each failure, refine your understanding, and eventually have an insight nobody else could have had because nobody else was willing to sit with the problem that long.
+
+Labs can do this. Some labs do. But labs optimize for impact and speed. Universities can optimize for depth and risk.
+
+## Where The Advantage Actually Lives
+
+So what should universities do? They should stop trying to compete with labs on their own turf. Stop trying to build LLMs. Stop trying to match industry compute. Stop trying to recruit the same people.
+
+Instead, universities should:
+
+**Double down on education through research.** Make undergraduates and graduate students part of *novel* discovery, not tutorials on known knowledge. A student who spends two years designing and executing an experiment they designed learns more about science—about the messy reality of it—than they ever will from lectures.
+
+**Invest in work that has no obvious payoff.** This is where universities have a genuine advantage. The payoff from diffusion models was invisible for five years. A lab wouldn't fund that. A venture capitalist wouldn't fund that. But a university reading group could—and did.
+
+**Build genuinely new fields.** The pattern across science is clear: universities build the foundational frameworks. Theoretical physics came out of universities. Modern biology came out of universities. Neuroscience came out of universities. The labs show up later and say: "Okay, here's a framework. Let's scale it." This should be the play. Universities should be *inventing* the next thing, not optimizing the last thing.
+
+**Create the human infrastructure for new fields.** You can't recruit researchers to a field that doesn't exist yet. You need universities for that. You need graduate programs that train people to think in fundamentally new ways. You need conferences where people who are working on vague hunches can meet and collide and spark each other.
+
+**Foster intellectual diversity.** Labs optimize for consensus. They hire the smartest people who think the same way. Universities—because they're slow, because they have tenure, because they have less immediate pressure—can tolerate more intellectual diversity. They can harbor researchers working on ideas that feel wrong but might not be.
+
+## The Concrete Threat
+
+Here's what I think is actually happening, and what should worry university leaders:
+
+The talent pipeline is broken. The smartest PhD students now have two options: stay in academia, or go to a lab where you'll be working on problems that matter to millions of people with computational resources you can't imagine. The labs are winning. Not all of them. But the best of them are. And this creates a vicious cycle: as the best students leave, the quality of research in universities declines, so more students leave.
+
+This will accelerate as capabilities improve. Right now, the cutting edge in some fields is still in academia. But as AI capabilities improve, the cutting edge will move entirely to the labs. And nobody wants to spend 5–7 years on a PhD in a field where the interesting work is happening somewhere else.
+
+Universities can't outbid labs. They can't outcompute them. But they can offer something labs structurally cannot: intellectual freedom and time.
+
+## The Moat
+
+Back to Jascha's story about diffusion models.
+
+That paper sat uncited for five years because it was too weird, too theoretical, too far from anything that had immediate practical application. A for-profit lab probably wouldn't have let that work happen. Venture capitalists wouldn't have funded it. The immediate ROI wasn't there.
+
+But the paper was real. The idea was deep. And when the time came—when the technology ecosystem had evolved enough that the idea could be leveraged—it exploded.
+
+This is what universities have that no lab will ever have: *permission to fail*. Permission to pursue ideas that seem impractical. Permission to spend years on something that might not work. Permission to be wrong in interesting ways.
+
+But only if universities are willing to be actively, radically different from labs. Not a little different. *Structurally* different. Different enough that it seems like a disadvantage unless you understand what you're optimizing for.
+
+The moat isn't some indefensible competitive position. Universities don't need one. They need to stop playing the lab game and remember what they're actually good at.
+
+---
+
+*Thanks to the conversation with many people at universities who are thinking hard about these problems, and to Jascha for a talk that won't leave my head.*
+
+*Further reading: Ramón y Cajal's *Advice for a Young Investigator* is remarkable—a 1897 meditation on how to do science that feels more relevant now than ever. Dario Amodei's essay on "Machines of Loving Grace" explores the timeline of AI-accelerated discovery. And if you're thinking about what research questions make sense in an era of powerful AI, Sam Altman's "The Intelligence Age" lays out a vision worth engaging with critically.*
