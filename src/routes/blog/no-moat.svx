@@ -5,15 +5,13 @@ description: Universities don't need to beat AI labs. They need to do what only 
 draft: true
 ---
 
-# There Is No Moat (And That's the Point)
-
 Last summer I saw a talk by Jascha Sohl-Dickstein that I haven't been able to stop thinking about.
 
 Jascha is most famous for inventing diffusion models—the technology behind Stable Diffusion, DALL-E, and much of the generative AI revolution. He now works at Anthropic. But his PhD was in theoretical neuroscience, at the Redwood Center at UC Berkeley, in Bruno Olshausen's lab. The idea for diffusion models came from a reading group there, drawing on concepts from non-equilibrium statistical physics. A university reading group in theoretical neuroscience produced one of the foundational technologies of the AI era.
 
 The paper sat essentially uncited for five years. Then it exploded.
 
-<img src="/nomoat/diffusion_citations.png" style="max-width: min(100%, 48em)" alt="Citation history for Deep Unsupervised Learning using Nonequilibrium Thermodynamics (Sohl-Dickstein et al., 2015). Published in 2015. Barely cited until 2021. Now over 11,000 citations." />
+<img src="/nomoat/diffusion_citations.png" style="max-width: min(100%, 48em)" alt="Citation graph showing Sohl-Dickstein's diffusion model paper going from near-zero citations to over 11,000" />
 
 *Citation history for "Deep Unsupervised Learning using Nonequilibrium Thermodynamics" (Sohl-Dickstein et al., 2015). Published in 2015. Barely cited until 2021. Now over 11,000 citations.*
 
@@ -21,13 +19,13 @@ Keep that story in mind. We'll come back to it.
 
 The talk Jascha has been giving at universities is called "Advice for a (young) investigator in the first and last days of the Anthropocene." The title is a play on Ramón y Cajal's classic book of advice for young scientists, except Jascha's version opens with a chart of global GDP over time and a stick figure perched at the top of an exponential curve, calmly thinking: "I live in a totally normal time in history. I should plan for a future that is much like the present."
 
-<img src="/nomoat/jascha_slide.jpeg" style="max-width: min(100%, 48em)" alt="From Sohl-Dickstein's talk thread. The stick figure is you." />
+<img src="/nomoat/jascha_slide.jpeg" style="max-width: min(100%, 48em)" alt="Jascha Sohl-Dickstein's title slide showing exponential GDP growth, with a stick figure at the top of the curve saying 'I live in a totally normal time in history. I should plan for a future that is much like the present.'" />
 
-*From Sohl-Dickstein's talk thread. The stick figure is you.*
+*From Sohl-Dickstein's [talk thread](https://x.com/jaschasd/status/1972360405885637021). The stick figure is you.*
 
 The argument is simple and hard to refute. AI systems are improving on a trajectory that, if it continues even roughly, will produce systems smarter than any human researcher within a few years. This should change how you pick research problems, how you plan your career, and—if you run a university—how you run it.
 
-He's not alone. Dario Amodei, in his essay [*Machines of Loving Grace*](https://darioamodei.com/essay/machines-of-loving-grace), predicts that powerful AI will compress 50–100 years of biological and scientific progress into 5–10 years. Sam Altman, in [*The Intelligence Age*](https://ia.samaltman.com/), makes broadly similar claims about AI accelerating discovery across the board. Even if you think both are wrong on the details—and there are good reasons for skepticism on specifics—it's hard to argue they're wrong on direction.
+He's not alone. Dario Amodei, in his essay ["Machines of Loving Grace,"](https://darioamodei.com/essay/machines-of-loving-grace) predicts that powerful AI will compress 50–100 years of biological and scientific progress into 5–10 years. Sam Altman, in ["The Intelligence Age,"](https://ia.samaltman.com/) makes broadly similar claims about AI accelerating discovery across the board. Even if you think both are wrong on the details—and there are good reasons for skepticism on specifics—it's hard to argue they're wrong on direction.
 
 And here's the thing most people in the discourse miss: even if the current generation of models isn't everything the CEOs promise, it is probably good enough to *get us to* what they promise. The bootstrapping dynamic is real. AI that is 80% as good as a researcher at certain tasks still frees up that researcher to do higher-level work, which produces better AI, which frees up more researchers. You don't need AGI to kick off the spiral. You might just need what we have now, deployed well.
 
@@ -35,76 +33,166 @@ So the question that matters is: what happens to the institutions where most of 
 
 ## The Consensus View Is Wrong
 
-The conventional wisdom says universities will become AI-powered versions of themselves. They'll automate grading, offer AI tutors, maybe produce papers faster. The actual threat—the thing that matters—is far more structural.
+The standard tech-industry narrative goes something like this: universities are slow, bureaucratic, and broke. The frontier AI labs have all the compute, all the talent, and all the momentum. Academic research will become a backwater. The future of science belongs to whoever has the most GPUs.
 
-Most people get the causal flow backwards. They assume the university model is so robust and deeply embedded that it will absorb AI as it absorbs all technologies. Universities survived the printing press, the internet, and open access. They're flexible. They'll adapt.
+This is wrong, and it's wrong for a reason that should be obvious but somehow isn't: *there is no moat.*
 
-But that assumes universities have some essential competitive advantage. They don't. The real reason universities persist is *not* because of their unique ability to teach, or even to discover. It's because they have a *monopoly on legitimacy*. A degree from MIT signals something to employers. It signals that you survived a gauntlet of peers, that you were taught by active researchers, that your thinking shaped you in specific ways. That signal is worth something because nobody else can create it the same way.
+And the moat is missing in both directions.
 
-But AI labs—or more accurately, well-funded private research labs—are systematically eroding that signal on the discovery front. They have resources universities can't match. They have computational resources. They have focus. They can iterate faster. And because they're publishing results (papers, models, benchmarks), they're creating their own legitimacy. OpenAI didn't get credibility by degree-granting. They got it by doing the research that mattered.
+Yes, universities have been the centerpiece of scientific progress for a millennium, and that dominance is genuinely threatened if Amodei and Altman are even directionally right. A single AI lab can now produce computational research output that would have required dozens of academic groups a few years ago. The publication-counting, grant-chasing, tenure-track machinery of the modern research university is poorly adapted to a world where the timeline for a field's entire landscape to shift has compressed from decades to months.
 
-For universities, this is a fundamental crisis. If the most important research is happening elsewhere, if the cutting edge of discovery has moved outside the walls, then the core justification for the university—that it's where knowledge lives—dissolves.
+But there is equally no moat the other way. For a large class of the most important scientific problems, we simply do not know where the answer is. The next von Neumann or Shannon or Einstein is almost certainly not working at Anthropic or OpenAI. They are probably going through an undergraduate education somewhere right now, and universities have an unparalleled ability to find and develop that kind of talent. Five cracked geniuses with the right question can do as much for a fundamental breakthrough as a giant frontier lab running millions of GPU-hours.
 
-The question is: can universities do *anything* that a well-funded lab can't do better?
+This matters enormously, because the most important unsolved scientific problems are not engineering problems. They are conceptual problems. And the history of conceptual breakthroughs is a history of small groups and individuals who saw something that the entire establishment missed.
 
-## What Universities Actually Have
+Like a reading group at the Redwood Center.
 
-The answer is yes—but it requires abandoning the idea that universities should compete on the same axis as industry labs.
+## The Problem That Proves the Point
 
-Universities have a fundamentally different incentive structure. They are (theoretically) free from quarterly earnings pressure. They have graduate students who are, in essence, apprentices willing to work for years on hard problems with no guarantee of payoff. They have access to undergraduates who are in the prime of intellectual plasticity, not yet specialized into neat little roles. They have tenure, which creates space for intellectual risk-taking.
+Consider what might be the most important scientific question of our era: understanding intelligence itself. Not building more capable AI systems—the industry is handling that—but developing a genuine theory of how minds work. A physics of the mind, whether that mind runs on carbon or silicon. A framework that explains what's happening in both biological neural circuits and artificial neural networks, and where the principles diverge.
 
-But most importantly, they have something labs will never have: *friction*.
+This is exactly the kind of problem where industry research has a structural disadvantage. Not because the people at AI labs aren't brilliant—they are—but because the problem doesn't have a clear product roadmap. It requires people from wildly different fields (neuroscience, physics, mathematics, philosophy, computer science) to work together over timescales longer than a product cycle. It demands the freedom to pursue ideas that look useless for years before they suddenly aren't. It rewards scientific taste and original thinking over engineering execution.
 
-This sounds like a weakness, but it's not. Friction is what forces you to think. If every tool is available, if every computation is frictionless, if you can run 10,000 experiments a day, you will run 10,000 experiments and analyze none of them deeply. You'll find patterns instead of understanding.
+And there's a concrete example of this happening right now. In 2019, Brian Cheung, Yubei Chen, Pulkit Agrawal, and Bruno Olshausen published a paper at NeurIPS from the Redwood Center called ["Superposition of many models into one."](https://proceedings.neurips.cc/paper/2019/hash/4c7a167bb329bd92580a99ce422d6fa6-Abstract.html) It showed that multiple models could coexist within a single set of parameters—stored in superposition and retrieved individually. This was a theoretical neuroscience idea, motivated by questions about how the brain encodes multiple representations in shared neural populations.
 
-Universities are slow. This is maddening for those of us trapped inside them. But the slowness is a feature. It forces deep work.
+That idea—superposition as a core phenomenon in neural networks—became foundational to [Anthropic's interpretability research](https://www.anthropic.com/research), which is arguably the most important technical work on AI safety happening today. The intellectual lineage runs directly from a university neuroscience lab to the frontier of AI safety. The researchers who published that paper in 2019 did not know they were laying groundwork for understanding the internal structure of large language models. That's the point. You never know where the answer is going to come from.
 
-Real fundamental science—the kind that produces breakthroughs rather than incremental improvements—happens when someone spends years on a problem. Years. Not weeks. Not even months. The kind of work where you fail 100 times, learn something from each failure, refine your understanding, and eventually have an insight nobody else could have had because nobody else was willing to sit with the problem that long.
+Industry labs optimize for answers. But for problems like this, the hard part is asking the right question. That is what universities, at their best, train people to do.
 
-Labs can do this. Some labs do. But labs optimize for impact and speed. Universities can optimize for depth and risk.
+The urgency is real: we are building systems whose internal workings we do not understand, whose capabilities are increasing faster than our theories can track, and whose impact on the world is growing exponentially. Coalescing serious intellectual effort around a theory of intelligence—a physics of the mind—is no longer a nice-to-have for tenure committees. It is one of the most important tasks civilization faces.
 
-## Where The Advantage Actually Lives
+## So Who Actually Wins? A Scenario Analysis
 
-So what should universities do? They should stop trying to compete with labs on their own turf. Stop trying to build LLMs. Stop trying to match industry compute. Stop trying to recruit the same people.
+Rather than argue in the abstract, let's run some scenarios. The goal is to be honest about where the advantage actually lies, for different kinds of scientific work, under different assumptions about how fast AI progresses. If we let the exercise reveal the answer rather than arguing for a predetermined conclusion, something interesting emerges.
 
-Instead, universities should:
+### Scenario 1: Incremental Optimization of Known Approaches
 
-**Double down on education through research.** Make undergraduates and graduate students part of *novel* discovery, not tutorials on known knowledge. A student who spends two years designing and executing an experiment they designed learns more about science—about the messy reality of it—than they ever will from lectures.
+> *The problem:* Take an existing drug target and design a better molecule. Improve an existing materials science pipeline. Optimize an existing neural network architecture.
+>
+> *What it requires:* Massive compute, large datasets, fast iteration, engineering discipline.
+>
+> **Advantage: Industry, overwhelmingly.**
+>
+> This is the kind of work where AI labs can throw thousands of GPU-hours at the problem and iterate faster than any academic group. A well-resourced industry lab with frontier AI tools will dominate this space completely. Universities should not even try to compete here.
 
-**Invest in work that has no obvious payoff.** This is where universities have a genuine advantage. The payoff from diffusion models was invisible for five years. A lab wouldn't fund that. A venture capitalist wouldn't fund that. But a university reading group could—and did.
+### Scenario 2: Fundamental Theory Building
 
-**Build genuinely new fields.** The pattern across science is clear: universities build the foundational frameworks. Theoretical physics came out of universities. Modern biology came out of universities. Neuroscience came out of universities. The labs show up later and say: "Okay, here's a framework. Let's scale it." This should be the play. Universities should be *inventing* the next thing, not optimizing the last thing.
+> *The problem:* Develop a new theoretical framework—a physics of the mind, a new mathematical foundation for learning, a new understanding of emergence in complex systems.
+>
+> *What it requires:* Conceptual originality, deep cross-disciplinary knowledge, tolerance for years of uncertainty, freedom from product pressure.
+>
+> **Advantage: Universities, substantially.**
+>
+> The history of science is unambiguous here. General relativity, information theory, the Hodgkin-Huxley model, the theory of computation—these came from individuals and small groups operating with intellectual freedom in academic settings. Industry has produced great applied science but almost no foundational theories. The reason is structural: foundational theory-building requires following threads that look unproductive for years, and companies cannot justify that to investors or product teams. The next theoretical breakthrough in understanding intelligence is overwhelmingly likely to come from an academic setting—or from something that looks like one.
 
-**Create the human infrastructure for new fields.** You can't recruit researchers to a field that doesn't exist yet. You need universities for that. You need graduate programs that train people to think in fundamentally new ways. You need conferences where people who are working on vague hunches can meet and collide and spark each other.
+### Scenario 3: Large-Scale Empirical Science with Physical-World Bottlenecks
 
-**Foster intellectual diversity.** Labs optimize for consensus. They hire the smartest people who think the same way. Universities—because they're slow, because they have tenure, because they have less immediate pressure—can tolerate more intellectual diversity. They can harbor researchers working on ideas that feel wrong but might not be.
+> *The problem:* Clinical trials. Long-term longitudinal studies. Large-scale neural recording in behaving organisms. Anything requiring years of physical-world data collection.
+>
+> *What it requires:* Patient data gathering over irreducible timescales, institutional continuity, ethical oversight, regulatory navigation, and expensive physical infrastructure—MRI machines, vivariums, clinical facilities.
+>
+> **Advantage: The handshake between industry and universities.**
+>
+> AI can accelerate the analysis of this data enormously, but it cannot accelerate the collection. A clinical trial still takes years. A longitudinal brain imaging study still requires following the same people over decades. Universities and academic medical centers have the infrastructure, the ethical review systems, and the institutional continuity for this work. They also have something that's easy to undervalue until you try to build it from scratch: the physical plant. The imaging centers, the hospitals, the animal facilities, the decades of regulatory relationships. This infrastructure already exists. Replicating it would cost billions and take years.
+>
+> What universities lack is the AI tooling to make the most of all that data. What industry lacks is the data itself and the infrastructure to collect it. This is the scenario where genuine partnership—not industry contracting with universities as data vendors, but actual collaboration between equals—creates the most value. It's also the scenario where the stakes of getting the partnership structure right are highest.
 
-## The Concrete Threat
+### Scenario 4: AI Safety and Alignment Research
 
-Here's what I think is actually happening, and what should worry university leaders:
+> *The problem:* Ensure that increasingly powerful AI systems behave in ways that are beneficial and aligned with human values.
+>
+> *What it requires:* Deep technical knowledge of AI systems, independence from commercial incentives, credibility with the public and regulators.
+>
+> **Advantage: Contested, but universities have a critical and underexploited role.**
+>
+> Industry labs do the majority of technical alignment work right now because they have access to the frontier models. But there is an obvious conflict of interest when the entity building the system is also the primary entity evaluating whether it's safe. Universities can provide independent evaluation, red-teaming, and theoretical safety work that industry cannot credibly do for itself.
+>
+> And again, the intellectual origins tell the story. The concept of superposition in neural networks—now central to Anthropic's interpretability research—traces directly back to academic neuroscience at the Redwood Center. The most safety-focused frontier lab in the world is building on ideas that came from a university, from researchers who weren't thinking about AI safety at all. Universities are dramatically underinvesting in this area, and the ones that move fastest will have enormous influence on how the most important technology of our era gets governed.
 
-The talent pipeline is broken. The smartest PhD students now have two options: stay in academia, or go to a lab where you'll be working on problems that matter to millions of people with computational resources you can't imagine. The labs are winning. Not all of them. But the best of them are. And this creates a vicious cycle: as the best students leave, the quality of research in universities declines, so more students leave.
+### Scenario 5: The Unexpected Breakthrough
 
-This will accelerate as capabilities improve. Right now, the cutting edge in some fields is still in academia. But as AI capabilities improve, the cutting edge will move entirely to the labs. And nobody wants to spend 5–7 years on a PhD in a field where the interesting work is happening somewhere else.
-
-Universities can't outbid labs. They can't outcompute them. But they can offer something labs structurally cannot: intellectual freedom and time.
-
-## The Moat
-
-Back to Jascha's story about diffusion models.
-
-That paper sat uncited for five years because it was too weird, too theoretical, too far from anything that had immediate practical application. A for-profit lab probably wouldn't have let that work happen. Venture capitalists wouldn't have funded it. The immediate ROI wasn't there.
-
-But the paper was real. The idea was deep. And when the time came—when the technology ecosystem had evolved enough that the idea could be leveraged—it exploded.
-
-This is what universities have that no lab will ever have: *permission to fail*. Permission to pursue ideas that seem impractical. Permission to spend years on something that might not work. Permission to be wrong in interesting ways.
-
-But only if universities are willing to be actively, radically different from labs. Not a little different. *Structurally* different. Different enough that it seems like a disadvantage unless you understand what you're optimizing for.
-
-The moat isn't some indefensible competitive position. Universities don't need one. They need to stop playing the lab game and remember what they're actually good at.
+> *The problem:* We don't know what the problem is yet. Some graduate student notices a pattern nobody was looking for. Some postdoc in a backwater subfield realizes their framework explains something in a completely different domain. Some reading group at a theoretical neuroscience center stumbles onto an idea that, five years later, powers a trillion-dollar industry.
+>
+> *What it requires:* Intellectual diversity, freedom to explore, tolerance for weirdness, a culture that values insight over output.
+>
+> **Advantage: Universities, and it's not close.**
+>
+> This is the scenario that matters most and gets discussed least. The most valuable scientific contributions are, almost by definition, the ones nobody saw coming. Industry research is organized around goals. University research, at its best, is organized around curiosity. In a world where AI systems are extremely good at optimizing toward known goals, the human capacity for noticing something genuinely new becomes the scarcest and most valuable resource. Universities are the institution best designed to cultivate it.
 
 ---
 
-*Thanks to the conversation with many people at universities who are thinking hard about these problems, and to Jascha for a talk that won't leave my head.*
+The pattern is clear: industry wins on execution and optimization; universities win on originality, independence, and long time horizons. The interesting cases—the ones where the most value gets created—are the handshakes between the two. The mistake most universities are making is trying to compete with industry on industry's terms—chasing compute, chasing publications, chasing the same incremental research that AI labs can now do faster and cheaper. The correct strategy is to double down on the things that only universities can do, and to negotiate partnerships from a position of genuine strength in the areas where collaboration matters.
 
-*Further reading: Ramón y Cajal's *Advice for a Young Investigator* is remarkable—a 1897 meditation on how to do science that feels more relevant now than ever. Dario Amodei's essay on "Machines of Loving Grace" explores the timeline of AI-accelerated discovery. And if you're thinking about what research questions make sense in an era of powerful AI, Sam Altman's "The Intelligence Age" lays out a vision worth engaging with critically.*
+## What Universities Should Actually Do
+
+If you accept the scenario analysis above, the reform agenda follows directly.
+
+**First, decentralize decision-making.** Not infrastructure—shared compute, shared AI tools, shared data resources should be centralized and well-maintained. But hiring, spending, and fundraising decisions need to be pushed down to the level of individual labs and research groups. When a centralized HR system means it takes six months to hire a research engineer, and the half-life of a technical advantage is shrinking below that, the bureaucracy is literally killing your institution's ability to function. When a dean's office interposes itself between a PI and a donor who wants to fund exactly what that PI does, the institution is actively sabotaging itself.
+
+The most common failure mode of university administration is that administrative units grow until they need to justify their own existence, and they do so by creating processes that require their own involvement. It becomes self-perpetuating. A PI who could hire a brilliant postdoc in two weeks with a phone call and a handshake now navigates a four-month process involving three offices. That postdoc takes an industry job in the meantime. This isn't just annoying. In a world where the timeline for relevance is compressing from decades to years, it's existentially threatening to the institution. Administration exists to make scientists more productive. If it isn't doing that, it's doing the opposite.
+
+**Second, reorganize around missions, not disciplines.** Every major research university has brilliant people scattered across a dozen departments who are all working on closely related questions but never talk to each other. A computational neuroscientist in one building, a representation learning theorist in another, a philosopher of mind in a third—all circling the same fundamental mystery from different angles, separated by departmental walls that are artifacts of a 19th-century organizational scheme.
+
+Tear down the walls. Build mission-aligned clusters that co-locate people from different fields around shared questions: What is intelligence? How do complex systems self-organize? What are the fundamental limits of learning? Give these clusters their own space, their own seminar series, their own funding streams, and enough autonomy to move fast. The Kempner Institute at Harvard and CIFAR's programs in Canada are early examples. We need fifty more, immediately.
+
+**Third, abandon the publication game.** The traditional journal publication system is already cracking under the strain of AI-generated manuscripts and overwhelmed peer reviewers. Within a few years it will break entirely. Attempting to preserve it is futile. The only publication infrastructure that matters is the preprint system: arXiv, bioRxiv, and their equivalents. Dissemination should be immediate and open.
+
+But here's the harder question: if the product isn't high-impact papers and prizes, what is it?
+
+I think universities produce three things that matter:
+
+*People.* The single most important output of a university is trained minds. If the next Shannon is an undergraduate somewhere right now, the university's job is to find that person, expose them to the deepest problems, give them tools and freedom, and let them loose. In an AI-accelerated world this becomes *more* important, not less, because the premium on genuine originality increases as routine intellectual labor gets automated.
+
+*Validated knowledge.* Not papers—knowledge that has been rigorously tested and that society can trust. AI will flood the zone with plausible-sounding claims. The institution that can reliably say "this is actually true, and here's why we're confident" becomes enormously valuable. That is a university function. Industry has an inherent conflict of interest here.
+
+*Questions.* Tech companies optimize for answers. The thing a university does that nobody else can is identify the questions that nobody has thought to ask yet—the ones that reframe entire fields. In a world where AI is very good at finding answers to well-posed questions, the ability to pose the right question in the first place is the scarcest resource.
+
+## The Window
+
+Here is something that almost nobody in the university reform conversation has noticed: there is a brief window, right now, where more people will *want* to go to graduate school, not fewer. As AI begins to automate entry-level knowledge work, the people who would have gone into consulting or finance or data science out of undergrad will look around, realize those on-ramps are narrowing, and decide that five years in a PhD program is a reasonable way to figure out what comes next.
+
+This is a gift. It means universities will, for a few years, have access to an even deeper talent pool than usual—people who in a previous era would never have considered research careers. The universities that recognize this and act on it—by making PhD programs more flexible, more cross-disciplinary, more focused on developing original thinkers rather than producing incremental publications—will come out of this transition with an extraordinary cohort of young scientists.
+
+The universities that continue to treat PhD students as cheap labor for running established research programs will waste this talent completely.
+
+And then the window closes. Because eventually, the students figure out that the credential itself may not be worth what it used to be, the programs that haven't reformed become obviously obsolete, and the talent goes elsewhere. The window is open now. It will not stay open long.
+
+## New Institutions and Reformed Ones
+
+There's a question lurking behind all of this: can existing universities actually reform fast enough? Or do we need to build new institutions from scratch?
+
+The answer is both. And some people are already building.
+
+The [Astera Institute](https://astera.org/neuro-agi/) is one of the most exciting examples. Backed by over a billion dollars in committed resources, Astera's Neuro & AGI program is organized around exactly the kind of mission-aligned cluster I've been describing: experimental neuroscientists working in direct collaboration with AI researchers and safety engineers, all pursuing a shared question about how biological intelligence works and what that means for building safe artificial intelligence. They've recruited Doris Tsao as Chief Scientist for neuroscience and Dileep George to lead AGI research. They're explicitly publishing outside traditional journals. They are, in essence, designing from scratch the kind of institution that universities need to either become or build within themselves.
+
+But new institutions alone won't be enough. The strongest existing universities have something that's almost impossible to build from zero: brand. Brand is what attracts the world's best 18-year-olds. It's what makes governments and donors write large checks. It's what gives a research finding credibility when it's announced. You cannot replicate what "MIT" or "Stanford" means in the mind of a talented teenager in Bangalore or Lagos, and that brand is what pulls the talent pool that makes everything else possible.
+
+Brand is a wasting asset, though, if the institution behind it decays. And the structural impediments to reform at large research universities are severe. Tenure means the people with the most power to resist change have the least incentive to accept it. Shared governance means any significant reorganization requires buy-in from faculty committees whose members have deep investments in the existing departmental structure.
+
+The institutions that will navigate this best are probably the ones that find a way to build the new thing *within* the existing structure but *protected from* it. A semi-autonomous institute, with its own hiring authority and budget, organized around a mission, co-located in shared space, able to draw on the university's brand and talent pipeline while operating at a different speed than the parent institution. This is essentially the Janelia model, or what HHMI's investigator program does for individual scientists, scaled up to research clusters.
+
+Meanwhile, places like Astera can move faster precisely because they don't carry the overhead. The ideal ecosystem probably has both: new institutions running experiments in how science gets done, and reformed university clusters that can absorb the successful experiments and scale them with the help of existing infrastructure and talent pipelines.
+
+What would be a disaster is if the new institutions and the universities treat each other as competitors rather than as complementary parts of a larger system. The new institutions need the talent pipeline that universities provide. The universities need the proof-of-concept that new institutions can generate. There is no moat here either.
+
+## What We Owe the Stick Figure
+
+Look at Jascha's slide one more time. The stick figure at the top of the exponential curve, calmly saying "I live in a totally normal time in history."
+
+We are incredibly bad at reasoning about exponentials. We know this. We have recent, vivid evidence. Think back to late February 2020. COVID-19 cases were doubling every few days, and yet the dominant public response was something between complacency and denial. The math was right there, but our intuitions insisted on linear extrapolation. By the time the exponential became obvious to everyone, the window for the easiest interventions had already closed.
+
+We are in an analogous moment with AI and the institutions of science. The trajectory is visible. The math is not subtle. The question is whether we act while the window is open or wait until the exponential has already made our current institutional structures obviously inadequate—at which point the cost of adaptation will be vastly higher and the best talent will already have gone elsewhere.
+
+Universities have survived the fall of Rome, the Reformation, two world wars, and the invention of the internet. They are extraordinarily resilient institutions. But resilience is not the same as relevance. The question is not whether universities will survive. The question is whether they will matter.
+
+A diffusion model paper sat uncited for five years in a theoretical neuroscience center and then reshaped an entire industry. A paper on superposition in neural networks came out of the same center and became foundational to the most important AI safety work in the world. These were not planned. They were not on anyone's product roadmap. They emerged from an environment that gave brilliant people the freedom to follow their curiosity wherever it led.
+
+That is what universities do that nobody else can. The question is whether they'll still be capable of doing it five years from now.
+
+The answer depends entirely on whether the people who run them can do something that institutions are almost constitutionally incapable of: move fast, in the right direction, right now.
+
+---
+
+*Thanks to the conversation that prompted this essay. The core arguments about institutional reform, the "no moat" thesis, and the window of graduate enrollment opportunity are not mine alone—I'm giving them shape. The scenario analysis is a joint exercise in thinking through who is actually best positioned for what, and letting the answer emerge honestly rather than advocating for a predetermined conclusion.*
+
+*Further reading: Jascha Sohl-Dickstein's [talk thread](https://x.com/jaschasd/status/1972360405885637021). Dario Amodei's ["Machines of Loving Grace"](https://darioamodei.com/essay/machines-of-loving-grace) and ["The Adolescence of Technology."](https://darioamodei.com/essay/the-adolescence-of-technology) Sam Altman's ["The Intelligence Age."](https://ia.samaltman.com/) Cheung et al., ["Superposition of many models into one"](https://proceedings.neurips.cc/paper/2019/hash/4c7a167bb329bd92580a99ce422d6fa6-Abstract.html) (NeurIPS 2019). The [Astera Institute Neuro & AGI program](https://astera.org/neuro-agi/).*
