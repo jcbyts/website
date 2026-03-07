@@ -41,11 +41,11 @@ But there are assumptions hiding inside this narrative that are not guaranteed.
 
 
 ## There is no moat
-For AI science, the assumption is that the key constraint in science is the ability to execute experiments, run analyses, and generate results quickly. 
+If AI labs are so powerful, why wouldn’t they dominate science? The frontier labs may build the most powerful AI systems. But there is a crucial limitation to that advantage.
 
-For most of history, that assumption was correct. Scientific progress was slow because experiments were slow, instrumentation was expensive, and analysis required enormous amounts of human labor. Universities had an advantage because they aggregated talent, infrastructure, and funding into a single place.
+They can build intelligence, but they cannot monopolize it.
 
-AI changes that constraint.
+Intelligence is inherently diffusive. Once the capability exists, competition forces it outward. Models improve, techniques spread, open systems emerge, and the price of intelligence falls.
 
 If AI systems compress months of research work into days, the cost of execution collapses. Running analyses, building models, generating code, or exploring hypotheses becomes dramatically easier. The number of ideas that can be tested in a given amount of time increases by orders of magnitude.
 
