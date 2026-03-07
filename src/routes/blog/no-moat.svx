@@ -1,5 +1,5 @@
 ---
-title: "Why univertsities have the most to gain from the moment"
+title: "Why Universities Have the Most to Gain From the AI Moment"
 date: 2026-3-5
 description: AI will change everything, whether we want it or not. 
 draft: true
@@ -19,64 +19,91 @@ Last summer, while the [Redwood Center for Theoretical Neuroscience](https://red
 
 This is a tidal wave of AI coming at us.
 
+Many people have concluded that this means the institutions of science -- universities in particular -- are about to become obsolete.
 
-## Universities are doomed?
+But that conclusion hides an assumption that may no longer hold.
 
-The standard tech-industry narrative goes something like this: universities are slow, bureaucratic, and broke. The frontier AI labs have the compute, the capital, and increasingly the talent. They are actively reshaping the world whether we like it or not. If scientific discovery becomes one of the tasks absorbed by AI, then the institutions best positioned to win are the ones that already dominate large-scale AI engineering: well-funded private labs. They move faster than any academic institution could. 
+## The story everyone is telling
 
-There are already early signals of [this model](https://openai.com/science/). AI systems have begun solving protein structures, proposing new materials, generating hypotheses, and automating large parts of experimental workflows. Entire startups now exist to build AI-driven laboratories ([periodic labs](https://periodic.com/), [future house](https://www.futurehouse.org/), [lila ai](https://www.lila.ai/), etc.)that can generate and test hypotheses continuously. A growing number of people believe that the next era of scientific discovery will happen primarily in these environments.
+The standard tech-industry narrative goes something like this.
+
+Universities are slow, bureaucratic, and increasingly underfunded. The frontier AI labs have the compute, the capital, and the engineering talent. They are moving faster than any academic institution could. If AI begins to automate scientific discovery itself, then the organizations best positioned to dominate the future of science are the ones already building the most powerful systems. 
+
+There are already early signals of [this model](https://openai.com/science/).
+
+AI systems have begun solving protein structures, proposing new materials, generating hypotheses, and automating large parts of experimental workflows. Entire startups now exist to build AI-driven laboratories ([periodic labs](https://periodic.com/), [future house](https://www.futurehouse.org/), [lila ai](https://www.lila.ai/), etc.)that can generate and test hypotheses continuously. A growing number of people believe that the next era of scientific discovery will happen primarily in these environments.
 
 In that world, universities appear outmatched.
 
-Further, the education system is posed to collapse. 
+The same story is often applied to education. AI tutors will personalize learning, lectures will become unnecessary, and the credentialing role of universities will erode as employers evaluate skills directly.
 
 This is a commonly held belief. 
 <Tweet id="2030297427434205476" />
 
-Centuries old institutions will limp along for another decade, but will increasingly be irrelevant because all learning will be individualized in AI, the university credentials will not guarantee employment, and any signals of value will be accomplished outside of classes. 
+Centuries-old institutions may linger for a while, but they will slowly lose relevance.
 
 I can see why people believe this.
 
-But there are assumptions hiding inside this narrative that are not guaranteed.
+But there is a hidden assumption inside the narrative.
 
 
-## There is no moat
-If AI labs are so powerful, why wouldn’t they dominate science? The frontier labs may build the most powerful AI systems. But there is a crucial limitation to that advantage.
+## The hidden assumption
+The assumption is that the central constraint in science is execution.
 
-They can build intelligence, but they cannot monopolize it.
+For most of history, this was true.
 
-Intelligence is inherently diffusive. Once the capability exists, competition forces it outward. Models improve, techniques spread, open systems emerge, and the price of intelligence falls.
+Experiments were slow. Instruments were expensive. Analysis required enormous amounts of human labor. Scientific progress depended on the ability to gather talent, equipment, and funding in one place.
+
+Universities became the dominant institutions of science largely because they solved that coordination problem.
+
+AI changes this constraint.
 
 If AI systems compress months of research work into days, the cost of execution collapses. Running analyses, building models, generating code, or exploring hypotheses becomes dramatically easier. The number of ideas that can be tested in a given amount of time increases by orders of magnitude.
 
+The number of ideas that can be tested in a given amount of time increases by orders of magnitude.
+
 This accelerates science everywhere.
 
-And that means something important: **the same forces that weaken the university's monopoly on science also weaken everyone else's**.
+And that leads to a crucial realization.
 
-If execution becomes cheap and intelligence becomes too cheap to meter, the frontier labs do not automatically gain a permanent advantage. Smaller labs, startups, and universities gain access to the same capabilities. The playing field flattens.
+## Frontier labs can build intelligence -- but they cannot monopolize it
+The frontier AI labs appear to have enormous advantages: compute, capital, and engineering talent.
 
-In that world, **no one has a [moat](https://en.wikipedia.org/wiki/Economic_moat).** There is no competitive advantage to being big. Small labs can do big science and breakthroughs can come anywhere.
+But intelligence is not a resource that can remain scarce.
+
+Once the capability exists, competition forces it outward. Techniques spread, models improve, open systems emerge, and the price of intelligence falls.
+
+Frontier labs can build intelligence.
+
+But they cannot monopolize it.
+
+This dynamic has appeared many times in technological history. Electricity, computing, and the internet all followed similar trajectories. The organizations that built the infrastructure enabled an explosion of activity across the entire economy.
+
+AI may follow the same pattern.
+
+Even if the most advanced models remain expensive to train, the useful capabilities they create will spread rapidly. Smaller labs, startups, and universities will gain access to increasingly powerful tools for reasoning, modeling, and experimentation.
+
+In other words, **the same forces that appear to weaken universities also weaken everyone else's advantages**.
+
+Execution becomes cheap everywhere.
 
 And when execution stops being the bottleneck, something else becomes scarce.
 
-## Scientific taste is now the most valuable asset
+## When answers are cheap, taste becomes the bottleneck
 
-Which questions are worth asking? Which hypotheses are interesting rather than trivial? Which results change how we think about the world, and which are merely incremental?
+If AI dramatically increases the rate at which ideas can be tested, the limiting factor in science shifts.
 
-"interesting" and "we" are fundamentally human endeavors. This set of intuitions is what scientists informally call *taste*.
+The new bottleneck becomes choosing the right questions.
 
-Scientific taste is difficult to define, but easy to recognize. It is the ability to identify questions that are simultaneously tractable and important. It is knowing when a surprising result reveals something fundamental and when it is merely a curiosity. It is the instinct for which direction to explore when the map of the field is still blank.
+Scientists often refer to this ability informally as **taste**.
 
-AI systems may become extremely good at generating hypotheses and exploring large search spaces. But the relevance of scientific discovery ultimately depends on human meaning: what we care about, what we consider important, and what we choose to understand.
+Scientific taste is difficult to define but easy to recognize. It is the ability to identify questions that are simultaneously important and tractable. It is knowing when a surprising result reveals something fundamental and when it is merely a curiosity. It is the instinct for which direction to explore when the map of a field is still blank.
 
-For the foreseeable future, those judgments remain deeply human.
+AI systems may become extremely good at generating hypotheses and exploring large search spaces. But the relevance of scientific discovery ultimately depends on human judgment: what we consider meaningful, important, or worth understanding.
 
-And when AI dramatically increases the rate at which ideas can be tested, the importance of those judgments increases as well.
+In a world where answers are cheap, taste becomes the bottleneck.
 
-In a world where answers are cheap, **taste becomes the bottleneck.**
-
-The scientist who chooses the right question will always outrun the scientist who merely runs experiments faster.
-
+The scientist who chooses the right question will always outperform the scientist who merely runs experiments faster.
 
 ## Universities may become more important because of AI
 
@@ -96,48 +123,69 @@ When the cost of exploring ideas collapses, the environments that produce intere
 
 Universities are also uniquely good at attracting a particular kind of person: someone who wants autonomy over their work. Many talented scientists do not want to be told exactly what problem to solve or what milestone to hit next quarter. They want the freedom to explore.
 
-That desire for autonomy has always been one of academia's strongest recruiting advantages. In an AI-accelerated world, it may become even more important.
+These conditions are precisely the ones that generate scientific taste.
 
-If execution becomes cheap, the winning environments will not necessarily be the ones with the most resources. They will be the ones where unusual ideas appear most often.
+When the cost of exploring ideas collapses, the environments that produce interesting ideas become disproportionately valuable.
+
+Universities are also uniquely good at attracting a particular kind of person: someone who wants autonomy over their work. Many talented scientists do not want to be told exactly what problem to solve or what milestone to hit next quarter. They want the freedom to explore.
+
+That desire for autonomy has always been one of academia's strongest recruiting advantages.
+
+In an AI-accelerated world, it may become even more important.
+
+If execution becomes cheap, the institutions that matter most will not necessarily be the ones with the most resources. They will be the ones where unusual ideas appear most often.
 
 Universities are already designed for that.
 
 But they must adapt to take advantage of it.
 
-## Education was never about lecture halls
-The second assumption is that the university system is primarily about the information contained in lectures. And the credential system exists to signal people know the material in the lectures. That has only ever partly been true. The last two decades of open science with lectures on youtube make this clear. You can learn everything you need online, but there has still value in going to university. 
 
-AI does change this equation substantially and the lecture hall does likely have to go away. People learn [by doing](https://www.wordslikesilver.com/articles/mind-in-motion-by-barbara-tversky), and if the point of universities is to select and refine expert thinking and taste, then they could do that much more effectively now with AI.
+## Education was never about lectures
+The same shift applies to education.
+
+It is tempting to think that universities primarily exist to deliver information through lectures. If that were true, AI would make them obsolete almost immediately.
+
+But that has only ever been partly true.
+
+For decades, lectures have been freely available online. Anyone can watch courses from the best universities in the world. Yet students still go to universities because the real value lies elsewhere.
+
+People learn [by doing](https://www.wordslikesilver.com/articles/mind-in-motion-by-barbara-tversky). They learn by working through difficult problems, collaborating with peers, and receiving feedback from experienced mentors.
+
+If the goal of education is to cultivate expertise and judgment — to develop taste — then AI may actually strengthen universities.
+
+Information is no longer scarce.
+
+What matters is learning how to use knowledge creatively.
 
 ## What universities should actually do
 
 If AI dramatically accelerates scientific execution, universities should reorganize around the things they uniquely provide.
 
-First, they should become much more fluid institutions. Most universities still organize talent into disciplinary departments created more than a century ago: physics, chemistry, biology. These boundaries were historically useful, but the problems that matter today rarely respect them. There are a view structures that organize around shared missions (institutes and centers) and these should become the primary focus.
+First, they should become more fluid institutions. Most universities still organize talent into disciplinary departments created more than a century ago: physics, chemistry, biology. These boundaries were historically useful, but the problems that matter today rarely respect them.
 
-Understanding intelligence requires neuroscience, machine learning, physics,psychology, vision science, and philosophy (at a minimum). Building programmable biology requires genetics, medicine, and computation. Climate science spans physics, ecology, economics, and political science.
+Mission-driven centers organized around questions rather than fields should become more central. Understanding intelligence requires neuroscience, machine learning, psychology, physics, and philosophy. Climate science spans physics, ecology, economics, and political science.
 
-Universities already contain the necessary expertise and the mechanisms to support these shared efforts. Take the [Kempner Insitute](https://kempnerinstitute.harvard.edu/) at Harvard, which organizes around understanding intelligence. The solution is to unlock talent from departmental silos. Mission-driven centers — focused on questions rather than fields — can reorganize existing expertise rapidly without dismantling the entire institution.
+Universities already contain the necessary expertise. They simply need to unlock it. And they already have the mechanisms to do this: take the [Kempner Insitute](https://kempnerinstitute.harvard.edu/) at Harvard, which organizes around understanding intelligence. The solution is to unlock talent from departmental silos. Mission-driven centers — focused on questions rather than fields — can reorganize existing expertise rapidly without dismantling the entire institution.
 
 Second, universities should treat **AI tool literacy as foundational education**.
 
-Every graduate student, undergraduate, and professional student should learn how to use modern AI systems as research tools from the beginning of their training. Students should be able to build software, analyze data, generate models, and prototype ideas rapidly. The barrier between idea and implementation should disappear. This cannot be a static curriculum because the tools change every month. This must be training in how to keep up with and use tools. How to think.
+Every graduate student, undergraduate, and professional student should learn how to use modern AI systems as research tools from the beginning of their training. Students should be able to build software, analyze data, generate models, and prototype ideas rapidly, as well as teach themselves any relevant topic. The barrier between idea and implementation should disappear. This, of course, cannot be a static curriculum because the tools change every month, but training how to think with AI tools is as important as reading and writing now, and certainly more important than software engineering.
 
-Once that capability becomes universal, this changes everything. We unlock the most transformative progress in human history. **Anyone can build anything**. And they are the exact minds that are searching for what to build. This is something universities can do now on top of every undergrad and grad program. Campuses like UC Berkeley already provide licences to students for Gemini and Cursor. This should be the first thing students learn after they finish welcome week.
+Once that capability becomes universal, this changes everything.
 
-Lectures can continue for some time, but they become less important. Information is no longer scarce. What matters is the ability to apply knowledge creatively.
+We unlock the most transformative progress in human history. **Anyone can build anything**. And the exact minds that are exploring what to build are at universities. This is something universities can do now on top of every undergrad and grad program. Campuses like UC Berkeley already provide licences to students for Gemini and Cursor. This should be the first thing students learn after they finish welcome week.
+
+Lectures can continue for some time, but they become less important. Information is no longer scarce.
 
 Courses should increasingly resemble studios rather than lecture halls. Students work on real problems, build systems, test ideas, and learn by doing. Faculty act less as lecturers and more as mentors who help students develop judgment.
 
-In other words, universities should focus explicitly on cultivating taste and expertise.
+In other words, universities should focus explicitly on cultivating taste.
 
-Finally, universities should lean into one of their few remaining structural advantages: **brand**.
+Finally, universities should lean into one of their few remaining structural advantages: **credibility**.
 
-Institutions like Berkeley, MIT, Stanford, and Harvard possess reputational capital built over centuries. In an information ecosystem increasingly flooded with AI-generated content, credible signals of expertise and intellectual rigor become more valuable.
+Institutions like Berkeley, MIT, Stanford, and Harvard possess reputational capital built over centuries. In an information ecosystem increasingly flooded with AI-generated content, credible signals of expertise and intellectual rigor become more valuable. Institutions with long-standing reputations for rigorous scholarship can help filter and validate the flood of new ideas.
 
-Universities should use that credibility to curate and highlight important work, validate emerging ideas, while training the next generation of scientists.
-
-That role may become more important as scientific output accelerates.
+As scientific output accelerates, that role may become more important.
 
 
 ## The opportunity
@@ -158,11 +206,11 @@ Universities, if they adapt, are well positioned for that role.
 
 They already contain large concentrations of curious, independent thinkers. They provide environments where ideas from different fields collide. They cultivate the judgment required to recognize which discoveries matter.
 
-Execution may soon be abundant.
+Frontier labs may build the most powerful AI systems.
 
-But the ability to recognize meaning, importance, and possibility will remain scarce.
+But intelligence will not remain scarce.
 
-And that is exactly what universities were built to develop.
+And when intelligence becomes abundant, the most valuable skill is knowing what to do with it.
 
 
 *Further reading: Jascha Sohl-Dickstein's [talk thread](https://x.com/jaschasd/status/1972360405885637021). Dario Amodei's ["Machines of Loving Grace"](https://darioamodei.com/essay/machines-of-loving-grace) and ["The Adolescence of Technology."](https://darioamodei.com/essay/the-adolescence-of-technology) Sam Altman's ["The Intelligence Age."](https://ia.samaltman.com/). Royal Swedish Academy of Sciences, ["Stockholm Declaration on Research Assessment"](https://www.kva.se/en/) (June 2025). ["The rise and fall of science research as we know it"](https://www.science.org/) Cornell study in *Science* (Dec 2025).*
