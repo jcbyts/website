@@ -46,7 +46,7 @@ The frontier AI labs appear to have enormous advantages: compute, capital, and e
 
 But intelligence is not a resource that can remain scarce.
 
-Once the capability exists, competition forces it outward. Techniques spread, models improve, open systems emerge, and the price of intelligence falls.
+Once the capability exists, competition forces it outward. Techniques spread, models improve, open systems emerge, and the price of intelligence falls. Open models currently lag frontier models [by 6 months](https://www.interconnects.ai/p/open-models-in-perpetual-catch-up?) and if that continues, frontier labs have no moat.
 
 Frontier labs can build intelligence. But they [cannot](https://newsletter.semianalysis.com/p/google-we-have-no-moat-and-neither) monopolize it.
 
