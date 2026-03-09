@@ -10,13 +10,13 @@ draft: false
 </script>
 
 
-A tidal wave of AI is coming for science.
+## A tidal wave of AI is coming for science.
 
 The frontier labs have the compute, the capital, and the engineering talent. AI systems are already solving [protein structures](https://deepmind.google/science/alphafold/), proposing [new materials](https://newscenter.lbl.gov/2023/11/29/google-deepmind-new-compounds-materials-project/), and automating [scientific workflows](https://sakana.ai/ai-scientist/?). Entire startups now exist to build AI-driven laboratories that generate and test hypotheses continuously ([periodic labs](https://periodic.com/), [future house](https://www.futurehouse.org/), [lila ai](https://www.lila.ai/), etc.). The same story applies to education — AI tutors will personalize learning, lectures will become unnecessary, and credentialing will erode.
 
 <Tweet id="2030297427434205476" />
 
-In this telling, centuries-old institutions may linger, but they will slowly lose relevance.
+In this telling, centuries-old institutions may linger, but they will quickly lose relevance.
 
 I can see why people believe this.
 
@@ -48,9 +48,7 @@ But intelligence is not a resource that can remain scarce.
 
 Once the capability exists, competition forces it outward. Techniques spread, models improve, open systems emerge, and the price of intelligence falls.
 
-Frontier labs can build intelligence.
-
-But they [cannot](https://newsletter.semianalysis.com/p/google-we-have-no-moat-and-neither) monopolize it.
+Frontier labs can build intelligence. But they [cannot](https://newsletter.semianalysis.com/p/google-we-have-no-moat-and-neither) monopolize it.
 
 Even if the most advanced models remain expensive to train, the useful capabilities they create will spread rapidly. Smaller labs, startups, and universities will gain access to increasingly powerful tools for reasoning, modeling, and experimentation.
 
@@ -116,7 +114,7 @@ If AI dramatically accelerates scientific execution, universities should reorgan
 
 **Lean into the weird.** The real advantage universities have is not merely that they allow exploration. It is that they can support things no company would touch because there is no obvious product. The correct response to AI is not to become more like industry. It is to become more like the idealized version of academia — more curiosity-driven, more tolerant of failure, more willing to let someone spend years on something that might turn out to be a dead end. That tolerance is what produced CRISPR, optogenetics, and mRNA vaccines. It is also what will produce whatever comes next.
 
-**Advocate for funding changes.** Universities conduct only a fraction of total research spending, but they have enormous influence over how that money flows. The current system is broken in [well-documented ways](https://www.freethink.com/science/fixing-the-way-we-fund-science). Top researchers spend half their time writing grant applications. Funding skews heavily toward older, established investigators — the NIH now funds five times as many researchers over 50 as under 40, the inverse of what it was in 1980. The result is that scientists start directing their own work later and later, eating into the years when their lifetime innovation potential is highest. Smaller teams consistently produce more disruptive research than large ones, yet the incentives push toward ever-larger labs and ever-longer author lists. Universities should be leading the fight for alternatives: fund people rather than projects and let them freely associate. If you must fund projects, make a lottery-based system that eliminates the grant-writing arms race, and explicitly back high-risk ideas from researchers who lack conventional credentials. If AI makes each dollar of research funding go further, the way we allocate those dollars matters more than ever.
+**Advocate for funding changes.** Universities conduct only a fraction of total research spending, but they have enormous influence over how that money flows. The current system is broken in [well-documented ways](https://www.freethink.com/science/fixing-the-way-we-fund-science). Top researchers spend half their time writing grant applications. Funding skews heavily toward older, established investigators — the NIH now funds five times as many researchers over 50 as under 40, the inverse of what it was in 1980. The result is that scientists start directing their own work later and later, eating into the years when their lifetime innovation potential is highest. Smaller teams consistently produce more disruptive research than large ones, yet the incentives push toward ever-larger labs and ever-longer author lists. Universities should be leading the fight for alternatives: fund [people rather than projects](https://www.nature.com/articles/477529a) and let them freely associate. If you must fund projects, make a lottery-based system that eliminates the grant-writing arms race, and explicitly back high-risk ideas from researchers who lack conventional credentials. If AI makes each dollar of research funding go further, the way we allocate those dollars matters more than ever.
 
 
 Universities should also treat **AI tool literacy as foundational**. In a future where AI can do the work of current-day lawyers, architects, and scientists, the question is what humans are for. The answer is that they need to be able to teach themselves anything fast and build anything they can imagine. I think most students didn't enter their major with the end job in mind. Half the people I know who went to law school wanted to do public good. Unlock that potential. Every field becomes more valuable, not less, when its practitioners can act on what they know.
