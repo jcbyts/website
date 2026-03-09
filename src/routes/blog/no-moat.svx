@@ -10,42 +10,17 @@ draft: true
 </script>
 
 
-Last summer, while the [Redwood Center for Theoretical Neuroscience](https://redwood.berkeley.edu/) celebrated its [20th anniversary](https://hwni.berkeley.edu/news/redwood-center-theoretical-neuroscience-celebrates-20-years-uc-berkeley), Jascha Sohl-Dickstein (who got his PhD there) gave a [warning](https://x.com/jaschasd/status/1972360405885637021) to young scientists.
+A tidal wave of AI is coming for science.
 
-***AI systems are improving on a trajectory that will make them better than any individual scientist.***
+The frontier labs have the compute, the capital, and the engineering talent. AI systems are already solving protein structures, proposing new materials, and automating experimental workflows. Entire startups now exist to build AI-driven laboratories that generate and test hypotheses continuously ([periodic labs](https://periodic.com/), [future house](https://www.futurehouse.org/), [lila ai](https://www.lila.ai/), etc.). The same story applies to education — AI tutors will personalize learning, lectures will become unnecessary, and credentialing will erode.
 
-<Tweet id="1972360405885637021" />
-
-
-This is a tidal wave of AI coming at us.
-
-Many people have concluded that this means the institutions of science -- universities in particular -- are about to become obsolete.
-
-But that conclusion hides an assumption that may no longer hold.
-
-## The story everyone is telling
-
-The standard tech-industry narrative goes something like this.
-
-Universities are slow, bureaucratic, and increasingly underfunded. The frontier AI labs have the compute, the capital, and the engineering talent. They are moving faster than any academic institution could. If AI begins to automate scientific discovery itself, then the organizations best positioned to dominate the future of science are the ones already building the most powerful systems. 
-
-There are already early signals of [this model](https://openai.com/science/).
-
-AI systems have begun solving protein structures, proposing new materials, generating hypotheses, and automating large parts of experimental workflows. Entire startups now exist to build AI-driven laboratories ([periodic labs](https://periodic.com/), [future house](https://www.futurehouse.org/), [lila ai](https://www.lila.ai/), etc.)that can generate and test hypotheses continuously. A growing number of people believe that the next era of scientific discovery will happen primarily in these environments.
-
-In that world, universities appear outmatched.
-
-The same story is often applied to education. AI tutors will personalize learning, lectures will become unnecessary, and the credentialing role of universities will erode as employers evaluate skills directly.
-
-This is a commonly held belief. 
 <Tweet id="2030297427434205476" />
 
-Centuries-old institutions may linger for a while, but they will slowly lose relevance.
+In this telling, centuries-old institutions may linger, but they will slowly lose relevance.
 
 I can see why people believe this.
 
 But there is a hidden assumption inside the narrative.
-
 
 ## The hidden assumption
 The assumption is that the central constraint in science is execution.
@@ -75,17 +50,13 @@ Once the capability exists, competition forces it outward. Techniques spread, mo
 
 Frontier labs can build intelligence.
 
-But they cannot monopolize it.
-
-This dynamic has appeared many times in technological history. Electricity, computing, and the internet all followed similar trajectories. The organizations that built the infrastructure enabled an explosion of activity across the entire economy.
-
-AI may follow the same pattern.
+But they [cannot](https://newsletter.semianalysis.com/p/google-we-have-no-moat-and-neither) monopolize it.
 
 Even if the most advanced models remain expensive to train, the useful capabilities they create will spread rapidly. Smaller labs, startups, and universities will gain access to increasingly powerful tools for reasoning, modeling, and experimentation.
 
 In other words, **the same forces that appear to weaken universities also weaken everyone else's advantages**.
 
-Execution becomes cheap everywhere.
+Execution becomes cheap everywhere. Small labs can now do big science. A three-person team with the right question and access to modern AI tools can now accomplish what once was available to only the biggest labs. This doesn't eliminate the advantage of scale -- it just means scale is no longer sufficient.
 
 And when execution stops being the bottleneck, something else becomes scarce.
 
@@ -104,6 +75,17 @@ AI systems may become extremely good at generating hypotheses and exploring larg
 In a world where answers are cheap, taste becomes the bottleneck.
 
 The scientist who chooses the right question will always outperform the scientist who merely runs experiments faster.
+
+## But won't AI develop taste too?
+The strongest version of this objection isn't about mining existing datasets — it's about the closed-loop AI labs that design and run their own experiments. Systems like these will generate new data, test hypotheses, and iterate faster than any human team. But they still need an objective. 
+
+They still explore within a defined problem space. Someone has to decide what's worth investigating.
+
+The discoveries that create entirely new fields tend not to work that way. [CRISPR](https://pmc.ncbi.nlm.nih.gov/articles/PMC5847661/) came from studying bacterial immune systems. [Optogenetics](https://link.springer.com/article/10.1002/emmm.201202387) came from light-sensitive algae proteins. [mRNA vaccines](https://www.nobelprize.org/prizes/medicine/2023/press-release/) came from unusual RNA chemistry. These weren't efficient searches through a well-defined space. They were researchers wandering through domains with no obvious connection to the applications that eventually emerged.
+
+Could AI eventually learn that kind of open-ended curiosity? 
+
+Maybe. But even then, the question of what's worth understanding — what counts as meaningful, what matters to us — remains a human judgment for some time. That's what taste actually is. Not just finding the answer, but deciding what deserves a question.
 
 ## Universities may become more important because of AI
 
