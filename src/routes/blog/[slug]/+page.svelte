@@ -80,9 +80,9 @@
   </div>
 {/if}
 
-<div class="content {hideDefaultHeader ? '' : 'mt-10 -mx-14'} font-serif" class:breakout={isFullWidth}>
+<div class="content {hideDefaultHeader ? '' : 'mt-10 md:-mx-14'} font-serif" class:breakout={isFullWidth}>
   <div
-    class="bg-white py-16 px-14 shadow-2xl shadow-blue-50 {isFullWidth
+    class="bg-white px-4 py-8 md:px-14 md:py-16 shadow-2xl shadow-blue-50 {isFullWidth
       ? 'mx-[2em]'
       : ''}"
   >
