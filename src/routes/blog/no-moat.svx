@@ -136,4 +136,23 @@ Universities, if they adapt, are well positioned for that role.
 Frontier labs may build the most powerful AI systems. But intelligence will not remain scarce. And when intelligence becomes abundant, the most valuable skill is knowing what to do with it.
 
 
+## Addendum
+
+### Karpathy
+Andrej Karpathy has described a vision for massively parallel AI agents exploring thousands of research directions simultaneously — an army of automated PhD students branching off a shared codebase. 
+<Tweet id="2030705271627284816" />
+
+This is genuinely powerful, but it isn't simulating PhD students. PhD students don't start from a seed with a defined objective. Even with the most explicit instructions, they wander off course, and spend months (or years) figuring out what question to ask in the first place. Karpathy's agents simulate the execution phase of research: the grind after you have a question. That will certainly help PhD students, but it isn't what they do except in the most limited settings (e.g., trying to [beat benchmarks](https://neurips.cc/virtual/2025/loc/san-diego/poster/121919) to get into NeurIPS). Real discoveries come from people who didn't weren't in a search space at all.
+
+### Hossenfelder
+Sabine Hossenfelder has a more direct counter argument. 
+<Tweet id="2030631683632832975" />
+
+She argues that curiosity-driven research has become a shield for unaccountable pseudo-research — pointing to decades of particle physics that produced no technological returns. This is a fair critique, but the examples she cites (ever-larger colliders, speculative theories with no experimental contact) are failures of taste, not failures of curiosity. And colliders are exactly examples of optimizing something through engineering, not parrallel search, not asking which questions to ask. And AI will likely help here: if the cost of testing ideas collapses, speculative work gets evaluated faster. Bad ideas die quicker. I think this is a very narrow counterargument to a field that has been optomizing bad incentives. So she's not wrong, but it's not what I'm talking about.
+
+### Mental health spending in the context of AI
+We're told that we've spent a lot of money on mental health and it has [not made a huge difference](https://med.stanford.edu/news/insights/2022/11/new-visions-for-mental-health-care.html). The former director of NIMH, Thomas Insel, [agrees](https://www.psychologytoday.com/us/blog/theory-of-knowledge/201705/twenty-billion-fails-to-move-the-needle-on-mental-illness). NIMH spent $20 billion over 13 years while he was director. OpenAI alone spent $7 billion on compute last year with [most going to research](https://epoch.ai/data-insights/openai-compute-spend?). So everything we did get from mental health research came at a shockingly cheap cost compared to AI labs. Imagine if all those researchers were augmented with AI. Zooming out, the United States spends roughly $900 billion on research in all sectors. Universities operate only 11% [of the total](https://ncses.nsf.gov/pubs/nsb20257?) with industry taking 78% of total research. Of that, this encompasses clinical trials and all health driven research. We simply don't spend that much money on exploratory research, and AI will make the return on this spending higher.
+
+
+
 *Further reading: Jascha Sohl-Dickstein's [talk thread](https://x.com/jaschasd/status/1972360405885637021). Dario Amodei's ["Machines of Loving Grace"](https://darioamodei.com/essay/machines-of-loving-grace) and ["The Adolescence of Technology."](https://darioamodei.com/essay/the-adolescence-of-technology) Sam Altman's ["The Intelligence Age."](https://ia.samaltman.com/). Royal Swedish Academy of Sciences, ["Stockholm Declaration on Research Assessment"](https://www.kva.se/en/) (June 2025). ["The rise and fall of science research as we know it"](https://www.science.org/) Cornell study in *Science* (Dec 2025).*
