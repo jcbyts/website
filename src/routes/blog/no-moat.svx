@@ -116,11 +116,7 @@ Second, universities should treat **AI tool literacy as foundational education**
 
 Courses should increasingly resemble studios rather than lecture halls. Students work on real problems, build systems, test ideas, and learn by doing. Faculty act less as lecturers and more as mentors who help students develop judgment. In other words, universities should focus explicitly on cultivating taste.
 
-Finally, universities should lean into one of their few remaining structural advantages: **credibility**.
-
-Institutions like Berkeley, MIT, Stanford, and Harvard possess reputational capital built over centuries. In an information ecosystem increasingly flooded with AI-generated content, credible signals of expertise and intellectual rigor become more valuable. Institutions with long-standing reputations for rigorous scholarship can help filter and validate the flood of new ideas.
-
-As scientific output accelerates, that role may become more important.
+And in an ecosystem increasingly flooded with AI-generated content, the reputational capital that top institutions have built over centuries becomes a more valuable signal, not a less valuable one. Credibility is a competitive advantage. As scientific output accelerates, that role may become more important.
 
 
 ## The opportunity
