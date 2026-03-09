@@ -12,7 +12,7 @@ draft: false
 
 A tidal wave of AI is coming for science.
 
-The frontier labs have the compute, the capital, and the engineering talent. AI systems are already solving protein structures, proposing new materials, and automating experimental workflows. Entire startups now exist to build AI-driven laboratories that generate and test hypotheses continuously ([periodic labs](https://periodic.com/), [future house](https://www.futurehouse.org/), [lila ai](https://www.lila.ai/), etc.). The same story applies to education — AI tutors will personalize learning, lectures will become unnecessary, and credentialing will erode.
+The frontier labs have the compute, the capital, and the engineering talent. AI systems are already solving [protein structures](https://deepmind.google/science/alphafold/), proposing [new materials](https://newscenter.lbl.gov/2023/11/29/google-deepmind-new-compounds-materials-project/), and automating [scientific workflows](https://sakana.ai/ai-scientist/?). Entire startups now exist to build AI-driven laboratories that generate and test hypotheses continuously ([periodic labs](https://periodic.com/), [future house](https://www.futurehouse.org/), [lila ai](https://www.lila.ai/), etc.). The same story applies to education — AI tutors will personalize learning, lectures will become unnecessary, and credentialing will erode.
 
 <Tweet id="2030297427434205476" />
 
@@ -54,7 +54,7 @@ Even if the most advanced models remain expensive to train, the useful capabilit
 
 In other words, **the same forces that appear to weaken universities also weaken everyone else's advantages**.
 
-Execution becomes cheap everywhere. Small labs can now do big science. A three-person team with the right question and access to modern AI tools can now accomplish what once was available to only the biggest labs. This doesn't eliminate the advantage of scale -- it just means scale is no longer sufficient.
+Execution becomes cheap everywhere. Small labs can do big science. A three-person team with the right question and access to modern AI tools can now accomplish what once was available to only the biggest labs. This doesn't eliminate the advantage of scale -- it just means scale is no longer sufficient.
 
 And when execution stops being the bottleneck, something else becomes scarce.
 
