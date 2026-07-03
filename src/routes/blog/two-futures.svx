@@ -5,7 +5,7 @@ description: Historical lessons and the fork ahead
 draft: false
 ---
 
-The machine works and nobody really knows why.
+The new technology works and nobody really knows why.
 
 It consumes enormous quantities of energy and converts a sliver of it into something valuable. Its builders improve it by trial and error. Trade publications print careful tables of its performance, and the numbers climb a smooth curve, year after year. Nobody can derive the curve from first principles. Fortunes are being invested on the assumption that it continues. Serious people say the machine will end human labor. Other serious people say it is a bubble that will burst. Sound familiar?
 
