@@ -1,0 +1,61 @@
+---
+title: "Two futures with thinking machines"
+date: 2026-7-2
+description: Historical rhymes
+draft: false
+---
+
+# Two Futures for Thinking Machines
+
+The machine works and nobody really knows why.
+
+It consumes enormous quantities of energy and converts a sliver of it into something valuable. Its builders improve it by trial and error. Trade publications print careful tables of its performance, and the numbers climb a smooth curve, year after year. Nobody can derive the curve from first principles. Fortunes are being invested on the assumption that it continues. Serious people say the machine will end human labor. Other serious people say it is a bubble that will burst. Sound familiar?
+
+**The year is 1810. The machine is the steam engine.**
+
+It had already been running for a century. Newcomen's version began pumping water out of Cornish mines in 1712, and a hundred years of tinkering had made its descendants the most valuable machines on Earth. Yet basic understanding was missing. What does this machine consume? What limits it? Which of its parts are essential and which are accidents?
+
+The answers came in 1824, when a French engineer named Sadi Carnot answered all three in a short book almost nobody read. Carnot found that any engine converting heat into work could achieve depended on two numbers: the temperature of the hot reservoir and the temperature of the cold one. The steam and the pistons were incidental. The book sold poorly and Carnot died of cholera at 36. However, two decades later, Clausius and Kelvin rebuilt his argument into thermodynamics, and every engine since — gas turbine, diesel, jet, refrigerator — has been designed inside it.
+
+The moment we live in now is like 1810 again. The machines think this time. Data and compute is the coal. Generalization — the ability to act well on things never seen — is the work. The scaling laws and METR progress graphs are our indicator diagrams. We have seen the trends over the last 5 years. We cannot say why, where the curves end, or even whether they end at all.
+
+## Waiting for Carnot
+
+Within the next decade, someone could write the Carnot paper for learning. A statement of the form *given N bits of information and C joules of energy, no learner of any architecture exceeds performance P.* I'm not sure that is the exact recipe, but a concrete statement on the intelligence of a machine given data and energy can be made. The regularities are too clean to be lawless. Fragments already exist — Shannon supplied the currency, compression theory tied intelligence to prediction, learning mechanics is being born right now. What's missing is the unification, and unifications tend to arrive once the empirical tables are as dense as ours have become and the right conditions for theoretical work emerge. Like thermodynamics applying to all heat-to-work converters, including biological ones, so will our new theories of intelligence.
+
+When it comes, it will sort the current design into the essential and the incidental, the way thermodynamics sorted the engine. My guess is tokens, transformers, and gradient descent are the steam and pistons.
+
+When it comes, this new theory will reveal two facts at once. They point in opposite directions, and together they generate every future worth arguing about.
+
+The first fact is the gap. Newcomen's engine converted half a percent of its coal into work. When Carnot's limit was computed, it sat above sixty percent. The theory imposed no ceiling anyone was touching; it revealed that a century of engineering had captured under one percent of what physics allowed. Now run the same audit on intelligence. A human brain runs on twenty watts. A child learns language from roughly a hundred million words. The frontier models of 2026 required megawatt-years and ten thousand times more text. Taking the brain as an existence proof — a conservative one, since evolution optimized for survival on a calorie budget, with intelligence as a side effect — current AI sits three to four orders of magnitude from demonstrated efficiency. That headroom is the Newcomen gap for minds, and it means superintelligence is physically permitted. Whatever the ceiling on cognition is, we are nowhere near it.
+
+The second fact is that intelligence can be cheap. The same arithmetic that permits vastly greater minds says that capable minds are less expensive by far then our current version. Whatever fits in twenty watts does not need a building, a substation, or a river to cool it. A theory that explains the gap is a blueprint for closing it from below — for capability that fits in a phone, a hearing aid, a medical scanner, a door hinge.
+
+Superintelligence is possible, scary, and not practical for humanity. Small intelligence is cheap and useful. The futures differ in which fact we build on.
+
+## Two futures
+
+In this moment, we have a fork head. Of course there are alternates to these that have to do with market and social forces. But as I see it, the big fork is in whether we invest substantially in increasing the chances that new theory arrives in time.
+
+
+**Steam forever.** We don't invest in the theory, and we don't get one. Right now, humanity is making an unprecedented financial bet on a future where we continue to build steam engines. This might just bring us Dario Amodei's datacenters full of geniuses. But this is also the branch with the catastrophic tail, and the engine history names the danger precisely. Nineteenth-century boilers exploded by the thousands because practice had outrun understanding; the steamboat Sultana killed more Americans than the Titanic. Investors and frontier researchers now worry of a Chernobyl moment that permanently scares the world off of AI. However, the explosions ended when thermodynamics was written into pressure-vessel codes. A superintelligence built by scaling alone is a boiler without a gauge.
+
+**Carnot arrives.** The theory comes, and does what theory does: states the limits, sorts the essential from the incidental, and makes capability cheap. Frontier-class minds run on hardware you can buy, then hardware you can pocket. The capital premium on datacenters drains the way the premium on mainframes did. This, I think, leads tot he same ending as railroads, in which the tracks transform the world and ruin the people who financed them.
+
+## Why don't we have one really big steam engine?
+In both branches we still have choices. Steam forever is a world of less knowledge, and less knowledge narrows choice without eliminating it. I know the AI bulls will claim that the intelligences themselves will bring the knowledge, but really it is out of our hands at that point. Further, the arrival of theory actually widens the possible futures. Let's say the Newcomen gap is large and we now have recipes for super intelligence. Here, I'm betting market forces push us towards more efficient intelligences, rather than single super intelligences. There are about forty electric motors in your car — window lifts, seat adjusters, pumps, fans — and you probably have never had a thought about any of them. Motive power fragmented because work is distributed: a billion small tasks in a billion small places, each wanting exactly enough power and no more.
+
+In contrast, the theory could arrive carrying bad news — a proof that some capabilities genuinely require scale. Even that is the better branch. A known limit prices the datacenters correctly and tells us what the big machines are for.
+
+Will anyone build the monolith? A few, probably, and for the same reason we build particle accelerators: as instruments, to answer questions, at national expense, in a handful of places. A state might build one as a strategic asset. But it won't be profitable. Not as long as humans are consumers. Carnot's equations did not stay proprietary; no equation ever has. 
+
+
+## A science of intelligence
+
+If the fork turns on whether the theory arrives, then the fork is a funding decision, and it is being made right now, mostly by default. This year, on the order of a trillion dollars flows into capital expenditure for datacenters. Inside the scaling regime, every dollar is rational. The labs cannot seriously fund the alternative: their balance sheets are the bet on steam, and a theory that makes minds cheap is a theory that strands their capital. Where does this theory emerge? I don't think it will come from a company with a vested financial interest in the current models. It requires contrarian thinking, creativity, and brilliance. As it is, the market will not close the gap. 
+
+**Whoever pays for the understanding cannot capture it, so nobody pays.**
+
+That is the exact shape of a problem philanthropy exists to solve, and the returns on record are difficult to overstate. Thermodynamics repaid its cost across two centuries and every machine on Earth. It was worth more than all the steam engines ever built, and in 1824 it was priced at the cost of its paper.
+
+Genius cannot be scheduled, but the odds can be moved. Carnot wrote his book in his spare time, and the twenty-year wait before Clausius picked it up was sociological: nobody was looking. A funded field looks. Right now is time to fund the unfashionable math — singular learning theory, the information-theoretic limits of learning, the geometry of generalization. Fund the neuroscientists asking how the brain learns a world model and plans and acts. Fund benchmarks that reward capability per joule. None of this requires a tenth of one percent of this year's compute budget, and any of it shifts the probability mass between the branches.
