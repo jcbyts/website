@@ -1,11 +1,9 @@
 ---
 title: "Two futures with thinking machines"
 date: 2026-7-2
-description: Historical rhymes
+description: Historical lessons and the fork ahead
 draft: false
 ---
-
-# Two Futures for Thinking Machines
 
 The machine works and nobody really knows why.
 
