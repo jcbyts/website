@@ -2,7 +2,7 @@
 title: "Two futures with thinking machines"
 date: 2026-7-2
 description: Historical lessons and the fork ahead
-draft: false
+draft: true
 ---
 
 The new technology works and nobody really knows why.
@@ -33,12 +33,12 @@ Superintelligence is possible, scary, and not practical for humanity. Small inte
 
 ## Two futures
 
-In this moment, we have a fork head. Of course there are alternates to these that have to do with market and social forces. But as I see it, the big fork is in whether we invest substantially in increasing the chances that new theory arrives in time.
+In this moment, we have a fork ahead. Of course there are alternates to these that have to do with market and social forces. But as I see it, the big fork is in whether we invest substantially in increasing the chances that new theory arrives in time.
 
 
 **Steam forever.** We don't invest in the theory, and we don't get one. Right now, humanity is making an unprecedented financial bet on a future where we continue to build steam engines. This might just bring us Dario Amodei's datacenters full of geniuses. But this is also the branch with the catastrophic tail, and the engine history names the danger precisely. Nineteenth-century boilers exploded by the thousands because practice had outrun understanding; the steamboat Sultana killed more Americans than the Titanic. Investors and frontier researchers now worry of a Chernobyl moment that permanently scares the world off of AI. However, the explosions ended when thermodynamics was written into pressure-vessel codes. A superintelligence built by scaling alone is a boiler without a gauge.
 
-**Carnot arrives.** The theory comes, and does what theory does: states the limits, sorts the essential from the incidental, and makes capability cheap. Frontier-class minds run on hardware you can buy, then hardware you can pocket. The capital premium on datacenters drains the way the premium on mainframes did. This, I think, leads tot he same ending as railroads, in which the tracks transform the world and ruin the people who financed them.
+**Carnot arrives.** The theory comes, and does what theory does: states the limits, sorts the essential from the incidental, and makes capability cheap. Frontier-class minds run on hardware you can buy, then hardware you can pocket. The capital premium on datacenters drains the way the premium on mainframes did. This, I think, leads to the same ending as railroads, in which the tracks transform the world and ruin the people who financed them.
 
 ## Why don't we have one really big steam engine?
 In both branches we still have choices. Steam forever is a world of less knowledge, and less knowledge narrows choice without eliminating it. I know the AI bulls will claim that the intelligences themselves will bring the knowledge, but really it is out of our hands at that point. Further, the arrival of theory actually widens the possible futures. Let's say the Newcomen gap is large and we now have recipes for super intelligence. Here, I'm betting market forces push us towards more efficient intelligences, rather than single super intelligences. There are about forty electric motors in your car — window lifts, seat adjusters, pumps, fans — and you probably have never had a thought about any of them. Motive power fragmented because work is distributed: a billion small tasks in a billion small places, each wanting exactly enough power and no more.
